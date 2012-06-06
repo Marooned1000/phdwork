@@ -1,10 +1,4 @@
 \documentclass{article}
-\usepackage{array}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{verbatim}
-\usepackage{graphicx}
-\usepackage{times}
 
 \begin{document}
 
@@ -33,5 +27,29 @@ v(S) + v(T) \leq v(S \cup T) + v(S \cap T).
 Consider first the case of a finite set or players $N$. Let \pi be a permutation of $N$.
 
 Theorem (Shapely) 
+
+\hline 
+
+A set of tasks needs to be performed,
+\begin{itemize}
+	\item they require different expertises
+	\item they may be decomposed.
+\end{itemize}
+
+Agents do not have enough resource on their own to perform a task.
+
+Find complementary agents to perform the tasks
+\begin{itemize}
+	\item robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
+	\item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
+\end{itemize}
+
+Issues:
+\begin{itemize}
+	\item What coalition to form?
+	\item How to reward each each member when a task is completed?
+\end{itemize}
+
+\hline 
 
 \end{document}
