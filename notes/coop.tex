@@ -1,5 +1,8 @@
 \documentclass{article}
 
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
 \begin{document}
 
 Of all solution concepts of cooperative games, the core is probably the easiest to underestand. It is the set of all feasible outcomes (payoffs) that no player (participant) or group of participants (coalition) can improve upon by acting for themselves. Put differently, once an agreement in the core has been reached, no individual and no group could gain by regrouping. It stands to reason that in a free market outcomes should be in the core; economic activities should be advantageous to all parties involved. Indeed the concept (though not the term) appeared already in the writings of Edgeworth (1881) (who used the term ``contract curve''), and in the deliberations concerning allocation of the costs involved in the Tennessee Valley Project [Straffin and Heaney (1981)].
@@ -24,11 +27,11 @@ Definition: A game v is called $convex$ if for all coalitions S,T,
 v(S) + v(T) \leq v(S \cup T) + v(S \cap T).
 \end{equation}
 
-Consider first the case of a finite set or players $N$. Let \pi be a permutation of $N$.
+Consider first the case of a finite set or players $N$. Let $\pi$ be a permutation of $N$.
 
 Theorem (Shapely) 
 
-\hline 
+\hrule 
 
 A set of tasks needs to be performed,
 \begin{itemize}
@@ -50,6 +53,10 @@ Issues:
 	\item How to reward each each member when a task is completed?
 \end{itemize}
 
-\hline 
+\hrule 
 
+In this paper we denote by $\mathbb{R}$ the set of all real numbers. The $general coalition game$ (or beifly the game) is a pair ($I$, $V$),
+where $I$ is a non-empty and finite set and $V$ is a mapping associating any subset $K$ of $I$ witha subset of the real space $\mathbb{R}^I$ and preserving the following properties for any $K \subset I$.
+(1..4)
+The elements of the set $I$ are called players, its subsets are $coalitions$ and its partitions into non-empty disjoint coalitions are called $coalition structures$. The real-valued vectors from $\mathbb{R}^I$ are called $imputations$ and the sets $V(K), K \subset I,$ represent the sets of all imputations achievable by the coalition $K$. The mapping $V$ of $2^I$ into the class of subsets of $\mathbb{R}^I$ is called $generalized characterestic function$. 
 \end{document}
