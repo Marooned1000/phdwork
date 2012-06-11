@@ -1,13 +1,8 @@
 \begin{thebibliography}{1}
 
-\bibitem{ab94}
-Charalambos~D. Aliprantis and Kim~C. Border.
-\newblock {\em Infinite Dimensional Analysis}.
-\newblock Springer, Berlin, 1994.
-
-\bibitem{ahu61}
-Kenneth~J. Arrow, Leonid Hurwicz, and Hirofumi Uzawa.
-\newblock Constraint qualifications in maximization problems.
-\newblock {\em Naval Research Logistics Quarterly}, 8:175--191, 1961.
+\bibitem{Greco11}
+Gianluigi Greco, Enrico Malizia, Luigi Palopoli, and Francesco Scarcello.
+\newblock On the complexity of the core over coalition structures.
+\newblock In {\em IJCAI}, pages 216--221, 2011.
 
 \end{thebibliography}

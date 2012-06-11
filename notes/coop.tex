@@ -7,10 +7,6 @@
 
 Of all solution concepts of cooperative games, the core is probably the easiest to underestand. It is the set of all feasible outcomes (payoffs) that no player (participant) or group of participants (coalition) can improve upon by acting for themselves. Put differently, once an agreement in the core has been reached, no individual and no group could gain by regrouping. It stands to reason that in a free market outcomes should be in the core; economic activities should be advantageous to all parties involved. Indeed the concept (though not the term) appeared already in the writings of Edgeworth (1881) (who used the term ``contract curve''), and in the deliberations concerning allocation of the costs involved in the Tennessee Valley Project [Straffin and Heaney (1981)].
 
-\cite{ahu61} asd
-
-dsdklsj \cite{ab94}
-
 Unfortunatly, for many games feasable outcomes which cannot be improved upon may not exist - the cake may not be big enough. In such cases one possibility is to ask that no group could gain much by recontracting. It is as if communications and coalition formations are costly. The minimum size of the set of feasible outcomes required for non-emptiness of the core is given by so-called balancedness condition. The sets containing outcomes upon which nobody could improve by much are called $\epsilon$-cores. 
 
 let $N = \{1,2,...,n\}$ be the set of all players. A subset of $N$ is called a \emph{coalition}. The \textit{characteristic function} (of the worth function) is a real-valued function $v$ defined on the coalitions, such that:
@@ -63,6 +59,17 @@ In this paper we denote by $\mathbb{R}$ the set of all real numbers. The $genera
 where $I$ is a non-empty and finite set and $V$ is a mapping associating any subset $K$ of $I$ witha subset of the real space $\mathbb{R}^I$ and preserving the following properties for any $K \subset I$.
 (1..4)
 The elements of the set $I$ are called players, its subsets are $coalitions$ and its partitions into non-empty disjoint coalitions are called $coalition structures$. The real-valued vectors from $\mathbb{R}^I$ are called $imputations$ and the sets $V(K), K \subset I,$ represent the sets of all imputations achievable by the coalition $K$. The mapping $V$ of $2^I$ into the class of subsets of $\mathbb{R}^I$ is called $generalized characterestic function$. 
+
+\hrule
+
+A $coalitional game$ is a pair $G = (N, v)$, where N is a set of players, and v is a function associating with each coalition $S \subset N$ the worth $v(S) \in \mathbb{R}$ that players in $S$ obtain by collaborating with each other. A fundamental problem for coalitional games is to characterize the most desirable outcomes in terms of appropriate notions of worth distributions, which are called solution concepts. Traditionally, this problem has been formulated over games that are superadditive, i.e., $v(S \cup T ) \geq v(S) + v(T)$ is assumed to hold, for eachpair of disjoint coalitions $S$ and $T$. Indeed, on superadditive games, the grand-coalition consisting of all the players in N forms and, accordingly, solution concepts just suggest how the total worth $v(N)$ can be divided among them in a way that is fair and stable [Osborne and Rubinstein, 1994]. While being rather appealing from a conceptual viewpoint, superadditivity might however not hold in several social environments because of a plethora of different reasons, ranging from normative considerations, to information (observability) imperfections, and to technological constraints (cf. [Greenberg, 1994]). Under these circumstances, players might want to organize themselves in a coalition structure, i.e., in a partition $\pi$ of $N$ consisting of disjoint and exhaustive coalitions. By doing so, the total available worth $\sum_{C \in \pi} v(C)$ might happen to be greater than the worth $v(N)$ associated with the grand-coalition. Whenever this is the case, classical solution concepts are not appropriate, and stable outcomes have to be characterized from the "`coalition structure"' perspective, as it was first suggested by Aumann and Dreze [1974]. As an example, the core of a coalitional game, which is probably the best-known solution concept, finds a counterpart in the coalition structure core—formal definitions are in Section 2 \cite {Greco11}.
+
+\hrule
+
+For any coalition structure $\pi$, let $CS-v(\pi)$ denote the total worth $\sum_{C \in \pi} v(C)$. Let $sw(G)$ be the $social welfare$ of $G$, i.e., the maximum worth $CS-v(\pi)$ over all the possible coalition structures $\pi$. The set of all coalition structures $\pi$ such that $CS-v(\pi) = sw(G)$ is denoted by $CS-opt(G).$
+Recall that G is cohesive if $v(N) \geq CS-v(\pi)$, for each coalition structure $\pi$ [Osborne and Rubinstein, 1994], and that, though not necessarily superadditive, the grand-coalition anyway always forms in cohesive games. Define $G = (N, v)$ as the cohesive game, called the $cohesive cover$ of G, where $v(S) = v(S)$ for each coalition $S \subset N$, and $v(N) = sw(G)$ \cite {Greco11}.
+
+\hrule
 
 \bibliographystyle{plain}
 \bibliography{ehsan}
