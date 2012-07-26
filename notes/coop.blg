@@ -4,4 +4,5 @@ Database file #1: ehsan.bib
 A bad cross reference---entry "Greco11"
 refers to entry "DBLP:conf/ijcai/2011", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/ijcai/2011"
+Warning--can't use both volume and number fields in RePEc:eee:gamhes:2
 (There was 1 error message)
