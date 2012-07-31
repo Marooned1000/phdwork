@@ -1,8 +1,9 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\phdwork\notes\notes\coop.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Science\PhDWork\notes\coop.aux
 The style file: plain.bst
 Database file #1: ehsan.bib
 A bad cross reference---entry "Greco11"
 refers to entry "DBLP:conf/ijcai/2011", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/ijcai/2011"
 Warning--can't use both volume and number fields in RePEc:eee:gamhes:2
+Warning--can't use both volume and number fields in RePEc:mtp:titles:0262650401
 (There was 1 error message)
