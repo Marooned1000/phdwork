@@ -11,4 +11,10 @@ Gianluigi Greco, Enrico Malizia, Luigi Palopoli, and Francesco Scarcello.
 \newblock On the complexity of the core over coalition structures.
 \newblock In {\em IJCAI}, pages 216--221, 2011.
 
+\bibitem{ShohamLeytonBrown09}
+Yoav Shoham and Kevin Leyton-Brown.
+\newblock {\em Multiagent Systems: Algorithmic, Game-Theoretic, and Logical
+  Foundations}.
+\newblock Cambridge University Press, Cambridge, UK, 2009.
+
 \end{thebibliography}

@@ -5,6 +5,32 @@
 
 \begin{document}
 
+\section{Game Thoery}
+
+\subsection{Repeated Games}
+
+In \cite {ShohamLeytonBrown09} section 6.1 there is discussion of repeated games.
+
+When the infinitely repeated game is transformed into extensive form, the result is an infinite tree. So the payoffs cannot be attached to any terminal nodes, nor can they be defined as sum of the payoffs in the stage games )which in general willbe infinite). There are two common ways of defining a player's payoff in an infinitly repeated game to get around this problem.
+
+\emph{Average reward: }
+Agent cares more about his well-being in the near term than in the long term.
+\begin{equation}\label{eq:average_reward}
+\lim \limits_{n \to \infty}\frac{\sum_{j=1}^k r_i^{(j)}}{k}
+\end{equation}
+
+
+\emph{Discount reward: }
+Agent cares about the future just as much as he cares about the present.
+\begin{equation}\label{eq:discount_reward}
+\sum_{j=1}^\infty \beta^j r_i^{(j)} \qquad where \qquad 0 \leq \beta \leq 1
+\end{equation}
+
+\subsection{Learning}
+
+
+\section{Cooperative Games}
+
 Of all solution concepts of cooperative games, the core is probably the easiest to underestand. It is the set of all feasible outcomes (payoffs) that no player (participant) or group of participants (coalition) can improve upon by acting for themselves. Put differently, once an agreement in the core has been reached, no individual and no group could gain by regrouping. It stands to reason that in a free market outcomes should be in the core; economic activities should be advantageous to all parties involved. Indeed the concept (though not the term) appeared already in the writings of Edgeworth (1881) (who used the term ``contract curve''), and in the deliberations concerning allocation of the costs involved in the Tennessee Valley Project [Straffin and Heaney (1981)].
 
 Unfortunatly, for many games feasable outcomes which cannot be improved upon may not exist - the cake may not be big enough. In such cases one possibility is to ask that no group could gain much by recontracting. It is as if communications and coalition formations are costly. The minimum size of the set of feasible outcomes required for non-emptiness of the core is given by so-called balancedness condition. The sets containing outcomes upon which nobody could improve by much are called $\epsilon$-cores. 
