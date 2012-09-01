@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section{Game Thoery}
+
+\subsection{Weighted Voting Games (WVGs)}
+
+\cite{Chalkiadakis_simplecoalitional} A WVG is described by its set of players $N$, a vector of players' $weights$ w = (w_1,...,w_n), $w_i \in \mathbb{R}$ for $i \in N$, and a $threshold$ $q \in \mathbb{R}$ we write $G = (N; w; q)$. The utility function $u(S)$ of a game $G = (N; w; q)$ is given by $u(S) = 1$ iff $\sum_{i \in S} w_i \geq q.$
+
+In some cases, the only acceptable outcome of a game is the formation of the $grand coalition$, i.e., the coalition of all players $N$. However, in many multi-agent scenarios it is more natural for agents to split into groups so that each group performs its own task. This is captured by the notion of a $coalition structure$, which is a prtition of the set of agents $N$.
+
+\subsubsection{The Idea}
+The idea here can be make the utility function 0 or 1 based on a threshold where that amount of web services or agents can perform a task. Like instead of having real utilities we say agents 1,2,3 can do the task we can make it function of their QoS parameters.
+
+
+
+\bibliographystyle{plain}
+\bibliography{ehsan}
+
+\end{document}
