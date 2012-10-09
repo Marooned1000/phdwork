@@ -18,6 +18,16 @@ P(A_1 + A_2 + ... + A_n | C) = \sum_{i=1}^{n}P(A_i|C) = 1.
 
 \hrule
 
+\cite{koch2010introduction} page 31-32: 
+
+$p(x|y,C) \propto p(x|C)p(y|x,C)$
+
+The components if the descrete or continuous random vector $x$ are now identified with unkown parameters which were already mentioned in Chapter 2.2. The binomial distribution (2.61) possesses, for instance, the parameters $n$ and $p$. They may take on different values, but a pair of values determines the binomial distribution. In the following example $p$ is an unkown parameter. In general, unknown parameters are understood to be quantities which describe unkown phenomena. The values of the parameters are unknown. To estimate them, measurements, observations or date have to be taken which contain information about unkown parameters. This was already indicated in Chapter 2.2.
+
+The vector of values of the random vector $x$ of unkown parameters is also called $x$ becuase of (2.76) to (2.78). The set of vectors $x$, that is the set of vectors which contain all possible values for the parameters, is called the $parameter space X$, hence we have $x \in X$ in (2.121) or (2.122). The values $y$ of the descrete or continues random vector $y$ represent given data. The density function $p(x|C)$ given the background information C contains information about the parameters $x$ before the daya $y$ have been taken. One calls $p(x|C)$ tjerefore $prior density function$ or $prior distribution$ for the parameters $x$. It contains the prior information about the unknown parameters. By taking into account the observations $y$ the density function $p(x|y,C)$ follows. It is called $posterior density function$ or $posterior distribution$ for the parameters $x$. Via the density function $p(y|x,C)$ the information available in the data $y$ reaches the parameters $x$. Since the data $y$ are given, thuis density function is not interpreted as a function of the data $y$ but as as a function of the parameters $x$, and it is called the $likelihood function$, Thus,
+
+posterior density function $\propto$ prior density function $\times$ likelihood function.
+
 
 
 \bibliographystyle{plain}
