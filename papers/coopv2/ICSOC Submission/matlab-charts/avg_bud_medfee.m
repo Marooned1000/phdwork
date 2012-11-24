@@ -9,11 +9,14 @@ set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|-.|--|:')
 i=0:49;
 t=v(:,9);y=v(:,10);z=v(:,11);
 set(gcf,'Position',[100 100 800 500]);
+
+%subplot(1,3,1);
+
 plot(i,t,i,y,i,z,'linewidth', 2);
 grid on;
 
-set(gca,'Xcolor',[0.5 0.5 0.5]);
-set(gca,'Ycolor',[0.5 0.5 0.5]);
+%set(gca,'Xcolor',[0.5 0.5 0.5]);
+%set(gca,'Ycolor',[0.5 0.5 0.5]);
 set(gca,'XTick',1:1:50);
 set(gca,'YTick',7000:1500:18000);
 set(gca,'tickdir','in')
@@ -41,5 +44,10 @@ set(hleg1,'FontSize',11);
 xlabel({'Number of Runs';'(a)'}, 'FontSize',14);
 ylabel('Budget', 'FontSize',14);
 
-Caxes = copyobj(gca,gcf);
-set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
+%Caxes = copyobj(gca,gcf);
+%set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
+
+%subplot(1,3,2);
+%plot(i,t,i,y,i,z,'linewidth', 2);
+%Caxes = copyobj(gca,gcf);
+%set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
