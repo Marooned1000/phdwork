@@ -21,7 +21,7 @@ grid on;
 %set(gca,'Ycolor',[0.5 0.5 0.5]);
 set(gca,'XTick',1:1:50);
 %set(gca,'YTick',7000:1500:18000);
-set(gca,'YTick',7000:2000:18000);
+%set(gca,'YTick',7000:2000:18000);
 set(gca,'tickdir','in')
 set(gca,'XTickLabel',{'1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
     '11';' ';' ';' ';' ';' ';' ';' ';' ';' ';
@@ -29,10 +29,10 @@ set(gca,'XTickLabel',{'1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
     '31';' ';' ';' ';' ';' ';' ';' ';' ';' ';
     '41';' ';' ';' ';' ';' ';' ';' ';' ';'50';});
 set(gca,'XGrid','off','YGrid','on','ZGrid','off');
-set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
+%set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 
 
-%axis([0 50 7000 18000]);
+axis([0 50 0 18000]);
 
 % Add legend
 hleg1 = legend('Coopetitive','Random Coopetitive','Competitive');
@@ -44,7 +44,7 @@ set(hleg1,'FontSize',11);
 %legend boxoff;
 
 % Add title and axis labels
-% title('Trigonometric Functions', 'fontsize', 10);
+title('Medium Membership Fee', 'fontsize', 14);
 xlabel({'Number of Runs';'(a)'}, 'FontSize',14);
 ylabel('Budget', 'FontSize',14);
 
