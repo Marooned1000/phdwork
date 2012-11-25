@@ -36,7 +36,7 @@ set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 %set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 
 
-axis([0 10 0.82 1]);
+axis([0 11 0.82 1]);
 
 % Add legend
 %hleg1 = legend('0% Deviation','10% Deviation','20% Deviation','30% Deviation','40% Deviation','50% Deviation');

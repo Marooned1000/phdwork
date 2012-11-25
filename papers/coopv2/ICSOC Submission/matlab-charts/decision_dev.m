@@ -4,7 +4,7 @@
 %T and vT : cell
 %use v containing numbers 
 
-set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|-.|--|.-|.|:')
+set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|-.|--|+-|.|:')
 
 i=0:49;
 t=v(:,1);y=v(:,2);z=v(:,3);tt=v(:,4);yy=v(:,5);zz=v(:,6);
