@@ -46,7 +46,7 @@ set(hleg1,'FontSize',11);
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
 xlabel({'Number of Runs';'(a)'}, 'FontSize',14);
-ylabel('Number of tasks succesfully done', 'FontSize',14);
+ylabel('Number of tasks successfully done', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
 %set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
