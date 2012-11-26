@@ -9,7 +9,7 @@ set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|-.|--|:')
 i=0:49;
 t=v(:,9);y=v(:,10);z=v(:,11);
 %set(gcf,'Position',[100 100 800 500]);
-set(gcf,'Position',[100 100 550 375]);
+set(gcf,'Position',[100 100 500 375]);
 
 %subplot(1,3,1);
 
@@ -37,7 +37,7 @@ axis([0 50 0 18000]);
 % Add legend
 hleg1 = legend('Coopetitive','Random Coopetitive','Competitive');
 %set(hleg1,'Location','NorthWest');
-set(hleg1, 'Position', [.27,.7,.1,.2]);
+set(hleg1, 'Position', [.3,.7,.1,.2]);
 set(hleg1,'Interpreter','none');
 %set(hleg1,'color','none');
 set(hleg1,'FontSize',11);
