@@ -35,7 +35,7 @@ set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 axis([0 50 0 18000]);
 
 % Add legend
-hleg1 = legend('Coopetitive','Random Coopetitive','Competitive');
+hleg1 = legend('Coopetitive','Competitive','Random Coopetitive');
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.3,.7,.1,.2]);
 set(hleg1,'Interpreter','none');

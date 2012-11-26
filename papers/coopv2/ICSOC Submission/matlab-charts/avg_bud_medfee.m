@@ -35,7 +35,7 @@ set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 %axis([0 50 7000 18000]);
 
 % Add legend
-hleg1 = legend('Coopetitive','Random Coopetitive','Competitive');
+hleg1 = legend('Coopetitive','Competitive','Random Coopetitive');
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.27,.7,.1,.2]);
 set(hleg1,'Interpreter','none');
