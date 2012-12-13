@@ -1,90 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[fleqn]{singlecol-new}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This is the LaTeX source for the instructions to authors using
-% the LaTeX document class 'llncs.cls' for contributions to
-% the Lecture Notes in Computer Sciences series.
-% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
-%
-% It may be used as a template for your own input - copy it
-% to a new file with a new name and use it as the basis
-% for your article.
-%
-% NB: the document class 'llncs' has its own and detailed documentation, see
-% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts,amsmath,amscd, amssymb}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+
+\usepackage{natbib}
+%\usepackage[pdf]{graphicx}%
+\def\newblock{\hskip .11em plus .33em minus .07em}
 
 
-\documentclass[runningheads,a4paper]{llncs}
-
-\usepackage{amssymb}
-\setcounter{tocdepth}{3}
-\usepackage{graphicx}
-\usepackage{times}
-%\usepackage{cite}
-%\usepackage{subfigure}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{verbatim}
+\makeatletter
+\def\theequation{\arabic{equation}}
 
 
-%\newtheorem{property}{\textbf{Property}}
+\makeatother
 
+%\def\bmD{\mbox{\boldmath $D$}}        %99.10.1
+%\def\bmE{\mbox{\boldmath $E$}}        %99.6.29
+%\def\bmg{\mbox{\boldmath $g$}}
+%\def\bmG{\mbox{\boldmath $G$}}
+%\def\bmM{\mbox{\boldmath $M$}}
+%\def\bmY{\mbox{\boldmath $Y$}}  %99.12.22
+%\def\bmW{\mbox{\boldmath $W$}}  %99.12.22
+%\def\bgamma{\mbox{\boldmath $\gamma$}}
+%\def\tc#1{\textcolor{red}{\bf #1}}
 
+\spaceskip=3.5pt plus1.47pt minus0.77pt \makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1}
 
+\LRH{}
+\RRH{}
 
+\VOL{x}
+\ISSUE{x}
+\BottomCatch
+\PAGES{xxxx}
+\CLline
+%\PUBYEAR{200x}
 
+\subtitle{}
 
-\mainmatter  % start of an individual contribution
-
-% first the title is needed
 \title{When to Compete and When to Cooperate: Analysis on Strategies of Services within Communities}
 
-% a short form should be given in case it is too long for the running head
-\titlerunning{Lecture Notes in Computer Science}
+\authorA{author}
 
-% the name(s) of the author(s) follow(s) next
-%
-% NB: Chinese authors should write their first names(s) in front of
-% their surnames. This ensures that the names appear correctly in
-% the running heads and the author index.
-%
-
-\author{Babak Khosravifar$^1$\and Ehsan Khosrowshahi Asl$^2$
-\and Jamal Bentahar$^2$\and Rabeb Mizouni$^3$\and Hadi Otrok$^3$}
-
-%
-
-% (feature abused for this document to repeat the title also on left hand pages)
-
-% the affiliations are given next; don't give your e-mail address
-% unless you accept that it will be published
-
-
-\institute{$^1$McGill University, Canada, $^2$ Concordia University, Canada, $^3$Khalifa University, UAE\\
-$babak.khosravifar@mcgill.ca$, $e\_khosr@encs.concordia.ca$, $bentahar@ciise.concordia.ca$,
-$rabeb.mizouni@kustar.ac.ae$,$hadi.otrak@kustar.ac.ae$}
-
-
-
-%
-% NB: a more complex sample for affiliations and the mapping to the
-% corresponding authors can be found in the file "llncs.dem"
-% (search for the string "\mainmatter" where a contribution starts).
-% "llncs.dem" accompanies the document class "llncs.cls".
-%
-
-\toctitle{Lecture Notes in Computer Science} \tocauthor{Authors'
-Instructions} \maketitle
-
-
+\affA{Address}
 
 \begin{abstract}
-%Web services are business applications having the capability to
-%cooperate within groups to increase the efficiency of serving
-%customers.
 Recently, a number of frameworks have been proposed to
 aggregate web services within communities for the purpose of
 enhancing their capabilities with respect to providing the
@@ -105,12 +73,18 @@ threshold that web services can use in order to decide about
 different interacting strategies. Moreover, we develop a simulated
 environment where we analyze different scenarios and verify the
 obtained theoretical results using parameters from a real web
-services dataset. \keywords{Web services; Reputation; Strategies.}
+services dataset.
 \end{abstract}
 
+\KEYWORD{Web services; Reputation; Strategies.}
 
+\REF{to this paper should be made as follows: Author. (xxxx) `Title', {\it Int. J. }, Vol.~x, No.~x, pp.xxx--xxx.}
 
+\begin{bio}
 
+\end{bio}
+
+\maketitle
 
 \section{Introduction}\label{Introduction}
 Web services are developed to continuously interact with others
@@ -208,10 +182,6 @@ detailed comparison of the equipped web services with strategic
 reasoning techniques with the ordinary services. Finally, related
 work and some conclusions are discussed in Section
 \ref{Conclusion}.
-
-
-
-
 
 
 
@@ -551,9 +521,6 @@ strategies.} \label{decisionMakingProcedure}
 \end{figure}
 
 
-
-
-
 Consider a web service $w$ that is willing to compete (that means
 the computed growth factor is more than the analyzed threshold).
 This web service can estimate the expected payoff associated to
@@ -618,20 +585,24 @@ this end, we first discuss the desirable properties of an
 estimation function of each of these probabilities, and show that
 the proposed ones satisfy those properties. The desired properties
 of $p_{w,CM}^t$ are as follows:
+\\
 
-\begin{property}
+\noindent\textit{Property 1.}
 $p_{w,CM}^t$ is continuous with regard to $Rep^t_w$, $QoS_w^t$,
 and $T_{QoS}^t$.
-\end{property}
+\\
+
 %
-\begin{property}
+\noindent\textit{Property 2.}
 $p_{w,CM}^t$  is monotonically increasing/decreasing in $Rep^t_w$
 and $QoS_w^t - T_{QoS}^t$ while $QoS_w^t - T_{QoS}^t$ is positive.
-\end{property}
+\\
+
 %
-\begin{property}
+\noindent\textit{Property 3.}
 $p_{w,CM}^t$ is null if $QoS_w^t - T_{QoS}^t$ is negative.
-\end{property}
+\\
+
 %
 %\begin{property}
 %Assuming that the web service $w$ is known by the master web
@@ -639,12 +610,11 @@ $p_{w,CM}^t$ is null if $QoS_w^t - T_{QoS}^t$ is negative.
 %$QoS_w$.
 %\end{property}
 %
-\begin{property}
+\noindent\textit{Property 4.}
 The increase slope of $p_{w,CM}^t$ is higher when the reputation
 $Rep^t_w$ increases in the interval $[0, 0.5]$ than when it
 increases in the interval $]0.5, 1]$.
-\end{property}
-
+\\
 
 \noindent Property 1 simply says that the probability of success
 competition $p_{w,CM}^t$ can be always estimated as far as
@@ -661,16 +631,19 @@ challenging.
 
 
 \noindent The desired properties of $p_{w,CO}^t$ are as follows:
+\\
 
-\begin{property}
+\noindent\textit{Property 5.}
 $p_{w,CO}^t$ is continuous with regard to $Rep^t_w$ and the
 reputation of other web services in the community.
-\end{property}
+\\
+
 %
-\begin{property}
+\noindent\textit{Property 6.}
 $p_{w,CO}^t$  is monotonically increasing in $Rep^t_w$ and
  monotonically decreasing in the community average reputation.
-\end{property}
+\\
+
 %
 %\begin{property}
 %$p_{w,CM}$ is null if $QoS_w^t - T_{QoS}^t$ is negative.
@@ -682,11 +655,13 @@ $p_{w,CO}^t$  is monotonically increasing in $Rep^t_w$ and
 %$QoS_w$.
 %\end{property}
 %
-\begin{property}
+
+
+\noindent\textit{Property 7.}
 The increase slope of $p_{w,CO}^t$ is higher when the reputation
 $Rep^t_w$ increases in the interval $[0, 0.5]$ than when it
 increases in the interval $]0.5, 1]$.
-\end{property}
+\\
 
 \noindent Property 5 is similar to Property 1. Property 6 says
 that $w$ has more chance to get involved in a cooperation if it
@@ -768,7 +743,6 @@ Property 7 is similar to the one of Property 4.
 %$CL_w$ of the web service $w$. This value is computed as the
 %portion of web service's current reputation on the average
 %reputation of the community.
-
 
 \subsection{Coopetition Threshold}
 
@@ -1153,94 +1127,9 @@ features to cope with different unexpected scenarios. We also need
 to expand the work to enable services to choose their
 collaboration networks.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%START YOUR SAMPLE TEXT HERE%%%%%%%%%%%%%
 
-
-
-
-\begin{comment}
-
-
-\section{Related Work}
-
-In many frameworks proposed in the literature, service selection
-and task allocation are regulated based on the reputation
-parameter \cite{Jurca1,Jurca2}. In \cite{Ali}, the proposed
-framework regulates the service selection based on the trust
-policies expressed by the service users. In \cite{Maximilien2},
-authors propose ontology for quality of service. Users compute the
-web services' reputation using ratings. The frameworks proposed in
-\cite{Kalepu,Maximilien1} address effective reputation mechanism
-for web services. All these models address the reputation in
-environments where web services function alone. In such models,
-web service efficiency is not discussed in details and in general,
-balancing the market share with the capacity is not considered as
-an issue for web service besides his reputation.
-
-There have been few work addressing the communities of web
-service. The objective is to facilitate and improve the process of
-web service selection and effectively regulate he process of
-request and task allocation \cite{Jacyno}. In \cite{Khosravifar2},
-authors propose a reputation-based architecture for communities
-and investigate the collusion scenarios that might falsely
-increase communities' reputation in the network. In
-\cite{Khosravifar1}, the authors mainly address the overall
-assessed reputation that is used as a main reason for service
-selection. The authors do not consider truth/lie telling analysis
-as a factor that impacts service selection in future.
-
-
-The contribution of this paper is the proposition of a coopetitive
-strategic model to analyze the interacting behavior of intelligent
-web services that are active in communities of web services. The
-proposed framework provides a reasoning technique that web
-services can use to increase their overall obtained utilities. The
-result of our proposed model is a probability distribution where
-an intelligent web service can use over different interacting
-strategies.
-
-
-Our model has the advantage of being simple and  straightforward
-in the contribution and the provided results. We considered two
-acting strategies where web services expect different sort of
-payoffs:  (1) $Competitive$ strategy where the web services claims
-that it can accomplish a task and therefore, takes the
-responsibility over the service consumer satisfaction; and (2)
-$Cooperative$ strategy where the web service does not take the
-responsibility to accomplish a task and only cooperates with other
-$Competitive$ web services. As future work, we plan to emphasize
-the service consumer role in the proposed model to obtain more
-accurate results when consumer posts service satisfaction
-feedback. Moreover, we would like to enhance  the reasoning
-technique's features to cope with different unexpected scenarios.
-We also need to expand the simulated environment to study
-different scenarios in a number of perspectives.
-
-
-\section{Conclusion}\label{Conclusion}
-The contribution of this paper is the proposition of a
-game-theoretic based model to analyze the best efficiency
-characteristics for the active services in open networks. The
-proposed framework considers the chances of web services in
-joining a community in different cases with truthful and lying
-information service agents. The proposed game analyzes the
-existing Nash equilibrium and situations where the maximum payoff
-is obtained.
-
-
-Our model has the advantage of being simple and taking into
-account three important factors: (1) rational services seek better
-status in the environment by joining the community; (2) rational
-information service agents obtain higher payoff by truth telling;
-and (3) the community is obtaining more effective web services
-while the information service agents challenge for providing
-truthful information. As future work, we plan to consider the user
-role in the game to obtain more accurate results when users act
-rationally. Moreover, we would like to achieve a collusion
-resistant efficiency mechanism, which is still an open problem in
-open environments.
-
-
-\end{comment}
 
 \begin{thebibliography}{1}
 
@@ -1364,9 +1253,8 @@ ecommerce. Knowledge and Information Systems, DOI:
 \end{thebibliography}
 
 
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
