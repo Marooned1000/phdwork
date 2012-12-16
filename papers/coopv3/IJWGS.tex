@@ -48,9 +48,12 @@
 
 \title{When to Compete and When to Cooperate: Analysis on Strategies of Services within Communities}
 
-\authorA{author}
+\authorA{Babak Khosravifar$^1$, Ehsan KhosrowshahiAsl$^2$,\newline Jamal Bentahar$^2$, Rabeb Mizouni$^3$ and\newline Hadi Otrok$^3$}
 
-\affA{Address}
+\affA{$^1$McGill University, Canada, $^2$Concordia University, Canada,\\ $^3$Khalifa University, UAE\\
+$babak.khosravifar@mcgill.ca$, $e\_khosr@encs.concordia.ca$,\\ $bentahar@ciise.concordia.ca$,
+$rabeb.mizouni@kustar.ac.ae$,\\$hadi.otrak@kustar.ac.ae$}
+
 
 \begin{abstract}
 Recently, a number of frameworks have been proposed to
@@ -80,9 +83,9 @@ services dataset.
 
 \REF{to this paper should be made as follows: Author. (xxxx) `Title', {\it Int. J. }, Vol.~x, No.~x, pp.xxx--xxx.}
 
-\begin{bio}
-
-\end{bio}
+%\begin{bio}
+%
+%\end{bio}
 
 \maketitle
 
@@ -196,7 +199,7 @@ coopetitive choices.
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=1]{architecture++.eps}
+\includegraphics[scale=0.9]{architecture++.eps}
 \caption{Web services are partitioned into competitive and
 cooperative sets. Competitive web services may get tasks directly
 from the master web service and they can share it with other
@@ -419,22 +422,53 @@ which we will use in the rest of this paper are listed in Table
 \ref{Preliminaries}.
 
 
+%\begin{table}
+%\centering
+%\caption{List of proposed system parameters.}
+%\begin{tabular}{|c|c||c|c|}
+%\hline
+%\textbf{Notation} & \textbf{Definition} & \textbf{Notation} & \textbf{Definition}\\
+%\hline\hline
+%$T_{QoS}^t$ & Required task QoS at time $t$ & $QoS_w^t$ & Web service $w$ QoS at time $t$ \\
+%$B_w^t$ & Budget associated to web service $w$ at time $t$ & $Rep^t_w$ & Reputation assigned for $w$ at time $t$\\
+%$Reward_w^t$ & The reward to update the reputation & $G^t_w$ & The growth factor of $w$ at time $t$\\
+%$\epsilon$ & The community membership fee & $\pi_{w,CM}^t$ & Competition payoff of $w$ \\
+%$\pi_{w,CO}^t$ & Cooperation payoff of $w$ & $p_{w,CM}^t$ & Competition probability of $w$ at time $t$\\
+%$p_{w,CO}^t$ & Cooperation probability of $w$ at time $t$& $COF_w^t$ & Cooperation fee of $w$ at time $t$\\
+%$\beta_w$ & Profit of $w$& $\mu_{w, CM}$ & Mean service fee for competing $w$ \\
+%$\mu_{w, CO}$ & Mean service fee for cooperating $w$ & $\tau_w^t$ & Coopetitive threshold of $w$ at time $t$ \\
+%$P_w^t$ & Probability of competing for $w$ at time $t$& $U_w^t$ & Utility of $w$ at time $t$\\
+%\hline
+%\end{tabular}
+%\label{Preliminaries}
+%\end{table}
+
+
 \begin{table}
 \centering
 \caption{List of proposed system parameters.}
-\begin{tabular}{|c|c||c|c|}
+\begin{tabular}{|c|c|}
 \hline
-\textbf{Notation} & \textbf{Definition} & \textbf{Notation} & \textbf{Definition}\\
+\textbf{Notation} & \textbf{Definition}\\
 \hline\hline
-$T_{QoS}^t$ & Required task QoS at time $t$ & $QoS_w^t$ & Web service $w$ QoS at time $t$ \\
-$B_w^t$ & Budget associated to web service $w$ at time $t$ & $Rep^t_w$ & Reputation assigned for $w$ at time $t$\\
-$Reward_w^t$ & The reward to update the reputation & $G^t_w$ & The growth factor of $w$ at time $t$\\
-$\epsilon$ & The community membership fee & $\pi_{w,CM}^t$ & Competition payoff of $w$ \\
-$\pi_{w,CO}^t$ & Cooperation payoff of $w$ & $p_{w,CM}^t$ & Competition probability of $w$ at time $t$\\
-$p_{w,CO}^t$ & Cooperation probability of $w$ at time $t$& $COF_w^t$ & Cooperation fee of $w$ at time $t$\\
-$\beta_w$ & Profit of $w$& $\mu_{w, CM}$ & Mean service fee for competing $w$ \\
-$\mu_{w, CO}$ & Mean service fee for cooperating $w$ & $\tau_w^t$ & Coopetitive threshold of $w$ at time $t$ \\
-$P_w^t$ & Probability of competing for $w$ at time $t$& $U_w^t$ & Utility of $w$ at time $t$\\
+$T_{QoS}^t$ & Required task QoS at time $t$ \\
+ $QoS_w^t$ & Web service $w$ QoS at time $t$ \\
+$B_w^t$ & Budget associated to web service $w$ at time $t$ \\ 
+$Rep^t_w$ & Reputation assigned for $w$ at time $t$\\
+$Reward_w^t$ & The reward to update the reputation \\ 
+$G^t_w$ & The growth factor of $w$ at time $t$\\
+$\epsilon$ & The community membership fee \\
+$\pi_{w,CM}^t$ & Competition payoff of $w$ \\
+$\pi_{w,CO}^t$ & Cooperation payoff of $w$ \\
+$p_{w,CM}^t$ & Competition probability of $w$ at time $t$\\
+$p_{w,CO}^t$ & Cooperation probability of $w$ at time $t$\\
+$COF_w^t$ & Cooperation fee of $w$ at time $t$\\
+$\beta_w$ & Profit of $w$ \\ 
+$\mu_{w, CM}$ & Mean service fee for competing $w$ \\
+$\mu_{w, CO}$ & Mean service fee for cooperating $w$ \\ 
+$\tau_w^t$ & Coopetitive threshold of $w$ at time $t$ \\
+$P_w^t$ & Probability of competing for $w$ at time $t$ \\ 
+$U_w^t$ & Utility of $w$ at time $t$\\
 \hline
 \end{tabular}
 \label{Preliminaries}
@@ -1004,7 +1038,7 @@ outperforms the one for the coopetitive community. %The idea is to balance web
 \caption{High membership fees or less task income impacts on different selection strategies, (a) medium membership fee, (b) high membership fee, (c) very high membership fee} \label{membership_fee_graph}
 \end{figure}
 
-In Figure \ref{membership_fee_graph} we analyze the scenario where membership fee is high which is analogous to situations where task income is low. For any reason our web services may need to stay in a particular community with economic downtimes. We need verify how well the web services can perform in these situations. \ref{membership_fee_graph} part (a) depicts the results in normal scenario. In part (b) we have increased the membership fee to the high amount of 5 units per run. Web services will need to pay $5$ units on each iteration of tasks being offered. As results the strategic coopetitive decision making process helps web services to still have benefit and random or all compete methods will lose a lot in these scenarios since making mistakes and trying to compete for jobs they cannot afford while having to pay higher membership fees is making them lose budget in a faster pace. In part \ref{membership_fee_graph}(c) the membership is higher than average of possible income of what tasks offer. It might not be rational for selfish self-interest web services to stay in these communities from utility point of view but as mentioned there might be other political reasons they might need to stay in these communities. As results show the random and all compete strategies make web services bank deplete in no time. However our strategic coopetitive decision making process loses budget in a slower pace.
+In Figure \ref{membership_fee_graph} we analyze the scenario where membership fee is high which is analogous to situations where task income is low. For any reason our web services may need to stay in a particular community with economic downtimes. We need verify how well the web services can perform in these situations. \ref{membership_fee_graph} part (a) depicts the results in normal scenario. In part (b) we have increased the membership fee to the high amount of 5 units per run. Web services will need to pay $5$ units on each iteration of tasks being offered. As results clearly illustrate, the strategic coopetitive decision making process helps web services to still have increasing budget whereas random or all compete methods will lose a lot in these scenarios since making mistakes and trying to compete for jobs they cannot afford while having to pay higher membership fees is making them lose budget in a faster pace. In part \ref{membership_fee_graph}(c) the membership is higher than average of possible income of what tasks offer. It might not be rational for selfish self-interest web services to stay in these communities from utility point of view but as mentioned there might be other business reasons they might prefer to stay in these communities. As results show the random and all compete strategies make web services bank deplete in no time. However our strategic coopetitive decision making process loses budget in a slower pace.
 
 
 
@@ -1052,10 +1086,10 @@ different web services.} \label{Graph2}
 \caption{Overall performance from comunity point of view, (a) Total Number of tasks succesfuly done, (b) Ratio of tasks satisfied with required QoS, (c) Average QoS of performed tasks} \label{graph_task}
 \end{figure}
 
-The web services are selfish, self interested agents. They try to maximise their own utiliy. Now we analyse how their strategy effects the social welfare or from user and community point of view how good the tasks are being performed. This directly affects user satisfation and community reputation in general. The Higher  quality and quantity of tasks perfromed leads to higher user satisfaction for the community which results in better reputaiton for the community. The results in Figure \ref{graph_task} shows the quality of quantity of tasks being done successfuly in three communities adopting the three different mentioned strategy decision algorithms. Figure \ref{graph_task} Part (a) and (b) depicts the number tasks succesfuly done. When web services are not capable of performing tasks alone and decide to compete for tasks with high QoS requirements they usually fail to perform the task how ever if they opt for cooperating although they have less income, they have higher chance of performing tasks collabratively with other web serives. Figure \ref{graph_task}Part (b) shows the probablilty of successfully performin tasks. As results suggest web services using our coopetitive strategy when deciding whether to compete or cooperate have higher chance of tasks to be done than random or all compete strategies. The quality of tasks performed are depicted in Figure \ref{graph_task} Part (c). It shows the average QoS of tasks perfromed which are finished and done sucessfuly. Colabrating increases the performed QoS of tasks, therefore forming collabrative groups improves user satisfaction. As results suggest, the coopetetive community outperforms the random and all compete communities in quality of tasks performed.
+The web services are selfish, self interested agents. They try to maximise their own utiliy. Now we analyse how their strategy effects the social welfare or how well  the tasks are being performed from user and community point of view. This directly affects user satisfation and community reputation in general. The higher quality and quantity of tasks perfromed leads to higher user satisfaction for the community which results in higher reputaiton for the community. The results in Figure \ref{graph_task} show the quality and quantity of tasks being done successfuly in three communities adopting the three different mentioned strategy decision algorithms. Figure \ref{graph_task} Part (a) depicts the number tasks succesfuly done. When web services are not capable of performing tasks alone and decide to compete for tasks with high QoS requirements they usually fail to perform the task how ever if they opt for cooperating although they have less income, they have higher chance of performing tasks collabratively with other web serives. Figure \ref{graph_task}Part (b) shows the probablilty of successfully performin tasks. As results suggest web services using our coopetitive strategy when deciding whether to compete or cooperate have higher chance of tasks to be done than random or all compete strategies. The quality of tasks performed are depicted in Figure \ref{graph_task} Part (c). It shows the average QoS of tasks perfromed which are finished and done sucessfuly. Colabrating increases the performed QoS of tasks, therefore forming collabrative groups improves user satisfaction. As results suggest, the coopetetive community outperforms the random and all compete communities in quality of tasks performed.
 
 
-We conclude out analysis by discussing how effective our cooperative decision making process is by comparing the final utility of our agents here the end budget our web services have while deviating from our strategy adopted by an agent which can be either compete or cooperate to the other one. In \ref{graph_dev} part (a) we randomly made the web services deviate from the calculated strategy. As the results depict, the more web services deviate from cooperative strategy the more they less budget they gain. Figure \ref{graph_dev} part (b) we pick one random web service and once simulate the scenario with its default cooperative strategy and then we redo the simulation with exact same enviroment parameters while adapting the other strategy which is to compete if our cooperative strategy suggested to cooperate or vice versa. We run this scenario 50 times and at the end we check their budget and see if they gain more by deviating or not. We did this for one single deviation to ten different deviations in lifetime of a web service in community. As results indicate with high probability our cooperative strategy yields higher budgets at the end for web services.
+We conclude out analysis by discussing how effective our coopetitive decision making process is by comparing the final income of our web services when web services are deviating from our coopetitive strategy. The adopted strategy is either to compete or to cooperate by deviating we adopt the other strategy. In \ref{graph_dev} part (a) we randomly made the web services deviate from the calculated strategy. As the results illustrate, the more web services deviate from cooperative strategy the less budget they gain. Figure \ref{graph_dev} part (b) we pick one random web service and once simulate the scenario with its default coopetitive strategy and then we redo the simulation with exact same enviroment parameters while adapting the other strategy which is to compete if our coopetitive strategy suggested to cooperate or vice versa. We run this scenario 50 times and at the end we check their budget and see if they gain more by deviating or not. We did this for one single deviation to ten different deviations in lifetime of a web service in community. As results indicate with high probability our coopetitive strategy yields higher budgets at the end for web services.
 
 \begin{figure}%[h]
 \centering
