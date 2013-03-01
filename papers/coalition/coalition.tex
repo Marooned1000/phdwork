@@ -465,9 +465,9 @@ Cooperative game is a branch of game thoery that studies stretegies of self-inte
 	\item $\sum_{i \in S} x_i \leq v(S)$
 \end{itemize}
 
-The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$.
+The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of characteristic function works in $transferable utility$ (TU) settings, where utility (payoff) is transfarable from one player to other, in other words players have common currency and a unit of income is worth same for all players \cite{myerson1991game}.
 
-When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form? 2. How to reward each each member when a task is completed?
+When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each each member when a task is completed (Coalition-formation games)?
 
 {\bf Definition 1 (Shapley value)} Given a cooperative game (N, v), the Shapley value of player i is given by\cite{shapley_value}: 
 \begin{equation}\label{eq:shapley}
@@ -476,7 +476,13 @@ When dealing with cooperative games, two issues need to get addressed: 1. What c
 
 Shapley value is a unique and fair solution concept for payoff distribution between agents. It basicly rewards agents with amount of marginal contribution they have to the coalition.
 
-{\bf Definition 2 (Core)}
+{\bf Definition 2 (Core)} A payoff vector x denoted by C(N,v) is in the core of a coalitional game (N, v) if and only if
+\begin{equation}\label{eq:core}
+\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
+\end{equation}
+The core if is not empty is basicly a payoff vector (x) where no where no subset of players $S^\prime$ could gain more by deviating and making their own coalition $\sum_{i \in S^\prime} x_i \geq v(S^\prime)$.
+
+
 
 \section{Problem Formulation and Modeling}
 
