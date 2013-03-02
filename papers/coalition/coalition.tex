@@ -170,7 +170,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -419,7 +419,7 @@ Web services are loosely-coupled business applications and willing to cooperate 
 \end{abstract}
 
 \begin{IEEEkeywords}
-component; formatting; style; styling;
+Web services; Cooperative game thoery; Community of services;
 
 \end{IEEEkeywords}
 
@@ -438,8 +438,8 @@ component; formatting; style; styling;
 
 Over the past years, web applications have become part of critical buisiness services. The increasing reliance on web-based applications has had significant implications for service providers and its users.
 
-*** talk about functional and non-functional requirements specially for critial applications
-*** talk about community of web services
+*** on functional and non-functional requirements specially for critial applications
+*** on community of web services
 
 
 %Some random text:
@@ -453,9 +453,28 @@ Over the past years, web applications have become part of critical buisiness ser
 
 In this section we discuss the parameters and preliminary concepts that we use in the rest of paper. The way communities of web services are structured and engineered is described thoroughly in \cite{DBLP:journals/ijebr/MaamarSTBB09}. 
 
+\subsection{The Architecture and Entities }
+\subsubsection{Web Services}
+\subsubsection{Master Web Service of Communities}
+\subsubsection{Users}
+
 \subsection{Task Parameters}
+\subsubsection{Request rate}
+\subsubsection{Consumption}
+\subsubsection{Requested Reponse Time}
+\subsubsection{Requested Availability}
+\subsubsection{Requested Success Rate}
 
 \subsection{Web Sercive Parameters}
+\subsubsection{Throughput}
+\subsubsection{Capacity}
+\subsubsection{Cost}
+\subsubsection{Reponse Time}
+\subsubsection{Availability}
+\subsubsection{Reliability}
+\subsubsection{Success Rate}
+\subsubsection{Reputation}
+
 
 \subsection{Cooperative Game Concepts}
 Cooperative game is a branch of game thoery that studies stretegies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let N to be a set of players. Any subset S of N can form a group that we call it a $coalition$. A $coalitional game$ is a pair $G = (N, v)$ where v is $characteristic function$ which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can devide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the ammount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions: 
@@ -480,34 +499,61 @@ Shapley value is a unique and fair solution concept for payoff distribution betw
 \begin{equation}\label{eq:core}
 \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
 \end{equation}
-The core if is not empty is basicly a payoff vector (x) where no where no subset of players $S^\prime$ could gain more by deviating and making their own coalition $\sum_{i \in S^\prime} x_i \geq v(S^\prime)$.
+The core if is not empty is basicly a set of payoff vectors (x) where no subset of players $S^\prime$ could gain more by deviating and making their own coalition $\sum_{i \in S^\prime} x_i \geq v(S^\prime)$. The sum of payoffs to the agents in any subcoalition S is at least as large as the amount that these agents could earn by forming a coalition on their own. In a sense it is analogue to Nash equilibrium, except that it about deviations by groups of agents. The core is the strongest and most popular solution concept in cooperative game thoery, however its computationally very heavy and is not computationally tractable as number of players increase. The core of some real-world problem games may be empty, which means having characteristic function $v$ there might be no possible distribution of payoff assuring stability of subgroups.
 
+{\bf Definition 3 (Convex cooperative games)} A game with characteristic function v(S) is convex if:
+\begin{equation}\label{eq:convex}
+V(S) + V(T) \leq v(S \cup T) + v (S \cap T), \forall S,T \subseteq N.
+\end{equation}
+According to a classic result by Shapley \cite{S1971cores} convex games always have a non-empty core. In order to come with an algorithm be to able to evaluate if a game with characteristic function v(S) is convex or not, we can use the equation below and will prove its analogous to convexity condition:
+\begin{equation}\label{eq:convex_snow}
+v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T), \forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N; 
+\end{equation}
 
+{\bf Proof:} 
+
+\begin{gather*}\label{convexsnowproof}
+v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
+\\
+\rightarrow v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
+\end{gather*}
+
+We know $T \subseteq N - \left\{i\right\}$, therefor:
+
+\begin{equation*}
+(S \cup \left\{i\right\}) \cap T = T \cup S
+\end{equation*}
+
+and we have $S \subseteq T$, therefor:
+
+\begin{equation*}
+(S \cup \left\{i\right\}) \cap T = S
+\end{equation*}
+
+With a variable chnage of S we have:
+
+\begin{gather*}
+v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
+\\
+\rightarrow v(S \cup \left\{i\right\}) + v(T) \leq v((S \cup \left\{i\right\}) \cup T) + v((S \cup \left\{i\right\}) \cap T)
+\\
+\rightarrow v(S^\prime) + V(T) \leq v(S^\prime) + v(S^\prime \cap T)
+\end{gather*}
+
+This means inorder to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
 
 \section{Problem Formulation and Modeling}
 
+In this section, we present the architechture of different web service community models and formulate how both web services and community masters as rational agents would maximise their payoff.
+
+\subsection {Web Services and A Grand Community}
+
+In this scenario, there are is a community controller by a community master web sercice. The community master has a secured request rates $(R_{master})$ from users. 
+
+
+\section{Experimental Results}
+
 In this section, 
-
-\section{Introduction-t}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-
-All manuscripts must be in English. These guidelines include complete descriptions of the fonts, spacing, and related information for producing your proceedings manuscripts. Please follow them and if you have any questions, direct them to the production editor in charge of your proceedings at Conference Publishing Services (CPS): Phone +1 (714) 821-8380 or Fax +1 (714) 761-1784.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
-
-\section{Type style and Fonts}
-Wherever Times is specified, Times Roman or Times New Roman may be used. If neither is available on your system, please use the font closest in appearance to Times. Avoid using bit-mapped fonts if possible. True-Type 1 or Open Type fonts are preferred. Please embed symbol fonts, as well, for math, etc.
-
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
