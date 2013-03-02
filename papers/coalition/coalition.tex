@@ -438,8 +438,13 @@ Web services; Cooperative game thoery; Community of services;
 
 Over the past years, web applications have become part of critical buisiness services. The increasing reliance on web-based applications has had significant implications for service providers and its users.
 
-*** on functional and non-functional requirements specially for critial applications
-*** on community of web services
+\\ *** on functional and non-functional requirements specially for critial applications
+
+\\ *** on community of web services
+
+\cite{DBLP:conf/IEEEscc/KhosravifarABT11}
+\cite{DBLP:conf/IEEEscc/LimTMB12}
+
 
 
 %Some random text:
@@ -488,12 +493,16 @@ The second condition is $feasibility$, according to equation below the payoff fo
 
 When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each each member when a task is completed (Coalition-formation games)?
 
+\subsubsection{Shapley value}
+
 {\bf Definition 1 (Shapley value)} Given a cooperative game (N, v), the Shapley value of player i is given by\cite{shapley_value}: 
 \begin{equation}\label{eq:shapley}
 \sum_{S \subset N \backslash \left\{i\right\} } \frac{|S|! (n-|S|-1)!}{n!} (v(S \cup \left\{i\right\}) - v(S))
 \end{equation}
 
 Shapley value is a unique and fair solution concept for payoff distribution between agents. It basicly rewards agents with amount of marginal contribution they have to the coalition.
+
+\subsubsection{Core}
 
 {\bf Definition 2 (Core)} A payoff vector x denoted by C(N,v) is in the core of a coalitional game (N, v) if and only if
 \begin{equation}\label{eq:core}
@@ -541,6 +550,10 @@ v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \end{gather*}
 
 This means inorder to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
+
+\subsubsection{Coalition Structure Formation}
+
+Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the $social welfare$ of the system, which is the sum of the values of all teams. Having characterestic function game G, a coalition structure (CS) is $socially optimal$ is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$.
 
 \section{Problem Formulation and Modeling}
 
