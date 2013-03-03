@@ -127,7 +127,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -137,13 +137,14 @@
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  % \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../eps/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
   % \DeclareGraphicsExtensions{.eps}
 \fi
+
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation can
@@ -438,12 +439,15 @@ Web services; Cooperative game thoery; Community of services;
 
 Over the past years, web applications have become part of critical buisiness services. The increasing reliance on web-based applications has had significant implications for service providers and its users.
 
-\\ *** on functional and non-functional requirements specially for critial applications
+TODO on functional and non-functional requirements specially for critial applications \\
 
-\\ *** on community of web services
+TODO on community of web services \\
 
-\cite{DBLP:conf/IEEEscc/KhosravifarABT11}
-\cite{DBLP:conf/IEEEscc/LimTMB12}
+TODO Problems of \cite{Chun02user-centricperformance, mcknight00a, DBLP:journals/internet/BenatallahSD03, Khosravifar:2009:AIR:1586636.1586906, Rosario:2008:PQS:1512146.1512290} \\
+
+TODO Problems of \cite {DBLP:conf/IEEEscc/LimTMB12} having to cop and optimizing for with all weak web services reduces the optimal result\\
+
+TODO Problems of \cite {DBLP:conf/IEEEscc/KhosravifarABT11} not considering the current web services in coalition and startegies are only based on master web service and new web service gain\\
 
 
 
@@ -551,9 +555,9 @@ v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 
 This means inorder to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
 
-\subsubsection{Coalition Structure Formation}
+\subsubsection{Coalition Structure Formation}\label{sec:coalition}
 
-Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the $social welfare$ of the system, which is the sum of the values of all teams. Having characterestic function game G, a coalition structure (CS) is $socially optimal$ is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$.
+Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characterestic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characterestic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
 
 \section{Problem Formulation and Modeling}
 
@@ -561,12 +565,68 @@ In this section, we present the architechture of different web service community
 
 \subsection {Web Services and A Grand Community}
 
-In this scenario, there are is a community controller by its master web sercice. The community master has some request rate $(R_{master})$ from users. Web services need to join a community to be able to get tasks from a master web service. Each web service comes with different quality of service patameters and a throughput $(T_ws)$. Throughput is the average rate of tasks a web 
+In this scenario, there are is a community controller by its master web sercice. The community master has some request rate $(R_{master})$ from users. Web services need to join a community to be able to get tasks from a master web service. Each web service comes with different quality of service patameters and a throughput $(T_ws)$. Throughput is the average rate of tasks a web service can perform. Therefore, the master web service is providing tasks with rate of $R_{ws}$ and web services perform tasks with some QoS output metrics and a rate or $T_{ws}$. 
+In this setting, we define the value of the coalition as follows:
+\begin{equation*}
+output(C) = \sum_{ws}{T_{ws}} \times QoS_{ws}
+\end{equation*}
 
+\begin{equation*}
+v(C) = \left\{ 
+  \begin{array}{l l}
+    output(C) & \quad \text{if $\sum_{ws}{T_{ws}} \leq R_{master}$}\\
+    output(C) \times \frac{R_{master}}{\sum_C{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{master}$}
+  \end{array} \right.
+\end{equation*}  
+
+The output of a coalition of web services is the rate and quality of task they can perform. If the rate is more than master's input task rate, it means the web services inside the community are capable of doing more tasks than exists. Considering this the valuation function will balance the output performance and will be the exact ammount and quality of work they can perform within the particular community. ** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
+
+In the first scenario, we only consider one grand coalition and analyse the system from point of view of one master web service and a collection of web services. The master web service decides which members can join or should leave the community and distributes the income or tasks among its community members.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{s1.eps}
+\caption{Web Services and A Grand Community}
+\label{fig_sim}
+\end{figure}
+
+The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed. It is proven in \cite{DBLP:conf/ijcai/GrecoMPS11} if the Core is non-empty, the shapley payoff vector is a member of Core, so in our algorithm we check the core membership of this payoff vector. 
+
+\subsection {Web Services and Many Communities}
+
+In this scenario we consider multiple communities owned by multiple master web services which provide independant request pools. Like first scenario master web services form coalitions with web services. We use coalition structure formation methods to partition web services into non-empty disjoint coalition structures. As mentioned in section \ref{sec:coalition} these algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11} try to solve two fundamental problems of what coalitions to form, and how will the members of these coalitions distribute their total gain to make these coalition structures stable. 
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{s2.eps}
+\caption{Web Services and Many Communities}
+\label{fig_sim}
+\end{figure}
+
+One of the properties of CS algorithms in our scenario is tha they partition web services with low throughput rate usually join coalitions with less request rate. Since the characteristic function $v(C)$ and  the fair payoff vector of shapley value is proportional to their contribution, the web services with small contribution will get payed much less in communities having web services with throughput. On the other hand, accoring to valuation function $v(C)$ web services with high throughput will not contribute well to commuinities with low ammount of user requests. The strong web services are much more likely to deviate that coalition joining a stronger coalition, making the initial coalition unstable. 
+In coalition structure formation study, as mentioned in section \ref{sec:coalition}, maximizing social welfare is more on focus. Most algorithms in this area try to maximise overall social welfare. For any coalition structure $\pi$, let $v_{cs}(\pi)$ denote the total worth $\sum_{C \in \pi}{v(C)}$ which we call it social welfare. The problems in this area deal with finding the maximum value for social welfare over all the possible coalition structures $\pi$. These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} ignore the stability of coalitions from individual agent point of view. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}. There are even anytime algorithms designed for this end\cite{eps267179}. It can be interrupted before it would have normally terminated and yet privade a solution within a bound from the optimal one which makes it very practical to use real world applications. The problem is that they try to maximize social benefit while contradicts with interests of selfish self-interest web services. However, expirements show web services still reasonably close to optimal payoffs and tasks while we try to optimize the overall social welfare. In expirements section, we analyze these scenarios with real world web service data.
+
+\subsection {Web Services collaborating independently}
+
+In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependant on type of users and requests web services are dealing with. For each webservice we multiplay this by web services's market share $(MarketShare_{ws})$ and the summation would be the characterestic or valuation of independent web service coalitions.
+
+\begin{equation*}
+v(C) = \sum_{ws}{\sum_{m=metrics}{\sum_{ws}{QoS^m_{ws} \times C_{coef}} \times w_{metric} } \times ms_{ws}}
+\end{equation*} 
+
+$C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. Since there are no master web serivces, we assume they eather dynamicly vote for one, or collabrate and agree on decisions and distribute task in round robin or fair fashion. Like ``Web Services and Many Communities'' scenario, both core coalition structure analysis and social welfare analysis are applicable in this scenario.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{s3.eps}
+\caption{Web Services collaborating independently}
+\label{fig_sim}
+\end{figure}
 
 \section{Experimental Results}
 
 In this section, 
+
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
