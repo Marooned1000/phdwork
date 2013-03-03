@@ -568,14 +568,14 @@ In this section, we present the architechture of different web service community
 In this scenario, there are is a community controller by its master web sercice. The community master has some request rate $(R_{master})$ from users. Web services need to join a community to be able to get tasks from a master web service. Each web service comes with different quality of service patameters and a throughput $(T_ws)$. Throughput is the average rate of tasks a web service can perform. Therefore, the master web service is providing tasks with rate of $R_{ws}$ and web services perform tasks with some QoS output metrics and a rate or $T_{ws}$. 
 In this setting, we define the value of the coalition as follows:
 \begin{equation*}
-output(C) = \sum_{ws}{T_{ws}} \times QoS_{ws}
+output(C) = \sum_{ws}{(T_{ws} \times QoS_{ws})}
 \end{equation*}
 
 \begin{equation*}
 v(C) = \left\{ 
   \begin{array}{l l}
     output(C) & \quad \text{if $\sum_{ws}{T_{ws}} \leq R_{master}$}\\
-    output(C) \times \frac{R_{master}}{\sum_C{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{master}$}
+    output(C) \times \frac{R_{master}}{\sum_{ws}{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{master}$}
   \end{array} \right.
 \end{equation*}  
 
