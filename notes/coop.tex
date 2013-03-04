@@ -103,6 +103,12 @@ Recall that G is cohesive if $v(N) \geq CS-v(\pi)$, for each coalition structure
 
 \cite{Chalkiadakis_simplecoalitional} Theorem 3 provides an efficient algorithm for checking wether the core is non-empty or wether a given demand vector is in the core. Indeed, we can first check, for each player $i \in N$, if $i$ is a veto player (by Theorem 2, this can be done in polynomial time). The core is non-empty if the answer is "`yes"' for at least one $i \in N$. Furthermore, to check if d is in the core, we can check if $d_i > 0$ for any non-veto player $i$; if answer is "`yes"', d is not in the core.
 
+\hrule
+
+Any convex game is necessarily superadditive: if a game G = (N, v) is convex, and C and D are two disjoint subsets of N, then we have (here we use our assumption that v(.) = 0). However, the converse is not always true, as illustrated
+by the following example. 
+Consider a game G = (N, v), where N = {1, 2, 3}, and v(C) = 1 if |C| . 2 and v(C) = 0 otherwise; this game is known as the 3-player majority game. It is easy to check that this game is superadditive.Onthe other hand, forC = {1, 2} andD = {2, 3},we have v(C) = v(D) = 1
+
 
 \bibliographystyle{plain}
 \bibliography{ehsan}

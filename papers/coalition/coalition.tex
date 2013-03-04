@@ -555,6 +555,13 @@ v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 
 This means inorder to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
 
+\subsubsection{$\epsilon-Core$}
+If core set is not empty, it means no coalition of players can gain anything by deviating, it is the strongest stable condition. An outcome would be unstable if a coalition can benefit even by a small amount from deviating. This is a strong requirement. In some situations, deciations can be costly or agents may have some loyatly to their coalitions or even it can be computationaly intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeded a particular cost for example the costs of deviation. $\epsilon-Core$ relaxes the notion of the core, and only require that no coalition can benefit significantly or within a constant ammount($\epsilon$) by deviating.
+
+\begin{equation}\label{eq:core}
+\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
+\end{equation}
+
 \subsubsection{Coalition Structure Formation}\label{sec:coalition}
 
 Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characterestic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characterestic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
