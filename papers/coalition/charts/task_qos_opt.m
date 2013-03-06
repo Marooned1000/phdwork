@@ -45,7 +45,7 @@ set(hleg1,'FontSize',10);
 
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
-xlabel({'Iterations';'(a)'}, 'FontSize',14);
+xlabel({'Iterations';'(b)'}, 'FontSize',14);
 ylabel('Average QoS of Tasks Performed', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
