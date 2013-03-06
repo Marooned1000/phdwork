@@ -637,7 +637,7 @@ $C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines
 
 In this section, we discuss the experiments we performed for our scenarios to validate applicability and performance of our proposed methods in realistic environments. We created a pool of web services and populated most of their QoS parameters from a real world web service dataset \cite{DBLP:conf/smc/Al-MasriM09a}. We programmed the simulations using Java and executed the simulations on a Intel Xeon X3450 machine with 4GBs of memory. For other parameters we used normal distribution with parameters that make most sense in real world examples.
 
-We first analyze the most important performance result our communities should perform, quality and quantity of tasks successfully performed by our communities. This is the most important criteria for user satisfaction. We initiate the community with few web services, then let rejecting and accepting of random webservices go for a while, after that we start task distribution for the cummunities and let them allocate tasks for web services. Then we measure the average output performance of tasks in communities following different methods. Figure \ref{performanceall} shows the resutlts.
+We first analyze the most important performance result our communities should perform, quality and quantity of tasks successfully performed by our communities. This is the most important criteria for user satisfaction. We initiate the community with few web services, then let rejecting and accepting of random webservices go for a while, after that we start task distribution for the cummunities and let them allocate tasks for web services. Then we measure the average output performance of tasks in communities following different methods. 
 
 \begin{figure}[!t]
 \centering
@@ -647,6 +647,8 @@ We first analyze the most important performance result our communities should pe
 \caption{Part (a): Cumulative number of tasks succesfully done. Part
 (b): Average QoS of tasks performed.} \label{performanceall}
 \end{figure}
+
+Figure \ref{performanceall} depicts the results of simulation of optimal $\epsilon-Core$, \emph{Depth-1 Convex-Checker}, \emph{Depth-2 Convex-Checker}, 3-Way Satisfactory\cite{DBLP:conf/IEEEscc/LimTMB12} and \emph{2 Player Non-Cooperative} methods. The the \emph{optimal core} method we capped the coalition size to 23 web services, since anything more than that would require analysis with time complexity of O(2^22) which would made that impractical to run in our simulations. In other methods there were no cap on size of the community and we had communities of size 60 web services at some points. The results show depth-2 and 1 convex checker methods are performing well compared to other methods and all not far from optimal.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
