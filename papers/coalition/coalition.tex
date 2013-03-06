@@ -366,17 +366,17 @@
 % use a multiple column layout for up to two different
 % affiliations
 
-\author{\IEEEauthorblockN{Authors Name/s per 1st Affiliation (Author)}
-\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
-line 2: name of organization, acronyms acceptable\\
-line 3: City, Country\\
-line 4: Email: name@xyz.com}
+\author{\IEEEauthorblockN{Ehsan Khosrowshahi Asl, Jamal Bentahar}
+\IEEEauthorblockA{Faculty of Engineeing and Computer Science\\
+Concordia University\\
+Montreal, Canada\\
+e\_khosr@encs.concordia.ca,bentahar@ciise.concordia.ca}
 \and
-\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
-\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
-line 2: name of organization, acronyms acceptable\\
-line 3: City, Country\\
-line 4: Email: name@xyz.com}
+\IEEEauthorblockN{Hadi Otrok, Rabeb Mizouni}
+\IEEEauthorblockA{Department of Electrical and Computer Engineering\\
+Khalifa University\\
+Dubai, UAE\\
+hadi.otrak, rabeb.mizouni@kustar:ac:ae}
 }
 
 % conference papers do not typically use \thanks and this command
@@ -586,9 +586,10 @@ v(C) = \left\{
   \end{array} \right.
 \end{equation*}  
 
-The output of a coalition of web services is the rate and quality of task they can perform. If the rate is more than master's input task rate, it means the web services inside the community are capable of doing more tasks than exists. Considering this the valuation function will balance the output performance and will be the exact ammount and quality of work they can perform within the particular community. ** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
+The output of a coalition of web services is the rate and quality of task they can perform. If the rate is more than master's input task rate, it means the web services inside the community are capable of doing more tasks than exists. Considering this the valuation function will balance the output performance and will be the exact ammount and quality of work they can perform within the particular community. %** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
 
-In the first scenario, we only consider one grand coalition and analyse the system from point of view of one master web service and a collection of web services. The master web service decides which members can join or should leave the community and distributes the income or tasks among its community members.
+In the first scenario, we only consider one grand coalition and analyse the system from point of view of one master web service and a collection of web services. The master web service decides which members can join %or should leave% 
+the community and distributes the income or tasks among its community members.
 
 \begin{figure}[!t]
 \centering
@@ -598,6 +599,8 @@ In the first scenario, we only consider one grand coalition and analyse the syst
 \end{figure}
 
 The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed. It is proven in convex games the Shapley value lies in the core \cite{DBLP:conf/ijcai/GrecoMPS11, myerson1991game}. Therefore if the Core is non-empty, the Shapley payoff vector is a member of Core, so in our algorithm we check the core membership of this payoff vector. 
+
+Our algorithm works as follows. We have an established community with a master and some (slave) web services already residing in community. Now we have a request from a web service to join our community. The ideal solution in our method would be analyzing the core or $\epsilon-core$ stability of group having this new member. However the normal core membership algorithms are intractable. We exploit the equation \ref{eq:convex_snow} to check convexity of our characteristic function game having the new member. In that equation we set T to be our community members (C) before having the new web service. We set ${i}$ the new web service, and then verify the equation for S, setting $ S = T / W $ where $W$ is all 1-member subset of set C. We can relax the equation a bit by adding a constant epsilon to left side of equation. We call this method \emph{Depth-1 Convex-Checker} algorithm. If the equation is true for all $W$ we let the member join our community, since he will contribute good enough to make our new community stable. The run time complexity of this algorithm is O(n) which is huge reduction from $O(2^n)$ checking all possible subsets of N. In our second method, we use the same algorithm however this time we set W to be all possible subsets of size two and one of C. We call this method \emph{Depth-2 Convex-Checker} and its run time complexity is $O(n^2)$. It is possible to develop an anytime algorithm by continuing verifying this condition against all subsets of size 3 to N, and stop whenever we are interrupted.
 
 \subsection {Web Services and Many Communities}
 
@@ -632,8 +635,18 @@ $C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines
 
 \section{Experimental Results}
 
-In this section, 
+In this section, we discuss the experiments we performed for our scenarios to validate applicability and performance of our proposed methods in realistic environments. We created a pool of web services and populated most of their QoS parameters from a real world web service dataset \cite{DBLP:conf/smc/Al-MasriM09a}. We programmed the simulations using Java and executed the simulations on a Intel Xeon X3450 machine with 4GBs of memory. For other parameters we used normal distribution with parameters that make most sense in real world examples.
 
+We first analyze the most important performance result our communities should perform, quality and quantity of tasks successfully performed by our communities. This is the most important criteria for user satisfaction. We initiate the community with few web services, then let rejecting and accepting of random webservices go for a while, after that we start task distribution for the cummunities and let them allocate tasks for web services. Then we measure the average output performance of tasks in communities following different methods. Figure \ref{performanceall} shows the resutlts.
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[scale=0.29]{task_done_opt.eps}
+\includegraphics[scale=0.29]{task_qos_opt.eps}
+\caption{Part (a): Cumulative number of tasks succesfully done. Part
+(b): Average QoS of tasks performed.} \label{performanceall}
+\end{figure}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
