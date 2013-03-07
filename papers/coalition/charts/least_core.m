@@ -10,7 +10,7 @@ i=0:99;
 t=0:0.01:1;
 y=v(:,1);
 %set(gcf,'Position',[100 100 800 500]);
-set(gcf,'Position',[100 100 550 375]);
+set(gcf,'Position',[100 100 600 375]);
 
 %subplot(1,3,1);
 
@@ -25,10 +25,7 @@ grid on;
 set(gca,'YTick',0:0.1:1);
 set(gca,'tickdir','in')
 set(gca,'XTickLabel',{'0';'0.1';'0.2';'0.3';'0.4';'0.5';'0.6';'0.7';'0.8';'0.9';
-    '1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
-    '0.4';' ';' ';' ';' ';' ';' ';' ';' ';' ';
-    '0.6';' ';' ';' ';' ';' ';' ';' ';' ';' ';
-    '0.8';' ';' ';' ';' ';' ';' ';' ';' ';'1';});
+    '1';});
 set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 
@@ -46,8 +43,8 @@ set(hleg1,'FontSize',10);
 
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
-xlabel({'Epsilon (ratio)'}, 'FontSize',14);
-ylabel('Core Non-Empty', 'FontSize',14);
+xlabel({'Maximum allowed deviation gain'}, 'FontSize',14);
+ylabel('Least-Core Non-Empty', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
 %set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
