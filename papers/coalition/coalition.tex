@@ -486,16 +486,16 @@ In this section we discuss the parameters and preliminary concepts that we use i
 
 
 \subsection{Cooperative Game Concepts}
-Cooperative game is a branch of game thoery that studies stretegies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let N to be a set of players. Any subset S of N can form a group that we call it a $coalition$. A $coalitional game$ is a pair $G = (N, v)$ where v is $characteristic function$ which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can devide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the ammount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions: 
+Cooperative game is a branch of game theory that studies strategies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let N to be a set of players. Any subset S of N can form a group that we call it a $coalition$. A $coalitional game$ is a pair $G = (N, v)$ where v is $characteristic function$ which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can divide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the amount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions:
 
 \begin{itemize}
 	\item $x \geq 0$ for all $i \in N$, and
 	\item $\sum_{i \in S} x_i \leq v(S)$
 \end{itemize}
 
-The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of characteristic function works in $transferable utility$ (TU) settings, where utility (payoff) is transfarable from one player to other, in other words players have common currency and a unit of income is worth same for all players \cite{myerson1991game}.
+The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of characteristic function works in $transferable utility$ (TU) settings, where utility (payoff) is transferable from one player to other, in other words players have common currency and a unit of income is worth same for all players \cite{myerson1991game}.
 
-When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each each member when a task is completed (Coalition-formation games)?
+When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each member when a task is completed (Coalition-formation games)?
 
 \subsubsection{Shapley value}
 
@@ -504,7 +504,7 @@ When dealing with cooperative games, two issues need to get addressed: 1. What c
 \sum_{S \subset N \backslash \left\{i\right\} } \frac{|S|! (n-|S|-1)!}{n!} (v(S \cup \left\{i\right\}) - v(S))
 \end{equation}
 
-Shapley value is a unique and fair solution concept for payoff distribution between agents. It basicly rewards agents with amount of marginal contribution they have to the coalition.
+Shapley value is a unique and fair solution concept for payoff distribution between agents. It basically rewards agents with amount of marginal contribution they have to the coalition.
 
 \subsubsection{Core}
 
@@ -512,18 +512,67 @@ Shapley value is a unique and fair solution concept for payoff distribution betw
 \begin{equation}\label{eq:core}
 \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
 \end{equation}
-The core if is not empty is basicly a set of payoff vectors (x) where no subset of players $S^\prime$ could gain more by deviating and making their own coalition $\sum_{i \in S^\prime} x_i \geq v(S^\prime)$. The sum of payoffs to the agents in any subcoalition S is at least as large as the amount that these agents could earn by forming a coalition on their own. In a sense it is analogue to Nash equilibrium, except that it about deviations by groups of agents. The core is the strongest and most popular solution concept in cooperative game thoery, however its computationally very heavy and is not computationally tractable as number of players increase. The core of some real-world problem games may be empty, which means having characteristic function $v$ there might be no possible distribution of payoff assuring stability of subgroups.
+The core if is not empty is basically a set of payoff vectors (x) where no subset of players $S^\prime$ could gain more by deviating and making their own coalition $\sum_{i \in S^\prime} x_i \geq v(S^\prime)$. The sum of payoffs to the agents in any sub-coalition S is at least as large as the amount that these agents could earn by forming a coalition on their own. In a sense it is analogue to Nash equilibrium, except that it about deviations by groups of agents. The core is the strongest and most popular solution concept in cooperative game theory, however its computationally very heavy and is not computationally tractable as number of players increase. The core of some real-world problem games may be empty, which means having characteristic function $v$ there might be no possible distribution of payoff assuring stability of subgroups.
 
 {\bf Definition 3 (Convex cooperative games)} A game with characteristic function v(S) is convex if:
 \begin{equation}\label{eq:convex}
 V(S) + V(T) \leq v(S \cup T) + v (S \cap T), \forall S,T \subseteq N.
 \end{equation}
-According to a classic result by Shapley \cite{S1971cores} convex games always have a non-empty core. In order to come with an algorithm be to able to evaluate if a game with characteristic function v(S) is convex or not, we can use the equation below and will prove its analogous to convexity condition:
+
+According to a classic result by Shapley \cite{S1971cores} convex games always have a non-empty core. We will use a variation of convexity condition in our algorithm to check whether our coalitions are stable.
+
+\subsubsection{$\epsilon-Core$}\label{s:epsilon}
+If core set is not empty, it means no coalition of players can gain anything by deviating, it is the strongest stable condition. An outcome would be unstable if a coalition can benefit even by a small amount from deviating. This is a strong requirement. In some situations, deviations can be costly or agents may have some loyalty to their coalitions or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeded a particular cost for example the costs of deviation. $\epsilon-Core$ relaxes the notion of the core, and only require that no coalition can benefit significantly or within a constant amount($\epsilon$) by deviating.
+
+\begin{equation}\label{eq:core}
+\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
+\end{equation}
+
+\subsubsection{Coalition Structure Formation}\label{sec:coalition}
+
+Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characteristic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
+
+\section{Problem Formulation and Modeling}
+
+In this section, we present the architecture of different web service community models and formulate how both web services and community masters as rational agents would maximise their payoff.
+
+\subsection {Web Services and A Grand Community}
+
+In this scenario, there are is a community controller by its master web service. The community master has some request rate $(R_{master})$ from users. Web services need to join a community to be able to get tasks from a master web service. Each web service comes with different quality of service parameters and a throughput $(T_{ws})$. Throughput is the average rate of tasks a web service can perform. Therefore, the master web service is providing tasks with rate of $R_{ws}$ and web services perform tasks with some QoS output metrics and a rate or $T_{ws}$. 
+In this setting, we define the value of the coalition as follows:
+\begin{equation*}
+output(C) = \sum_{ws}{(T_{ws} \times QoS_{ws})}
+\end{equation*}
+
+\begin{equation*}
+v(C) = \left\{ 
+  \begin{array}{l l}
+    output(C) & \quad \text{if $\sum_{ws}{T_{ws}} \leq R_{master}$}\\
+    output(C) \times \frac{R_{master}}{\sum_{ws}{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{master}$}
+  \end{array} \right.
+\end{equation*}  
+
+The output of a coalition of web services is the rate and quality of task they can perform. If the rate is more than master's input task rate, it means the web services inside the community are capable of doing more tasks than exists. Considering this the valuation function will balance the output performance and will be the exact amount and quality of work they can perform within the particular community. %** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
+
+In the first scenario, we only consider one grand coalition and analyse the system from point of view of one single master web service and a collection of web services. The master web service decides which members can join %or should leave% 
+the community and distributes the income or tasks among its community members.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{s1.eps}
+\caption{Web Services and A Grand Community}
+\label{fig_sim}
+\end{figure}
+
+The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the Shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if Shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In Shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed, this is why Shapley value distribution is fair. It is proven in convex games the Shapley value lies in the core \cite{DBLP:conf/ijcai/GrecoMPS11, myerson1991game}. Therefore if the Core is non-empty, the Shapley payoff vector is a member of Core.
+% so in our algorithm we check the core membership of this payoff vector. 
+
+\emph{Proposition: } The folowwing statement is equivalent with convex condition of equation \ref{eq:convex}; 
 \begin{equation}\label{eq:convex_snow}
 v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T), \forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N; 
 \end{equation}
 
-{\bf Proof:} 
+\emph{Proof: } 
 
 \begin{gather*}\label{convexsnowproof}
 v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
@@ -531,7 +580,7 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \rightarrow v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \end{gather*}
 
-We know $T \subseteq N - \left\{i\right\}$, therefore:
+We know $T \subseteq N - \left\{i\right\}$, therefor:
 
 \begin{equation*}
 (S \cup \left\{i\right\}) \cap T = T \cup S
@@ -553,58 +602,13 @@ v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \rightarrow v(S^\prime) + V(T) \leq v(S^\prime) + v(S^\prime \cap T)
 \end{gather*}
 
-This means inorder to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
-
-\subsubsection{$\epsilon-Core$}
-If core set is not empty, it means no coalition of players can gain anything by deviating, it is the strongest stable condition. An outcome would be unstable if a coalition can benefit even by a small amount from deviating. This is a strong requirement. In some situations, deciations can be costly or agents may have some loyatly to their coalitions or even it can be computationaly intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeded a particular cost for example the costs of deviation. $\epsilon-Core$ relaxes the notion of the core, and only require that no coalition can benefit significantly or within a constant ammount($\epsilon$) by deviating.
-
-\begin{equation}\label{eq:core}
-\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
-\end{equation}
-
-\subsubsection{Coalition Structure Formation}\label{sec:coalition}
-
-Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characterestic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characterestic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
-
-\section{Problem Formulation and Modeling}
-
-In this section, we present the architechture of different web service community models and formulate how both web services and community masters as rational agents would maximise their payoff.
-
-\subsection {Web Services and A Grand Community}
-
-In this scenario, there are is a community controller by its master web sercice. The community master has some request rate $(R_{master})$ from users. Web services need to join a community to be able to get tasks from a master web service. Each web service comes with different quality of service patameters and a throughput $(T_{ws})$. Throughput is the average rate of tasks a web service can perform. Therefore, the master web service is providing tasks with rate of $R_{ws}$ and web services perform tasks with some QoS output metrics and a rate or $T_{ws}$. 
-In this setting, we define the value of the coalition as follows:
-\begin{equation*}
-output(C) = \sum_{ws}{(T_{ws} \times QoS_{ws})}
-\end{equation*}
-
-\begin{equation*}
-v(C) = \left\{ 
-  \begin{array}{l l}
-    output(C) & \quad \text{if $\sum_{ws}{T_{ws}} \leq R_{master}$}\\
-    output(C) \times \frac{R_{master}}{\sum_{ws}{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{master}$}
-  \end{array} \right.
-\end{equation*}  
-
-The output of a coalition of web services is the rate and quality of task they can perform. If the rate is more than master's input task rate, it means the web services inside the community are capable of doing more tasks than exists. Considering this the valuation function will balance the output performance and will be the exact ammount and quality of work they can perform within the particular community. %** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
-
-In the first scenario, we only consider one grand coalition and analyse the system from point of view of one master web service and a collection of web services. The master web service decides which members can join %or should leave% 
-the community and distributes the income or tasks among its community members.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3in]{s1.eps}
-\caption{Web Services and A Grand Community}
-\label{fig_sim}
-\end{figure}
-
-The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed. It is proven in convex games the Shapley value lies in the core \cite{DBLP:conf/ijcai/GrecoMPS11, myerson1991game}. Therefore if the Core is non-empty, the Shapley payoff vector is a member of Core, so in our algorithm we check the core membership of this payoff vector. 
+This means in order to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
 
 Our algorithm works as follows. We have an established community with a master and some (slave) web services already residing in community. Now we have a request from a web service to join our community. The ideal solution in our method would be analyzing the core or $\epsilon-core$ stability of group having this new member. However the normal core membership algorithms are intractable. We exploit the equation \ref{eq:convex_snow} to check convexity of our characteristic function game having the new member. In that equation we set T to be our community members (C) before having the new web service. We set ${i}$ the new web service, and then verify the equation for S, setting $ S = T / W $ where $W$ is all 1-member subset of set C. We can relax the equation a bit by adding a constant epsilon to left side of equation. We call this method \emph{Depth-1 Convex-Checker} algorithm. If the equation is true for all $W$ we let the member join our community, since he will contribute good enough to make our new community stable. The run time complexity of this algorithm is O(n) which is huge reduction from $O(2^n)$ checking all possible subsets of N. In our second method, we use the same algorithm however this time we set W to be all possible subsets of size two and one of C. We call this method \emph{Depth-2 Convex-Checker} and its run time complexity is $O(n^2)$. It is possible to develop an anytime algorithm by continuing verifying this condition against all subsets of size 3 to N, and stop whenever we are interrupted.
 
 \subsection {Web Services and Many Communities}
 
-In this scenario we consider multiple communities owned by multiple master web services which provide independant request pools. Like first scenario master web services form coalitions with web services. We use coalition structure formation methods to partition web services into non-empty disjoint coalition structures. As mentioned in section \ref{sec:coalition} these algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11} try to solve two fundamental problems of what coalitions to form, and how will the members of these coalitions distribute their total gain to make these coalition structures stable. 
+In this scenario we consider multiple communities owned by multiple master web services which provide independent request pools. Like first scenario master web services form coalitions with web services. We use coalition structure formation methods to partition web services into non-empty disjoint coalition structures. As mentioned in section \ref{sec:coalition} these algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11} try to solve two fundamental problems of what coalitions to form, and how will the members of these coalitions distribute their total gain to make these coalition structures stable. 
 
 \begin{figure}[!t]
 \centering
@@ -615,21 +619,21 @@ In this scenario we consider multiple communities owned by multiple master web s
 
 The valuation function $v(C)$ for this scenario is same as \emph{one grand community} scenario, however in order to prevent master web services joining same community we set $v(C) = 0$, where C has two or more master web services as members. 
 
-One of the properties of CS algorithms in our scenario is tha they partition web services with low throughput rate usually join coalitions with less request rate. Since the characteristic function $v(C)$ and  the fair payoff vector of shapley value is proportional to web services' contribution, the web services with small contribution will get paid much less in communities having web services with high throughput. On the other hand, according to valuation function $v(C)$ web services with high throughput will not contribute well to communities with low amount of user requests. The strong web services are much more likely to deviate weak coalitions, joining a stronger coalition, making the initial coalition unstable.
+One of the properties of coalition structure formation algorithms in our scenario is that they partition web services with low throughput rate usually join coalitions with less request rate. Since the characteristic function $v(C)$ and  the fair payoff vector of Shapley value is proportional to web services' contribution, the web services with small contribution will get paid much less in communities having web services with high throughput. On the other hand, according to valuation function $v(C)$ web services with high throughput will not contribute well to communities with low amount of user requests. The strong web services are much more likely to deviate weak coalitions, joining a stronger coalition, making the initial coalition unstable.
 
 In coalition-formation games, formation of the coalitions is the most important aspect of in the game. These solutions focus on maximizing social welfare. For any coalition structure $\pi$, let $v_{cs}(\pi)$ denote the total worth $\sum_{C \in \pi}{v(C)}$ which we call it social welfare. The problems in this area deal with finding the maximum value for social welfare over all the possible coalition structures $\pi$. There are $centralized$ algorithms for this end, however these approaches are generally NP-complete. The reason is that number of all possible partitions of a set $N$ grows exponentially with the number of players in $n$, and the centralized algorithms need to iterate through all these partitions. 
-%These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centrilized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}. 
-In our application, we prefer not having a centralized decision maker dictating all web services their decisions. Becuase of this plus the complexity issues we would prefer a distributed algorithm where each community master can be a decision maker. The aim is to find low complexity and distributed algorithms for forming coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}. The distributed merge-and-split algorithm in \cite{DBLP:journals/igtr/AptW09} suits our application very well. It keeps splitting and mergin coalitions where it is preferred by all players inside those coalitions.
+%These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centralized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}. 
+In our application, we prefer not having a centralized decision maker dictating all web services their decisions. Becuase of this plus the complexity issues we would prefer a distributed algorithm where each community master can be a decision maker. The aim is to find low complexity and distributed algorithms for forming coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}. The distributed merge-and-split algorithm in \cite{DBLP:journals/igtr/AptW09} suits our application very well. It keeps splitting and merging coalitions where it is preferred by all players inside those coalitions.
 
 \subsection {Web Services collaborating independently}
 
-In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependant on type of users and requests web services are dealing with. For each webservice we multiplay this by web services's market share $(MarketShare_{ws})$ and the summation would be the characterestic or valuation of independent web service coalitions.
+In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependent on type of users and requests web services are dealing with. For each web service we multiply this by web service's market share $(MarketShare_{ws})$ and the summation would be the characteristic or valuation of independent web service coalitions.
 
 \begin{equation*}
 v(C) = \sum_{ws}{\sum_{m=metrics}{\sum_{ws}{QoS^m_{ws} \times C_{coef}} \times w_{metric} } \times ms_{ws}}
 \end{equation*} 
 
-$C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. Since there are no master web serivces, we assume they eather dynamicly vote for one, or collabrate and agree on decisions and distribute task in round robin or fair fashion. Like ``Web Services and Many Communities'' scenario, both core coalition structure analysis and social welfare analysis are applicable in this scenario.
+$C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. Since there are no master web services, we assume they either dynamically vote for one, or collaborate and agree on decisions and distribute task in round robin or fair fashion. Like ``Web Services and Many Communities'' scenario, both core coalition structure analysis and social welfare analysis are applicable in this scenario.
 
 \begin{figure}[!t]
 \centering
@@ -642,7 +646,7 @@ $C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines
 
 In this section, we discuss the experiments we performed for our scenarios to validate applicability and performance of our proposed methods in realistic environments. We created a pool of web services and populated most of their QoS parameters from a real world web service dataset \cite{DBLP:conf/smc/Al-MasriM09a}. We programmed the simulations using Java and executed the simulations on a Intel Xeon X3450 machine with 4GBs of memory. For other parameters we used normal distribution with parameters that make most sense in real world examples.
 
-We first analyze the most important performance result our communities should perform, quality and quantity of tasks successfully performed by our communities. This is the most important criteria for user satisfaction. We initiate the community with few web services, then let rejecting and accepting of random webservices go for a while, after that we start task distribution for the cummunities and let them allocate tasks for web services. Then we measure the average output performance of tasks in communities following different methods. 
+We first analyze the most important performance result our communities should perform, quality and quantity of tasks successfully performed by our communities. This is the most important criteria for user satisfaction. We initiate the community with few web services, then let rejecting and accepting of random web services go for a while, after that we start task distribution for the communities and let them allocate tasks for web services. Then we measure the average output performance of tasks in communities following different methods. 
 
 \begin{figure}[!t]
 \centering
@@ -653,7 +657,28 @@ We first analyze the most important performance result our communities should pe
 (b): Average QoS of tasks performed.} \label{performanceall}
 \end{figure}
 
-Figure \ref{performanceall} depicts the results of simulation of optimal $\epsilon-Core$, \emph{Depth-1 Convex-Checker}, \emph{Depth-2 Convex-Checker}, 3-Way Satisfactory\cite{DBLP:conf/IEEEscc/LimTMB12} and \emph{2 Player Non-Cooperative} methods. The the \emph{optimal core} method we capped the coalition size to 23 web services, since anything more than that would require analysis with time complexity of $O(2^22)$ which would made that impractical to run in our simulations. In other methods there were no cap on size of the community and we had communities of size 60 web services at some points. The results show depth-2 and 1 convex checker methods are performing well compared to other methods and all not far from optimal.
+Figure \ref{performanceall} depicts the results of simulation of optimal $\epsilon-Core$ with 10\% of total community value deviation allowed (one grand community with many web services), \emph{Depth-1 Convex-Checker}, \emph{Depth-2 Convex-Checker}, 3-Way Satisfactory\cite{DBLP:conf/IEEEscc/LimTMB12} and \emph{2 Player Non-Cooperative} methods. The the \emph{optimal core} method we capped the coalition size to 23 web services, since anything more than that would require analysis with time complexity of $O(2^22)$ which would made that impractical to run in our simulations. In other methods there were no cap on size of the community and we had communities of size 60 web services at some points. The results show depth-2 and 1 convex checker methods are performing well compared to other methods and all not far from optimal.
+
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[scale=0.6]{least_core.eps}
+\caption{Smallest value of $\epsilon$ such that the $\epsilon-core$ is non-empty} \label{f_leastcore}
+\end{figure}
+
+As mentioned in section \ref{s:epsilon}, core assumes no coalition of players can gain anything by deviating which is a fairly strong requirement, that is why the notion of $\epsilon-Core$ was introduced. Least-Core $e(G)$ of a game $G$, is the minimum amount of $\epsilon$ in which the core is not empty. We evaluated the least-core value using our valuation function and our set of web services. We pick random number of web services from our data set and form random coalitions consisting of 3 to 25 web services. We choose 25 as maximum number of members in our grand coalition since it is computationally very complex for bigger coalitions to compute least-core. We set $\epsilon$ to a ratio of total payoff of coalition v(C) from 0 to 1. The results in figure \ref{f_leastcore} show, almost in 10\% of random web service coalitions have non-empty core solution and least-core solution is always non-empty letting agents gain only 30\% more by deviating. 
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[scale=0.61]{s2_task_done.eps}
+\includegraphics[scale=0.61]{s2_task_qos.eps}
+\caption{Part (a): Cumulative number of tasks succesfully done. Part
+(b): Average QoS of tasks performed.} \label{performancemany}
+\end{figure}
+
+In figure \ref{performancemany} we compare our \emph{Web Services and many Communities} scenario with a method which ignores QoS parameters and forms coalitions and allow web services to join only if they have enough requests for them in other words web services can join a community when request rate is less that throughput of all web services inside community ignoring QoS parameters. We name this method \emph{Normal method} and use it as our benchmark for our QoS aware coalition formation process. As results illustrate clearly, our QoS aware method, forms better coalitions of web services improving performance and satisfaction for both web service and coalitions. 
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -743,14 +768,6 @@ Figure \ref{performanceall} depicts the results of simulation of optimal $\epsil
 The conclusion goes here. this is more of the conclusion
 
 % conference papers do not normally have an appendix
-
-
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
-more thanks here
 
 
 % trigger a \newpage just before the given reference
