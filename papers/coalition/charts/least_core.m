@@ -33,12 +33,12 @@ axis([0 100 0 1.1]);
 %axis([0 50 0 1600]);
 
 % Add legend
-hleg1 = legend('Least e-Core');
+%%hleg1 = legend('Least epsilon-Core');
 %set(hleg1,'Location','NorthWest');
-set(hleg1, 'Position', [.31,.69,.05,.1]);
-set(hleg1,'Interpreter','none');
+%%set(hleg1, 'Position', [.31,.69,.05,.1]);
+%%set(hleg1,'Interpreter','none');
 %set(hleg1,'color','none');
-set(hleg1,'FontSize',10);
+%%set(hleg1,'FontSize',10);
 %legend boxoff;
 
 % Add title and axis labels

@@ -35,9 +35,9 @@ set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 axis([0 50 0 7000]);
 
 % Add legend
-hleg1 = legend('Dynamic Coalition Formation','Normal Method');
+hleg1 = legend('Dynamic Coalition Formation','Random Formation');
 %set(hleg1,'Location','NorthWest');
-set(hleg1, 'Position', [.31,.69,.1,.2]);
+set(hleg1, 'Position', [.30,.80,.1,.1]);
 set(hleg1,'Interpreter','none');
 %set(hleg1,'color','none');
 set(hleg1,'FontSize',10);
