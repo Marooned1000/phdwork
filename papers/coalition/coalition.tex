@@ -459,7 +459,7 @@ TODO Problems of \cite {DBLP:conf/IEEEscc/KhosravifarABT11} not considering the 
 %
 %A Web service is an independent service component that aims to serve a variety of needs; it is not a single specific application. When the selected Web service component does not thoroughly fulfill its target need, the service becomes untrustworthy. Testing a service to determine that it fulfills all requirements is tricky because testing must verify the satisfaction of both functional and nonfunctional requirements. The nonfunctional requirements (reliability, availability, survivability, interoperability, and a host of other attributes) decide the service quality and require individual testing. Because the user can invoke a Web service only over the Internet, the challenge is how to test for all possible use scenarios.How can testing determine that the service operates effectively and efficiently for a specific application and environment?
 
-\section{Preliminaries}
+\section{Preliminaries}\label{s:preliminaries}
 
 In this section we discuss the parameters and preliminary concepts that we use in the rest of paper. The way communities of web services are structured and engineered is described thoroughly in \cite{DBLP:journals/ijebr/MaamarSTBB09}. 
 
@@ -498,16 +498,16 @@ The second condition is $feasibility$, according to equation below the payoff fo
 
 When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each member when a task is completed (Coalition-formation games)?
 
-\subsubsection{Shapley value}
+%\subsubsection{Shapley value}
 
 {\bf Definition 1 (Shapley value)} Given a cooperative game (N, v), the Shapley value of player i is given by\cite{shapley_value}: 
 \begin{equation}\label{eq:shapley}
-\sum_{S \subset N \backslash \left\{i\right\} } \frac{|S|! (n-|S|-1)!}{n!} (v(S \cup \left\{i\right\}) - v(S))
+\sum_{S \subseteq N \backslash \left\{i\right\} } \frac{|S|! (n-|S|-1)!}{n!} (v(S \cup \left\{i\right\}) - v(S))
 \end{equation}
 
 Shapley value is a unique and fair solution concept for payoff distribution between agents. It basically rewards agents with amount of marginal contribution they have to the coalition.
 
-\subsubsection{Core}
+%\subsubsection{Core}
 
 {\bf Definition 2 (Core)} A payoff vector x denoted by C(N,v) is in the core of a coalitional game (N, v) if and only if
 \begin{equation}\label{eq:core}
@@ -522,14 +522,16 @@ V(S) + V(T) \leq v(S \cup T) + v (S \cap T), \forall S,T \subseteq N.
 
 According to a classic result by Shapley \cite{S1971cores} convex games always have a non-empty core. We will use a variation of convexity condition in our algorithm to check whether our coalitions are stable.
 
-\subsubsection{$\epsilon-Core$}\label{s:epsilon}
-If core set is not empty, it means no coalition of players can gain anything by deviating, it is the strongest stable condition. An outcome would be unstable if a coalition can benefit even by a small amount from deviating. This is a strong requirement. In some situations, deviations can be costly or agents may have some loyalty to their coalitions or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeded a particular cost for example the costs of deviation. $\epsilon-Core$ relaxes the notion of the core, and only require that no coalition can benefit significantly or within a constant amount($\epsilon$) by deviating.
+\subsubsection*{$\epsilon$-core}\label{s:epsilon}
+%\emph{$\epsilon$-Core:}
+%\\
+When core set is empty, it means no coalition of players can gain anything by deviating, it is the strongest stable condition. An outcome would be unstable if a coalition can benefit even by a small amount from deviating. This is a strong requirement. In some situations, deviations can be costly or agents may have some loyalty to their coalitions or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeded a particular cost for example the costs of deviation. $\epsilon-Core$ relaxes the notion of the core, and only require that no coalition can benefit significantly or within a constant amount($\epsilon$) by deviating.
 
 \begin{equation}\label{eq:core}
 \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
 \end{equation}
 
-\subsubsection{Coalition Structure Formation}\label{sec:coalition}
+\subsubsection*{Coalition Structure Formation}\label{sec:coalition}
 
 Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characteristic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
 
@@ -560,7 +562,7 @@ the community and distributes the income or tasks among its community members.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3in]{s1.eps}
+\includegraphics[width=3in]{s1.eps}`
 \caption{Web Services and A Grand Community}
 \label{fig_sim}
 \end{figure}
@@ -629,13 +631,13 @@ This merge-and-split algorithm is designed to be adoptable for different problem
 
 \subsection {Web Services collaborating independently}
 
-In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependent on type of users and requests web services are dealing with. For each web service we multiply this by web service's market share $(MarketShare_{ws})$ and the summation would be the characteristic or valuation of independent web service coalitions.
+In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependent on type of users and requests web services are dealing with. For each web service we multiply this by web service's market share $(MS_{ws})$ and the summation would be the characteristic or valuation of independent web service coalitions.
 
 \begin{equation*}
-v(C) = \sum_{ws}{\sum_{m=metrics}{\sum_{ws}{QoS^m_{ws} \times CC{m} \times ms_{ws}} \times w_{metric} } }
+v(C) = \sum_{m=metrics}{ \Big( \sum_{ws \in C}{QoS^m_{ws} \times CC^{m} \times MS_{ws} \Big) } \times w_{m} }
 \end{equation*} 
 
-$C_{coef}$ is \emph{Collabrative Coefficient} for each QoS metric, it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. Since there are no master web services, we assume they either dynamically vote for one, or collaborate and agree on decisions and distribute task in round robin or fair fashion. Like ``Web Services and Many Communities'' scenario, both core coalition structure analysis and social welfare analysis are applicable in this scenario.
+$CC^{m}$ is \emph{Collabrative Coefficient} for each QoS metric (non-functional parameter), it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. $w_m$ is the weight of important for a QoS metric, it gives the community the flexibility to emphasize or neglect a specific QoS parameter. Note that $ \sum_{m}{w_m} = 1 $. In this scenario we have no master web services, we assume they either dynamically vote for one, or collaborate and agree on decisions and distribute task in round robin or fair fashion. We use the same merge-and-split algorithm like ``Web Services and Many Communities'' scenario, to find stable coalitions of web serivces.
 
 \begin{figure}[!t]
 \centering
@@ -669,7 +671,7 @@ Figure \ref{performanceall} depicts the results of simulation of optimal $\epsil
 \caption{Smallest value of $\epsilon$ such that the $\epsilon-core$ is non-empty} \label{f_leastcore}
 \end{figure}
 
-As mentioned in section \ref{s:epsilon}, core assumes no coalition of players can gain anything by deviating which is a fairly strong requirement, that is why the notion of $\epsilon-Core$ was introduced. Least-Core $e(G)$ of a game $G$, is the minimum amount of $\epsilon$ in which the core is not empty. We evaluated the least-core value using our valuation function and our set of web services. We pick random number of web services from our data set and form random coalitions consisting of 3 to 25 web services. We choose 25 as maximum number of members in our grand coalition since it is computationally very complex for bigger coalitions to compute least-core. We set $\epsilon$ to a ratio of total payoff of coalition v(C) from 0 to 1. The results in figure \ref{f_leastcore} show, almost in 10\% of random web service coalitions have non-empty core solution and least-core solution is always non-empty letting agents gain only 30\% more by deviating. 
+As mentioned in preliminaries section \ref{s:preliminaries}, core assumes no coalition of players can gain anything by deviating which is a fairly strong requirement, that is why the notion of $\epsilon-Core$ was introduced. Least-Core $e(G)$ of a game $G$, is the minimum amount of $\epsilon$ in which the core is not empty. We evaluated the least-core value using our valuation function and our set of web services. We pick random number of web services from our data set and form random coalitions consisting of 3 to 25 web services. We choose 25 as maximum number of members in our grand coalition since it is computationally very complex for bigger coalitions to compute least-core. We set $\epsilon$ to a ratio of total payoff of coalition v(C) from 0 to 1. The results in figure \ref{f_leastcore} show, almost in 10\% of random web service coalitions have non-empty core solution and least-core solution is always non-empty letting agents gain only 30\% more by deviating. 
 
 \begin{figure}[!t]
 \centering
@@ -767,7 +769,10 @@ In figure \ref{performancemany} we compare our \emph{Web Services and many Commu
 
 
 \section{Conclusion}
-The conclusion goes here. this is more of the conclusion
+
+In this paper, we proposed a cooperative game theory based model for aggregation of web services within communities. The goal of our services is to maximize efficiency of performing tasks by collaborating and forming stable communities. Our method considers stability and fairness for all web services within a community and offers an applicable mechanism for membership requests and selection of web services. The goal is to increase revenue by improving user satisfaction, which comes from the ability to perform tasks with higher quality and quantity. Simulation results show that our, polynomial in complexity, approximation algorithms provide web services and community owners with applicable and near-optimal decision making mechanisms. 
+
+As future work, we would like to perform more analytical and theoretical work on the convexity condition for the characteristic function on web service applications. A future research direction includes working on compact or succinct representation of our service model to reduce the input complexity of cooperative game stability and fairness and membership checking solutions. From web service aspect the work can be extended to consider web service compositions where a group of web services having different set of skills cooperate to perform composite tasks.
 
 % conference papers do not normally have an appendix
 
