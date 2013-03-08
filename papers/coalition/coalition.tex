@@ -633,11 +633,12 @@ This merge-and-split algorithm is designed to be adoptable for different problem
 
 In this scenario, we do not consider pre-defined communities and master web services. Here web services are interested in forming coalitions to perform better and share benefits. We do not consider concept of master web services providing requests for others, each web service comes with its own request load which in this scenario we call it \emph{market share}. Therefore coalitions will form is web services working together can perform and gain more than working alone individually. The worth or value of coalitions of web services is different in this setting, average the QoS metrics of web service, multiply it by a weight where the importance or weigth of each metric is dependent on type of users and requests web services are dealing with. For each web service we multiply this by web service's market share $(MS_{ws})$ and the summation would be the characteristic or valuation of independent web service coalitions.
 
-\begin{equation*}
-v(C) = \sum_{m=metrics}{ \Big( \sum_{ws \in C}{QoS^m_{ws} \times CC^{m} \times MS_{ws} \Big) } \times w_{m} }
-\end{equation*} 
+\begin{equation}
+v(C) = \sum_{m=metrics}{ \Big( \sum_{ws \in C}{QoS^m_{ws} \times MS_{ws} \Big) } \times w_{m} }
+\end{equation} 
 
-$CC^{m}$ is \emph{Collabrative Coefficient} for each QoS metric (non-functional parameter), it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. $w_m$ is the weight of important for a QoS metric, it gives the community the flexibility to emphasize or neglect a specific QoS parameter. Note that $ \sum_{m}{w_m} = 1 $. In this scenario we have no master web services, we assume they either dynamically vote for one, or collaborate and agree on decisions and distribute task in round robin or fair fashion. We use the same merge-and-split algorithm like ``Web Services and Many Communities'' scenario, to find stable coalitions of web serivces.
+%$CC^{m}$ is \emph{Collabrative Coefficient} for each QoS metric (non-functional parameter), it determines how web services providing that QoS metric individually will be effected in a coalition environment. If it is more than 1, is means they increase performance by working together and they are \emph{super additive}, otherwise it depicts they would perform better in linear sense if they worked alone. 
+$w_m$ is the weight of important for a QoS metric, it gives the community the flexibility to emphasize or neglect a specific QoS parameter. Note that $ \sum_{m}{w_m} = 1 $. In this scenario we have no master web services, we assume they either dynamically vote for one, or collaborate and agree on decisions and distribute task in round robin or fair fashion. We use the same merge-and-split algorithm like ``Web Services and Many Communities'' scenario, to find stable coalitions of web serivces.
 
 \begin{figure}[!t]
 \centering
