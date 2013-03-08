@@ -4,7 +4,7 @@
 %T and vT : cell
 %use v containing numbers 
 
-set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|-.|--|.|:')
+set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','-|+|--|.|:')
 
 i=0:49;
 t=v(:,1);y=v(:,2);z=v(:,3);tt=v(:,4);yy=v(:,5);
@@ -35,9 +35,9 @@ set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 axis([0 50 0 1600]);
 
 % Add legend
-hleg1 = legend('e-Core','depth-2 Convex','depth-1 Convex','3-Way Sat','2-Player Game');
+hleg1 = legend('Optimal epsilon-core','Our depth-2 Convex','Our depth-1 Convex','3-Way Sat','2-Player Game');
 %set(hleg1,'Location','NorthWest');
-set(hleg1, 'Position', [.24,.63,.1,.2]);
+set(hleg1, 'Position', [.26,.66,.1,.2]);
 set(hleg1,'Interpreter','none');
 %set(hleg1,'color','none');
 set(hleg1,'FontSize',10);
