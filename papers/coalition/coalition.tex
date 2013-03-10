@@ -592,15 +592,15 @@ the community and distributes the income or tasks among its community members.
 The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the Shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if Shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In Shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed, this is why Shapley value distribution is fair. It is proven in convex games the Shapley value lies in the core \cite{DBLP:conf/ijcai/GrecoMPS11, myerson1991game}. Therefore if the Core is non-empty, the Shapley payoff vector is a member of Core.
 % so in our algorithm we check the core membership of this payoff vector. 
 
-\emph{Proposition: } The folowwing statement is equivalent with convex condition of equation \ref{eq:convex}.
-\\
-\\
-For $\forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N$ we have:
+%\ref{eq:convex}.
+
+\emph{Proposition: } A game with characterestic function v is convex \emph{if and only if for all S, T, and i where} $S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N$, 
+%For $\forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N$ we have:
 \begin{equation}\label{eq:convex_snow}
 v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \end{equation}
 
-\emph{Proof: } 
+\emph{Proof. ``only if''} direction, 
 
 \begin{gather*}\label{convexsnowproof}
 v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
@@ -608,27 +608,38 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \rightarrow v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \end{gather*}
 
-We know $T \subseteq N - \left\{i\right\}$, therefore:
+Considering $S \subseteq T$:
 
-\begin{equation*}
-(S \cup \left\{i\right\}) \cap T = T \cup S
-\end{equation*}
+\begin{gather*}
+S \cup \left\{i\right\} = (S \cup \left\{i\right\}) \cup T
+\\
+T = (S \cup \left\{i\right\}) \cap T
+\end{gather*}
 
-and we have $S \subseteq T$, therefor:
-
-\begin{equation*}
-(S \cup \left\{i\right\}) \cap T = S
-\end{equation*}
-
-With a variable chnage of S we have:
+By setting $A = S \cup \left\{i\right\}$ and $B = T$ we have:
 
 \begin{gather*}
 v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \\
 \rightarrow v(S \cup \left\{i\right\}) + v(T) \leq v((S \cup \left\{i\right\}) \cup T) + v((S \cup \left\{i\right\}) \cap T)
 \\
-\rightarrow v(S^\prime) + V(T) \leq v(S^\prime) + v(S^\prime \cap T)
+\rightarrow v(A) + V(B) \leq v(A \cup B) + v(A \cap B)
 \end{gather*}
+
+For prove of ``if'' direction, for all $A, B \subset N$,
+
+\begin{gather*}
+v(A) - v(A \cap B) \leq v(A \cup B) - v(B)
+\end{gather*}
+
+By setting $S \cup \left\{i\right\} = A$ and $R = B$ where $S \subseteq R$:
+
+\begin{gather*}
+v(S \cup \left\{i\right\}) - v((S \cup \left\{i\right\}) \cap T) \leq v(T \cup (S \cup \left\{i\right\})) - v(T)
+\\
+\rightarrow v(S \cup \left\{i\right\}) - v(S) \leq v(T \cup \left\{i\right\}) - v(T)
+\end{gather*}
+
 
 This means in order to keep the characteristic function convex, new agents should have more marginal contribution as coalition size grows.
 
