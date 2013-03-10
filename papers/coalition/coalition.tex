@@ -596,8 +596,11 @@ The membership decision is made based on throughput and QoS of the requested web
 % so in our algorithm we check the core membership of this payoff vector. 
 
 \emph{Proposition: } The folowwing statement is equivalent with convex condition of equation \ref{eq:convex}.
+\\
+\\
+For $\forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N$ we have:
 \begin{equation}\label{eq:convex_snow}
-v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T), \\ \forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N; 
+v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \end{equation}
 
 \emph{Proof: } 
