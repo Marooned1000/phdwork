@@ -438,17 +438,25 @@ Web services; Cooperative game thoery; Community of services;
 
 \section{Introduction}
 
-Over the past years, web applications have become part of critical buisiness services. The increasing reliance on web-based applications has had significant implications for service providers and its users.
+Over the past years, web applications have become part of critical buisiness services. The increasing reliance on web-based applications has significant implications for service providers and its users. Web services are methods of communication between electronic devices over the internet. Web service as a highly available software function acessable at a network address over the web or the cloud usually provides a set of \emph{stateless} functions.  
 
 TODO on functional and non-functional requirements specially for critial applications \\
 
-TODO on community of web services \\
+The need for highly available and highly responsive services online has called for collaborative communities of these loosely-coupled business services. The idea of web service communities and the way they are engineered to collaborate was proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09, DBLP:journals/internet/BenatallahSD03, Rosario:2008:PQS:1512146.1512290} where web services with similar functionality are grouped together and users send their requests to communities assuring higher service availability and performance than individual web services. These communities are highly available also more resilience to failure since there is no single point of failure in their architecture. 
 
-TODO Problems of \cite{Chun02user-centricperformance, mcknight00a, DBLP:journals/internet/BenatallahSD03, Khosravifar:2009:AIR:1586636.1586906, Rosario:2008:PQS:1512146.1512290} \\
+Most of the recent work on communities of services are either user-centric and focus user satisfaction \cite{Chun02user-centricperformance} or there are many works in distributed, grid, cluster and cloud computing which are system-centric and focus on system throughput and performance and utilization of the system. However in real world environments both users and services are selfish and self-interested agents, aiming to maximize their own profit. In real world environments, both these parties will participate and collaborate as long as its economically efficient for them. 
 
-TODO Problems of \cite {DBLP:conf/IEEEscc/LimTMB12} having to cop and optimizing for with all weak web services reduces the optimal result\\
+Recently, \cite{DBLP:conf/IEEEscc/LimTMB12, DBLP:conf/IEEEscc/KhosravifarABT11} have proposed mechanisms in which try to maximize gain for both parties. A two-player non-cooperative game theory method between web services and community manager was proposed in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}. The strategies for a web service when facing a new communities, is joining or staying in their community and the set of strategies for communities are allowing to resusing the the web service proposal. Both parties based on their capacity, market share and reputation will have different set of utilities over the strategy profiles of the game. The problem with this method is the game is between community master and the new web service, and all other web services already residing within the community are ignored. Those web services can lose utility and gain having to collabrate with new webserices, they may deviate and join other comuunities if they are unsatisfied. In \cite{DBLP:conf/IEEEscc/LimTMB12} a 3-Way satisfaction selection approach has been proposed. In thier approach, they proposed a web service selection process for community masters catering for the effciency of 3 parties of users, web services and communities. In this work, they show how the gain of these parties are coupled together and they suggest a linear optimization process for optimizing the needs of the 3 parties. However, the optimization problem in this solution tends to optimize some parameters considering all web serivces even if they are weak. There are no clear thresholds for accepting or rejecting new web services. The optimization result for example could suggest web services already residing within the community to increase or decrease their capacity to adjust with weakness of other parties in the system. Hoever, a strong performing web service could deviate anytime it finds itself unsatisfied within the community instead of adjusting its service parameters. 
 
-TODO Problems of \cite {DBLP:conf/IEEEscc/KhosravifarABT11} not considering the current web services in coalition and startegies are only based on master web service and new web service gain\\
+In this paper, we proposed a cooperative game theory based model for aggregation of web services within communities. The solution concepts of cooperative game theory seeks to find most efficient ways of forming coalitions (teams) of agents, maximizing their gain and payoff, and also distributing gain in a fair way to keep coalitions stable by having all agents satisfied. We first propose a representation function for communities of web services based on their qualities and capacities. Using this function we can evaluate the $worth$ of each coalition of web services. Our community managers facing new membership requests, analyses whether the new coalition having the new set of web services will keep the community stable for $all$ web services already residing in the community or not. The community manager will reject the membership requests if it finds out new coalition can be unstable since there can be $any$ subset of web services gaining significantly more by deviating, colluding with new web services and joining other communities. Also web services facing communities, will try to join communities which maximizes their gain, if they find out they can deviate and agin more, they will form new coalitions with other communities. The cooperative game theory solution methods are combinatorial in nature, making them impractical in real world applications; however, using the concepts of group stability we have offered approximation algorithms running in polynomial time providing web services and community owners with applicable and near-optimal decision making mechanisms.
+
+
+The rest of paper is organized as follows. Section \ref{s:preliminaries} describes architecture and parameters and some basic cooperative game theory concepts, section \ref{s:model} presents our solution model in three different scenarios. Section \ref{s:resutls} presents our experiments and results and finally section \ref{s:conclusion} concludes the paper and identified future work.
+
+
+%In prevoius works \cite{Chun02user-centricperformance, mcknight00a, DBLP:journals/internet/BenatallahSD03, Khosravifar:2009:AIR:1586636.1586906, Rosario:2008:PQS:1512146.1512290} 
+
+%TODO Problems of \cite {DBLP:conf/IEEEscc/LimTMB12} having to cop and optimizing for with all weak web services reduces the optimal result\\
 
 
 
@@ -498,7 +506,7 @@ $Cost$ & Mean service fee for cooperating \\
 \label{qosws}
 \end{table}
 
-We normalize and aggrigate each of these metrics to a real value between 0 and 1. Since tasks are not shared between web services and are distributed among all web serivices inside a community, one can expect tasks within a community to be performed by average quality of web service residing in that community. We use this average expected quality output, later in evaluating community $worth$ or $payoff$ function. 
+We adopted a real world dataset \cite{DBLP:conf/smc/Al-MasriM09a} which has normalized and aggrigated each of these metrics to a real value between 0 and 1. Since tasks are not shared between web services and are distributed among all web serivices inside a community, one can expect tasks within a community to be performed by average quality of web service residing in that community. We use this average expected quality output, later in evaluating community $worth$ or $payoff$ function. 
 
 \subsection{Cooperative Game Concepts}
 Cooperative game is a branch of game theory that studies strategies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let N to be a set of players. Any subset S of N can form a group that we call it a $coalition$. A $coalitional game$ is a pair $G = (N, v)$ where v is $characteristic function$ which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can divide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the amount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions:
@@ -549,7 +557,10 @@ When core set is empty, it means no coalition of players can gain anything by de
 
 Coalition structure formation is the problem of finding best partition of agents into teams, focusing more on optimizing the coalition's ``owner'' payoff. In these settings performance of individual agent is less important than the \emph{social welfare} of the system, which is the sum of the values of all teams. Having characteristic function game G, a coalition structure (CS) is \emph{socially optimal} is CS belongs to set $argmax_{CS \in CS_N}v(CS)$ where v(CS) is sum of the total valuation function of all coalitions inside CS $(v(CS) = \sum_{C \in CS_N}v(CS))$. The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
 
-\section{Problem Formulation and Modeling}
+
+
+
+\section{Problem Formulation and Modeling}\label{s:model}
 
 In this section, we present the architecture of different web service community models and formulate how both web services and community masters as rational agents would maximise their payoff.
 
@@ -584,9 +595,9 @@ the community and distributes the income or tasks among its community members.
 The membership decision is made based on throughput and QoS of the requested web service. The goal is to have quality web services in community so the community stays stable and no other web services would have incentives to deviate and join ``other'' coalitions. Therefore, we it check the core membership of the coalition of all current community members and the new web service. Our algorithm uses the Shapley value distribution method as described in equation \ref{eq:shapley} to distribute gain of $v(C)$ among all members and then checks if Shapley value payoff vector for this community having characteristic function $v(C)$ is Core stable or not. In Shapley value payoff vector, the payoff for each web service i, is calculated based on their contribution $v(C \cup {i}) - v(C)$ and then averaging over the possible different permutations in which the coalition can be formed, this is why Shapley value distribution is fair. It is proven in convex games the Shapley value lies in the core \cite{DBLP:conf/ijcai/GrecoMPS11, myerson1991game}. Therefore if the Core is non-empty, the Shapley payoff vector is a member of Core.
 % so in our algorithm we check the core membership of this payoff vector. 
 
-\emph{Proposition: } The folowwing statement is equivalent with convex condition of equation \ref{eq:convex}; 
+\emph{Proposition: } The folowwing statement is equivalent with convex condition of equation \ref{eq:convex}.
 \begin{equation}\label{eq:convex_snow}
-v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T), \forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N; 
+v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T), \\ \forall S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N; 
 \end{equation}
 
 \emph{Proof: } 
@@ -641,7 +652,7 @@ One of the properties of coalition structure formation algorithms in our scenari
 In coalition-formation games, formation of the coalitions is the most important aspect of in the game. These solutions focus on maximizing social welfare. For any coalition structure $\pi$, let $v_{cs}(\pi)$ denote the total worth $\sum_{C \in \pi}{v(C)}$ which we call it social welfare. The problems in this area deal with finding the maximum value for social welfare over all the possible coalition structures $\pi$. There are $centralized$ algorithms for this end, however these approaches are generally NP-complete. The reason is that number of all possible partitions of a set $N$ grows exponentially with the number of players in $n$, and the centralized algorithms need to iterate through all these partitions. 
 %These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centralized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}. 
 In our application, we prefer not having a centralized decision maker dictating all web services their decisions. Becuase of this plus the complexity issues we would prefer a distributed algorithm where each community master can be a decision maker. The aim is to find low complexity and distributed algorithms for forming coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}. The distributed merge-and-split algorithm in \cite{DBLP:journals/igtr/AptW09} suits our application very well. It keeps splitting and merging coalitions where it is preferred by all players inside those coalitions. 
-This merge-and-split algorithm is designed to be adoptable for different problems. It two functions to be specified, first a preference relation or comparison relation for comparing two collections of different coalition partitions of same players and second function is to assess the stability condition of a partition. Having two partition sets of a subset of our players, namely $P = {P_1,...,P_k}$ and $Q = {Q_1,...N_l}$ one example would be to use the social welfare comarison $\sum^k_{i=1}v(P_i) > \sum^k_{i=1}v(N_l)$. For our scenario we used $Pareto order$ comparison which is an individual-value order appropriate for our self-interest agents (web services). In Pareto order, an allocation or partition $P$ is preferred over another $Q$ if at least one player gets more payoff in new allocation without other players getting hurt, or other players at least same payoff. ($p_i \geq q_i$ with at least one element $p_i > q_i$). As new web services are discovered and get ready to join communities, this algorithm keeps merging and splitting partitions based on the preference or comparison function provides and will stop as the partitions satisfy the stability condition or no further merging and splitting is found satisfying the comparison function. More details of this algorithm and analyses of generic solutions on coalition formation games are described in \cite{DBLP:journals/igtr/AptW09}.
+This merge-and-split algorithm is designed to be adoptable for different problems. It requires two functions to be specified, first a preference relation or comparison relation for comparing two collections of different coalition partitions of same players and second function is to assess the stability condition of a partition. Having two partition sets of a subset of our players, namely $P = {P_1,...,P_k}$ and $Q = {Q_1,...N_l}$ one example would be to use the social welfare comarison $\sum^k_{i=1}v(P_i) > \sum^k_{i=1}v(N_l)$. For our scenario we used $Pareto order$ comparison which is an individual-value order appropriate for our self-interest agents (web services). In Pareto order, an allocation or partition $P$ is preferred over another $Q$ if at least one player gets more payoff in new allocation without other players getting hurt, or other players at least same payoff. ($p_i \geq q_i$ with at least one element $p_i > q_i$). As new web services are discovered and get ready to join communities, this algorithm keeps merging and splitting partitions based on the preference or comparison function provides and will terminate\cite{DBLP:journals/corr/abs-cs-0605132} as the partitions satisfy the stability condition or no further merging and splitting is found satisfying the comparison function. More details of this algorithm and analyses of generic solutions on coalition formation games are described in \cite{DBLP:journals/igtr/AptW09}.
 
 \subsection {Web Services collaborating independently}
 
@@ -661,7 +672,7 @@ $w_m$ is the weight of important for a QoS metric, it gives the community the fl
 \label{fig_sim}
 \end{figure}
 
-\section{Experimental Results}
+\section{Experimental Results}\label{s:resutls}
 
 In this section, we discuss the experiments we performed for our scenarios to validate applicability and performance of our proposed methods in realistic environments. We created a pool of web services and populated most of their QoS parameters from a real world web service dataset \cite{DBLP:conf/smc/Al-MasriM09a}. We programmed the simulations using Java and executed the simulations on a Intel Xeon X3450 machine with 4GBs of memory. For other parameters we used normal distribution with parameters that make most sense in real world examples.
 
@@ -670,8 +681,8 @@ We first analyze the most important performance result our communities should pe
 \begin{figure}[!t]
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[scale=0.61]{task_done_opt.eps}
-\includegraphics[scale=0.61]{task_qos_opt.eps}
+\includegraphics[width=3in]{task_done_opt.eps}
+\includegraphics[width=3in]{task_qos_opt.eps}
 \caption{Part (a): Cumulative number of tasks succesfully done. Part
 (b): Average QoS of tasks performed.} \label{performanceall}
 \end{figure}
@@ -682,7 +693,7 @@ Figure \ref{performanceall} depicts the results of simulation of optimal $\epsil
 \begin{figure}[!t]
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[scale=0.6]{least_core.eps}
+\includegraphics[width=3in]{least_core.eps}
 \caption{Smallest value of $\epsilon$ such that the $\epsilon-core$ is non-empty} \label{f_leastcore}
 \end{figure}
 
@@ -691,8 +702,8 @@ As mentioned in preliminaries section \ref{s:preliminaries}, core assumes no coa
 \begin{figure}[!t]
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[scale=0.61]{s2_task_done.eps}
-\includegraphics[scale=0.61]{s2_task_qos.eps}
+\includegraphics[width=3in]{s2_task_done.eps}
+\includegraphics[width=3in]{s2_task_qos.eps}
 \caption{Part (a): Cumulative number of tasks succesfully done. Part
 (b): Average QoS of tasks performed.} \label{performancemany}
 \end{figure}
@@ -783,7 +794,7 @@ In figure \ref{performancemany} we compare our \emph{Web Services and many Commu
 
 
 
-\section{Conclusion}
+\section{Conclusion}\label{s:conclusion}
 
 In this paper, we proposed a cooperative game theory based model for aggregation of web services within communities. The goal of our services is to maximize efficiency of performing tasks by collaborating and forming stable communities. Our method considers stability and fairness for all web services within a community and offers an applicable mechanism for membership requests and selection of web services. The goal is to increase revenue by improving user satisfaction, which comes from the ability to perform tasks with higher quality and quantity. Simulation results show that our, polynomial in complexity, approximation algorithms provide web services and community owners with applicable and near-optimal decision making mechanisms. 
 

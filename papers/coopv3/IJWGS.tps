@@ -53,7 +53,7 @@ Class=CLatexEdit
 Document=..\coalition\coalition.tex
 
 [Frame1_Row0]
-cyCur=545
+cyCur=574
 cyMin=10
 
 [Frame1_Col0]
@@ -61,9 +61,9 @@ cxCur=1693
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=418
-Cursor.column=930
-TopSubLine=417
+Cursor.row=657
+Cursor.column=46
+TopSubLine=716
 
 [Frame2]
 Columns=1
@@ -92,7 +92,7 @@ cxMin=10
 [Frame2_View0,0]
 Cursor.row=199
 Cursor.column=9
-TopSubLine=188
+TopSubLine=189
 
 [Frame3]
 Columns=1
