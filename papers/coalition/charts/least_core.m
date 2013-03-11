@@ -8,7 +8,7 @@ set(0,'DefaultAxesColorOrder',[0 0 0],'DefaultAxesLineStyleOrder','+|--|--|.|:')
 
 i=0:99;
 t=0:0.01:1;
-y=v(:,1);
+y=v(:,13);
 %set(gcf,'Position',[100 100 800 500]);
 set(gcf,'Position',[100 100 600 375]);
 
