@@ -568,7 +568,7 @@ In this setting, we define the value of the coalition as follows:
 \begin{equation*}
 output(C) = \sum_{ws}{(T_{ws} \times QoS_{ws})}
 \end{equation*}
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{equation*}
 v(C) = \left\{ 
   \begin{array}{l l}
@@ -601,7 +601,7 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \end{equation}
 
 \emph{Proof. ``only if''} direction, 
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}\label{convexsnowproof}
 v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \\
@@ -609,7 +609,7 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 \end{gather*}
 
 Considering $S \subseteq T$:
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}
 S \cup \left\{i\right\} = (S \cup \left\{i\right\}) \cup T
 \\
@@ -617,7 +617,7 @@ T = (S \cup \left\{i\right\}) \cap T
 \end{gather*}
 
 By setting $A = S \cup \left\{i\right\}$ and $B = T$ we have:
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}
 v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \\
@@ -627,13 +627,13 @@ v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \end{gather*}
 
 For prove of ``if'' direction, for all $A, B \subset N$,
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}
 v(A) - v(A \cap B) \leq v(A \cup B) - v(B)
 \end{gather*}
 
 By setting $S \cup \left\{i\right\} = A$ and $R = B$ where $S \subseteq R$:
-
+\setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}
 v(S \cup \left\{i\right\}) - v((S \cup \left\{i\right\}) \cap T) \leq v(T \cup (S \cup \left\{i\right\})) - v(T)
 \\
@@ -706,7 +706,7 @@ Figure \ref{performanceall} depicts the results of simulation of optimal $\epsil
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
 \includegraphics[width=3in]{least_core.eps}
-\caption{Smallest value of $\epsilon$ such that the $\epsilon-core$ is non-empty} \label{f_leastcore}
+\caption{Analysis of \emph{$\epsilon$-core} set non-emptiness, for different values of $\epsilon$} \label{f_leastcore}
 \end{figure}
 
 As mentioned in preliminaries section \ref{s:preliminaries}, core assumes no coalition of players can gain anything by deviating which is a fairly strong requirement, that is why the notion of $\epsilon-Core$ was introduced. Least-Core $e(G)$ of a game $G$, is the minimum amount of $\epsilon$ in which the core is not empty. We evaluated the least-core value using our valuation function and our set of web services. We pick random number of web services from our data set and formed around 10,000 random coalitions consisting of 3 to 25 web services. We choose 25 as maximum number of members in our grand coalition since it is computationally very complex for bigger coalitions to compute \emph{$\epsilon$}-core. We set $\epsilon$ to a ratio of total payoff of coalition v(C) between 0 and 1. The results in figure \ref{f_leastcore} illustrates, almost 10\% of our random web service coalitions have non-empty core solution and \emph{$\epsilon$}-core solution is always non-empty when we let agents gain only 30\% (of $v(C)$) more, by deviating. 
