@@ -474,13 +474,13 @@ Our system consists of three main type of entities working together:
 
 \emph{1) Web services} are rational entities providing services to end users. They aim to maximize their individual income by receiving enough requests from end users. In order to increase their revenue, web services seek for more tasks if they have the capacity and throughput. Web services can join communities to have better efficiency by collaborating with others, to have access to higher market share and to have opportunity of receiving a bigger task pool from end users. The way the web services reside inside communities and how communities of web services are engineered is described thoroughly in \cite{DBLP:journals/ijebr/MaamarSTBB09}. Throughout this paper, in our equations, we refer to web services as $ws$.
 
-\emph{2) Master Web Services} are responsible for managing and are representative of the communities of web services. Communities receieve tasks from users and they aim to have a healthy set of web services to perform the tasks. They seek to maximise user satisfaction by having tasks accomplished with good rate and quality. Higher user satisfaction will bring more user tasks and increase the market share of the community.
+\emph{2) Master Web Services} are responsible for managing and are representative of the communities of web services. Communities receieve tasks from users and they aim to have a healthy set of web services to perform the tasks. They seek to maximise user satisfaction by having tasks accomplished with good rate and quality. Higher user satisfaction will bring more user tasks and increase the market share and revenue of the community.
 
 \emph{3) Users} generate tasks and try to find service providers online to perform the tasks. User satisfaction is abstracted as function of quantity and quality of tasks accomplished by our service providers.
 
 \subsection{Web Sercive Parameters}
 
-Web services come with different quality parameters. These parameters with a short description are listed in Table \ref{qosws}.
+Web services come with different quality of service parameters. These parameters with a short description are listed in Table \ref{qosws}.
 
 \begin{table}[!t]
 \centering
@@ -503,17 +503,17 @@ $Security$ & Quality of confidentiality and non-repudiation\\
 \label{qosws}
 \end{table}
 
-We adopted a real world dataset \cite{DBLP:conf/smc/Al-MasriM09a} which has normalized and aggrigated each of these metrics to a real value between 0 and 1. Since tasks are not shared between web services and are distributed among all web serivices inside a community, one can expect tasks within a community to be performed by average quality of web service residing in that community. We use this average expected quality output $(QoS_{ws})$, later in evaluating community $worth$ or $payoff$ function. 
+We adopted a real world dataset \cite{DBLP:conf/smc/Al-MasriM09a} which has aggregated and normalized each of these parameters to a real value between 0 and 1. Since tasks are not shared between web services and are distributed among all web services inside a community, one can expect tasks within a community to be performed by average quality of web service residing in that community. We use this expected quality output $(QoS_{ws})$, later in evaluating community \emph{worth} or \emph{payoff} function.
 
 \subsection{Cooperative Game Concepts}
-Cooperative game is a branch of game theory that studies strategies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let N to be a set of players. Any subset S of N can form a group that we call it a $coalition$. A $coalitional game$ is a pair $G = (N, v)$ where v is $characteristic function$ which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can divide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the amount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions:
+Cooperative game is a branch of game theory that studies strategies of self-interested agents in a setting where agents can increase their payoff by binding agreements and cooperating in groups. We let $N$ to be a set of players. Any subset $S$ of $N$ can form a group that we call it a $coalition$. A \emph{coalitional game} is a pair $G = (N, v)$ where $v$ is \emph{characteristic function} which given a coalition is a function $v: 2^N \to \mathbb{R}$ which maps the set of agents of the coalition to a real number v(S), the worth of S. This number usually resembles the output or payoff or performance of these agents working together as a coalition.  If a coalition S forms then it can divide its worth, v(S) in any possible among its members. The payoff vector $x \in \mathbb{R}^S$ is the amount of payoff being distributed among agents of coalition S. The payoff vector satisfies two conditions:
 
 \begin{itemize}
 	\item $x \geq 0$ for all $i \in N$, and
 	\item $\sum_{i \in S} x_i \leq v(S)$
 \end{itemize}
 
-The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of characteristic function works in $transferable utility$ (TU) settings, where utility (payoff) is transferable from one player to other, in other words players have common currency and a unit of income is worth same for all players \cite{myerson1991game}.
+The second condition is $feasibility$, according to equation below the payoff for each agent cannot be more than coalitions total gain. A payoff vector is also $efficient$ if all the payoff obtained by a coalition is distributed amongst coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of characteristic function works in \emph{transferable utility} (TU) settings, where utility (payoff) is transferable from one player to other, in other words players have common currency and a unit of income is worth same for all players \cite{myerson1991game}.
 
 When dealing with cooperative games, two issues need to get addressed: 1. What coalition to form (Canonical games)? 2. How to reward each member when a task is completed (Coalition-formation games)?
 
