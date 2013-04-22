@@ -1064,7 +1064,7 @@ master web service as member.
 In this scenario, as new web services are discovered and get ready
 to join communities, our algorithm keeps merging and splitting
 partitions based on the preference function. The decision to merge
-or split is tied to the fact that all players must benefit. The
+or split is based on the fact that all players must benefit. The
 new web services will merge with communities if $all$ the players
 are able to improve their individual payoff, and some web services
 may split from old communities, if splitting does not decrease the
@@ -1184,18 +1184,17 @@ As mentioned in Section \ref{s:preliminaries}, the concept of
 deviating, which is a fairly strong requirement, and that is why
 the notion of \emph{$\epsilon$-core} was introduced. Least-Core
 $e(G)$ of a game $G$, is the minimum amount of $\epsilon$ so that
-the core is not empty. We evaluated the least-core value using our
-valuation function and our set of web services. We picked random
+the core is not empty. We evaluated the non-emptiness of \emph{$\epsilon$-core} set using the
+valuation function and a set of web services. We picked random
 number of web services from the dataset and formed around 10,000
 random coalitions consisting of 3 to 26 web services. We choose 26
-as the maximum number of members in our grand coalition since it
-is computationally very complex for bigger coalitions to compute
-\emph{$\epsilon$-core}. We set $\epsilon$ to a ratio of total
-payoff of coalition $v(C)$ between 0 and 1. The results in Figure
+as the maximum number of members in our coalition since it
+is computationally very complex for larger coalitions to verify whether 
+\emph{$\epsilon$-core} set is empty or not. Also instead of considering $\epsilon$ amount of constant deviation in \emph{$\epsilon$-core} definition (Equation \ref{eq:core}), we similarly defined \emph{relative $\epsilon$-core} concept where no coalition would benefit more than \emph{$\epsilon$.v(C)} by deviating. We set $\epsilon$ between 0 and 1 and verify the \emph{relative $\epsilon$-core} set non emptiness. The results in Figure
 \ref{f_leastcore} illustrates that almost 10\% of our random web
 service coalitions have non-empty \emph{core} solution and
 \emph{$\epsilon$-core} solution is \emph{always} non-empty when we
-let agents gain 30\% more of $v(C)$ by deviating.
+let agents gain only 30\% more of $v(C)$ by deviating.
 
 One of the properties of coalition structure formation algorithms
 in our third scenario is that they partition web services with low
@@ -1330,8 +1329,8 @@ services and community owners with applicable and near-optimal
 decision making mechanisms.
 
 As future work, we would like to perform more analytical and
-theoretical analysis on the convexity condition for the
-characteristic function on web service applications. From web service perspective, the
+theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts based on the
+characteristic function in web service applications. From web service perspective, the
 work can be extended to consider web service compositions where a
 group of web services having different set of skills cooperate to
 perform composite tasks. Also bargaining theory from cooperating
