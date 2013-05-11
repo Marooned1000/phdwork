@@ -900,7 +900,7 @@ they have to the coalition.
 
 {\bf Definition 2 (Core)} A payoff vector $x$ is in the $core$ of
 a coalitional game $(N, v)$ if and only if:
-\begin{equation}\label{eq:core3}
+\begin{equation}\label{eq:core}
 \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
 \end{equation}
 
@@ -1057,7 +1057,7 @@ algorithm tractable.
 
 \newtheorem{theorem}{Proposition}
 %\begin{theorem}[Einstein-Podolsky-Rosenberg]
-\begin{theorem}
+\begin{theorem}\label{proposition1}
 A game with a characteristic function $v$
 is convex if and only if for all $S$, $T$, and $i$ where $S
 \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in
@@ -1141,7 +1141,7 @@ community. A web service would send a join request to the
 community. The ideal solution would be analyzing the \emph{core}
 or \emph{$\epsilon$-core} stability of the group having this new
 member. As the normal core membership algorithm is computationally
-intractable, we exploit Proposition \ref{proposition} and Equation
+intractable, we exploit Proposition \ref{proposition1} and Equation
 \ref{eq:convex_snow} to check the convexity of our game having
 characteristic function where the new member is added. In the
 equation, we set $C$ to be our community members $(C)$ before
@@ -1156,10 +1156,10 @@ community, since the web service will contribute positively enough
 to make our new community stable. Since only subsets of size $1$
 are checked, the following Proposition holds.
 
-\begin{Proposition}\label{complexity1}
-The run time complexity of Depth-1 Convex-Checker algorithm is
-$O(n)$.
-\end{Proposition}
+\begin{theorem}\label{complexity1}
+\emph{The run time complexity of Depth-1 Convex-Checker algorithm is
+$O(n)$.}
+\end{theorem}
 
 By this result, we obtain a significant reduction from $O(2^n)$,
 which is the complexity of checking all possible subsets of $N$.
@@ -1169,10 +1169,10 @@ of the community $C$. We call this method \emph{Depth-2
 Convex-Checker} and its run time complexity is still
 linear:
 
-\begin{Proposition}\label{complexity2}
-The run time complexity of Depth-2 Convex-Checker algorithm is
-$O(n^2)$.
-\end{Proposition}
+\begin{theorem}\label{complexity2}
+\emph{The run time complexity of Depth-2 Convex-Checker algorithm is
+$O(n^2)$.}
+\end{theorem}
 
 It is possible to develop an anytime algorithm by continuing the
 verification of this condition against all subsets of size $3$,
