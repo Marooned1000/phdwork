@@ -780,15 +780,13 @@ more tasks if they have the capacity and throughput to do so. Web
 services can join communities to have better efficiency by
 collaborating with others, to have access to higher market share,
 and to have opportunity of receiving a bigger task pool from end
-users. The way the web services reside inside communities and how
-communities of web services are engineered is described in
-\cite{DBLP:journals/ijebr/MaamarSTBB09}. Throughout this paper, in
+users. Throughout this paper, in
 our equations, we refer to web services as $ws$ and to the set of
 web services hosted by a given community as $C$. To simply the
 notation, sometimes we simply write $ws$ instead of $ws \in C$ to
 go through the elements $ws$ of the set $C$.
 
-\emph{2) Master Web Services} are representatives of the
+\emph{2) Master Web Services} or the community coordinators, are representatives of the
 communities of web services and responsible for their management.
 Communities receive requests from users and aim to host a healthy
 set of web services to perform the required tasks. They seek to
@@ -843,9 +841,7 @@ community \emph{worth} or \emph{payoff} function.
 
 \subsection{Web Service Communities}\label{webservice-communities}
 
-Web service communities encapsulate and as
-
-
+Figure \ref{fig_community} represents the architecture of web service communities. The communities are basicly as an abstraction model of web services, they aggrigate web services and communicate with UDDI registeries and users using same protocols as web services. Community cordinators or master web services are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Communitiy coordinators try to attract quality web services and keep the community as stable as possible. The way the web services reside inside communities and how communities of web services are engineered is described comprehensivly in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
 
 \begin{figure*}[!t]
 \centerline{\includegraphics[width=6.25in]{community.eps}}
