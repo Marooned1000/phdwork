@@ -983,7 +983,9 @@ As mentioned in section \ref{webservice-communities}, communities are robust ser
 
 The community master uses a slightly modified \emph{weighted fair queuing} method to distribute task among its members. The goal is to allocate incoming tasks to web services with a rate matching throughput value of $Tr_{ws}$. In \emph{weighted fair queuing} method \emph{all} the input flow is multiplexed along different paths, however in our case if the input rate $(R_C)$ of the community is more than summation of throughput values of web services, some of the input tasks will be queued and served with delay. Thus, the amount of tasks performed by community is $\sum_{ws \in C}{(Tr_{ws})}$ when $\sum_{ws}{Tr_{ws}} \leq R_{C}$. However, when the community has more web services having more total throughput value than community's request rate $(R_C)$ the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $R_C \times \frac{Tr_{ws}}{\sum_{ws}{Tr_{ws}}}$ for each web service ($ws$) and the total rate of tasks being performed is $R_C$, the community's receiving request rate.
 
+\subsection{Revenue}
 
+\subsection{Example}
 
 \section{Web Service Cooperative Games}\label{s:model}
 
