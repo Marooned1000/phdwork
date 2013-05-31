@@ -799,7 +799,7 @@ the community.
 available services. User satisfaction is abstracted as function of
 quantity and quality of tasks accomplished by a given service.
 
-\subsection{Web Service Parameters}
+\subsection{Web Service Parameters}\label{ws_parameters}
 
 Web services come with different quality of service parameters.
 These parameters with a short description are listed in Table
@@ -985,11 +985,115 @@ The community master uses a slightly modified \emph{weighted fair queuing} metho
 
 \subsection{Community Revenue}
 
+The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and quantity($Tr_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters} $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weigth average over all QoS parameteres listed in table \ref{qosws} excluding the $Throuput$ and $Cost$ parameters. A community has the option to weigh specific QoS patameters more or less depending on the expectations of their clients. 
 
+The maximum potential output $(PO(C))$ of a community is aggregation of number of tasks, times their quality, for each web service participating as a member of the community:
 
-\subsection{Example}
+\begin{equation}
+PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
+\end{equation}
 
-\section{Web Service Cooperative Games}\label{s:model}
+If the summation of throughput ($Tr_{ws}$) values of community members exceeds the input task rate of the community ($R_C$) the community cannot perform at its maximum potential. It means community has more web services than it needs for performing input task load. Therefore, in these cases, the actual output has to be normalized to the ammount of tasks being performed.
+
+\begin{equation}
+Out(C) = \left\{
+  \begin{array}{l l}
+    PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{M}$}\\
+    PO(C) \times \frac{R_{M}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{M}$}
+  \end{array} \right.
+\end{equation}
+
+The revenue function of the web service community, is a linear function of $Out(C)$ with a positive constant multiplier. 
+
+\subsection{Case Study}
+
+In this section, we analyse a few numerical examples and discuss the motivation of web services and community intractions and the strategies they can adopt and the revenue they can earn adopting different strategies.
+
+%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{Three web services of example 1}
+\label{example_1}
+\centering
+\begin{tabular}{c c c c}
+\hline
+$WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+\hline
+1 & 0.8 & 4 & 3.2\\
+1 & 0.8 & 5 & 4.0\\
+1 & 0.8 & 3 & 2.4\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+% \caption{Three web services}
+\label{example_1_1}
+\centering
+\begin{tabular}{c c || c c}
+\hline
+Community & Value & Community & Value\\
+\hline
+$\left\{1\right\}$ & 3.2 & $\left\{1,2\right\}$ & 7.2\\
+$\left\{2\right\}$ & 4.0 & $\left\{1,3\right\}$ & 6.8\\
+$\left\{3\right\}$ & 2.4 & $\left\{2,3\right\}$ & 6.4\\
+$\left\{1,2,3\right\}$ & 8.0\\
+\hline
+Community $R_C$: 12\\
+\hline
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{Three web services of example 2}
+\label{example_2}
+\centering
+\begin{tabular}{c c c c}
+\hline
+$WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+\hline
+1 & 0.8 & 5 & 4.0\\
+1 & 0.7 & 6 & 4.2\\
+1 & 0.7 & 4 & 2.8\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+% \caption{Three web services}
+\label{example_2_2}
+\centering
+\begin{tabular}{c c || c c}
+\hline
+Community & Value & Community & Value\\
+\hline
+$\left\{1\right\}$ & 4.0 & $\left\{1,2\right\}$ & 7.4\\
+$\left\{2\right\}$ & 4.2 & $\left\{1,3\right\}$ & 6.8\\
+$\left\{3\right\}$ & 2.8 & $\left\{2,3\right\}$ & 7.0\\
+$\left\{1,2,3\right\}$ & 7.3\\
+\hline
+Community $R_C$: 10\\
+\hline
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the first example, we present a community with $R_C$ of 10, and three web services each having different $QoS$ and $Th_{ws}$ values as listed in table \ref{example_1}. 
+
+\section{Web Service Cooperative Games}\label{s:game_solution}
 
 In this section, we present different web service community models
 and focus on the problem of how both web services and community
