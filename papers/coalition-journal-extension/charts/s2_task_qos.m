@@ -21,7 +21,7 @@ grid on;
 %set(gca,'Ycolor',[0.5 0.5 0.5]);
 set(gca,'XTick',1:1:50);
 %set(gca,'YTick',7000:1500:18000);
-set(gca,'YTick',0.5:0.04:0.7);
+set(gca,'YTick',0.5:0.1:0.9);
 set(gca,'tickdir','in')
 set(gca,'XTickLabel',{'1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
     '11';' ';' ';' ';' ';' ';' ';' ';' ';' ';
@@ -31,7 +31,7 @@ set(gca,'XTickLabel',{'1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
 set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 
-axis([0 50 0.5 0.7]);
+axis([0 50 0.5 0.9]);
 %axis([0 50 0 1600]);
 
 % Add legend

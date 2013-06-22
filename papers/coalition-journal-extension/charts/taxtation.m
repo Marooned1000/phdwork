@@ -1,13 +1,13 @@
 % Create the data to be plotted
 TBdata = [1.0 10 0 87 0.77;
-          1.1 12 0.8 93 0.78; 
-          1.2 14 1.96 96 0.8; 
-          1.3 15 3.6 98 0.8;
-          1.4 15 4.8 98 0.79; 
-          1.5 16 6.4 97 0.81; 
-          1.6 16 7.68 98 0.81; 
-          1.7 16 8.96 98 0.82;
-          1.8 16 10.24 98 0.82; 
+          1.1 11 0.88 93 0.78; 
+          1.2 11 1.76 96 0.8; 
+          1.3 12 2.88 98 0.8;
+          1.4 13 4.16 98 0.79; 
+          1.5 14 5.6 97 0.81; 
+          1.6 14 6.72 98 0.81; 
+          1.7 15 8.4 98 0.82;
+          1.8 15 9.6 98 0.82; 
           1.9 16 11.52 98 0.83; 
           2.0 17 13.6 98 0.83];
 
@@ -26,36 +26,40 @@ quality  = TBdata(:, 5);
 figure;
 subplot(2, 2, 1);
 plot(taxt, size, '.-');
-xlabel('Years');
-ylabel('Infection Rate');
-title('Tuberculosis Cases');
+xlabel('\lambda');
+ylabel('Size');
+title('(a)');
 axis([1 2 0 20]);
 set(gca,'XTick',[1 1.2 1.4 1.6 1.8 2]);
+grid on;
 
 
 % Create the bar chart in position 2 of a 2x2 grid
 subplot(2, 2, 2);
 plot(taxt, cost, '.-');
-xlabel('Years');
-ylabel('Infection Rate');
-title('Tuberculosis Cases');
+xlabel('\lambda');
+ylabel('Subside Cost');
+title('(b)');
 axis([1 2 0 20]);
 set(gca,'XTick',[1 1.2 1.4 1.6 1.8 2]);
+grid on;
 
 % Create the stem chart in position 3 of a 2x2 grid
 subplot(2, 2, 3);
 plot(taxt, tasknum, '.-');
-xlabel('Years');
-ylabel('Infection Rate');
-title('Tuberculosis Cases');
+xlabel('\lambda');
+ylabel('|tasks performed|');
+title('(c)');
 axis([1 2 0 100]);
 set(gca,'XTick',[1 1.2 1.4 1.6 1.8 2]);
+grid on;
 
 % Create the line plot in position 4 of a 2x2 grid
 subplot(2, 2, 4);
 plot(taxt, quality, '.-');
-xlabel('Years');
-ylabel('Infection Rate');
-title('Tuberculosis Cases');
+xlabel('\lambda');
+ylabel('Quality');
+title('(d)');
 axis([1 2 0 1]);
 set(gca,'XTick',[1 1.2 1.4 1.6 1.8 2]);
+grid on;
