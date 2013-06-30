@@ -35,7 +35,7 @@ axis([0 50 0.5 1.05]);
 %axis([0 50 0 1600]);
 
 % Add legend
-hleg1 = legend('Our Method','High Availability Coalition Method');
+hleg1 = legend('Our Method (Without Subsiding)','High Availability Coalition Method');
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.61,.22,.1,.1]);
 set(hleg1,'Interpreter','none');
