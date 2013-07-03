@@ -1489,13 +1489,13 @@ Figure \ref{performanceall} depicts the results of optimal
 Non-Cooperative} \cite{DBLP:conf/IEEEscc/KhosravifarABT11} methods
 in \emph{one grand community with many web services} scenario. 
 
-
-For \emph{$\epsilon$-core}, we assign $\epsilon$ to 15\% of total
-community worth, $\epsilon = 0.15 \times v(C)$, which allows
+For the \emph{optimal core} method we have used the well known \emph{$\epsilon$-core} method as the 
+taxtation method to relax the core condition for more communities to form. 
+We have assigned $\epsilon$ to 15\% of total community worth, $\epsilon = 0.15 \times v(C)$, which allows
 subsets of the coalition to gain maximum 15\% of $v(C)$. In the
 \emph{optimal $\epsilon$-core} method, we capped the coalition
 size to 25 web services, since the method is computationally 
-intractable and anything more than that would make it
+intractable as number of web services increase and anything more than that would make it
 impractical to run in our simulations. In the other methods, there
 were no cap on size of the community and we had communities of
 size 60 web services at some points. The results show that our
@@ -1543,25 +1543,6 @@ share). The strong web services are likely to deviate from weak
 coalitions, joining a stronger one, which makes the initial
 coalition unstable.
 
-\begin{figure}[!t]
-\centering
-%\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[width=3in]{s2_task_done.eps}
-\includegraphics[width=3in]{s2_task_qos.eps}
-\caption{Part (a): Cumulative number of tasks succesfully done. Part
-(b): Average QoS of tasks performed.} \label{performancemany}
-\end{figure}
-
-In Figure \ref{performancemany}, we compare our \emph{Web Services
-and many Communities} scenario with a method which ignores QoS
-parameters and forms coalitions by allowing web services to join
-only if they have enough requests for themselves. In other words,
-web services can join a community when the request rate is less
-than the throughput of all the member web services. We name this
-method \emph{Random Formation} and use it as a benchmark for our
-QoS-aware coalition formation process. As the results illustrate,
-our method forms better coalitions of web services improving
-performance and satisfaction for both web services and coalitions.
 
 \begin{figure}[!t]
 \centering
@@ -1570,6 +1551,7 @@ performance and satisfaction for both web services and coalitions.
 \caption{Analysis of community subsiding coefficient $\lambda$ on average community size (a), cost (b), number of tasks performed (c), and average quality of service of tasks performed (d).} \label{f_taxtation}
 \end{figure}
 
+As mentioned in section \ref{s:tax} 
 
 texttext texttexttexttext texttexttexttext texttexttexttext texttext texttext texttext texttext texttext texttext
 
@@ -1594,6 +1576,29 @@ texttext texttexttexttext texttexttexttext texttexttexttext texttext texttext te
 \end{figure}
 
 texttext texttexttexttext texttexttexttext texttexttexttext texttext texttext texttext texttext texttext texttext
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{s2_task_done.eps}
+\includegraphics[width=3in]{s2_task_qos.eps}
+\caption{Part (a): Cumulative number of tasks succesfully done. Part
+(b): Average QoS of tasks performed.} \label{performancemany}
+\end{figure}
+
+
+
+In Figure \ref{performancemany}, we compare our \emph{Web Services
+and many Communities} scenario with a method which ignores QoS
+parameters and forms coalitions by allowing web services to join
+only if they have enough requests for themselves. In other words,
+web services can join a community when the request rate is less
+than the throughput of all the member web services. We name this
+method \emph{Random Formation} and use it as a benchmark for our
+QoS-aware coalition formation process. As the results illustrate,
+our method forms better coalitions of web services improving
+performance and satisfaction for both web services and coalitions.
+
 
 \section{Related Work}\label{s:relatedwork}
 
