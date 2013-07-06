@@ -1172,28 +1172,11 @@ In this scenario, we assume the existence of a typical community
 managed by its master, and web services need to join it to be able
 to get requests from the master. The community master is
 characterized by a requests rate $(R_{C})$ from users. Each web
-service comes with a given QoS ($QoS_{ws}$) from which the
-throughput $T_{ws}$ is excluded. This exclusion allows us to build
-our analysis on the particular value of $T_{ws}$. Throughput is
-the average rate of tasks a web service can perform per time unit.
-Thus, web services perform tasks with an average output quality of
-$QoS_{ws}$ and a throughput rate of $T_{ws}$. In this setting, we
-define the value of the coalition of the web services within a
-community as a function increasing in both $T_{ws}$ and $QoS_{ws}$
-as follows:
-\begin{equation*}
-output(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
-\end{equation*}
-\setlength{\abovedisplayshortskip}{2pt}
-\begin{equation}\label{eq:valuation}
-v(C) = \left\{
-  \begin{array}{l l}
-    output(C) & \quad \text{if $\sum_{ws}{T_{ws}} \leq R_{C}$}\\
-    output(C) \times \frac{R_{C}}{\sum_{ws}{T_{ws}}} & \quad \text{if $\sum_{ws}{T_{ws}} > R_{C}$}
-  \end{array} \right.
-\end{equation}
+service comes with a given QoS ($QoS_{ws}$). The worth of a community 
+$v(C)$ is set to Out(C) based on equation \ref{out_c}.
 
-The output of a coalition of web services is a function of the
+As mentioned in previous section, the worth and output of a 
+community of web services is a function of the
 throughput and provided QoS. If the throughput rate is more than
 the master's input request rate, it means the web services inside
 the community are capable of serving more requests than the
