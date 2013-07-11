@@ -604,7 +604,7 @@ engineered so that web services can better collaborate have been
 proposed and investigated in
 \cite{DBLP:journals/ijebr/MaamarSTBB09,DBLP:journals/internet/BenatallahSD03,Rosario:2008:PQS:1512146.1512290}.
 Communities are virtual groups of web services having similar
-functionalities, but probably different non-functional quality
+functionalities \cite{Zeng:2003:QDW:775152.775211, Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,Liris-3375}, but probably different non-functional quality
 attributes, which form the QoS parameters. When communities are
 used, users send their requests to the masters of those
 communities, which are responsible of managing the communities,
@@ -679,16 +679,16 @@ In \cite{10.1109/TSC.2012.12} a cooperative scheme among autonomous
 web services based on coalitional game theory has been introduced. They have proposed an algorithm to 
 reach individually stable coalition partition for web services in order to
 maximize their efficiency. The communities choose new web services on the promise 
-that no it would benefit the community without decreasing any other web service's
-income. In their model, the worth of community is evaluated with a lot of emphasis on 
-availability metric and also considering price and cost values only. The community structure is based on a coordination chain,
+that it would benefit the community without decreasing any other web service's
+income. In their model, the worth of community is evaluated with high emphasis on 
+availability metric and considering price and cost values only. The community structure is based on a coordination chain,
 where a web service is assigned as a \emph{primary} web service and the community task destribution
-method, will initially invoke primary web service and only if the primary web service is unavailable
+method, will initially invoke the primary web service and only if the primary web service is unavailable
 will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to 
 have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays 
-with recent advancement in cloud and hardware infrastructures availability is less of an issue. So the backup web services 
-in their model have a very low chance of getting jobs, especially the ones further in chain which is huge waste of web service
-capability.
+with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services 
+in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
+capabilities.
 
 \textbf{Contributions.} In this paper, we use game theory to
 propose a cooperative game model for the aggregation of web
@@ -721,8 +721,9 @@ decision making mechanisms.
 
 The rest of paper is organized as follows. Section
 \ref{s:preliminaries} describes the architecture, considered
-parameters and some basic cooperative game theory concepts.
-Section \ref{s:model} presents our solution model in three
+parameters and some basic cooperative game theory concepts. 
+Section \ref{s:model} provides the problem statement and some numerical examples.
+Section \ref{s:game_solution} presents our solution model in two
 different scenarios. Section \ref{s:resutls} describes our
 experiments and results. Finally, Section \ref{s:conclusion},
 concludes the paper and identifies future work.
@@ -1590,7 +1591,7 @@ performance and satisfaction for both web services and coalitions.
 (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
 \end{figure}
 
-Finally, in our last experiment, we compare our work with the work in \cite{10.1109/TSC.2012.12} which we call it \emph{High Availability Coalition Method} because of nature of their community valuation function, which considers community availability as main consideration. Their community formation model is very different than ours, however we have been very careful to make the experiment environment as fair and similar as possible. We limited our maximum community size by 5 in order to have communities with almost the same size. In their method, they have used web services as backups rather than active collaborative players, and they only get task when the first web service in an ordered chain fails to perform the task. However with recent advancement in cloud and hardware infrastructures availability is less of an issue for web services, and web services are highly available. Part(a) of figure \ref{fig_avail_method} shows our method performs almost performs tasks successfully with rate of three times more than \emph{High Availability Method} because of real cooperative nature and task distribution of our algorithm. This result shows using web services as backups, and not as real collabrative players is a huge waste of web service capability since they have very low chance of getting jobs and its the primary web service (the first in their coordination chain) which does most of the work. The average quality of service of tasks performed is also better since our method considers all quality of service metrics mentioned in table \ref{qosws}. Part(c) shows the availability of community from end user point of view. The \emph {High Availability Method} almost has 100\% uptime since they use web services as backups, so the chance of job failing reduces significantly as community members increase. In our method we have more chance of fail for each web service, however with some subsiding, and hiring a few more web service they can compensate the low chance of failure of web services in our community.
+Finally, in our last experiment, we compare our work with the work in \cite{10.1109/TSC.2012.12} which we call it \emph{High Availability Coalition} method, because of nature of their community valuation function, which focuses on community availability as main consideration. Their community formation model is very different than ours, however we have been very careful to make the experiment environment as fair and similar as possible. We limited our maximum community size by 5 in order to have communities with almost the same size. In their method, they have used web services as backups rather than active collaborative players, and they only get task when the first web service in an ordered chain fails to perform the task. However with recent advancement in cloud and hardware infrastructures availability is less of an issue for web services, and web services are highly available. Part(a) of figure \ref{fig_avail_method} shows our method performs almost performs tasks successfully with rate of three times more than \emph{High Availability Coalition} method because of real cooperative nature and task distribution of our algorithm. This result shows using web services as backups, and not as real collabrative players is a huge waste of web service capability since they have very low chance of getting jobs and its the primary web service (the first in their coordination chain) which does most of the work. The average quality of service of tasks performed is also better since our method considers all quality of service metrics mentioned in table \ref{qosws}. Part(c) shows the availability of community from end user point of view. The \emph {High Availability Coalition} method almost has 100\% uptime since they use web services as backups, so the chance of job failing reduces significantly as community members increase. In our method we have more chance of fail for each web service, however with some subsiding, and hiring a few more web service they can compensate the low chance of failure of web services in our community.
 
 
 %\section{Related Work}\label{s:relatedwork}
