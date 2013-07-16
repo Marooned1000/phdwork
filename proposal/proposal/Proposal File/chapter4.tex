@@ -1,0 +1,66 @@
+\setcounter{chapter}{4}
+
+\chapter{Conclusion and Future Work}
+
+\section{Conclusion}\label{sec:conclusion}
+In this paper, we proposed a new set of uncertainty measures for the agents in argumentation-based negotiation dialogues from an
+external agent's point of view. Specifically, we introduced two types of uncertainty measures: 1) Type I, the uncertainty index of
+playing the right move at each dialogue step; and 2) Type II, the uncertainty degree of the agent that the move will be accepted by
+the addressee.
+For uncertainty Type I, we used Shannon entropy to assess the agents' uncertainty/certainty about their moves in the negotiation
+dialogues. We supposed that an external agent is monitoring the dialogue, and he wants to evaluate this dialogue in terms of the
+agent's uncertainty/certainty about selecting the right move at each step. In fact, at each step, the agent is supposed to have
+different choices, each choice is associated with a probability of being the right one, %which represents the risk of failure for this move to be accepted by the addressee.
+this probability reflects the importance of information included in that move, where the higher the probability is, the
+more certain the agent becomes (lower uncertainty). So we analyzed the fact that negotiating agents are rational, and they always
+try to perform the actions that will result in the optimal outcome for themselves. We used Shannon entropy to measure: i) the
+uncertainty/certainty index and the weighted uncertainty/certainty index of the agent that he is playing the right move at each
+step during the dialogue; and ii) the uncertainty/certainty index and the weighted uncertainty/certainty index of both agents
+participating in the dialogue about the whole dialogue. This was done in two different ways. The first is by taking the average of
+the uncertainty index of all moves, and the second is by determining all possible dialogues and applying the general formula of Shannon entropy.
+
+For uncertainty Type II, we formalized the probability association to the arguments and the uncertainty that the move will be
+accepted by the addressee. In this context, we introduced a new classification of arguments based on the notion of risk of failure
+and showed that this classification is compatible with the probability that the moves supported by those arguments will be
+accepted by the address. An important result of this paper is that the selection and probability ordering mechanisms of arguments
+are tractable as they can be performed in polynomial time if arguments are represented in propositional definite Horn logic.
+
+In our proposed measures, the move with the higher certainty (lower uncertainty) index is considered as the best move. We analyzed
+the fact that negotiating agents are rational, and they always try to perform the actions that will result in the optimal outcome
+for themselves. We started our work with measuring the uncertainty/certainty index of each move at each dialogue step, and in order
+to distinguish between two moves with the same certainty index, we assigned weight to each move, which reflects the importance of the
+move. Then, we proceeded to the whole dialogue and we measured the uncertainty/certainty index for the dialogue in two different ways,
+and we proved that the two ways give the same result. Also, assigning weight to the moves allowed us to compare two different dialogues.
+We believe that such measures are very significant and helpful in evaluating the dialogue and the agent's strategies, especially when
+they are making a decision and selecting the best moves to achieve an agreement (if one exists) in a timely manner.
+
+
+
+\section{Future Work}\label{sec:future}
+In this paper, we mainly focused on the classical (i.e., precise) probability theory, particularly the classical Shannonian
+information theory to measure the uncertainty. As pointed out in \cite{Harmanec1999}, there are other approaches of measuring
+uncertainty in the theories of imprecise probabilities, particularly the Dempster-Shafer theory (also known as the theory
+of belief functions) \cite{Shafer76} and the possibility theory \cite{Dubois2001}. As future work, we will study key measurements
+in these two theories such as \emph{nonspecificity}, \emph{confusion}, \emph{dissonance}, \emph{discord}, and \emph{strife}, and
+we will adapt, define and integrate them in our framework. Combining and aggregating those measurements to finally measure the
+total uncertainty will be investigated as well. The requirements of those new metrics as reported in \cite{Harmanec1999} will be
+analyzed. Those requirements are: 1) generalization, meaning that the new uncertainty measures should generalize the uncertainty
+measures already established in the classical probability theory; 2) subadditivity, meaning that when the problem is broken into
+two orthogonal subproblems, the uncertainty of the original problem should be less than or equal to the sum of uncertainties of the
+subproblems; and 3) additivity, meaning that under the assumption of no interaction and no dependency between the subproblems, the
+uncertainty of the original problem is equal to the sum of uncertainties of the subproblems.
+
+Another plan for future work is to extend the proposed metrics for other dialogue game types such as persuasion, deliberation,
+inquiry and information seeking. We also plan to analyze argumentation-based dialogues to evaluate agent strategies and
+analyze them from the optimization perspective. Analyzing the computational complexity of such optimization problems is another
+direction for future work. Finally, we plan to analyze multi-party dialogues to which many agents can participate. Extending the
+proposed metrics to this type of dialogues is not straightforward. For example, defining the rules of a multi-party negotiation is
+much more complicated than two-party dialogues. In fact, multi-party dialogues cannot be simply reduced to many two-party dialogues.
+
+
+
+
+
+
+
+
