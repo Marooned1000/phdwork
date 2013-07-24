@@ -1,0 +1,71 @@
+%--------------------page cover ----------------------------------------------
+
+\def\blurb{%
+% \includegraphics[height=1cm]{images/logoconcordia.eps}\\%
+\textbf{\textsc{Concordia University}}\\
+\textbf{\textsc{Electrical and Computer Engineering Department}} \\
+\vspace{2cm}
+\textsc{Research Proposal} \\
+\textsc{Presented in Partial Fulfillment of the Requirements}\\
+\textsc{for the Degree of Doctor Philosophy in Electrical and Computer Engineering}}
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\ligne#1{%
+  \hbox to \hsize{%
+    \vbox{\centering #1}}}%
+\def\haut#1#2#3{%
+  \hbox to \hsize{%
+    \rlap{\vtop{\raggedright #1}}%
+    \hss
+    \clap{\vtop{\centering #2}}%
+    \hss
+    \llap{\vtop{\raggedleft #3}}}}%
+\def\bas#1#2#3{%
+  \hbox to \hsize{%
+    \rlap{\vbox{\raggedright #1}}%
+    \hss
+    \clap{\vbox{\centering #2}}%
+    \hss
+    \llap{\vbox{\raggedleft #3}}}}%
+%-------------------------------------------- begin doc ------------------------------------
+
+\thispagestyle{empty}\vbox to .9\vsize{%
+%\fbox{
+ 						\vss
+					  \vbox to 1\vsize{%
+					    \haut{}{\blurb}{}
+					    \vfill
+					    \ligne{\textbf{\Large Efficient Coalition Formation for Web Services }
+					   % \footnote{The ideas investigated in this Research Proposal are elaborated from \cite{prin1} which 													 %will be used as the starting point of this work.
+																		    %}
+																		    }
+					 %   \vspace{5mm}
+					    \ligne{by \large Omar Marey}
+                        \ligne{\date [August, 2013}
+					    \vfill
+					    \ligne{%
+					      \begin{tabular}{l}
+					        \normalsize{This research proposal is presented before the committee composed of~:} \\
+					      \end{tabular}}
+					    \vspace{2mm}
+					    \ligne{%
+									      \begin{tabular}{l l}
+									        Supervisor:&\textsc{\textbf{Dr. Jamal Bentahar }} - CIISE.\\
+									        Supervisor:&\textsc{\textbf{Dr. Rachida Dssouli }} - CIISE.\\
+									        Examiners:&\textsc{\textbf{Dr. A. Ben Hamza}} - CIISE.\\
+									        &\textsc{\textbf{Dr. Olga Ormandjieva}} - CSE. \\
+									        &\textsc{\textbf{Dr. Roch H. Glitho}} - CIISE \\
+									     \end{tabular}
+					      }
+					          \date{}
+					     }
+  						 \vss
+
+}
+
+%-------------------------
+%---------------------------
+
+%\title{}
+%\maketitle
+\pagenumbering{roman}
+

@@ -1,0 +1,225 @@
+\documentclass[11pt]{report}
+\include{format}
+\def\setspacing#1{\renewcommand{\baselinestretch}{2}}
+
+\usepackage{latexsym}
+\usepackage{amsmath,amsthm,amssymb,tabularx}
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{xspace}
+\usepackage{afterpage}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{cuthesis}
+\usepackage{ccaption}
+\usepackage{lscape}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{graphicx,subfigure}
+\usepackage[latin1]{inputenc}
+\usepackage{xspace}
+\usepackage{footnote}
+\pagestyle{plain}
+\usepackage{acronym}
+\usepackage{epsfig}
+\usepackage{amsfonts}
+%\usepackage{array, colortbl}
+%%========================================================================
+% Omar packages
+
+\usepackage{graphics}
+% or use the graphicx package for more complicated commands
+ \usepackage{graphicx}
+% or use the epsfig package if you prefer to use the old commands
+ \usepackage{epsfig}
+ \usepackage{epstopdf}
+% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%\usepackage[cmex10]{amsmath}
+\usepackage{dsfont}
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{observation}{Observation}
+\newtheorem{property}{Property}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proof*}{Proof}%[section*]
+\newtheorem{example}{Example}
+%%========================================================================
+\def\boxit#1{\leavevmode\hbox{\vrule\vtop{\vbox{\kern.33333pt\hrule
+   \kern1pt\hbox{\kern1pt\vbox{#1}\kern1pt}}\kern1pt\hrule}\vrule}}
+%
+% Different font in captions
+% Different font in captions
+%\setlength{\abovecaptionskip}{0pt}   % 0.5cm as an example
+%\setlength{\belowcaptionskip}{0pt}   % 0.5cm as an example
+
+\pagestyle{myheadings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+\normalsize \setlength{\headheight}{\baselineskip}
+\setlength{\headsep}{\baselineskip}
+\newcommand{\longpage}{\enlargethispage{\baselineskip}} % Latex companion p 99
+\makeatletter
+\oddsidemargin 0.5in \evensidemargin 0.5in
+\marginparwidth 40pt \marginparsep 10pt
+%\topmargin 0pt \headsep .5in         % no longer acceptable
+%\textheight 8.1in \textwidth 6in     % no longer acceptable
+%\topmargin 0in \headsep 0in %-0.1 topmargin
+\topmargin -0.2in \headsep 0in %-0.1 topmargin
+\textheight 8.75in \textwidth 6in %9in textheight
+\brokenpenalty=10000
+\renewcommand{\baselinestretch}{2.0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%added dec 1st
+
+
+\renewcommand{\contentsname}{Table of Contents}
+\parskip \medskipamount
+\renewcommand{\captionfont}{\em}
+
+%
+% Try to get the code lines as close to the line width as possible.
+% (i.e., try to get the lgrind line numbers as close as possible to
+% the right margin.)
+%
+\newlength{\lgrindlinewidth}
+\newlength{\lgrindlabelwidth}
+\settowidth{\lgrindlabelwidth}{\tiny 0000}
+\setlength{\lgrindlinewidth}{\textwidth-\lgrindlabelwidth}
+%
+% float parameters
+%
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.90}
+\renewcommand{\textfraction}{0.25} % FAQ says 1 - float fraction
+\renewcommand{\floatpagefraction}{0.90}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        MF abbreviations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%often used phrases
+\newcommand{\bhma}{breath-hold misalignment }
+\newcommand{\bhmas}{breath-hold misalignments }
+\newcommand{\etal}{\textit{et al. }}
+%transform arrow
+\newcommand{\TR}{$ {\Rightarrow} $}
+\newcommand{\aTR}{$ \stackrel{T_A}{\Rightarrow} $}
+\newcommand{\eTR}{$ \stackrel{T_E}{\Rightarrow} $}
+%image
+\newcommand{\IM}[2]{$I^{\emph{\scriptsize #1}}_{\emph{\scriptsize #2}}$}
+%registered image
+\newcommand{\tAVG}[3]
+{$temp_{\emph{\scriptsize #1}}AVG^{\emph{\scriptsize #2}}_{\emph{\scriptsize #3}}$}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                included files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  things you can include:
+%\includeonly{front_matter}
+%\includeonly{front_matter ,chapter1_intro,chapter2, chapter3,chapter4,appendix_notation}
+%\includeonly{chapter1,chapter2, chapter3,chapter4}
+%\includeonly{chapter2}
+%\includeonly{chapter3}
+%\includeonly{chapter4}
+%\includeonly{chapter4,appendix_notation}
+%}
+
+%\includeonly{chapter5}
+%\includeonly{appendix_notation}
+%
+%\bibliographystyle{unsrt}
+\bibliographystyle{plain}
+\pagestyle{plain}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             the thesis !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{front_matter}
+
+%%%Nazma's Doc
+\include{title}
+%\pagenumbering{roman}
+%\setcounter{page}{3}
+%%%Nazma's Doc
+
+%dec01 \chapter*{Abstract}
+%\input{abstract}
+%dec01 \addcontentsline{toc}{chapter}{Abstract}
+%
+%\chapter*{Acknowledgements}
+%\input{acknowledgements}
+%\addcontentsline{toc}{chapter}{Acknowledgements}
+%
+%###############################################################################
+\newpage
+
+%###############################################################################
+
+\tableofcontents
+
+%\setcounter{page}{5}
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+%\include{acronym}
+\include{Abstract}
+%
+%\chapter*{List of Abbreviations}
+%\input{abbreviations}
+%\addcontentsline{toc}{chapter}{List of Abbreviations}
+\clearpage \pagenumbering{arabic} \pagestyle{plain}
+%\clearpage \pagenumbering{arabic} \pagestyle{fancy}
+%\fancyhead{}% delete the default header
+%\fancyfoot{}% delete the default footer
+%set pages to 1  ....necessary???
+
+\setcounter{page}{1}
+
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+%\include{chapter6}
+%\include{chapter7}
+%\bibliography{omar}
+%\bibliography{NNBbibliography}
+
+%\bibliography{NNBbibliography,IEEEabrv,WDM_Networks,lp,telecom,pCycles,WDM_protection}
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\chapter*{Appendix}
+%\input{appendix}
+%\addcontentsline{toc}{chapter}{Appendix}
+%\appendix
+%\include{appendix_notation}
+%\chapter*{Vita}//uncomment
+%\input{vita.tex}
+
+%******************** START Bibliography*******************************************
+\newpage
+\pagestyle{plain}
+%The following adds references to the table of contents
+\addcontentsline{toc}{chapter}{Bibliography}
+%\addchapter*{Bibliography}
+%Give the name of your bibtex database
+\bibliography{omar}
+\bibliographystyle{plain}
+%\clearpage
+
+%\bibliographystyle{unsrt}
+
+%******************** END Bibliography*********************************************
+
+\end{document}
