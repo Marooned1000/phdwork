@@ -21,7 +21,7 @@
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -165,7 +165,7 @@
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation can
-% be obtained at: 
+% be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/required/graphics/
 % Another good source of documentation is "Using Imported Graphics in
 % LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
@@ -299,7 +299,7 @@
 % IEEEtran.cls handling of captions and this will result in nonIEEE style
 % figure/table captions. To prevent this problem, be sure and preload
 % caption.sty with its "caption=false" package option. This is will preserve
-% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
 % (recommended due to many improvements over 1.2) of subfig.sty supports
 % the caption=false option directly:
 %\ifCLASSOPTIONcompsoc
@@ -391,7 +391,7 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
 %
 % The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
+% later in the document, say, to conditionally put the References on a
 % page by themselves.
 
 
@@ -446,7 +446,7 @@
 % \IEEEcompsocthanksitem becomes a line break with idention. This
 % facilitates dual compilation, although admittedly the differences in the
 % desired content of \author between the different types of papers makes a
-% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% one-size-fits-all approach a daunting prospect. For instance, compsoc
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
@@ -462,10 +462,10 @@ E-mail: see http://www.michaelshell.org/contact.html
 \IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
 \thanks{}}
 
-% note the % following the last \IEEEmembership and also \thanks - 
+% note the % following the last \IEEEmembership and also \thanks -
 % these prevent an unwanted space from occurring between the last author name
 % and the end of the author line. i.e., if you had this:
-% 
+%
 % \author{....lastname \thanks{...} \thanks{...} }
 %                     ^------------^------------^----Do not want these spaces!
 %
@@ -487,7 +487,7 @@ E-mail: see http://www.michaelshell.org/contact.html
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
-% 
+%
 % *** Note that you probably will NOT want to include the author's ***
 % *** name in the headers of peer review papers.                   ***
 % You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
@@ -529,8 +529,8 @@ individual and group efficiency and income has not been addressed
 yet. In this paper, we propose an efficient coalition formation
 mechanism using cooperative game-theoretic techniques. We propose
 a mechanism for community membership requests and selections of
-web services in the scenarios where there is interaction between one community and many web services 
-and scenarios where web services can join multiple established communities. The ultimate objective is to
+web services under two scenarios where: (1) there is interaction between one community and many web services
+and (2) web services can join multiple established communities. The ultimate objective is to
 develop a mechanism for web services to form stable groups
 allowing them to maximize their efficiency and generate
 near-optimal (welfare-maximizing) communities. The theoretical and
@@ -675,18 +675,18 @@ performing web service could deviate anytime it finds itself
 unsatisfied within the community instead of adjusting its service
 parameters.
 
-In \cite{10.1109/TSC.2012.12} a cooperative scheme among autonomous 
-web services based on coalitional game theory has been introduced. They have proposed an algorithm to 
+In \cite{10.1109/TSC.2012.12} a cooperative scheme among autonomous
+web services based on coalitional game theory has been introduced. They have proposed an algorithm to
 reach individually stable coalition partition for web services in order to
-maximize their efficiency. The communities choose new web services on the promise 
+maximize their efficiency. The communities choose new web services on the promise
 that it would benefit the community without decreasing any other web service's
-income. In their model, the worth of community is evaluated with high emphasis on 
+income. In their model, the worth of community is evaluated with high emphasis on
 availability metric and considering price and cost values only. The community structure is based on a coordination chain,
 where a web service is assigned as a \emph{primary} web service and the community task destribution
 method, will initially invoke the primary web service and only if the primary web service is unavailable
-will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to 
-have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays 
-with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services 
+will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to
+have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays
+with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services
 in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
 capabilities.
 
@@ -721,7 +721,7 @@ decision making mechanisms.
 
 The rest of paper is organized as follows. Section
 \ref{s:preliminaries} describes the architecture, considered
-parameters and some basic cooperative game theory concepts. 
+parameters and some basic cooperative game theory concepts.
 Section \ref{s:model} provides the problem statement and some numerical examples.
 Section \ref{s:game_solution} presents our solution model in two
 different scenarios. Section \ref{s:resutls} describes our
@@ -751,17 +751,17 @@ concludes the paper and identifies future work.
 
 % The very first letter is a 2 line initial drop letter followed
 % by the rest of the first word in caps (small caps for compsoc).
-% 
+%
 % form to use if the first word consists of a single letter:
 % \IEEEPARstart{A}{demo} file is ....
-% 
+%
 % form to use if you need the single drop letter followed by
 % normal text (unknown if ever used by IEEE):
 % \IEEEPARstart{A}{}demo file is ....
-% 
+%
 % Some journals put the first two words in caps:
 % \IEEEPARstart{T}{his demo} file is ....
-% 
+%
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
 %\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
@@ -772,7 +772,7 @@ concludes the paper and identifies future work.
 %I wish you the best of success.
 
 %\hfill mds
- 
+
 %\hfill January 11, 2007
 
 
@@ -837,7 +837,7 @@ $Latency$ & The average latency of services\\
 $Capacity$ & Amount of resources available\\
 $Cost$ & Mean service fee \\
 $Regulatory$ & Compliance with standards, law and rules\\
-$Security$ & Quality of confidentiality \\ 
+$Security$ & Quality of confidentiality \\
 &and non-repudiation\\
 \hline
 \end{tabular}
@@ -1002,7 +1002,7 @@ While distributing tasks, the community master can verify the performance, throu
 
 \subsection{Community Revenue}
 
-The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and quantity($Tr_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weigth average over all QoS parameteres listed in table \ref{qosws} excluding the $Throuput$ and $Cost$ parameters. A community has the option to weigh specific QoS patameters more or less depending on the expectations of their clients. 
+The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and quantity($Tr_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weigth average over all QoS parameteres listed in table \ref{qosws} excluding the $Throuput$ and $Cost$ parameters. A community has the option to weigh specific QoS patameters more or less depending on the expectations of their clients.
 
 The maximum potential output $(PO(C))$ of a community is aggregation of number of tasks, times their quality, for each web service participating as a member of the community:
 
@@ -1020,7 +1020,7 @@ Out(C) = \left\{
   \end{array} \right.
 \end{equation}
 
-The revenue function of the web service community, is a linear function of $Out(C)$ with a positive constant multiplier. 
+The revenue function of the web service community, is a linear function of $Out(C)$ with a positive constant multiplier.
 
 \subsection{Case Study}
 
@@ -1173,10 +1173,10 @@ In this scenario, we assume the existence of a typical community
 managed by its master, and web services need to join it to be able
 to get requests from the master. The community master is
 characterized by a requests rate $(R_{C})$ from users. Each web
-service comes with a given QoS ($QoS_{ws}$). The worth of a community 
+service comes with a given QoS ($QoS_{ws}$). The worth of a community
 $v(C)$ is set to Out(C) based on equation \ref{out_c}.
 
-As mentioned in previous section, the worth and output of a 
+As mentioned in previous section, the worth and output of a
 community of web services is a function of the
 throughput and provided QoS. If the throughput rate is more than
 the master's input request rate, it means the web services inside
@@ -1254,7 +1254,7 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)
 %\end{equation}
 %\end{Proposition}
 
-\begin{proof} 
+\begin{proof}
 We first prove the ``only if'' direction:
 %\\$~~~~$\textbf{1}. ``only if'' direction:\\
 \\$~~~~$\ \textbf{1}. ``only if'' direction:\\
@@ -1281,7 +1281,7 @@ By setting $A = S \cup \left\{i\right\}$ and $B = T$ we have:
 \begin{gather*}
 v(S \cup \left\{i\right\}) + v(T) \leq v (T \cup \left\{i\right\}) + v(S)
 \\
-\rightarrow v(S \cup \left\{i\right\}) + v(T) \leq 
+\rightarrow v(S \cup \left\{i\right\}) + v(T) \leq
 \\
 v((S \cup \left\{i\right\}) \cup T) + v((S \cup \left\{i\right\}) \cap T)
 \\
@@ -1435,14 +1435,14 @@ games are described in \cite{DBLP:journals/igtr/AptW09}.
 
 \subsection{Taxtation, Subsiding and Community Stability}\label{s:tax}
 
-We discuessed $core$ as one the preminent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal ammount of $\epsilon$ by deviating. Comuunity stability is an attractice property for communities, also communities would benefit by having slightly more web services then having the exact number of web services satisfying task rate cap. One reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. 
+We discuessed $core$ as one the preminent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal ammount of $\epsilon$ by deviating. Comuunity stability is an attractice property for communities, also communities would benefit by having slightly more web services then having the exact number of web services satisfying task rate cap. One reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with.
 
-One way for communities to ensure community stability could be applying a tax, $\epsilon$ ammount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on same ammount of taxtation, being governed by some external entities or web services would join communities with lesser ammount of tax. Another viable solution in our scenario is to stabilize the game using external subsidies. The reason a game is not stable is that the community is not making enough revenue to allocate the players with enough gain. A community master can subside its community with a constant coefficient value of $\lambda$. Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$. Obviously with a big number of $\lambda$ it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxting in order to reduce the bargaining power of sub coalitions are called $taxtation$\cite{eps346856} methods. 
+One way for communities to ensure community stability could be applying a tax, $\epsilon$ ammount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on same ammount of taxtation, being governed by some external entities or web services would join communities with lesser ammount of tax. Another viable solution in our scenario is to stabilize the game using external subsidies. The reason a game is not stable is that the community is not making enough revenue to allocate the players with enough gain. A community master can subside its community with a constant coefficient value of $\lambda$. Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$. Obviously with a big number of $\lambda$ it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxting in order to reduce the bargaining power of sub coalitions are called $taxtation$\cite{eps346856} methods.
 
 
 %Thus, another way to garantee \emph{$\epsilon$-core} stability can be achieved by some surplus payments from community coordinators. These concepts of applying cost in coallition values in order to reduce their bargaining power are called $taxtation$ methods\cite{eps346856}.
 
-%The \emph{$\epsilon$-core} concept, in its definition, considers the willing to join or deviate from agent's point of view. It claims agents for any reason will be not willing to deviate to gain less than $\epsilon$ amount of profit. Communities can agree on However, in our case, the community master is willing to keep web services in communities too. There are several reasons for this, one reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. To this end, our communities will reward and valuate web services in the community 
+%The \emph{$\epsilon$-core} concept, in its definition, considers the willing to join or deviate from agent's point of view. It claims agents for any reason will be not willing to deviate to gain less than $\epsilon$ amount of profit. Communities can agree on However, in our case, the community master is willing to keep web services in communities too. There are several reasons for this, one reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. To this end, our communities will reward and valuate web services in the community
 
 
 
@@ -1485,14 +1485,14 @@ Figure \ref{performanceall} depicts the results of optimal
 \emph{Depth-2 Convex-Checker}, \emph{3-Way Satisfaction}
 \cite{DBLP:conf/IEEEscc/LimTMB12}, and \emph{2 Player
 Non-Cooperative} \cite{DBLP:conf/IEEEscc/KhosravifarABT11} methods
-in \emph{one grand community with many web services} scenario. 
+in \emph{one grand community with many web services} scenario.
 
-For the \emph{optimal core} method we have used the well known \emph{$\epsilon$-core} method as the 
-taxtation method to relax the core condition to help communities, attract web services. 
+For the \emph{optimal core} method we have used the well known \emph{$\epsilon$-core} method as the
+taxtation method to relax the core condition to help communities, attract web services.
 We have assigned $\epsilon$ to 15\% of total community worth, $\epsilon = 0.15 \times v(C)$, which allows
 subsets of the coalition to gain maximum 15\% of $v(C)$. In the
 \emph{optimal $\epsilon$-core} method, we capped the coalition
-size to 25 web services, since the method is computationally 
+size to 25 web services, since the method is computationally
 intractable as number of web services increase and anything more than that would make it
 impractical to run in our simulations. In the other methods, there
 were no cap on size of the community and we had communities of
@@ -1520,7 +1520,7 @@ valuation function and a set of web services. We picked random
 number of web services from the dataset and formed around 10,000
 random coalitions consisting of 3 to 26 web services. We choose 26
 as the maximum number of members in our coalition since it
-is computationally very complex for larger coalitions to verify whether 
+is computationally very complex for larger coalitions to verify whether
 \emph{$\epsilon$-core} set is empty or not. Also instead of considering $\epsilon$ amount of constant deviation in \emph{$\epsilon$-core} definition (Equation \ref{eq:core2}), we similarly defined \emph{relative $\epsilon$-core} concept where no coalition would benefit more than \emph{$\epsilon$ $\times$ v(C)} by deviating. We set $\epsilon$ between 0 and 1 and verify the \emph{relative $\epsilon$-core} set non-emptiness. The results in Figure
 \ref{f_leastcore} illustrates that almost 10\% of our random web
 service coalitions have non-empty \emph{core} solution and
@@ -1627,7 +1627,7 @@ Finally, in our last experiment, we compare our work with the work in \cite{10.1
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
+% where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 %\caption{Simulation Results}
@@ -1662,7 +1662,7 @@ Finally, in our last experiment, we compare our work with the work in \cite{10.1
 % reference/describe all of them (a), (b), etc., within the main caption.
 
 
-% An example of a floating table. Note that, for IEEE style tables, the 
+% An example of a floating table. Note that, for IEEE style tables, the
 % \caption command should come BEFORE the table. Table text will default to
 % \footnotesize as IEEE normally uses this smaller font for tables.
 % The \label must come after \caption as always.
@@ -1819,7 +1819,7 @@ The authors would like to thank...The authors would like to thank...The authors 
 %\end{thebibliography}
 
 % biography section
-% 
+%
 % If you have an EPS/PDF photo (graphicx package needed) extra braces are
 % needed around the contents of the optional argument to biography to prevent
 % the LaTeX parser from getting confused when it sees the complicated
