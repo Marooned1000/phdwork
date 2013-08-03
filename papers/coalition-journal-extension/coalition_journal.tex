@@ -990,27 +990,31 @@ CS}v(C)$.
 
 \section{Problem Formulation and Modeling}\label{s:model}
 
-In this section, we present the web service and community coordinator's intractions, the task distribution process and revenue models in web service communities.
+In this section, we present  web services and community coordinator's interactions, the task distribution process and revenue models in web service communities.
 
-\subsection{Task destribution}
+\subsection{Task distribution}
 
-As mentioned in section \ref{webservice-communities}, communities are robust service providers with well stablished market share and reputation. By maintaining their reputation and performance, they attract  end users which choose them as service providers to perform their tasks. The community master is characterizd by a request rate $(R_C)$ from users. Each web service comes with a given QoS ($QoS_{ws}$) from which the throughput $Tr_{ws}$ is excluded. This exclusion allows us to build our analysis on the particular value of $Tr_{ws}$. Throughput is the average rate of tasks a web service can perform per time unit. Thus, web services perform tasks with an average output quality of $QoS_{ws}$ and a throughput rate of $Tr_{ws}$.
+As mentioned in section \ref{webservice-communities}, communities are robust service providers with well established market share and reputation. By maintaining their reputation and performance, they attract  end users which choose them as service providers to perform their tasks. The community master is characterized by a request rate $(R_C)$ from users. Each web service comes with a given QoS ($QoS_{ws}$) from which the throughput $Th_{ws}$ is excluded. Throughput is the average rate of tasks a web service can perform per time unit. Its exclusion from $QoS_{ws}$ allows us to build our analysis on the particular value of $Th_{ws}$. Thus, web services perform tasks with an average output quality of $QoS_{ws}$ and a throughput rate of $Th_{ws}$.
 
-The community master uses a slightly modified \emph{weighted fair queuing} method to distribute task among its members. The goal is to allocate incoming tasks to web services with a rate matching throughput value of $Tr_{ws}$. In \emph{weighted fair queuing} method \emph{all} the input flow is multiplexed along different paths, however in our case if the input rate $(R_C)$ of the community is more than summation of throughput values of web services, some of the input tasks will be queued and served with delay. Thus, the amount of tasks performed by community is $\sum_{ws \in C}{(Tr_{ws})}$ when $\sum_{ws}{Tr_{ws}} \leq R_{C}$. However, when the community has more web services having more total throughput value than community's request rate $(R_C)$ the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $R_C \times \frac{Tr_{ws}}{\sum_{ws}{Tr_{ws}}}$ for each web service ($ws$) and the total rate of tasks being performed is $R_C$, the community's receiving request rate.
+The community master uses a slightly modified \emph{weighted fair queuing} method to distribute tasks among its members. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In \emph{weighted fair queuing} method \emph{all} the input flow is multiplexed along different paths, however in our case if the input rate $(R_C)$ of the community is more than the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with delay. Thus, the amount of tasks performed by community is $\sum_{ws \in C}{(Th_{ws})}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$. However, when the input rate $(R_C)$ of the community is less than the summation of throughput values of the web services in the community,
+%the community has more web services having more total throughput value than community's request rate 
+$(R_C)$ the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) and the total rate of tasks being performed is $R_C$, the community's receiving request rate.
 
-While distributing tasks, the community master can verify the performance, throughput and quality of tasks being performed by web services. It can recognize if web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in quality metrics or throughput, the master community will announce the new parameters and community masters and members can consider those values as benchmark for future performance calculations and also penalize them. Therefor its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it's important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
+While distributing tasks, the community master can verify the performance, throughput and quality of service of   tasks being performed by web services. It can recognize if web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in quality metrics or throughput, the  community master will announce the new parameters and community masters and members can consider those values as benchmark for future performance calculations but also to penalize them.
+In this way, players have incentive to reveal their real capabilities to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may  degrade or improve, a change that the community should adjust to. 
+% Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
 
 \subsection{Community Revenue}
 
-The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and quantity ($Tr_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weigth average over all QoS parameteres listed in table \ref{qosws} excluding the $Throuput$ and $Cost$ parameters. A community has the option to weight specific QoS patameters more or less depending on the expectations of their clients.
+The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and throughput ($Th_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weight average over all QoS parameters listed in table \ref{qosws} excluding the $Throughput$ and $Cost$ parameters. A community has the option to weigh specific QoS parameters depending on the expectations of their clients.
 
-The maximum potential output $(PO(C))$ of a community is aggregation of number of tasks, times their quality, for each web service participating as a member of the community:
+The maximum potential output of a community $(PO(C))$  is an aggregation of number of tasks, times their quality, for each web service member of the community:
 
 \begin{equation}
 PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
 \end{equation}
 
-If the summation of throughput ($Tr_{ws}$) values of community members exceeds the input task rate of the community ($R_C$) the community cannot perform at its maximum potential. It means community has more web services than it needs for performing input task load. Therefore, in these cases, the actual output has to be normalized to the ammount of tasks being performed.
+If the summation of throughput values ($Th_{ws}$) of community members exceeds the input task rate of the community ($R_C$) the community cannot perform at its maximum potential. It denotes the case when the community has more web services than it needs to perform the input task load. The actual output has to be normalized to the amount of tasks being performed.
 
 \begin{equation}\label{out_c}
 Out(C) = \left\{
@@ -1020,18 +1024,18 @@ Out(C) = \left\{
   \end{array} \right.
 \end{equation}
 
-The revenue function of the web service community, is a linear function of $Out(C)$ with a positive constant multiplier.
+The revenue function of the web service community is a linear function of $Out(C)$ with a positive constant multiplier.
 
 \subsection{Case Study}
 
-In this section, we analyse a few numerical examples and discuss the motivation of web services and community intractions and the strategies they can adopt and the revenue they can earn adopting different strategies.
+In this section, we analyze three numerical examples and discuss the motivation of web services and community interactions and the strategies they can adopt and the revenue they can earn adopting these different strategies.
 
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!t]
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Three web services of example 1}
+\caption{Example 1}
 \label{example_1}
 \centering
 \begin{tabular}{c c c c}
@@ -1057,11 +1061,11 @@ $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
 Community & Worth & Community & Worth\\
 \hline
 $\left\{1\right\}$ & 3.2 & $\left\{1,2\right\}$ & 7.2\\
-$\left\{2\right\}$ & 4.0 & $\left\{1,3\right\}$ & 6.8\\
+$\left\{2\right\}$ & 4.0 & $\left\{1,3\right\}$ & 5.6\\
 $\left\{3\right\}$ & 2.4 & $\left\{2,3\right\}$ & 6.4\\
 $\left\{1,2,3\right\}$ & 8.0\\
 \hline
-Community $R_C$: 12\\
+Community $R_C$: 10\\
 \hline
 \end{tabular}
 \end{table}
@@ -1072,7 +1076,7 @@ Community $R_C$: 12\\
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Three web services of example 2}
+\caption{Example 2}
 \label{example_2}
 \centering
 \begin{tabular}{c c c c}
@@ -1106,16 +1110,16 @@ Community $R_C$: 10\\
 \hline
 \end{tabular}
 \end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%, %%%%%%%%%%%%%%%%%%%%%%
 
-We present an example with a community with $R_C$ value of 10, and three web services each having different $QoS_{ws}$ and $Th_{ws}$ values as listed in table \ref{example_1}. The worth of a community is calculated based on $Out(C)$ equation (\ref{out_c}) which is the amount of output being generated by the community. The first table in figure \ref{example_1} lists the web services with their aggregated $QoS_{ws}$ parameters, their task input rate while working alone, and also their $Th_{ws}$ throughput value. The second table shows all the possible communities and their worth. The values suggest, communities having more web services have better gain and output. However community tries to distribute the gain between web services. Sometimes it is impossible to share the gain between all web services in a way no subset of them would individually gain more if they had their own group. In this example, the value community of ${ws_1}$ and ${ws_2}$ is 7.2, with ${ws_3}$ joining the community the value of community increases to 8.0. However there is no way to distribute the value among web services, where ${ws_1}$ and ${ws_2}$ can earn 7.2, and ${ws_3}$ earn at least 2.4, which they could earn before joining the community. This makes the group unstable. In the example of table \ref{example_2}, we even have situations where a web service (${ws_3}$) joining a community ($\left\{ws_1,ws_2\right\}$) decreases the value of community. The reason is, the community is already full and all tasks are almost being distributed and new community with bad quality can degrade the average quality of tasks being done by the community. In both examples, the request of joining of web service ${ws_3}$ should be rejected by the community.
+In the first example,  we present the case of a community with $R_C =10 $, and three web services, each having different $QoS_{ws}$ and $Th_{ws}$ values as listed in table \ref{example_1}. The worth of a community is calculated based on $Out(C)$ equation (\ref{out_c}) which is the amount of output being generated by the community. The first table  lists the web services with their aggregated $QoS_{ws}$ parameters, their task input rate while working alone, and also their  throughput value $Th_{ws}$. The second table shows all the possible communities and their respective worth. The obtained values suggest that  communities having more web services have better gain and output. However each community needs to  distribute the gain between web services. Sometimes it is impossible to share the gain between all web services in a way that no subset of them would individually gain more if they form their own group. In this example, the value community of ${ws_1}$ and ${ws_2}$ is 7.2, With ${ws_3}$ joining the community the worth increases to 8.0. However there is no way to distribute the value among web services to have  ${ws_1}$ and ${ws_2}$  earning 7.2, and ${ws_3}$ earning at least 2.4, the gain they could earn before joining the community. This fact makes the group unstable. In the second  example, shown in table \ref{example_2}, we even have situations where a web service (${ws_3}$) joining a community ($\left\{ws_1,ws_2\right\}$) decreases the value of community. The reason is, the community is already full and all tasks are almost being distributed and new community with bad quality can degrade the average quality of tasks being done by the community. In both examples, the request of joining of web service ${ws_3}$ should be rejected by the community.
 
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!t]
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Three web services of example 3}
+\caption{Example 3}
 \label{example_3}
 \centering
 \begin{tabular}{c c c c}
@@ -1140,15 +1144,15 @@ $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $\text{\emph{Input Task Rate}}$\\
 \hline
 Community & Worth & Community & Worth\\
 \hline
-$\left\{C_1\right\}$ & 0 & $\left\{C_2\right\}$ & 0\\
-$\left\{C_1, ws_1\right\}$ & 8 & $\left\{C_2, ws_1\right\}$ & 8\\
-$\left\{C_1, ws_2\right\}$ & 16 & $\left\{C_2, ws_2\right\}$ & 16\\
-$\left\{C_1, ws_3\right\}$ & 16 & $\left\{C_2, ws_3\right\}$ & 24\\
-$\left\{C_1, ws_1, ws_2\right\}$ & 16 & $\left\{C_2, ws_1, ws_2\right\}$ & 24\\
-$\left\{C_1, ws_1, ws_3\right\}$ & 16 & $\left\{C_2, ws_1, ws_3\right\}$ & 32\\
-$\left\{C_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_2, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_1, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_2, ws_1, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_1, C_2, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
+$\left\{C_{ms}_1\right\}$ & 0 & $\left\{C_{ms}_2\right\}$ & 0\\
+$\left\{C_{ms}_1, ws_1\right\}$ & 8 & $\left\{C_{ms}_2, ws_1\right\}$ & 8\\
+$\left\{C_{ms}_1, ws_2\right\}$ & 16 & $\left\{C_{ms}_2, ws_2\right\}$ & 16\\
+$\left\{C_{ms}_1, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_3\right\}$ & 24\\
+$\left\{C_{ms}_1, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_2\right\}$ & 24\\
+$\left\{C_{ms}_1, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_3\right\}$ & 32\\
+$\left\{C_{ms}_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{ms}_1, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{ms}_1, C_{ms}_2, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
 $\left\{ws_2\right\}$ & 4.2 & $\left\{ws_3\right\}$ & 6.8\\
 \hline
 Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
@@ -1157,7 +1161,7 @@ Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Now we consider another example, in which we have different communities with different market share, ${R_C}$ values. Web services also have a small share of market independently, providing them with a small task pull. In these kind of scenarios, the solution considers individual maximization of payoff and also the total worth of all communities which represents the \emph{social welfare}. In this example the most efficient partition of web services is earned by having two coalitions of $\left\{C_1, ws_2\right\}$ and $\left\{C_2, ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$. In these types of scenarios, the goal is to reach stability, adopting a distributed approach where all players have the power of choice on the decision of whether or not they join a coalition. The communities usually start the game having some established members, encountering new web services, the communities may exchange web services and new web services would join them having at least one player gaining utility, without hurting any other participant. In this example if we initially having two coalitions of $\left\{C_1, ws_2\right\}$ and $\left\{C_2, ws_1\right\}$ and a ${ws_3}$ as new web service, ${ws_3}$ joining ${C_1}$ would hurt at least itself or $ws_2$, however ${ws_3}$ joining ${C_2}$ would not hurt any participants and ${ws_3}$ would earn more within the community and the community will have enough web services performing the incoming tasks from users.
+In Example 3, we consider the case of having different communities with different market share, ${R_C}$ values. Web services also have a small share of market independently, providing them with a small task pull. In these kind of scenarios, the solution considers individual maximization of payoff and also the total worth of all communities which represents the \emph{social welfare}. In this example the most efficient partition of web services is earned by having two coalitions of $\left\{C_{master}_1, ws_2\right\}$ and $\left\{C_{master}_2, ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$. In these types of scenarios, the goal is to reach stability, adopting a distributed approach where all players have the power of choice on the decision of whether or not they join a coalition. The communities usually start the game having some established members, encountering new web services, the communities may exchange web services and new web services would join them having at least one player gaining utility, without hurting any other participant. In this example if we initially having two coalitions of $\left\{C_{master}_1, ws_2\right\}$ and $\left\{C_{master}_2, ws_1\right\}$ and a ${ws_3}$ as new web service, ${ws_3}$ joining ${C_{master}_1}$ would hurt at least itself or $ws_2$, however ${ws_3}$ joining ${C_{master}_2}$ would not hurt any participants and ${ws_3}$ would earn more within the community and the community will have enough web services performing the incoming tasks from users.
 
 The first two examples illustrate the fact that a community cannot simply increase its revenue by adding more web services. The web services and even community owners are autonomous agents and would deviate and be displeased about the community if new members cause a drop in their profit. The job of the community master is to attract as many quality web services it can and keep them satisfied; hence the group stability is guaranteed. 
 The third example highlights another type of problem we would like to address, which is how to form best possible groups of communities, and allocate web services among communities in a way which would maximize payoff for of our agents and members already residing in the communities.
@@ -1810,7 +1814,7 @@ The authors would like to thank...The authors would like to thank...The authors 
 
 
 %This is an example of a Transactions article reference
-%D.S. Coming and O.G. Staadt, "Velocity-Aligned Discrete Oriented Polytopes for Dynamic Collision Detection," IEEE Trans. Visualization and Computer Graphics, vol. 14,  no. 1,  pp. 1-12,  Jan/Feb  2008, doi:10.1109/TVCG.2007.70405.
+%D.S. Coming and O.G. Staadt, "Velocity-Aligned Discrete Oriented Polytopes for Dynamic Collision Detection," IEEE Trans. Visualization and Computer Graphics, vol.ï¿½14,ï¿½ no.ï¿½1,ï¿½ pp. 1-12,ï¿½ Jan/Febï¿½ 2008, doi:10.1109/TVCG.2007.70405.
 
 %This is an example of a article from a conference proceeding
 %H. Goto, Y. Hasegawa, and M. Tanaka, "Efficient Scheduling Focusing on the Duality of MPL Representation," Proc. IEEE Symp. Computational Intelligence in Scheduling (SCIS '07), pp. 57-64, Apr. 2007, doi:10.1109/SCIS.2007.367670.
