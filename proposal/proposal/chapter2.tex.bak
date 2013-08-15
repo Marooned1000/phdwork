@@ -1,17 +1,17 @@
-\setcounter{chapter}{2}
+\setcounter{chapter}{1}
 %*******************************START Background **********************************
 
-\section{Introduction to Multiagent Systems}\label{sec:MAS}
+\chapter{Introduction to Multiagent Systems}\label{sec:MAS}
 
 
-ttt ttt
+
 
 
 \section{Types of Dialogue Games}\label{sec:DialogueGames}
 
 
 
-ttt ttt
+
 
 
 \section{Negotiation Dialogue Games}\label{sec:Negotiation}

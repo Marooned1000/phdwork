@@ -1,6 +1,6 @@
 \setcounter{chapter}{4}
 
-\section{Conclusion and Future Work}
+\chapter{Conclusion and Future Work}
 
 \section{Conclusion}\label{sec:conclusion}
 In this paper, we proposed a new set of uncertainty measures for the agents in argumentation-based negotiation dialogues from an
