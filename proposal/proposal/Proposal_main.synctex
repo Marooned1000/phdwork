@@ -1,5 +1,5 @@
 SyncTeX Version:1
-Input:1:C:/PhDWork/proposal/proposal/Proposal_main.tex
+Input:1:C:/phdwork/notes/proposal/proposal/Proposal_main.tex
 Input:2:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls
 Input:3:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo
 Input:4:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latexsym.sty
@@ -16,15 +16,15 @@ Input:14:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty
 Input:15:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty
 Input:16:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty
 Input:17:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\afterpage.sty
-Input:18:C:\PhDWork\proposal\proposal\algorithm.sty
-Input:19:C:\PhDWork\proposal\proposal\algorithmic.sty
+Input:18:C:\phdwork\notes\proposal\proposal\algorithm.sty
+Input:19:C:\phdwork\notes\proposal\proposal\algorithmic.sty
 Input:20:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty
 Input:21:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty
 Input:22:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty
-Input:23:C:\PhDWork\proposal\proposal\caption.sty
-Input:24:C:\PhDWork\proposal\proposal\setspace.sty
+Input:23:C:\phdwork\notes\proposal\proposal\caption.sty
+Input:24:C:\phdwork\notes\proposal\proposal\setspace.sty
 Input:25:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\multirow.sty
-Input:26:C:\PhDWork\proposal\proposal\rotating.sty
+Input:26:C:\phdwork\notes\proposal\proposal\rotating.sty
 Input:27:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
 Input:28:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty
 Input:29:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty
@@ -32,7 +32,7 @@ Input:30:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg
 Input:31:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def
 Input:32:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty
 Input:33:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty
-Input:34:C:\PhDWork\proposal\proposal\cuthesis.sty
+Input:34:C:\phdwork\notes\proposal\proposal\cuthesis.sty
 Input:35:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ccaption\ccaption.sty
 Input:36:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty
 Input:37:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty
@@ -40,9 +40,9 @@ Input:38:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty
 Input:39:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg
 Input:40:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty
 Input:41:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latin1.def
-Input:42:C:\PhDWork\proposal\proposal\footnote.sty
-Input:43:C:\PhDWork\proposal\proposal\acronym.sty
-Input:44:C:\PhDWork\proposal\proposal\suffix.sty
+Input:42:C:\phdwork\notes\proposal\proposal\footnote.sty
+Input:43:C:\phdwork\notes\proposal\proposal\acronym.sty
+Input:44:C:\phdwork\notes\proposal\proposal\suffix.sty
 Input:45:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty
 Input:46:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty
 Input:47:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
@@ -56,16 +56,16 @@ Input:54:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
 Input:55:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
 Input:56:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\dstroke\dsfont.sty
 Input:57:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty
-Input:58:C:\PhDWork\proposal\proposal\Proposal_main.aux
-Input:59:C:\PhDWork\proposal\proposal\title.aux
-Input:60:C:\PhDWork\proposal\proposal\Abstract.aux
-Input:61:C:\PhDWork\proposal\proposal\chapter1.aux
-Input:62:C:\PhDWork\proposal\proposal\chapter2.aux
-Input:63:C:\PhDWork\proposal\proposal\chapter3.aux
-Input:64:C:\PhDWork\proposal\proposal\chapter4.aux
-Input:65:C:\PhDWork\proposal\proposal\chapter5.aux
+Input:58:C:\phdwork\notes\proposal\proposal\Proposal_main.aux
+Input:59:C:\phdwork\notes\proposal\proposal\title.aux
+Input:60:C:\phdwork\notes\proposal\proposal\Abstract.aux
+Input:61:C:\phdwork\notes\proposal\proposal\chapter1.aux
+Input:62:C:\phdwork\notes\proposal\proposal\chapter2.aux
+Input:63:C:\phdwork\notes\proposal\proposal\chapter3.aux
+Input:64:C:\phdwork\notes\proposal\proposal\chapter4.aux
+Input:65:C:\phdwork\notes\proposal\proposal\chapter5.aux
 Input:66:C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
-Input:67:C:\PhDWork\proposal\proposal\title.tex
+Input:67:C:\phdwork\notes\proposal\proposal\title.tex
 Input:68:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ulasy.fd
 Input:69:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
 Input:70:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
@@ -75,7 +75,7 @@ Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!4793
+!4907
 {1
 [1,151:4736286,48356311:30785863,43620025,0
 [1,151:7104429,48356311:28417720,44567267,0
@@ -467,8 +467,8 @@ h1,151:7104429,48356311:28417720,0,0
 ]
 !10037
 }1
-Input:71:C:\PhDWork\proposal\proposal\Proposal_main.toc
-!66
+Input:71:C:\phdwork\notes\proposal\proposal\Proposal_main.toc
+!72
 {2
 [71,15:4736286,48356311:30785863,43620025,0
 [71,15:7104429,48356311:28417720,44567267,0
@@ -1185,17 +1185,17 @@ g71,8:7104429,36169087
 x71,8:7517057,36169087
 k71,8:8180860,36169087:663803
 )
-x71,8:8952296,36169087
-x71,8:10002804,36169087
-x71,8:12730735,36169087
-g71,8:13005820,36169087
-x71,8:13739381,36169087
-g71,8:14014466,36169087
-x71,8:17686261,36169087
-x71,8:17984270,36169087
-g71,8:18259355,36169087
-x71,8:21191309,36169087
-k71,8:34242999,36169087:13051690
+x71,8:9535856,36169087
+x71,8:12489039,36169087
+g71,8:12764124,36169087
+x71,8:14082242,36169087
+g71,8:14357327,36169087
+x71,8:16397546,36169087
+x71,8:17211340,36169087
+x71,8:17509349,36169087
+g71,8:17784434,36169087
+x71,8:21447758,36169087
+k71,8:34242999,36169087:12795241
 (71,8:34242999,36169087:1279150,462465,0
 k71,8:34696893,36169087:453894
 x71,8:35522149,36169087
@@ -3722,8 +3722,8 @@ k1,173:35522150,48356311:13909852
 ]
 !43552
 }3
-Input:72:C:\PhDWork\proposal\proposal\Proposal_main.lot
-!66
+Input:72:C:\phdwork\notes\proposal\proposal\Proposal_main.lot
+!72
 {4
 [1,175:4736286,48356311:30785863,43620025,0
 [1,175:7104429,48356311:28417720,44567267,0
@@ -4045,8 +4045,8 @@ k1,175:35522149,48356311:13919818
 ]
 !7286
 }4
-Input:73:C:\PhDWork\proposal\proposal\Proposal_main.lof
-!65
+Input:73:C:\phdwork\notes\proposal\proposal\Proposal_main.lof
+!71
 {5
 [1,177:4736286,48356311:30785863,43620025,0
 [1,177:7104429,48356311:28417720,44567267,0
@@ -4609,8 +4609,8 @@ k1,177:35522150,48356311:14019488
 ]
 !12394
 }5
-Input:74:C:\PhDWork\proposal\proposal\Abstract.tex
-!61
+Input:74:C:\phdwork\notes\proposal\proposal\Abstract.tex
+!67
 {6
 [1,177:4736286,48356311:30785863,43620025,0
 [1,177:7104429,48356311:28417720,44567267,0
@@ -5271,8 +5271,8 @@ k1,177:35522149,48356311:13919818
 ]
 !17346
 }6
-Input:75:C:\PhDWork\proposal\proposal\chapter1.tex
-!61
+Input:75:C:\phdwork\notes\proposal\proposal\chapter1.tex
+!67
 {7
 [75,21:4736286,48356311:30785863,43620025,0
 [75,21:7104429,48356311:28417720,44567267,0
@@ -12568,8 +12568,8 @@ k1,190:35522149,48356311:14029455
 ]
 !4231
 }15
-Input:77:C:\PhDWork\proposal\proposal\chapter2.tex
-!61
+Input:77:C:\phdwork\notes\proposal\proposal\chapter2.tex
+!67
 {16
 [77,33:4736286,48356311:30785863,43620025,0
 [77,33:7104429,48356311:28417720,44567267,0
@@ -12587,20 +12587,20 @@ k77,4:35522149,12615435:10839923
 )
 (77,4:7104429,18251531:28417720,1132315,317047
 h77,4:7104429,18251531:0,0,0
-x77,4:8806680,18251531
-x77,4:11135477,18251531
-x77,4:17199031,18251531
-g77,4:17810482,18251531
-x77,4:19441017,18251531
-g77,4:20052468,18251531
-x77,4:28208922,18251531
-x77,4:28871326,18251531
-k77,4:35522149,18251531:6650823
+x77,4:10115448,18251531
+x77,4:16673447,18251531
+g77,4:17284898,18251531
+x77,4:20214767,18251531
+g77,4:20826218,18251531
+x77,4:25346050,18251531
+x77,4:27154925,18251531
+x77,4:27817329,18251531
+k77,4:35522149,18251531:7704820
 )
-(77,4:7104429,22183691:28417720,1118729,317047
-x77,4:13617705,22183691
-k77,4:24569927,22183691:10952222
-k77,4:35522149,22183691:10952222
+(77,4:7104429,22183691:28417720,1132315,0
+x77,4:15225971,22183691
+k77,4:25374060,22183691:10148089
+k77,4:35522149,22183691:10148089
 )
 (77,10:7104429,27557643:28417720,655359,183500
 (77,10:7104429,27557643:2418275,608173,0
@@ -12730,7 +12730,7 @@ k77,33:35522149,48356311:13850050
 )
 ]
 ]
-!4217
+!4213
 }16
 !10
 {17
@@ -13942,8 +13942,8 @@ k1,191:35522149,48356311:13850050
 ]
 !10891
 }18
-Input:78:C:\PhDWork\proposal\proposal\chapter3.tex
-!62
+Input:78:C:\phdwork\notes\proposal\proposal\chapter3.tex
+!68
 {19
 [78,19:4736286,48356311:30785863,43620025,0
 [78,19:7104429,48356311:28417720,44567267,0
@@ -51239,8 +51239,8 @@ k1,192:35522149,48356311:13850050
 ]
 !672
 }59
-Input:79:C:\PhDWork\proposal\proposal\chapter4.tex
-!60
+Input:79:C:\phdwork\notes\proposal\proposal\chapter4.tex
+!66
 {60
 [79,21:4736286,48356311:30785863,43620025,0
 [79,21:7104429,48356311:28417720,44567267,0
@@ -54086,8 +54086,8 @@ k1,193:35522149,48356311:13850050
 ]
 !10287
 }63
-Input:80:C:\PhDWork\proposal\proposal\chapter5.tex
-!62
+Input:80:C:\phdwork\notes\proposal\proposal\chapter5.tex
+!68
 {64
 [1,194:4736286,48356311:30785863,43620025,0
 [1,194:7104429,48356311:28417720,44567267,0
@@ -54429,8 +54429,8 @@ k1,194:35522149,48356311:13850050
 ]
 !1569
 }65
-Input:81:C:\PhDWork\proposal\proposal\Proposal_main.bbl
-!66
+Input:81:C:\phdwork\notes\proposal\proposal\Proposal_main.bbl
+!72
 {66
 [81,38:4736286,48356311:30785863,43620025,0
 [81,38:7104429,48356311:28417720,44567267,0
@@ -58118,15 +58118,15 @@ k1,225:35522149,48356311:13850050
 ]
 !8888
 }71
-Input:82:C:\PhDWork\proposal\proposal\Proposal_main.aux
-Input:83:C:\PhDWork\proposal\proposal\title.aux
-Input:84:C:\PhDWork\proposal\proposal\Abstract.aux
-Input:85:C:\PhDWork\proposal\proposal\chapter1.aux
-Input:86:C:\PhDWork\proposal\proposal\chapter2.aux
-Input:87:C:\PhDWork\proposal\proposal\chapter3.aux
-Input:88:C:\PhDWork\proposal\proposal\chapter4.aux
-Input:89:C:\PhDWork\proposal\proposal\chapter5.aux
-!420
+Input:82:C:\phdwork\notes\proposal\proposal\Proposal_main.aux
+Input:83:C:\phdwork\notes\proposal\proposal\title.aux
+Input:84:C:\phdwork\notes\proposal\proposal\Abstract.aux
+Input:85:C:\phdwork\notes\proposal\proposal\chapter1.aux
+Input:86:C:\phdwork\notes\proposal\proposal\chapter2.aux
+Input:87:C:\phdwork\notes\proposal\proposal\chapter3.aux
+Input:88:C:\phdwork\notes\proposal\proposal\chapter4.aux
+Input:89:C:\phdwork\notes\proposal\proposal\chapter5.aux
+!468
 Postamble:
 Count:30168
 !28
