@@ -116,7 +116,7 @@ Theory of Games (Annals of Mathematical Studies)},
 
 @TECHREPORT{RePEc:wpa:wuwpga:0110001,
   title = {The Coalition Structure Core is Accessible},
-  author = {K�czy, L�szl� �. and Lauwers, Luc},
+  author = {Kóczy, László Á. and Lauwers, Luc},
   year = {2002},
   institution = {EconWPA},
   type = {Game Theory and Information}
@@ -225,13 +225,13 @@ Theory of Games (Annals of Mathematical Studies)},
 title = "Coalition structure generation with worst case guarantees",
 journal = "Artificial Intelligence",
 volume = "111",
-number = "1–2",
+number = "1鈥?",
 pages = "209 - 238",
 year = "1999",
 note = "",
 issn = "0004-3702",
 doi = "10.1016/S0004-3702(99)00036-3",
-author = "Tuomas Sandholm and Kate Larson and Martin Andersson and Onn Shehory and Fernando Tohmé",
+author = "Tuomas Sandholm and Kate Larson and Martin Andersson and Onn Shehory and Fernando Tohm茅",
 keywords = "Coalition formation",
 keywords = "Anytime algorithm",
 keywords = "Multiagent systems",
@@ -278,7 +278,7 @@ address = {Los Alamitos, CA, USA},
  publisher = {ACM},
  address = {New York, NY, USA},
  keywords = {QoS, service composition, web services},
-} 
+}
 
 @article{Paik:2005:TSS:2229263.2230038,
  author = {Paik, Hye-Young and Benatallah, B. and Toumani, F.},
@@ -298,7 +298,7 @@ address = {Los Alamitos, CA, USA},
  publisher = {IEEE Press},
  address = {Piscataway, NJ, USA},
  keywords = {Catalog portals, e-catalogs, peer-to-peer (P2P), self-adaptivity},
-} 
+}
 
 @ARTICLE{Medjahed05adynamic,
     author = {Brahim Medjahed},
