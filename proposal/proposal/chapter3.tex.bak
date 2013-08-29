@@ -1,6 +1,6 @@
 \setcounter{chapter}{2}
 
-\chapter{Efficient Coalition Formation for Autonomous Web Services}
+\chapter{Coalition Formation for Autonomous Web Services}
 
 \section{Preliminaries}\label{s:preliminaries}
 
@@ -87,7 +87,7 @@ community \emph{worth} or \emph{payoff} function.
 Figure \ref{fig_community} represents the architecture of web service communities. The communities are essentially an abstract model of web services. They aggregate web services and communicate with other entities such as UDDI registries and users, using identical protocols as web services. Web services join communities to increase their utility by having a larger market share and task pool. Community coordinators or master web services are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Community coordinators try to attract quality web services and keep the community as stable and productive as possible to gain better reputation and user satisfaction which results in having a higher market share for the community. The way the web services reside inside communities and how communities of web services are engineered is described comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
 
 \begin{figure*}[!t]
-\centerline{\includegraphics[width=6.25in]{Figures/community.eps}}
+\centerline{\includegraphics[width=15cm, height=11cm]{Figures/community.eps}}
 \caption{Architecture of Web Service communities}
 \label{fig_community}
 \end{figure*}
