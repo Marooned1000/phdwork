@@ -87,8 +87,169 @@ community \emph{worth} or \emph{payoff} function.
 Figure \ref{fig_community} represents the architecture of web service communities. The communities are essentially an abstract model of web services. They aggregate web services and communicate with other entities such as UDDI registries and users, using identical protocols as web services. Web services join communities to increase their utility by having a larger market share and task pool. Community coordinators or master web services are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Community coordinators try to attract quality web services and keep the community as stable and productive as possible to gain better reputation and user satisfaction which results in having a higher market share for the community. The way the web services reside inside communities and how communities of web services are engineered is described comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
 
 \begin{figure*}[!t]
-\centerline{\includegraphics[width=15cm, height=11cm]{Figures/community.eps}}
+\centerline{\includegraphics[width=15cm]{Figures/community.eps}}
 \caption{Architecture of Web Service communities}
 \label{fig_community}
 \end{figure*}
 
+\subsection{Cooperative Game Concepts}
+Cooperative game is a branch of game theory that studies
+strategies of self-interested entities or agents in a setting
+where those agents can increase their payoff by binding agreements
+and cooperating in groups. We let $N$ be a set of players. Any
+subset $S$ of $N$ can form a group called $coalition$. A
+\emph{coalitional game} is a pair $G = (N, v)$, where $v$ is called
+a \emph{characteristic function} $v: 2^N \to \mathbb{R}$, mapping the set of players of the
+coalition to a real number $v(S)$, the worth of $S$. This number
+usually represents the output or payoff or again the performance
+of these players working together as coalition.  If a coalition
+$S$ is formed, then it can divide its worth, $v(S)$ in any
+possible way among its members. The payoff vector $x \in
+\mathbb{R}^S$ is the amount of payoff being distributed among the
+members of the coalition $S$. The payoff vector satisfies two
+conditions:
+
+\begin{itemize}
+    \item $x_i \geq 0$ for all $i \in N$, and
+    \item $\sum_{i \in S} x_i \leq v(S)$
+\end{itemize}
+
+The second criteria is called the \emph{feasibility} condition,
+according to which, the payoff for each agent cannot be more than
+the coalition total gain. A payoff vector is also \emph{efficient}
+if the payoff obtained by a coalition is distributed amongst the
+coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of
+the characteristic function works in \emph{transferable utility}
+(TU) settings, where utility (i.e., payoff) is transferable from
+one player to another, or in other words, players have common
+currency and a unit of income that is worth the same for all players
+\cite{myerson1991game}.
+
+When dealing with cooperative games, two issues need to be
+addressed:\\ 1. Which coalitions among all possible coalitions to form? \\
+2. How to reward each member when a task is completed?\\
+%
+The following definitions help address these two issues.
+
+{\bf Definition 1 (Shapley value)} Given a cooperative game $(N,
+v)$, the \emph{Shapley value} of player $i$ is given
+by\cite{shapley_value}:
+\begin{equation}\label{eq:shapley}
+\phi_i(N,v) = \sum_{S \subseteq N \backslash \left\{i\right\} }
+\frac{|S|! (|N|-|S|-1)!}{|N|!} (v(S \cup \left\{i\right\}) - v(S))
+\end{equation}
+
+\emph{Shapley value} is a unique and fair solution concept for
+payoff distribution among the members of the coalition. It
+basically rewards members with the amount of marginal contribution
+they have to the coalition.
+
+%\subsubsection{Core}
+
+{\bf Definition 2 (Core)} A payoff vector $x$ is in the $core$ of
+a coalitional game $(N, v)$ if and only if:
+\begin{equation}\label{eq:core}
+\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
+\end{equation}
+
+The core is basically a set of payoff vectors where no subset of
+players $S^\prime$ could gain more than their current payoff by
+deviating and making their own coalition $\sum_{i \in S^\prime}
+x_i \geq v(S^\prime)$. The sum of payoffs of the players in any
+sub-coalition $S$ is at least as large as the amount that these
+players could earn by forming a coalition by their own. In a
+sense, it is analogue to Nash equilibrium, except that core is
+about deviations from groups of entities. The core is the
+strongest and most popular solution concept in cooperative game
+theory. However, its computation is a combinatorial problem and
+becomes intractable as the number of players increases. The core
+of some real-world problem games may be empty, which means having
+the characteristic function of the game $(N,v)$, there might be no
+possible distribution of payoff assuring stability of subgroups.
+
+{\bf Definition 3 (Convex cooperative games)} A game $(N,v)$ with
+characteristic function $v(S)$ is convex if:
+\begin{equation}\label{eq:convex}
+v(S) + v(T) \leq v(S \cup T) + v (S \cap T), \forall S,T \subseteq
+N.
+\end{equation}
+
+According to a classic result by Shapley \cite{S1971cores}, convex
+games always have a non-empty core. We will use a variation of
+convexity condition in our algorithm to check whether our
+coalitions are stable.
+
+\subsubsection*{$\epsilon$-core}\label{s:epsilon}
+%\emph{$\epsilon$-Core:}
+%\\
+When the \emph{core} set of a game is empty, it means no coalition
+of players can gain anything by deviating. An outcome would be
+unstable if a coalition can benefit even by a small amount from
+deviating, which is a strong requirement. In fact, in some
+situations, deviations can be costly, or players may have loyalty
+to their coalitions, or even it can be computationally intractable
+to find those small benefits. It would only make sense for a
+coalition to deviate if the gain from a deviation exceeds the cost
+of performing the deviation. \emph{$\epsilon$-core} relaxes the
+notion of the core, and only requires that no coalition would
+benefit significantly, or within a constant amount($\epsilon$) by
+deviating (see Equation \ref{eq:core}).
+
+\begin{equation}\label{eq:core2}
+\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
+\end{equation}
+
+\subsubsection*{Coalition Structure Formation}\label{sec:coalition}
+
+Coalition structure formation is the problem of finding the best
+partition of web services into teams. In these settings, the
+performance of an individual service is less important than the
+\emph{social welfare} of the whole system, which is the sum of the
+values of all teams. Having the game $(N,v)$, a coalition
+structure $(CS)$ is \emph{socially optimal} if $CS$ belongs to set
+$\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS)$ is the sum of
+the values of all coalitions inside $CS$. $v(CS) = \sum_{C \in
+CS}v(C)$.
+%The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members. 
+
+\section{Problem Formulation and Modeling}\label{s:model}
+
+In this section, we present  web services and community coordinator's interactions, the task distribution process and revenue models in web service communities.
+
+\subsection{Task distribution}
+
+As mentioned in section \ref{webservice-communities}, communities are robust service providers with well established market share and reputation. By maintaining their reputation and performance, they attract  end users which choose them as service providers to perform their tasks. The community master is characterized by a request rate $(R_C)$ from users. Each web service comes with a given QoS ($QoS_{ws}$) from which the throughput $Th_{ws}$ is excluded. Throughput is the average rate of tasks a web service can perform per time unit. Its exclusion from $QoS_{ws}$ allows us to build our analysis on the particular value of $Th_{ws}$. Thus, web services perform tasks with an average output quality of $QoS_{ws}$ and a throughput rate of $Th_{ws}$.
+
+The community master uses a slightly modified \emph{weighted fair queuing} method to distribute tasks among its members. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In \emph{weighted fair queuing} method \emph{all} the input flow is multiplexed along different paths, however in our case if the input rate $(R_C)$ of the community is more than the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with delay. Thus, the amount of tasks performed by community is $\sum_{ws \in C}{(Th_{ws})}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$. However, when the input rate $(R_C)$ of the community is less than the summation of throughput values of the web services in the community,
+%the community has more web services having more total throughput value than community's request rate
+$(R_C)$ the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) and the total rate of tasks being performed is $R_C$, the community's receiving request rate.
+
+While distributing tasks, the community master can verify the performance, throughput and quality of service of   tasks being performed by web services. It can recognize if web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in quality metrics or throughput, the  community master will announce the new parameters and community masters and members can consider those values as benchmark for future performance calculations but also to penalize them.
+In this way, players have incentive to reveal their real capabilities to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may  degrade or improve, a change that the community should adjust to.
+% Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
+
+\subsection{Community Revenue}
+
+The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and throughput ($Th_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weight average over all QoS parameters listed in table \ref{qosws} excluding the $Throughput$ and $Cost$ parameters. A community has the option to weigh specific QoS parameters depending on the expectations of their clients.
+
+The maximum potential output of a community $(PO(C))$  is an aggregation of number of tasks, times their quality, for each web service member of the community:
+
+\begin{equation}
+PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
+\end{equation}
+
+If the summation of throughput values ($Th_{ws}$) of community members exceeds the input task rate of the community ($R_C$) the community cannot perform at its maximum potential. It denotes the case when the community has more web services than it needs to perform the input task load. The actual output has to be normalized to the amount of tasks being performed.
+
+\begin{equation}\label{out_c}
+Out(C) = \left\{
+  \begin{array}{l l}
+    PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{C}$}\\
+    PO(C) \times \frac{R_{C}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{C}$}
+  \end{array} \right.
+\end{equation}
+
+The revenue function of the web service community is a linear function of $Out(C)$ with a positive constant multiplier.
+
+\subsection{Case Study}
+
+In this section, we analyze three numerical examples and discuss the motivation of web services and community interactions and the strategies they can adopt and the revenue they can earn adopting these different strategies. 
