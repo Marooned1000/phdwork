@@ -594,7 +594,7 @@ to the first scenario, master web services form coalitions with
 web services. We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
 structures. As mentioned in Section \ref{sec:coalition}, the used
-algorithms \cite{Sandholm1999209,DBLP:conf/ijcai/GrecoMPS11,DBLP:conf/ijcai/RahwanMJ11} try to
+algorithms \cite{Sandholm:1999:CSG:317145.317152,DBLP:conf/ijcai/GrecoMPS11,DBLP:conf/ijcai/RahwanMJ11} try to
 solve key fundamental problems of what coalitions to form, and how
 to divide the payoffs among the collaborators.
 
@@ -604,3 +604,244 @@ to divide the payoffs among the collaborators.
 \caption{Web Services and Many Communities}
 \label{fig_sim2}
 \end{figure}
+
+In coalition-formation games, formation of the coalitions is the
+most important aspect. The solutions focus on maximizing the
+social welfare. For any coalition structure $\pi$, let
+$v_{cs}(\pi)$ denote the total worth $\sum_{C \in \pi}{v(C)}$,
+which represents the \emph{social welfare}. The solution concepts
+in this area deal with finding the maximum value for the social
+welfare over all the possible coalition structures $\pi$. There
+are $centralized$ algorithms for this end, but these approaches
+are generally NP-complete. The reason is that the number of all
+possible partitions of the set $N$ grows exponentially with the
+number of players in $N$, and the centralized algorithms need to
+iterate through all these partitions.
+%These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centralized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}.
+In our model, we propose using a distributed algorithm where each
+community master and web service can be a decision maker and
+decide for its own good. The aim is to find less complex and
+distributed algorithms for forming web services
+coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}.
+The distributed merge-and-split algorithm in
+\cite{DBLP:journals/igtr/AptW09} suits our application very well.
+It keeps splitting and merging coalitions to partitions which are
+preferred by all the players inside those coalitions.
+
+This merge-and-split algorithm is designed to be adaptable to
+different applications. One major ingredient to use such an
+algorithm is a preference relation or well-defined orders proper
+for comparing collections of different coalition partitions of the
+same set of players. Having two partition sets of players, namely
+$P = {P_1,...,P_k}$ and $Q = {Q_1,...Q_l}$, one example would be
+to use the social welfare comparison $\sum^k_{i=1}v(P_i) >
+\sum^l_{j=1}v(Q_j)$. For our scenario, we use \emph{Pareto order}
+comparison, which is an individual-value order appropriate for our
+self-interest web services. In the Pareto order, an allocation or
+partition $P$ is preferred over another $Q$ if at least one player
+improves its payoff in the new allocation and all the other
+players still maintain their payoff ($p_i \geq q_i$ with at least
+one element $p_i > q_i$).
+
+The valuation function $v(C)$ for this scenario is the same as
+\emph{``Web Services and One Community''} scenario. However, in
+order to prevent master web services joining the same community,
+we set $v(C) = 0$ when $C$ has either none, or more than one
+master web service as member.
+
+In this scenario, as new web services are discovered and get ready
+to join communities, our algorithm keeps merging and splitting
+partitions based on the preference function. The decision to merge
+or split is based on the fact that all players must benefit. The
+new web services will merge with communities if $all$ the players
+are able to improve their individual payoff, and some web services
+may split from old communities, if splitting does not decrease the
+payoff of any web service of the community. According to
+\cite{DBLP:journals/corr/abs-cs-0605132}, this sequence of merging
+and splitting will converge to a final partition, where web
+services cannot improve their payoff. More details of this
+algorithm and analysis of generic solutions on coalition formation
+games are described in \cite{DBLP:journals/igtr/AptW09}.
+
+\subsection{Taxtation, Subsiding and Community Stability}\label{s:tax}
+
+We discuessed $core$ as one of the preminent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal ammount of $\epsilon$ by deviating. Comuunity stability is an attractice property for communities, also communities would benefit by having slightly more web services then having the exact number of web services satisfying task rate cap. One reason is that there is always the possibility that the agents may leave the community or they may under perform from the quality values they were initially performing with.
+
+One way for communities to ensure community stability could be applying a tax, $\epsilon$ ammount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on same ammount of taxtation, being governed by some external entities or web services would join communities with lesser ammount of tax. Another viable solution in our scenario is to stabilize the game using external subsidies. The reason a game is not stable is that the community is not making enough revenue to allocate the players with enough gain. A community master can subside its community with a constant coefficient value of $\lambda$. Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$. Obviously with a big number of $\lambda$ it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxting in order to reduce the bargaining power of sub coalitions are called $taxtation$ \cite{eps346856} methods.
+
+
+%Thus, another way to garantee \emph{$\epsilon$-core} stability can be achieved by some surplus payments from community coordinators. These concepts of applying cost in coallition values in order to reduce their bargaining power are called $taxtation$ methods\cite{eps346856}.
+
+%The \emph{$\epsilon$-core} concept, in its definition, considers the willing to join or deviate from agent's point of view. It claims agents for any reason will be not willing to deviate to gain less than $\epsilon$ amount of profit. Communities can agree on However, in our case, the community master is willing to keep web services in communities too. There are several reasons for this, one reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. To this end, our communities will reward and valuate web services in the community
+
+
+
+\section{Experimental Results and Analysis}\label{s:resutls}
+
+In this section, we discuss the experiments we performed for our
+scenarios to validate the applicability and performance of our
+proposed methods in realistic environments. We created a pool of
+web services and populated most of their \emph{QoS} parameters
+from a real world web service dataset
+\cite{DBLP:conf/smc/Al-MasriM09a}. We implemented the simulations
+using Java and executed the simulations on an Intel Xeon X3450
+machine with 6GBs of memory. For other parameters missing from the
+dataset, we used normal random distribution with parameters
+estimated using the method of maximum likelihood.
+
+One of the key criteria reflecting the performance of web service
+coalitions is the user satisfaction. User satisfaction can be
+measured in terms of quality and quantity of requests (or tasks)
+successfully answered by the communities. We initiate the
+communities with few web services, then let rejecting and
+accepting random web services go for a short number of iterations.
+After that, we start the request distribution for the communities
+and let them allocate requests among member web services.
+Thereafter, we measure the average output performance of tasks in
+communities following different methods.
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{Figures/task_done_opt.eps}
+\includegraphics[width=3in]{Figures/task_qos_opt.eps}
+\caption{Part (a): Cumulative number of requests successfully
+done. Part (b): Average QoS of requests performed.}
+\label{performanceall}
+\end{figure}
+
+Figure \ref{performanceall} depicts the results of optimal
+\emph{$\epsilon$-core}, \emph{Depth-1 Convex-Checker},
+\emph{Depth-2 Convex-Checker}, \emph{3-Way Satisfaction}
+\cite{DBLP:conf/IEEEscc/LimTMB12}, and \emph{2 Player
+Non-Cooperative} \cite{DBLP:conf/IEEEscc/KhosravifarABT11} methods
+in \emph{one grand community with many web services} scenario.
+
+For the \emph{optimal core} method we have used the well known \emph{$\epsilon$-core} method as the
+taxtation method to relax the core condition to help communities, attract web services.
+We have assigned $\epsilon$ to 15\% of total community worth, $\epsilon = 0.15 \times v(C)$, which allows
+subsets of the coalition to gain maximum 15\% of $v(C)$. In the
+\emph{optimal $\epsilon$-core} method, we capped the coalition
+size to 25 web services, since the method is computationally
+intractable as number of web services increase and anything more than that would make it
+impractical to run in our simulations. In the other methods, there
+were no cap on size of the community and we had communities of
+size 60 web services at some points. The results show that our
+\emph{depth-2 convex checker} method is performing better compared
+to the other methods and its performance is close to optimal
+\emph{$\epsilon$-core} method. Our \emph{depth-1 convex checker}
+and the \emph{3-Way Satisfaction} method, are also performing well.
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{Figures/least_core.eps}
+\caption{Analysis of \emph{$\epsilon$-core} set non-emptiness, for different values of $\epsilon$} \label{f_leastcore}
+\end{figure}
+
+As mentioned in Section \ref{s:preliminaries}, the concept of
+\emph{core}, assumes no coalition of players can gain anything by
+deviating, which is a fairly strong requirement, and that is why
+the notion of \emph{$\epsilon$-core} was introduced. Least-Core
+$e(G)$ of a game $G$, is the minimum amount of $\epsilon$ so that
+the core is not empty. We evaluated the non-emptiness of \emph{$\epsilon$-core} set using the
+valuation function and a set of web services. We picked random
+number of web services from the dataset and formed around 10,000
+random coalitions consisting of 3 to 26 web services. We choose 26
+as the maximum number of members in our coalition since it
+is computationally very complex for larger coalitions to verify whether
+\emph{$\epsilon$-core} set is empty or not. Also instead of considering $\epsilon$ amount of constant deviation in \emph{$\epsilon$-core} definition (Equation \ref{eq:core2}), we similarly defined \emph{relative $\epsilon$-core} concept where no coalition would benefit more than \emph{$\epsilon$ $\times$ v(C)} by deviating. We set $\epsilon$ between 0 and 1 and verify the \emph{relative $\epsilon$-core} set non-emptiness. The results in Figure
+\ref{f_leastcore} illustrates that almost 10\% of our random web
+service coalitions have non-empty \emph{core} solution and
+\emph{$\epsilon$-core} solution is \emph{always} non-empty when we
+let agents gain only 30\% more of $v(C)$ by deviating.
+
+One of the properties of coalition structure formation algorithms
+in our second scenario is that they partition web services with low
+throughput rate so that they usually join coalitions with less
+request rate. Since the characteristic function $v(C)$ and the
+fair Shapely payoff vector is proportional to web services'
+contribution, the web services with small contribution will get
+paid much less in communities having web services with high
+throughput. On the other hand, according to the valuation function
+$v(C)$, web services with high throughput will not contribute well
+to communities with low amount of user requests (low market
+share). The strong web services are likely to deviate from weak
+coalitions, joining a stronger one, which makes the initial
+coalition unstable.
+
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{Figures/taxtation.eps}
+\caption{Analysis of community subsiding coefficient $\lambda$ on average community size (a), cost (b), number of tasks performed (c), and average quality of service of tasks performed (d).} \label{f_taxtation}
+\end{figure}
+
+
+As mentioned in section \ref{s:tax} in order to help community stability, is to subside the community by a relative coefficient ($\lambda$) so the value of $\lambda v(C)$ is devided among the community members. We have analysed the effect of subsiding and the cost it incurs to our web service communities. Figure \ref{f_taxtation} shows the results. In this expirement we have set a community with input task rate $R_C$ of 100 and having abstract web services throuput rate $T_r$ value of a random distribution with average 10 tasks per iteration. Part (a) shows the community size increases in a linear fashion as ($\lambda$) increases. However the cost is having a slight exponential growth rate since, not only ($\lambda$) increases also the size of the community is also increasing slowly. Therefore subsiding can be costly for larger number of $\lambda$ value. Part (c) of figure \ref{f_taxtation} depicts the number of tasks done by the community per iteration. It is obvoius with $\lambda$ value of 1.3 which is 30\% of community valuation, the number of tasks done almost reaches the input task rate cap of 100 tasks per iteration. The average quality of tasks also has a slight increase since the community will be able to afford better and more web services to join the community. These results proves with quality metrics our agents as web services have and their collabrative worth, the increase rate of subsiding more 1.3 is not very effective and is costly to perform.
+
+\begin{figure*}[!t]
+\centerline{\includegraphics[width=6.75in]{Figures/tax_dyn.eps}}
+\caption{Analysis of community subsiding coefficient $\lambda$ having web service different stability levels of $\tau$ on average community size, number of tasks performed, and average quality of service, and average cost/income of communities.}
+\label{fig_dynamic_taxtation}
+\end{figure*}
+
+
+In previous experiment, we consider the scenario where all web services are stable will not leave the group and will fulfill their promised quality metrics for a good period of time. However, in real world scenarios of web services, this is not always the case. This is the reason why community would be interested in subsiding a community of larger group web services, paying a few more web services in order to keep the group reliable from end user point of view. In our next scenario, we have introduced the new instability variable $\tau$ from 0 to 1, 0 meaning web services having no instability issues and will perform as they claimed until the end of experiment and 1 meaning very unstable web services which will stop functioning on the first iteration of community distributing tasks. Figure \ref{fig_dynamic_taxtation} illustrates the results of our experiment having web services with average instability values of 0 to 0.5 and having relative subside value $\lambda$ if 1,1.3,1.6 and 2. The \emph{Cost / Income} charts on right column, shows having subside value of 1.3 incurs the least cost and increases the community income significantly. Subsiding values of 1.6 and 2 , incur a lot of cost to community and only slightly increase the community revenue. Also the role of subsiding is much more obvious when we have unstable web services. In scenarios where web services are 100\% stable, subsiding cost will hardly be compensated by community revenue.
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{Figures/s2_task_done.eps}
+\includegraphics[width=3in]{Figures/s2_task_qos.eps}
+\caption{Part (a): Cumulative number of tasks succesfully done. Part
+(b): Average QoS of tasks performed.} \label{performancemany}
+\end{figure}
+
+In Figure \ref{performancemany}, we compare our \emph{Web Services
+and many Communities} scenario with a method which ignores QoS
+parameters and forms coalitions by allowing web services to join
+only if they have enough requests for themselves. In other words,
+web services can join a community when the request rate is less
+than the throughput of all the member web services. We name this
+method \emph{Random Formation} and use it as a benchmark for our
+QoS-aware coalition formation process. As the results illustrate,
+our method forms better coalitions of web services improving
+performance and satisfaction for both web services and coalitions.
+
+\begin{figure}[!t]
+\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[width=3in]{Figures/avg_task_ws_done.eps}
+\includegraphics[width=3in]{Figures/avg_qos_ws_done.eps}
+\includegraphics[width=3in]{Figures/avg_avail_ws_done.eps}
+\caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks succesfully done. Part
+(b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
+\end{figure}
+
+Finally, in our last experiment, we compare our work with the work in \cite{10.1109/TSC.2012.12} which we call it \emph{High Availability Coalition} method, because of nature of their community valuation function, which focuses on community availability as main consideration. Their community formation model is very different than ours, however we have been very careful to make the experiment environment as fair and similar as possible. We limited our maximum community size by 5 in order to have communities with almost the same size. In their method, they have used web services as backups rather than active collaborative players, and they only get task when the first web service in an ordered chain fails to perform the task. However with recent advancement in cloud and hardware infrastructures availability is less of an issue for web services, and web services are highly available. Part(a) of figure \ref{fig_avail_method} shows our method performs almost performs tasks successfully with rate of three times more than \emph{High Availability Coalition} method because of real cooperative nature and task distribution of our algorithm. This result shows using web services as backups, and not as real collabrative players is a huge waste of web service capability since they have very low chance of getting jobs and its the primary web service (the first in their coordination chain) which does most of the work. The average quality of service of tasks performed is also better since our method considers all quality of service metrics mentioned in table \ref{qosws}. Part(c) shows the availability of community from end user point of view. The \emph {High Availability Coalition} method almost has 100\% uptime since they use web services as backups, so the chance of job failing reduces significantly as community members increase. In our method we have more chance of fail for each web service, however with some subsiding, and hiring a few more web service they can compensate the low chance of failure of web services in our community.
+
+\section{Conclusion}\label{s:conclusion}
+
+In this paper, we proposed a cooperative game theory-based model
+for the aggregation of web services within communities. The goal
+of our services is to maximize efficiency by collaborating and
+forming stable coalitions. Our method considers stability and
+fairness for all web services within a community and offers an
+applicable mechanism for membership requests and selection of web
+services. The ultimate goal is to increase revenue by improving
+user satisfaction, which comes from the ability to perform more
+tasks with high quality. Simulation results show that our,
+polynomial in complexity, approximation algorithms provide web
+services and community owners with applicable and near-optimal
+decision making mechanisms.
+
+As future work, we would like to perform more analytical and
+theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts based on the
+characteristic function in web service applications. From web service perspective, the
+work can be extended to consider web service compositions where a
+group of web services having different set of skills cooperate to
+perform composite tasks. Also bargaining theory from cooperating
+game theory concepts can be used to help web services resolve the
+instability and unfairness issues by side payments.
