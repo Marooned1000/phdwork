@@ -1,7 +1,7 @@
 \setcounter{chapter}{0}
 %*******************************START INTRODUCTION **********************************
 \chapter{Introduction}\label{sec:intro}
-In this chapter we introduce the context of this research, which is about argumentation-based negotiation dialogue games. We also present the motivations behind this work and the research questions. Also, we discuss the objective of this research and our preliminary contributions. Proposal organization is presented in the last section.
+In this chapter we introduce the context of this research, which is about community of web services as autonomous agents and cooperative game theoretic solution concepts. We discuss litreture review and their shortcommings then present the motivations behind this work and the research questions. Also, we discuss the objective of this research and our preliminary contributions. Proposal organization is presented in the last section.
 
 \section{Context of the research}\label{sec:context}
 
