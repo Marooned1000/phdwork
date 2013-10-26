@@ -1,0 +1,57 @@
+\documentclass{article}
+  
+\usepackage{amsfonts}
+\usepackage{amssymb}
+  
+\begin{document}
+  
+\section{Shapley Value}
+  
+Shapley value basically tries to distribute the earn of the group to all the participating agents in a fair way, so the result is a vector for all agants: lets say \emph{Pay(i)} is the payment that should be made to agent \emph{i}.
+\\
+\\
+The way it calculates \emph{Pay(i)} for each agent is basically, for all subsets of agents, let's see how much they make with and without agent \emph{i} and average that, so in a group of 3 agents {1,2,3}, payment for player 1 is going to be like:
+\\
+\\
+\begin{gather*}
+P(1) = 
+\\
+ (
+\\
+v(\left\{1\right\} + \left\{\right\}) - v(\left\{\right\}) +
+\\
+v(\left\{1\right\} + \left\{2\right\}) - v(\left\{2\right\}) + 
+\\
+v(\left\{1\right\} + \left\{3\right\}) - v(\left\{3\right\}) +
+\\
+v(\left\{1\right\} + \left\{2,3\right\}) - v(\left\{2,3\right\})  
+\\
+) / 4
+\\
+\end{gather*}
+\\
+So in the example of gloves after the calculations we have: \\
+P(left hand glove 1) = 1/6, \\
+P(left hand glove 2) = 1/6, \\
+P(right hand glove 3)  = 2/3 \\
+\\
+Right hand will recieve more payment since the right hand glove contributes more to different subsets and is more important while left hand glove is redundant in most cases and doesn't add much value to group.
+\\
+\\
+Now since this is computationally heavy (we need to average each agents contribution to \emph{\textbf{all possible subsets}}). What they did in that paper did and claimed to be egalitarian is: 
+They say we pay each agent the amount they made alone (in glove example working alone earns 0) and distribute rest equally between agents. So in that example:
+\\
+\\
+P(left hand glove 1) = 1/3, \\
+P(left hand glove 2) = 1/3, \\
+P(right hand glove 3)  = 1/3 \\
+
+This is not a general method and I didn't find this in any other paper as egaliterian method for shapley value, (I checked that refrence before), but it's very fast to calculate however it does not have 4 important properties of shapely value (Efficiency, Symmetry, Linearity, Zero Player - non dictatorship) and is not fair at all and can cause agents to leave because of this distribution
+  
+  
+  
+  
+%\bibliographystyle{plain}
+%\bibliography{ehsan}
+  
+\end{document}
