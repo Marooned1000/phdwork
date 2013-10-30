@@ -7,7 +7,7 @@
 
 
 
-\section{Types of Dialogue Games}\label{sec:DialogueGames}
+\section{Community of Web Services}\label{sec:DialogueGames}
 
 
 
@@ -27,25 +27,5 @@ reach  a mutual acceptable agreement on the division of scarce resources.
 
    \subsection{Approaches to Automated Negotiation}\label{sec:Nappro}
 
-Three types of approaches have been discussed in MAS literature as the authors argued in~\cite{JenningsPASC01}. These approaches are:
-the \textit{game-theoretic} approach, the \textit{heuristic-based} approach, and the \textit{argumentation-based} negotiation (ABN)
-approach.
 
-The Game-theoretic approach is based on studying and developing strategic negotiation models based on game-theoretic precedents~\cite{Neumann44,JeffreyG94}.
-The basic idea of this approach is to see the negotiation process as a game in which each participant tries to maximize his own utility. While this approach
-is very promising in terms of results analysis, it suffers from some drawbacks as the authors argued in ~\cite{AmgoudV11}, due to the assumptions upon which
-it is built. The most important ones are (i) the approach allows agents to exchange offers only, but not reasons or justifications, and (ii) the preference relation
-$\succeq$ on offers is fixed during a negotiation for an agent. These assumptions are not realistic since in everyday life, other information than offers may be exchanged.
-Moreover, it is very common that preferences on offers may change~\cite{AmgoudV11}.
-
-The second approach is heuristic-based. This approach came to overcome some limitations of the game-theoretic approach (e.g., ~\cite{FatimaWJ04,JenningsPASC01}).
-Heuristics are ad hoc rules that aim to achieve a good solution, but not necessarily an optimal one. That is why some strong assumptions made in the game-theoretic
-approach such as the notion of rationality of agents as well as their resources are relaxed. Even though this approach came to cope with the game-theoretic approach
-limitations, it does not solve the problem of the preference relation, i.e., the relation $\succeq$ remains the same during the negotiation~\cite{AmgoudV11}.
-
-The third approach, which is our focus in this paper, is the argumentation-based negotiation approach (ABN). Plenty of research has been done on this approach as
-witnessed by many publications, such as ~\cite{AmgoudPM00,Hunter04,Mbarki06,AmgoudDM07,AmgoudV11,EliseYP12}. The basic idea behind this approach is to allow the
-participants of the negotiation dialogue not only to exchange offers, but also reasons and justifications that support these offers in order to mutually influence
-their preference relation on the set of offers, and consequently to the out come of the dialogue. In~\cite{RahwanSD03}, the authors have introduced a particular
-style of argument-based negotiation, namely interest-based negotiation (IBN), which is  a form of ABN in which agents explore and discuss their underlying interests.
 %*******************************End Background **********************************
