@@ -1,42 +1,164 @@
 \setcounter{chapter}{0}
 %*******************************START INTRODUCTION **********************************
 \chapter{Introduction}\label{sec:intro}
-In this chapter we introduce the context of this research, which is about community of web services as autonomous agents and cooperative game theoretic solution concepts. We discuss literature review and their shortcomings then present the motivations behind this work. Also, we discuss our preliminary contributions. 
+In this chapter we introduce the context of this research, which is about community of web services as autonomous agents and cooperative game theoretic solution concepts. We discuss literature review and their shortcomings then present the motivations behind this work. Also, we discuss our preliminary contributions.
 
 \section{Context of the research}\label{sec:context}
 
 
 \section{Motivations and research questions}\label{sec:motivation}
 
-Multiagent systems are widely used in everyday life, and to add more value to these systems in the field of software engineering,
-they supposed to be measurable. Our motivation is to find a way to measure these systems from different aspects such as measuring
-the dialogues, the performance of the participants in the dialogues, and the protocols governing the dialogues, etc. In order to evaluate
-dialogues in multiagent systems, we define a new set of measurements from an external agent's point of view. Defining measures for the
-participants in the dialogues is another motivation in this thesis. The aim behind developing such measurements is to help engineers and
-developers of agent-based systems in evaluating these systems and their performances.\\
+the past years, online services have become part of many
+scalable business applications. The increasing reliance on
+web-based applications has significantly influenced the way web
+services are engineered. Web services provide a set of stateless
+software functions accessible at a network address over the web.
+The recent developments are shifting web services from passive and
+individual components to autonomous and group-based components
+where interaction, composition, and cooperation are the key
+challenges \cite{ICWS2011-1,SCC2011-1}. The main objective is to
+achieve a seamless integration of business processes, applications
+and web services. Delivering high quality services considering the
+dynamic and unpredictable nature of the Internet is still a very
+critical and challenging issue.
 
-\indent When monitoring a dialogue between two or more agents, there are many question that should be answered. In this thesis, we are interested in answering the following questions:
+The need for highly available and responsive services has called
+for grouping and collaborative mechanisms of loosely-coupled web
+services, particularly in business settings. The idea of grouping
+web services within communities and the way those communities are
+engineered so that web services can better collaborate have been
+proposed and investigated in
+\cite{DBLP:journals/ijebr/MaamarSTBB09,DBLP:journals/internet/BenatallahSD03,Rosario:2008:PQS:1512146.1512290}.
+Communities are virtual groups of web services having similar
+functionalities \cite{Zeng:2003:QDW:775152.775211, Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,10.1109/ARES.2008.7}, but probably different non-functional quality
+attributes, which form the QoS parameters. When communities are
+used, users send their requests to the masters of those
+communities, which are responsible of managing the communities,
+forwarding the requests to the suitable member web services and
+checking the credentials of those members. Communities aim to
+provide higher service availability and performance than what
+individual web services can provide. The high availability of
+services and the community resilience to failure are guaranteed
+since web services can cooperate and replace each other within the
+same community and since there is no single point of failure in
+the communities architecture.
 
-\begin{itemize}
-\item How much are agents certain about selecting a move at each dialogue step?
-\item How much are agents certain about their dialogues?
-\item How good are agents in the real dialogue (i.e. the effective dialogue)?
-\item How far are agents from the right dialogue (i.e. the best dialogue given the knowledge bases of the participants)?
-\end{itemize}
-Answering these questions is undoubtedly complex. Therefore, we do not expect a comprehensive answer to all these questions.
+Most of the recent work on communities of services are either
+user-centric and focus on user satisfaction
+\cite{Chun02user-centricperformance} or system-centric and focus
+on the whole system throughput, performance and utilization. There
+are many contributions in distributed, grid, cluster and cloud
+services which are system-centric. However, in real world
+environments and applications, both users and service providers
+are self-interested agents, aiming to maximize their own profit.
+In those environments, both parties (users and services) will
+collaborate as long as they are getting more benefits and payoff.
+
+In this direction, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
+DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed mechanisms to help
+users and services to maximize their gain. A two-player
+non-cooperative game between web services and community master was
+introduced in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In this
+game-theoretic model, the strategies available to a web service
+when facing a new community are requesting to join the community,
+accepting the master's invitation to join the community, or
+refusing the invitation to join. The set of strategies for
+communities are inviting the web service or refusing the web
+service's join request. Based on their capacity, market share and
+reputation, the two players have different set of utilities over
+the strategy profiles of the game. The main limits of this game
+model are: 1) its consideration of only three quality parameters,
+while the other factors are simply ignored; and 2) the
+non-consideration of the web services already residing within the
+community. The game is only between the community master and the
+new web service, and the inputs from all the other members are
+simply ignored. The consideration of those inputs is a significant
+issue as existing web services can lose utility or payoff because
+of the new member, which can results in an unhealthy and unstable
+group. The problem comes from the fact that the existing members
+should collaborate with the new web services, so probably their
+performance as a group can suffer. Existing members may even
+deviate and try to join other communities if they are unsatisfied.
+Those considerations of forming stable and efficient coalitions
+are the main contributions of our paper.
+
+In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
+for selecting web services has been proposed. In this approach,
+the authors proposed a web service selection process that the
+community masters can use. The approach considers the efficiency
+of all the three involved parties, namely users, web services and
+communities. In this work, it is shown how the gains of these
+parties are coupled together using a linear optimization process.
+However, the optimization problem in this solution tends to
+optimize some parameters considering all web services regardless
+of their efficiency and contribution to the community's welfare.
+Moreover, there are no clear thresholds for accepting or rejecting
+new web services. The solution of the optimization problem could,
+for instance, suggest web services already residing within the
+community to increase or decrease their capacity to cover up the
+weakness of other parties in the system. However, a high
+performing web service could deviate anytime it finds itself
+unsatisfied within the community instead of adjusting its service
+parameters.
+
+In \cite{10.1109/TSC.2012.12}, a cooperative scheme among autonomous
+web services based on coalitional game theory has been introduced. They have proposed an algorithm to
+reach individually stable coalition partition for web services in order to
+maximize their efficiency. The communities choose new web services on the promise
+that it would benefit the community without decreasing any other web service's
+income. In their model, the worth of community is evaluated with high emphasis on
+availability metric and considering price and cost values only. The community structure is based on a coordination chain,
+where a web service is assigned as a \emph{primary} web service and the community task destribution
+method, will initially invoke the primary web service and only if the primary web service is unavailable
+will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to
+have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays
+with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services
+in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
+capabilities.
+
+
+% ooooooold
+%\indent When monitoring a dialogue between two or more agents, there are many question that should be answered. In this thesis, we are interested in answering the following questions:
+%\begin{itemize}
+%\item How much are agents certain about selecting a move at each dialogue step?
+%\item How much are agents certain about their dialogues?
+%\item How good are agents in the real dialogue (i.e. the effective dialogue)?
+%\item How far are agents from the right dialogue (i.e. the best dialogue given the knowledge bases of the participants)?
+%\end{itemize}
+%Answering these questions is undoubtedly complex. Therefore, we do not expect a comprehensive answer to all these questions.
 
 
 
 \section{Research objectives and contributions}\label{sec:contribution}
 
-The main objective of this thesis is to develop a new set of measurements for negotiation dialogue games to help in evaluating and
-comparing different negotiation dialogues with different participants for the same topic. The importance of introducing measures for
-negotiation dialogue games at each step of the dialogue such as measuring how much the agent is certain about its move is to help in developing intelligent multiagent systems (MAS) and to help evaluating different agents provided by different developers.\\
-\indent Our research aims to ensure that the agents' certainty about their dialogue is fairly represented at each step during
-the dialogue by making sure that the agent's certainty about selecting the right move is kept in mind and considered as a property
-of multiagent systems.\\
-\indent The main contribution of this thesis is the proposition of a new set of measures for dialogue games from an external agent's point of view.
-In particular
+In this research work, we use game theory to
+propose a cooperative game model for the aggregation of web
+services within communities. The solution concepts of our
+cooperative game seeks to find efficient ways of forming
+coalitions (teams) of web services so that they can maximize their
+gain and payoff, and distribute the gain in a fair way among all
+the web services. Achieving Fairness when the gain is distributed
+among the community members is the main factor to keep the
+coalition stable as no web service will expect to gain better by
+deviating for the community. In other words, the coalition is made
+efficient if all the members are satisfied. We first propose a
+representation function for communities of web services based on
+their QoS attributes. By using this function, we can evaluate the
+$worth$ of each community of web services. When facing new
+membership requests, a typical community master checks whether the
+new coalition having the old and new set of web services will keep
+the community stable or not. The community master will reject the
+membership requests if it finds out that the new coalition would
+be unstable, preventing $any$ subset of web services from gaining
+significantly more by deviating from the community and joining
+other communities or forming new ones. The computation of
+solutions for cooperative game theory problems is combinatorial in
+nature and proven to be NP-complete \cite{Algorithmic}, making
+this computation impractical in real world applications. However,
+using the concepts of coalition stability, we propose
+approximation algorithms running in polynomial time providing web
+services and community masters with applicable and near-optimal
+decision making mechanisms.
 
 
 \section{Research outline}\label{sec:outline}
