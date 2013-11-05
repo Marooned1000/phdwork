@@ -8,7 +8,7 @@ In this chapter we introduce the context of this research, which is about commun
 
 \section{Motivations and research questions}\label{sec:motivation}
 
-the past years, online services have become part of many
+Over the past years, online services have become part of many
 scalable business applications. The increasing reliance on
 web-based applications has significantly influenced the way web
 services are engineered. Web services provide a set of stateless
@@ -162,7 +162,7 @@ decision making mechanisms.
 
 
 \section{Research outline}\label{sec:outline}
-The rest of the paper is organized as follows: In Section~\ref{sec:Argumentation}
+The rest of the paper is organized as follows: In Section~\ref{sec:MAS}
 
 
 

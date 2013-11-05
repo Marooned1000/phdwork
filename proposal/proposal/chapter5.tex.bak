@@ -32,7 +32,7 @@ instability and unfairness issues by side payments.
 
     \begin{figure}
                 \begin{center}
-                \includegraphics[width=16cm, height=22cm]{Figures/timetable.eps}\label{Timetable}
+                \includegraphics[width=16cm, height=22cm]{Figures/timetable.pdf}\label{Timetable}
                 \caption{Research milestones and time line}
                 \end{center}
     \end{figure}   

@@ -22,19 +22,111 @@
             \subsubsection{Web Service Attraction and Retention}\label{sec:CWSAttraction}
 
             \subsubsection{Web Service Selection}\label{sec:CWSSelection}
+            
+        \subsection{Related Work}\label{sec:BRRelatedWork}
 
 
+One of the first contributions in which web service community was introduced was in \cite{Zeng:2003:QDW:775152.775211}. They defined web service community as collection of web services providing same functionality however with different quality metrics. 
+
+Most of the recent work on communities of services are either
+user-centric and focus on user satisfaction
+\cite{Chun02user-centricperformance} or system-centric and focus
+on the whole system throughput, performance and utilization. There
+are many contributions in distributed, grid, cluster and cloud
+services which are system-centric. However, in real world
+environments and applications, both users and service providers
+are self-interested agents, aiming to maximize their own profit.
+In those environments, both parties (users and services) will
+collaborate as long as they are getting more benefits and payoff.
+
+In this direction, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
+DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed mechanisms to help
+users and services to maximize their gain. A two-player
+non-cooperative game between web services and community master was
+introduced in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In this
+game-theoretic model, the strategies available to a web service
+when facing a new community are requesting to join the community,
+accepting the master's invitation to join the community, or
+refusing the invitation to join. The set of strategies for
+communities are inviting the web service or refusing the web
+service's join request. Based on their capacity, market share and
+reputation, the two players have different set of utilities over
+the strategy profiles of the game. The main limits of this game
+model are: 1) its consideration of only three quality parameters,
+while the other factors are simply ignored; and 2) the
+non-consideration of the web services already residing within the
+community. The game is only between the community master and the
+new web service, and the inputs from all the other members are
+simply ignored. The consideration of those inputs is a significant
+issue as existing web services can lose utility or payoff because
+of the new member, which can results in an unhealthy and unstable
+group. The problem comes from the fact that the existing members
+should collaborate with the new web services, so probably their
+performance as a group can suffer. Existing members may even
+deviate and try to join other communities if they are unsatisfied.
+Those considerations of forming stable and efficient coalitions
+are the main contributions of our paper.
+
+In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
+for selecting web services has been proposed. In this approach,
+the authors proposed a web service selection process that the
+community masters can use. The approach considers the efficiency
+of all the three involved parties, namely users, web services and
+communities. In this work, it is shown how the gains of these
+parties are coupled together using a linear optimization process.
+However, the optimization problem in this solution tends to
+optimize some parameters considering all web services regardless
+of their efficiency and contribution to the community's welfare.
+Moreover, there are no clear thresholds for accepting or rejecting
+new web services. The solution of the optimization problem could,
+for instance, suggest web services already residing within the
+community to increase or decrease their capacity to cover up the
+weakness of other parties in the system. However, a high
+performing web service could deviate anytime it finds itself
+unsatisfied within the community instead of adjusting its service
+parameters.
+
+In \cite{10.1109/TSC.2012.12}, a cooperative scheme among autonomous
+web services based on coalitional game theory has been introduced. They have proposed an algorithm to
+reach individually stable coalition partition for web services in order to
+maximize their efficiency. The communities choose new web services on the promise
+that it would benefit the community without decreasing any other web service's
+income. In their model, the worth of community is evaluated with high emphasis on
+availability metric and considering price and cost values only. The community structure is based on a coordination chain,
+where a web service is assigned as a \emph{primary} web service and the community task destribution
+method, will initially invoke the primary web service and only if the primary web service is unavailable
+will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to
+have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays
+with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services
+in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
+capabilities.
 
     \section{Cooperative Game Theory in Multiagent Systems}\label{sec:CGTMS}
-    
-        \subsection{Web Services}\label{sec:BRWS}
 
-        \subsection{Definition}\label{sec:CWSDefinition}
+        \subsection{Cooperative Game Thoery}\label{sec:BRWS}
 
-        \subsection{Architecture}\label{sec:CWSArchitecture}
-    
+        \subsection{Motivating Example}\label{sec:CWSDefinition}
+        
+        One the closest examples of cooperative situations, for our service model is \emph{Single landowner and landless workers} example. 
+        This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain some income.
+        
+        Suppose that the land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have the following game model:
+        
+        \begin{itemize}
+        \item \emph{Players} The landowner and the $m$ workers.
+        \item \emph{Actions} A coalition consisting solely of workers has a single action in which no member receibes any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers is the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$.
+        \item \emph{Preferences} Each player's preferences are represented by the amount of output he obtains.
+        \end{itemize}
 
-    \section{Related Work}\label{sec:BRRelatedWork}
+        \subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
+
+        \subsection{Representation and Complexity issues}\label{sec:CWSArchitecture}
+        
+        \subsection{Related Work}\label{sec:CGTMSRelatedWork}
+
+Cooperative game theory provides a set of mathematical and optimization tools for multi-agent environments. These tools have been utilized in communication networks and service oriented computing literature, where nodes as rational agents try to reason strategically and maximise their benefit.
+
+
 
 
 
