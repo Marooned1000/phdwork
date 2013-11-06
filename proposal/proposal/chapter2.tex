@@ -3,15 +3,53 @@
 
 \chapter{Background and Relevant Literature}\label{sec:MAS}
 
-
+In this chapter, we briefly review web services, then we introduce the concept of communities of web services, their architecture and applications and the benefits of forming communities. Then we discuss the cooperative game theory concepts used throughout our research work. Finally, we discuss the relevant related work on web service communities and games in service oriented computing literature.
 
     \section{Community of Web Services}\label{sec:CommunityWS}
-
-
-        \subsection{Web Services}\label{sec:BRWS}
-
-
+    In this section, we discuss the concept of communities of web services, and we discuss the architecture and operations of community members.  
+        
+        \subsection{Web Services}\label{sec:CWSWebServices}
+        Over the past years, online services have become part of standard daily life of people around the globe. Many applications these days rely on 
+        web services from different providers to function. Most modern computer applications, specially 
+        mobile and tablet applications which have limited storage and processing power
+        are merely just an interface aggregating different information from online service providers.
+        Examples are vast, weather forecasting, ticket selling, local maps and places search, shopping apps, almost all rely on
+        robust web service providers. 
+        
+        The World Wide Web Consortium (W3C) defines web services as follows: "software
+        system designed to support interpretable machine-to-machine interaction over a network.
+        It has an interface described in a machine-processable format (specifically WSDL). Other
+        systems interact with the web service in a manner prescribed by its description using
+        SOAP messages, typically conveyed using HTTP with XML serialization in conjunction
+        with other Web-related standards". When developers declare a new web service, it will
+        be discovered based on its description that fully describes the service. Developers also
+        have to declare a public interface and a readable documentation to help other developers
+        when integrating different services \cite{w3cwsdl}. Nowadays Web API standards which do not 
+        require XML-based web service protocols like SOAP and WSDL are also emerging. They are also called 
+        REST (representational state transfer) services which are moving towards simpler communication protocols.
+        They are not restricted to XML formats, recently JSON, a human readable and simpler format is becoming popular among online service providers.        
+        
+        We are not going to delve into engineering details of online web service implementation and its protocols in this proposal. 
+        We consider the service, web services provide as a request-response operation, where they receive a message specifying a question, 
+        based on this message they generate a response, satisfying end users' need. Service providers usually charge end users for services they provide,
+        gaining profit in the process. For example Google has listed their pricing and plans for wide range of services they provide
+        on their web service console page\footnote{https://code.google.com/apis/console}.
+        
+        In our research work, we abstract web services as rational entities\footnote{The term 
+        rational is used here in the sense that web services are utility
+        maximizers} providing services to end users. They aim to maximize
+        their individual income by receiving enough requests from end
+        users. In order to increase their revenue, web services seek for
+        more tasks if they have the capacity and throughput to do so. Web
+        services can join communities to have better efficiency by
+        collaborating with others, to have access to higher market share,
+        and to have opportunity of receiving a bigger task pool from end
+        users. Also the high reliance on web services, has increased quality expectations from end users.
+        Communities of web services can provide higher performance, reliability, fail recovery for end users. 
+        
         \subsection{Definition}\label{sec:CWSDefinition}
+        Community in dictionary definition refers to "the condition of sharing or having certain attitudes and interests in common" or "a group of people living in the same place or having a particular characteristic in common". In \cite{DBLP:journals/internet/BenatallahSD03, Zeng:2003:QDW:775152.775211} introduce community of web services as collection of cooperative web services with a common service and functionality but different QoS metrics. Therefore $communities$ are differentiated from $composition$ type of web service cooperation in which web services with different functionalities work together to generate a new service provider with composite functionality.
+        
 
         \subsection{Architecture}\label{sec:CWSArchitecture}
 
@@ -110,13 +148,7 @@ capabilities.
         One the closest examples of cooperative situations, for our service model is \emph{Single landowner and landless workers} example. 
         This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain some income.
         
-        Suppose that the land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have the following game model:
-        
-        \begin{itemize}
-        \item \emph{Players} The landowner and the $m$ workers.
-        \item \emph{Actions} A coalition consisting solely of workers has a single action in which no member receibes any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers is the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$.
-        \item \emph{Preferences} Each player's preferences are represented by the amount of output he obtains.
-        \end{itemize}
+        In this game, land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have a game there the set of players are the landowner and the $m$ workers, possible actions for coalitions with only workers would be distributing the zero output for all where no member receives any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers would be the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$. The preference of each player would be the amount of out she obtains.
 
         \subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
 

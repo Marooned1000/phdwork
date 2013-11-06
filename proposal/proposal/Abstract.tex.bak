@@ -11,6 +11,7 @@ making them cooperate within their communities. However, forming
 optimal and stable communities as coalitions to maximize
 individual and group efficiency and income has not been addressed
 yet. 
+
 In this proposal, we propose an efficient coalition formation
 mechanism using cooperative game-theoretic techniques. We propose
 a mechanism for community membership requests and selections of
@@ -22,7 +23,12 @@ near-optimal (welfare-maximizing) communities. The theoretical and
 extensive simulation results show that our algorithms provide web services
 and community owners, in real-world like environments, with applicable and near-optimal decision
 making mechanisms.
-In the continuation of the thesis work, we need to apply different cooperative game techniques such as nucleus, kernel and bargaining solution concepts and theoretically analyse solution concepts based on functions suitable for the web service community. We also 
+
+In future work, we need to apply different cooperative game techniques such as nucleus, 
+kernel and bargaining solution concepts and theoretically analyse solution concepts, 
+based on functions representing payoff and quality metrics the web service communities. 
+We also aim to apply reinforcement learning techniques for individual web service 
+strategic decision making process.
 
 
 
