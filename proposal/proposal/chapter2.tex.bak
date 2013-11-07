@@ -6,16 +6,16 @@
 In this chapter, we briefly review web services, then we introduce the concept of communities of web services, their architecture and applications and the benefits of forming communities. Then we discuss the cooperative game theory concepts used throughout our research work. Finally, we discuss the relevant related work on web service communities and games in service oriented computing literature.
 
     \section{Community of Web Services}\label{sec:CommunityWS}
-    In this section, we discuss the concept of communities of web services, and we discuss the architecture and operations of community members.  
-        
+        In this section, we discuss the concept of communities of web services, and we discuss the architecture and operations of community members.
+
         \subsection{Web Services}\label{sec:CWSWebServices}
-        Over the past years, online services have become part of standard daily life of people around the globe. Many applications these days rely on 
-        web services from different providers to function. Most modern computer applications, specially 
+        Over the past years, online services have become part of standard daily life of people around the globe. Many applications these days rely on
+        web services from different providers to function. Most modern computer applications, specially
         mobile and tablet applications which have limited storage and processing power
         are merely just an interface aggregating different information from online service providers.
         Examples are vast, weather forecasting, ticket selling, local maps and places search, shopping apps, almost all rely on
-        robust web service providers. 
-        
+        robust web service providers.
+
         The World Wide Web Consortium (W3C) defines web services as follows: "software
         system designed to support interpretable machine-to-machine interaction over a network.
         It has an interface described in a machine-processable format (specifically WSDL). Other
@@ -24,18 +24,18 @@ In this chapter, we briefly review web services, then we introduce the concept o
         with other Web-related standards". When developers declare a new web service, it will
         be discovered based on its description that fully describes the service. Developers also
         have to declare a public interface and a readable documentation to help other developers
-        when integrating different services \cite{w3cwsdl}. Nowadays Web API standards which do not 
-        require XML-based web service protocols like SOAP and WSDL are also emerging. They are also called 
+        when integrating different services \cite{w3cwsdl}. Nowadays Web API standards which do not
+        require XML-based web service protocols like SOAP and WSDL are also emerging. They are also called
         REST (representational state transfer) services which are moving towards simpler communication protocols.
-        They are not restricted to XML formats, recently JSON, a human readable and simpler format is becoming popular among online service providers.        
-        
-        We are not going to delve into engineering details of online web service implementation and its protocols in this proposal. 
-        We consider the service, web services provide as a request-response operation, where they receive a message specifying a question, 
+        They are not restricted to XML formats, recently JSON, a human readable and simpler format is becoming popular among online service providers.
+
+        We are not going to delve into engineering details of online web service implementation and its protocols in this proposal.
+        We consider the service, web services provide as a request-response operation, where they receive a message specifying a question,
         based on this message they generate a response, satisfying end users' need. Service providers usually charge end users for services they provide,
         gaining profit in the process. For example Google has listed their pricing and plans for wide range of services they provide
         on their web service console page\footnote{https://code.google.com/apis/console}.
-        
-        In our research work, we abstract web services as rational entities\footnote{The term 
+
+        In our research work, we abstract web services as rational entities\footnote{The term
         rational is used here in the sense that web services are utility
         maximizers} providing services to end users. They aim to maximize
         their individual income by receiving enough requests from end
@@ -45,51 +45,209 @@ In this chapter, we briefly review web services, then we introduce the concept o
         collaborating with others, to have access to higher market share,
         and to have opportunity of receiving a bigger task pool from end
         users. Also the high reliance on web services, has increased quality expectations from end users.
-        Communities of web services can provide higher performance, reliability, fail recovery for end users. 
-        
+        Communities of web services can provide higher performance, reliability, fail recovery for end users.
+
         \subsection{Web Service Communities}\label{sec:CWSDefinition}
-        Community in dictionary definition refers to "the condition of sharing or having certain attitudes and interests in common" or "a group of people living in the same place or having a particular characteristic in common". In \cite{DBLP:journals/internet/BenatallahSD03, Zeng:2003:QDW:775152.775211} introduce community of web services as collection of cooperative web services with a common service and functionality but different QoS metrics. Therefore $communities$ are differentiated from $composition$ type of web service cooperation in which web services with different functionalities work together to generate a new service provider with composite functionality. 
-        
-       
-        Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09} proposed the an architecture 
-        utilizing \emph{Contract-Net} protocol for engineering community of web services. 
+        Community in dictionary definition refers to "the condition of sharing or having certain attitudes and interests in common" or "a group of people living in the same place or having a particular characteristic in common". In \cite{DBLP:journals/internet/BenatallahSD03, Zeng:2003:QDW:775152.775211} introduce community of web services as collection of cooperative web services with a common service and functionality but different QoS metrics. Therefore $communities$ are differentiated from $composition$ type of web service cooperation in which web services with different functionalities work together to generate a new service provider with composite functionality.
+
+
+        Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09} proposed the an architecture
+        utilizing \emph{Contract-Net} protocol for engineering community of web services.
         This architecture has been further developed in \cite{conf/IEEEscc/BenharrefSBB11, conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11, CSTintercommunity}.
         Community of web services have two major roles for members of a community, the master and slave web service.
         Master web services lead communities and are responsible for community and membership management of the community, they try to invite and and convince web services to join the
-        community. They can attract new web services to their communities by awarding them more payoff. They also can eject some web services from the community improving the 
+        community. They can attract new web services to their communities by awarding them more payoff. They also can eject some web services from the community improving the
         community and individual member satisfaction, and overall community reputation.
-        
+
         \begin{figure}
             \begin{center}
-            \includegraphics[width=16cm]{Figures/wsarch.eps}\label{wsarch}
+%            \includegraphics[width=16cm]{Figures/wsarch.eps}\label{wsarch}
+            \includegraphics[width=16cm]{Figures/community.eps}\label{wsarch}
             \caption{Communities of Web Services Architecture as Proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09}}
             \end{center}
-        \end{figure}    
-        
-        Figure \ref{wsarch} depicts the basic architecture of communities of web services. The main components of the architecture are: 1) the providers of web services, 
+        \end{figure}
+
+        Figure \ref{wsarch} depicts the basic architecture of communities of web services. The main components of the architecture are: 1) the providers of web services,
         2) UDDI registries and 3) communities of web services. Communities abstract the same model of defining, announcing and invoking of web services. They also adopt the same protocols that standard web services use with UDDI registries. UDDI is a platform-independent XML based registry list which facilitates worldwide web service discovery.
-        
-        The master web service is responsible with communication with web service providers and discovery registries. It it responsible for task distribution, web service selection, 
-        community management, maintaining a healthy set of web services satisfying end users requests with high QoS. In communities, the masters web services can be 
+
+        The master web service is responsible with communication with web service providers and discovery registries. It it responsible for task distribution, web service selection,
+        community management, maintaining a healthy set of web services satisfying end users requests with high QoS. In communities, the masters web services can be
         dedicated web services playing the master role during the entire time of being in the community. This master web service is independently developed and never
         participates in any composition. The master web services can also be chosen out of normal web services already inside the community \cite{DBLP:journals/ijebr/MaamarSTBB09}.
-                    
 
-    \section{Cooperative Game Theory in Multiagent Systems}\label{sec:CGTMS}
 
-        \subsection{Cooperative Game Thoery}\label{sec:BRWS}
+    \section{Cooperative Game Theory and Multi-agent Systems}\label{sec:CGTMS}
 
-        \subsection{Motivating Example}\label{sec:CWSDefinition}
+
+%        Cooperative game theory provides a set of mathematical and optimization tools for multi-agent environments. These tools have been utilized in communication networks and service oriented computing literature, where nodes as rational agents try to reason strategically and maximise their benefit.
+
+        Cooperative game is a branch of game theory that studies
+        strategies of self-interested entities or agents in a setting
+        where those agents can increase their payoff by binding agreements
+        and cooperating in groups. We let $N$ be a set of players. Any
+        subset $S$ of $N$ can form a group called $coalition$. A
+        \emph{coalitional game} is a pair $G = (N, v)$, where $v$ is called
+        a \emph{characteristic function} $v: 2^N \to \mathbb{R}$, mapping the set of players of the
+        coalition to a real number $v(S)$, the worth of $S$. This number
+        usually represents the output or payoff or again the performance
+        of these players working together as coalition.  If a coalition
+        $S$ is formed, then it can divide its worth, $v(S)$ in any
+        possible way among its members. The payoff vector $x \in
+        \mathbb{R}^S$ is the amount of payoff being distributed among the
+        members of the coalition $S$. The payoff vector satisfies two
+        conditions:
+
+        \begin{itemize}
+            \item $x_i \geq 0$ for all $i \in N$, and
+            \item $\sum_{i \in S} x_i \leq v(S)$
+        \end{itemize}
+
+        The second criteria is called the \emph{feasibility} condition,
+        according to which, the payoff for each agent cannot be more than
+        the coalition total gain. A payoff vector is also \emph{efficient}
+        if the payoff obtained by a coalition is distributed amongst the
+        coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of
+        the characteristic function works in \emph{transferable utility}
+        (TU) settings, where utility (i.e., payoff) is transferable from
+        one player to another, or in other words, players have common
+        currency and a unit of income that is worth the same for all players
+        \cite{myerson1991game}.
+
+        When dealing with cooperative games, two issues need to be
+        addressed:\\ 1. Which coalitions among all possible coalitions to form? \\
+        2. How to reward each member when a task is completed?\\
+        %
+        The following sections help address these two issues.
+
+        \subsection{Cooperative Game Concepts}
+            
+
+            {\bf Definition 1 (Shapley value)} Given a cooperative game $(N,
+            v)$, the \emph{Shapley value} of player $i$ is given
+            by\cite{shapley_value}:
+            \begin{equation}\label{eq:shapley}
+            \phi_i(N,v) = \sum_{S \subseteq N \backslash \left\{i\right\} }
+            \frac{|S|! (|N|-|S|-1)!}{|N|!} (v(S \cup \left\{i\right\}) - v(S))
+            \end{equation}
+
+            \emph{Shapley value} is a unique and fair solution concept for
+            payoff distribution among the members of the coalition. It
+            basically rewards members with the amount of marginal contribution
+            they have to the coalition.
+
+            %\subsubsection{Core}
+
+            {\bf Definition 2 (Core)} A payoff vector $x$ is in the $core$ of
+            a coalitional game $(N, v)$ if and only if:
+            \begin{equation}\label{eq:core}
+            \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S)
+            \end{equation}
+
+            The core is basically a set of payoff vectors where no subset of
+            players $S^\prime$ could gain more than their current payoff by
+            deviating and making their own coalition $\sum_{i \in S^\prime}
+            x_i \geq v(S^\prime)$. The sum of payoffs of the players in any
+            sub-coalition $S$ is at least as large as the amount that these
+            players could earn by forming a coalition by their own. In a
+            sense, it is analogue to Nash equilibrium, except that core is
+            about deviations from groups of entities. The core is the
+            strongest and most popular solution concept in cooperative game
+            theory. However, its computation is a combinatorial problem and
+            becomes intractable as the number of players increases. The core
+            of some real-world problem games may be empty, which means having
+            the characteristic function of the game $(N,v)$, there might be no
+            possible distribution of payoff assuring stability of subgroups.
+
+            {\bf Definition 3 (Convex cooperative games)} A game $(N,v)$ with
+            characteristic function $v(S)$ is convex if:
+            \begin{equation}\label{eq:convex}
+            v(S) + v(T) \leq v(S \cup T) + v (S \cap T), \forall S,T \subseteq
+            N.
+            \end{equation}
+
+            According to a classic result by Shapley \cite{S1971cores}, convex
+            games always have a non-empty core. We will use a variation of
+            convexity condition in our algorithm to check whether our
+            coalitions are stable.
+
+            \subsubsection*{$\epsilon$-core}\label{s:epsilon}
+            %\emph{$\epsilon$-Core:}
+            %\\
+            When the \emph{core} set of a game is empty, it means no coalition
+            of players can gain anything by deviating. An outcome would be
+            unstable if a coalition can benefit even by a small amount from
+            deviating, which is a strong requirement. In fact, in some
+            situations, deviations can be costly, or players may have loyalty
+            to their coalitions, or even it can be computationally intractable
+            to find those small benefits. It would only make sense for a
+            coalition to deviate if the gain from a deviation exceeds the cost
+            of performing the deviation. \emph{$\epsilon$-core} relaxes the
+            notion of the core, and only requires that no coalition would
+            benefit significantly, or within a constant amount($\epsilon$) by
+            deviating (see Equation \ref{eq:core}).
+
+            \begin{equation}\label{eq:core2}
+            \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
+            \end{equation}
+
+            \subsubsection*{Coalition Structure Formation}\label{sec:coalition}
+
+            Coalition structure formation is the problem of finding the best
+            partition of web services into teams. In these settings, the
+            performance of an individual service is less important than the
+            \emph{social welfare} of the whole system, which is the sum of the
+            values of all teams. Having the game $(N,v)$, a coalition
+            structure $(CS)$ is \emph{socially optimal} if $CS$ belongs to set
+            $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS)$ is the sum of
+            the values of all coalitions inside $CS$. $v(CS) = \sum_{C \in
+            CS}v(C)$.
+            %The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
         
-        An example which has closely resembles our community service model is the \emph{Single landowner and landless workers} example. 
+
+        \subsection{Examples on Cooperative Games}\label{sec:CWSDefinition}
+
+        An example which has closely resembles our community service model is the \emph{Single landowner and landless workers} example.
         This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain some income.
-        
+
         In this game, land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have a game there the set of players are the landowner and the $m$ workers, possible actions for coalitions with only workers would be distributing the zero output for all where no member receives any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers would be the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$. The preference of each player would be the amount of out she obtains.
 
-        \subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
+        %\subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
 
-        \subsection{Representation and Complexity issues}\label{sec:CWSArchitecture}        
+        \subsection{Representation and Complexity issues}\label{sec:CWSArchitecture}
         
+        Shapely value is the unique "fair" way to distribute the total surplus generated by the coalition, among all the players.
+        The nature of the Shapley value is combinatorial, as all possible orderings to form a
+        coalition needs to be considered. This computational complexity can sometimes be
+        an advantage as agents cannot benefit from manipulation. For example, it is NP-complete
+        to determine whether for a bunch of agents to collude and make their own coalition and guarantee
+        an increase in payoff of all participants\cite{conf/aaai/YokooCSOI05}. 
+        There are some representations that allow to compute the Shapley value efficiently. 
+        Some problems can be represented as one of these reduced models. One example is \emph{Induced subgraph games}
+        which was introduced by Deng and Papadimitriou \cite{Deng94}.
+        In order to reduce the combinatorial complexity of the computation of the Shapley
+        value, Ketchpel introduces the Bilateral Shapley Value (BSV ) [1]. The idea is to
+        consider the formation of a coalition as a succession of merging between two coalitions.
+        Two disjoint coalitions C1 and C2 with C1 \ C2 = ;, may merge when v(C1 [
+        C2)  v(C1) + v(C2). When they merge, the two coalitions, called founders of the
+        new coalition C1 [ C2, share the marginal utility as follows: BSV (C1) = 1
+        2v(C1) +
+        1
+        2 (v(C1 [ C2) − v(C2)) and BSV (C2) = 1
+        2v(C2) + 1
+        2 (v(C1 [ C2) − v(C1)). This is
+        the expression of the Shapley value in the case of an environment with two agents.
+        In C1 [ C2, each of the founders gets half of its ‘local’ contribution, and half of the
+        marginal utility of the other founder. Given this distribution of the marginal utility, it is
+        rational for C1 and C2 to merge if 8i 2 {1, 2}, v(Ci)  BSV (Ci). Note that symmetric
+        founders get equal payoff, i.e., for C1, C2, C such that C1 \ C2 = C1 \ C = C2 \ C = ;,
+        v(C [C1) = v(C [C2) ) BSV (C [C1) = BSV (C [C2). Given a sequence of successive
+        merges from the states where each agent is in a singleton coalition, we can use a
+        backward induction to compute a stable payoff distribution [2]. Though the computation
+        of the Shapley value requires looking at all of the permutations, the value obtained
+        by using backtracking and the BSV only focuses on a particular set of permutations,
+        but the computation is significantly cheaper.
+        
+
     \section{Related Work}\label{sec:BRRelatedWork}
 
         One of the first contributions in which web service community was introduced was in \cite{Zeng:2003:QDW:775152.775211}. They defined web service community as collection of web services providing same functionality however with different quality metrics.
@@ -169,7 +327,6 @@ In this chapter, we briefly review web services, then we introduce the concept o
         in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
         capabilities.
 
-Cooperative game theory provides a set of mathematical and optimization tools for multi-agent environments. These tools have been utilized in communication networks and service oriented computing literature, where nodes as rational agents try to reason strategically and maximise their benefit.
 
 
 
