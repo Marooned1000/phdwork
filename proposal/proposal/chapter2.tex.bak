@@ -62,7 +62,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         \begin{figure}
             \begin{center}
 %            \includegraphics[width=16cm]{Figures/wsarch.eps}\label{wsarch}
-            \includegraphics[width=16cm]{Figures/community.eps}\label{wsarch}
+            \includegraphics[width=16cm]{Figures/wsarch.eps}\label{wsarch}
             \caption{Communities of Web Services Architecture as Proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09}}
             \end{center}
         \end{figure}
@@ -120,7 +120,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         The following sections help address these two issues.
 
         \subsection{Cooperative Game Concepts}
-            
+
 
             {\bf Definition 1 (Shapley value)} Given a cooperative game $(N,
             v)$, the \emph{Shapley value} of player $i$ is given
@@ -202,7 +202,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
             the values of all coalitions inside $CS$. $v(CS) = \sum_{C \in
             CS}v(C)$.
             %The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
-        
+
 
         \subsection{Examples on Cooperative Games}\label{sec:CWSDefinition}
 
@@ -211,42 +211,68 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
         In this game, land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have a game there the set of players are the landowner and the $m$ workers, possible actions for coalitions with only workers would be distributing the zero output for all where no member receives any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers would be the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$. The preference of each player would be the amount of out she obtains.
 
+        In this game the action $a_{N}$ of the grand coalition in which the landowner obtains all the output $f$(n)
+        is in the core: all coalitions that can produce any output include the landowner, and none of these
+        coalitions has any actions that makes her better off than she is in $a_{N}$.
+
+        For any value of n The core contains actions in which the workers receive some output.
+        The workers need the landowner to produce any output, but the landowner
+        also needs the workers to produce more than $f$(1), so stable actions of the grand coalition exist in which the
+        workers receive some output. Take the landowner to be player 1, and consider the action $a_{N}$ of the grand
+        coalition in which each player $i$ obtains the output $x_{i}$, where $x_{1}+...+x_{n}=f(n)$. Under what conditions
+        on  $(x_{1},..,x_{n})$ is $a_{N}$ in the core? Because of my assumption about the shape of the function $f$, the
+        coalitions most capable of profitably deviating from $a_{N}$ consist of the landowner and every worker but one.
+         Such a coalition can, by itself, produce $f(n-1)$, and it may distribute this output in any way among its members.
+         Thus for a deviation by such a coalition not to be profitable, the sum of $x_{i}$ and any collection of $(n-2)$ other
+          $x'_{i}$s must be at least $f(n-1)$. That is, $(x_{1}+...+x_{n})-x_{i}\geq f(n-1)$ for every $j=2,..,n$. Because
+          $x_{1}+...+x_{n}=f(n)$, we conclude that $x_{i}\leq f(n)-f(n-1)$ for every player $j$ with $J\geq 2$ (i.e. every worker).
+          That is, if $a_{N}$ is in the core then $0\leq x_{j}\leq f(n)-f(n-1)$ for every player $J\geq 2$. In fact, every such action
+          is in the core, as you are asked to verify in the following exercise.
+
+%          Core of landowner-worker game: Check that no coalition can improve upon any action of the grand
+%          coalition in which the output received by every worker is nonnegative and at most $f(n)-f(n-1)$. (Use the fact that
+%          the form of $f$ implies that $f(n)-f(k)\geq (n-k)(f(n)-f(n-1))$ for every $k\leq n$.)
+
+%          We conclude that the core of the game is the set of all actions of the grand coalition in which the output $x_{i}$
+%          obtained by each worker $i$ satisfies $0\leq x-{1}\leq f(n)-f(n-1)$ and the output obtained by the landowner is the
+%          difference between $f(n)$ and the sum of the worker's shares. In economics jargon, $f(n)-f(n-1)$ is a worker's
+%          ``marginal product". Thus in any action in the core, each worker obtains at most her marginal product.
+
+%          The worker's shares of output are driven down to at most $f(n)-f(n-1)$ by competition between coalitions consisting
+%          of the landowner and workers, in cahoots with the landowner, can deviate and increase their share of output. That is,
+%          each worker's share of output is limited by her comrade's attempts to obtain more output.
+
+%          The fact that each worker's share of output is held down by interworker competition suggests that the workers might
+%          be better off if they were to agree not to join deviating coalitions \emph{except as a group}. You are  asked to check
+%          this idea in the following exercise.
+
         %\subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
 
         \subsection{Representation and Complexity issues}\label{sec:CWSArchitecture}
-        
+
         Shapely value is the unique "fair" way to distribute the total surplus generated by the coalition, among all the players.
         The nature of the Shapley value is combinatorial, as all possible orderings to form a
         coalition needs to be considered. This computational complexity can sometimes be
         an advantage as agents cannot benefit from manipulation. For example, it is NP-complete
         to determine whether for a bunch of agents to collude and make their own coalition and guarantee
-        an increase in payoff of all participants\cite{conf/aaai/YokooCSOI05}. 
-        There are some representations that allow to compute the Shapley value efficiently. 
-        Some problems can be represented as one of these reduced models. One example is \emph{Induced subgraph games}
-        which was introduced by Deng and Papadimitriou \cite{Deng94}.
-        In order to reduce the combinatorial complexity of the computation of the Shapley
-        value, Ketchpel introduces the Bilateral Shapley Value (BSV ) [1]. The idea is to
-        consider the formation of a coalition as a succession of merging between two coalitions.
-        Two disjoint coalitions C1 and C2 with C1 \ C2 = ;, may merge when v(C1 [
-        C2)  v(C1) + v(C2). When they merge, the two coalitions, called founders of the
-        new coalition C1 [ C2, share the marginal utility as follows: BSV (C1) = 1
-        2v(C1) +
-        1
-        2 (v(C1 [ C2) − v(C2)) and BSV (C2) = 1
-        2v(C2) + 1
-        2 (v(C1 [ C2) − v(C1)). This is
-        the expression of the Shapley value in the case of an environment with two agents.
-        In C1 [ C2, each of the founders gets half of its ‘local’ contribution, and half of the
-        marginal utility of the other founder. Given this distribution of the marginal utility, it is
-        rational for C1 and C2 to merge if 8i 2 {1, 2}, v(Ci)  BSV (Ci). Note that symmetric
-        founders get equal payoff, i.e., for C1, C2, C such that C1 \ C2 = C1 \ C = C2 \ C = ;,
-        v(C [C1) = v(C [C2) ) BSV (C [C1) = BSV (C [C2). Given a sequence of successive
-        merges from the states where each agent is in a singleton coalition, we can use a
-        backward induction to compute a stable payoff distribution [2]. Though the computation
-        of the Shapley value requires looking at all of the permutations, the value obtained
-        by using backtracking and the BSV only focuses on a particular set of permutations,
-        but the computation is significantly cheaper.
-        
+        an increase in payoff of all participants\cite{conf/aaai/YokooCSOI05}.
+        There are some representations that allow to compute the Shapley value efficiently by reducing the input size of the problem.
+        One example is \emph{Induced subgraph games}
+        which was introduced by Deng and Papadimitriou \cite{Deng94}. In this representation, players are represented by graph nodes, and
+        their valuation function should be sum of weights all edges between the node and all its neighbors. It is a succinct representation, using
+        an adjacency matrix, which need only $O(n^2)$ space to store all the input, which is a big reduction from $O(2^n)$.
+        if weights of all the edges in graph are all positive, the Shapley value can be computed in $O(n^2)$ time.
+        However, this representation is not complete, some games cannot be represented by a induced subgraph game\cite{conf/aaai/YokooCSOI05}.
+
+        Ketchpel introduces the Bilateral Shapley Value (BSV)\cite{conf/aaai/Ketchpel94a} for coalition games with general valaution functions.
+        It reduces the combinatorial complexity of the computation of the Shapley value, breaking the community to multiple disjoint set.
+        With backtracking and dynamic programming like methods, they merge and store the marginal contribution of disjoint coalitions,
+        reducing the overall complexity of the algorithm.
+
+        In order to make cooperative game concepts practical in real world application, we have proposed an approximation multi-layer
+        algorithm useful for service orinted computing settings. Our excrements illustrate, these algorithms can provide
+        applicable and near optimal solutions for real world applications.
+
 
     \section{Related Work}\label{sec:BRRelatedWork}
 
@@ -328,6 +354,35 @@ In this chapter, we briefly review web services, then we introduce the concept o
         capabilities.
 
 
+        % THIS IS REPEATED
+        In this research work, we use game theory to
+        propose a cooperative game model for the aggregation of web
+        services within communities. The solution concepts of our
+        cooperative game seeks to find efficient ways of forming
+        coalitions (teams) of web services so that they can maximize their
+        gain and payoff, and distribute the gain in a fair way among all
+        the web services. Achieving Fairness when the gain is distributed
+        among the community members is the main factor to keep the
+        coalition stable as no web service will expect to gain better by
+        deviating for the community. In other words, the coalition is made
+        efficient if all the members are satisfied. We first propose a
+        representation function for communities of web services based on
+        their QoS attributes. By using this function, we can evaluate the
+        $worth$ of each community of web services. When facing new
+        membership requests, a typical community master checks whether the
+        new coalition having the old and new set of web services will keep
+        the community stable or not. The community master will reject the
+        membership requests if it finds out that the new coalition would
+        be unstable, preventing $any$ subset of web services from gaining
+        significantly more by deviating from the community and joining
+        other communities or forming new ones. The computation of
+        solutions for cooperative game theory problems is combinatorial in
+        nature and proven to be NP-complete \cite{Algorithmic}, making
+        this computation impractical in real world applications. However,
+        using the concepts of coalition stability, we propose
+        approximation algorithms running in polynomial time providing web
+        services and community masters with applicable and near-optimal
+        decision making mechanisms.
 
 
 

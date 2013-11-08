@@ -3,9 +3,6 @@
 \chapter{Introduction}\label{sec:intro}
 In this chapter we introduce the context of this research, which is about community of web services as autonomous agents and cooperative game theoretic solution concepts. We discuss literature review and their shortcomings then present the motivations behind this work. Also, we discuss our preliminary contributions.
 
-\section{Context of the research}\label{sec:context}
-
-
 \section{Motivations and research questions}\label{sec:motivation}
 
 Over the past years, online services have become part of many
@@ -127,6 +124,7 @@ capabilities.
 %\end{itemize}
 %Answering these questions is undoubtedly complex. Therefore, we do not expect a comprehensive answer to all these questions.
 
+\section{Motivations and research questions}\label{sec:motivation}
 
 
 \section{Research objectives and contributions}\label{sec:contribution}
@@ -162,6 +160,7 @@ decision making mechanisms.
 
 
 \section{Research outline}\label{sec:outline}
-The rest of the paper is organized as follows: We present in Chapter~\ref{sec:MAS} the background 
-needed for our research along with the relevant related work. Chapter
+The rest of the paper is organized as follows: We present in Chapter~\ref{sec:MAS} the background
+needed for our research along with the relevant related work. Chapter 3 provides the problem statement and presents our solution model in two
+different scenarios with some primitive results. Finally in Chapter 4, we present our conclusion, future plan, and the timetable of our research.
 
