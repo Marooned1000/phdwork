@@ -29,10 +29,6 @@ decision making mechanisms.
 \section {Future Plan and Timeline}
 
 \indent The future goals in this PhD research work mainly consists of:
-\indent The future goals in this PhD research work mainly consists of:
-\indent The future goals in this PhD research work mainly consists of:
-\indent The future goals in this PhD research work mainly consists of:
-\indent The future goals in this PhD research work mainly consists of:
 
 \begin{itemize}
 \item Analysing other cooperative solution concepts such as Kernel and Nucleolus where payoff division is guaranteed to exist but may have optimal results.
@@ -47,7 +43,7 @@ decision making mechanisms.
     \begin{figure}
                 \begin{center}
 %                \includegraphics[width=16cm, height=22cm]{timeline/timetable.pdf}\label{Timetable}
-                \includegraphics[width=16cm]{timeline/timetable.pdf}\label{Timetable}
+                \includegraphics[width=16cm]{timeline/timetable.eps}\label{Timetable}
                 \caption{Research milestones and timeline}
                 \end{center}
     \end{figure}   
