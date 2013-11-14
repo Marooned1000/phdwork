@@ -34,7 +34,7 @@
 					  \vbox to 1\vsize{%
 					    \haut{}{\blurb}{}
 					    \vfill
-					    \ligne{\textbf{\Large Coalition Selection and Strategic reasoning methods for Community of Services }
+					    \ligne{\textbf{\Large Efficient Coalition Formation for Autonomous Community of Services }
 					   % \footnote{The ideas investigated in this Research Proposal are elaborated from \cite{prin1} which 													 %will be used as the starting point of this work.
 																		    %}
 																		    }
@@ -50,7 +50,7 @@
 					    \ligne{%
 									      \begin{tabular}{l l}
 									        Supervisor:&\textsc{\textbf{Dr. Jamal Bentahar }} - CIISE.\\
-									        Supervisor:&\textsc{\textbf{Dr. Hadi Otrok }} - .\\
+									        Supervisor:&\textsc{\textbf{Dr. Hadi Otrok }} - KUSTAR, ECE.\\
 									        Examiners:&\textsc{\textbf{Dr. Peter Grogono}} - CSE.\\
 									        &\textsc{\textbf{Dr. Ferhat Khendek}} - CSE. \\
 									        &\textsc{\textbf{Dr. Joey Paquet}} - CSE \\
