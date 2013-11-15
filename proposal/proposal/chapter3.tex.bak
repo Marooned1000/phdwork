@@ -1,6 +1,6 @@
 \setcounter{chapter}{2}
 
-\chapter{Coalition Formation for Autonomous Web Services}
+\chapter{Coalition Formation for Autonomous Web Services}\label{coalitionformationws}
 
 \section{Preliminaries}\label{s:preliminaries}
 
@@ -655,25 +655,6 @@ coalition unstable.
 \begin{figure}[!t]
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[width=3in]{Figures/taxtation.eps}
-\caption{Analysis of community subsiding coefficient $\lambda$ on average community size (a), cost (b), number of tasks performed (c), and average quality of service of tasks performed (d).} \label{f_taxtation}
-\end{figure}
-
-
-As mentioned in section \ref{s:tax} in order to help community stability, is to subside the community by a relative coefficient ($\lambda$) so the value of $\lambda v(C)$ is devided among the community members. We have analysed the effect of subsiding and the cost it incurs to our web service communities. Figure \ref{f_taxtation} shows the results. In this expirement we have set a community with input task rate $R_C$ of 100 and having abstract web services throuput rate $T_r$ value of a random distribution with average 10 tasks per iteration. Part (a) shows the community size increases in a linear fashion as ($\lambda$) increases. However the cost is having a slight exponential growth rate since, not only ($\lambda$) increases also the size of the community is also increasing slowly. Therefore subsiding can be costly for larger number of $\lambda$ value. Part (c) of figure \ref{f_taxtation} depicts the number of tasks done by the community per iteration. It is obvoius with $\lambda$ value of 1.3 which is 30\% of community valuation, the number of tasks done almost reaches the input task rate cap of 100 tasks per iteration. The average quality of tasks also has a slight increase since the community will be able to afford better and more web services to join the community. These results proves with quality metrics our agents as web services have and their collabrative worth, the increase rate of subsiding more 1.3 is not very effective and is costly to perform.
-
-\begin{figure*}[!t]
-\centerline{\includegraphics[width=6.75in]{Figures/tax_dyn.eps}}
-\caption{Analysis of community subsiding coefficient $\lambda$ having web service different stability levels of $\tau$ on average community size, number of tasks performed, and average quality of service, and average cost/income of communities.}
-\label{fig_dynamic_taxtation}
-\end{figure*}
-
-
-In previous experiment, we consider the scenario where all web services are stable will not leave the group and will fulfill their promised quality metrics for a good period of time. However, in real world scenarios of web services, this is not always the case. This is the reason why community would be interested in subsiding a community of larger group web services, paying a few more web services in order to keep the group reliable from end user point of view. In our next scenario, we have introduced the new instability variable $\tau$ from 0 to 1, 0 meaning web services having no instability issues and will perform as they claimed until the end of experiment and 1 meaning very unstable web services which will stop functioning on the first iteration of community distributing tasks. Figure \ref{fig_dynamic_taxtation} illustrates the results of our experiment having web services with average instability values of 0 to 0.5 and having relative subside value $\lambda$ if 1,1.3,1.6 and 2. The \emph{Cost / Income} charts on right column, shows having subside value of 1.3 incurs the least cost and increases the community income significantly. Subsiding values of 1.6 and 2 , incur a lot of cost to community and only slightly increase the community revenue. Also the role of subsiding is much more obvious when we have unstable web services. In scenarios where web services are 100\% stable, subsiding cost will hardly be compensated by community revenue.
-
-\begin{figure}[!t]
-\centering
-%\includegraphics[scale=0.6]{graph1Final+.eps}
 \includegraphics[width=3in]{Figures/s2_task_done.eps}
 \includegraphics[width=3in]{Figures/s2_task_qos.eps}
 \caption{Part (a): Cumulative number of tasks succesfully done. Part
@@ -702,27 +683,3 @@ performance and satisfaction for both web services and coalitions.
 \end{figure}
 
 Finally, in our last experiment, we compare our work with the work in \cite{10.1109/TSC.2012.12} which we call it \emph{High Availability Coalition} method, because of nature of their community valuation function, which focuses on community availability as main consideration. Their community formation model is very different than ours, however we have been very careful to make the experiment environment as fair and similar as possible. We limited our maximum community size by 5 in order to have communities with almost the same size. In their method, they have used web services as backups rather than active collaborative players, and they only get task when the first web service in an ordered chain fails to perform the task. However with recent advancement in cloud and hardware infrastructures availability is less of an issue for web services, and web services are highly available. Part(a) of figure \ref{fig_avail_method} shows our method performs almost performs tasks successfully with rate of three times more than \emph{High Availability Coalition} method because of real cooperative nature and task distribution of our algorithm. This result shows using web services as backups, and not as real collabrative players is a huge waste of web service capability since they have very low chance of getting jobs and its the primary web service (the first in their coordination chain) which does most of the work. The average quality of service of tasks performed is also better since our method considers all quality of service metrics mentioned in table \ref{qosws}. Part(c) shows the availability of community from end user point of view. The \emph {High Availability Coalition} method almost has 100\% uptime since they use web services as backups, so the chance of job failing reduces significantly as community members increase. In our method we have more chance of fail for each web service, however with some subsiding, and hiring a few more web service they can compensate the low chance of failure of web services in our community.
-
-\section{Conclusion}\label{s:conclusion}
-
-In this paper, we proposed a cooperative game theory-based model
-for the aggregation of web services within communities. The goal
-of our services is to maximize efficiency by collaborating and
-forming stable coalitions. Our method considers stability and
-fairness for all web services within a community and offers an
-applicable mechanism for membership requests and selection of web
-services. The ultimate goal is to increase revenue by improving
-user satisfaction, which comes from the ability to perform more
-tasks with high quality. Simulation results show that our,
-polynomial in complexity, approximation algorithms provide web
-services and community owners with applicable and near-optimal
-decision making mechanisms.
-
-As future work, we would like to perform more analytical and
-theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts based on the
-characteristic function in web service applications. From web service perspective, the
-work can be extended to consider web service compositions where a
-group of web services having different set of skills cooperate to
-perform composite tasks. Also bargaining theory from cooperating
-game theory concepts can be used to help web services resolve the
-instability and unfairness issues by side payments. 
