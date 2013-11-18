@@ -128,9 +128,35 @@ capabilities.
 %\end{itemize}
 %Answering these questions is undoubtedly complex. Therefore, we do not expect a comprehensive answer to all these questions.
 
-\section{Research Objectives and contributions}\label{sec:motexample}
+\section{Research Objectives}\label{sec:motexample}
 
-In this research work, I will use game theory to
+\indent In this proposal, I will address the problem of forming stable and efficient coalitions for maximising web services and community revenue.
+The main objectives in this proposal work are:
+\begin{itemize}
+\item To apply cooperative game theory technics in order to address the problem of optimizing coalition formation for single or multiple already established communities of web services.
+\item To reduce the complexity of cooperative game theory solution concepts specifically to the problem model of communities of web services in order to make these solutions applicable in real world scenarios.
+\item To increase community stability by subsiding and taxation methods.
+\item To validate the proposed methods by simulation and comparing our results with other similar works.
+\end{itemize}
+
+
+\section{Motivating Scenario}\label{sec:motexample}
+
+In this section, we present a scenario and demonstrate why there is a need for community of services and why it should satisfy all business models involved.
+We first propose an example of real world scenario, focusing on user experience. Nowadays most of the computer applications, are dependant on multiple online
+service provides, examples are vast in daily life of people nowadays, weather forecasting, ticketing services, map services, local places guides and so on. Most mobile or web applications
+cannot independently provide these information and they rely on different online services providing these information.
+The high competition on services, requires applications to use reliable and high quality services.
+Because if user checks a web site or runs an application on his/her mobile, upon having downtime, or having high response delay or encountering any non satisfying quality metric, the user
+will instantly remove the application, which is a huge business concert for application providers. For example, if someone installs a ticketing application on mobile and the application is not using quality service providers, the user would instantly uninstall the application, which has a high negative affect on application visibility. Or lets say you search "Montreal Weather" on a search engine and you click on a web site which is slow (because its using a bad weather web service as source of its raw data), the user will press "back", leave the web site and try another link which has a bad Search Engine Optimization (SEO) effect for the web site, and search engines would not show that web site on search results anymore, which is a business and revenue loss for the application. Thus end user satisfaction is the main goal of all online providers otherwise they will lose the market to competitions very fast. This is the main goal of community of services, to provide higher quality, higher uptime and reliability for end users. To this end, community formation, should consider important QoS parameters while forming the community and during membership management.
+
+High demand on online services has created a big competition on this area. For example an application developer, right now needs to choose between hundreds of web services online providing local places information such as coffees, venues, shops and bars nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongs hundereds or thousands of other service providers, even if they provide high quality of service. Hence, our community of web services, provides them with the chance of joining the communities which already have established market share, and providing them with a great source of revenue, proportional to their QoS and throughput. However, its important for community manager to consider all parties involved, for example if market share is not big enough, bringing
+new web services, can cause revenue drop for the already residing members in community, since basically there would be not enough tasks and revenue to be shared among web services. This will not effect user satisfaction, but other quality web services may collude leave the community, and join another community, hurting the community stability. This is an important issue which has not been addressed previously in similar related works. On the other hand, if communities bound the number of web services exactly to the numbers satisfying their market share, in the case of failure of a web service, the reliability and availability metrics of the community could get hurt. This also has not been efficiently addressed in any other related work. In this research work, we try to propose community formation algorithms, satisfying all parties involved. This is a complete business model, considering end users, community managers and service providers.
+
+
+\section{Research objectives and contributions}\label{sec:contribution}
+
+In this research work, we use game theory to
 propose a cooperative game model for the aggregation of web
 services within communities. The solution concepts of our
 cooperative game seeks to find efficient ways of forming
@@ -158,30 +184,6 @@ using the concepts of coalition stability, we propose
 approximation algorithms running in polynomial time providing web
 services and community masters with applicable and near-optimal
 decision making mechanisms.
-
-\indent In this proposal, I will address the problem of forming stable and efficient coalitions for maximising web services and community revenue.
-The main objectives in this proposal work are:
-\begin{itemize}
-\item To apply cooperative game theory solution concepts in order to address the problem of optimizing coalition formation for a stable community that can maximise the total payoff.
-\item To reduce the complexity of cooperative game theory solution concepts specifically to the problem model of communities of web services in order to make these solutions applicable in real world scenarios.
-\item To increase community stability by subsiding and taxation methods.
-\item To validate the proposed methods by simulation and comparing our results with other similar works.
-\end{itemize}
-
-
-\section{Motivating Scenario}\label{sec:motexample}
-
-In this section, we present a scenario and demonstrate why there is a need for community of services and why it should satisfy all business models involved.
-We first propose an example of real world scenario, focusing on user experience. Nowadays most of the computer applications, are dependant on multiple online
-service provides, examples are vast in daily life of people nowadays, weather forecasting, ticketing services, map services, local places guides and so on. Most mobile or web applications
-cannot independently provide these information and they rely on different online services providing these information.
-The high competition on services, requires applications to use reliable and high quality services.
-Because if user checks a web site or runs an application on his/her mobile, upon having downtime, or having high response delay or encountering any non satisfying quality metric, the user
-will instantly remove the application, which is a huge business concert for application providers. For example, if someone installs a ticketing application on mobile and the application is not using quality service providers, the user would instantly uninstall the application, which has a high negative affect on application visibility. Or lets say you search "Montreal Weather" on a search engine and you click on a web site which is slow (because its using a bad weather web service as source of its raw data), the user will press "back", leave the web site and try another link which has a bad Search Engine Optimization (SEO) effect for the web site, and search engines would not show that web site on search results anymore, which is a business and revenue loss for the application. Thus end user satisfaction is the main goal of all online providers otherwise they will lose the market to competitions very fast. This is the main goal of community of services, to provide higher quality, higher uptime and reliability for end users. To this end, community formation, should consider important QoS parameters while forming the community and during membership management.
-
-High demand on online services has created a big competition on this area. For example an application developer, right now needs to choose between hundreds of web services online providing local places information such as coffees, venues, shops and bars nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongs hundereds or thousands of other service providers, even if they provide high quality of service. Hence, our community of web services, provides them with the chance of joining the communities which already have established market share, and providing them with a great source of revenue, proportional to their QoS and throughput. However, its important for community manager to consider all parties involved, for example if market share is not big enough, bringing
-new web services, can cause revenue drop for the already residing members in community, since basically there would be not enough tasks and revenue to be shared among web services. This will not effect user satisfaction, but other quality web services may collude leave the community, and join another community, hurting the community stability. This is an important issue which has not been addressed previously in similar related works. On the other hand, if communities bound the number of web services exactly to the numbers satisfying their market share, in the case of failure of a web service, the reliability and availability metrics of the community could get hurt. This also has not been efficiently addressed in any other related work. In this research work, we try to propose community formation algorithms, satisfying all parties involved. This is a complete business model, considering end users, community managers and service providers.
-
 
 
 \section{Proposal Organization}\label{sec:outline}
