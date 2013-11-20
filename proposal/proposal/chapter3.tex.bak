@@ -1,11 +1,11 @@
 \setcounter{chapter}{2}
 
-\chapter{Coalition Formation for Autonomous Web Services}\label{coalitionformationws}
+\chapter{Coalition Formation for Autonomous Web Services}\label{sec:coalitionformationws}
 
 \section{Preliminaries}\label{s:preliminaries}
 
 In this section, we discuss the parameters and preliminary
-concepts that we use in the rest of the paper.
+concepts that we use in the rest of the propsal.
 
 \subsection{The Architecture}
 

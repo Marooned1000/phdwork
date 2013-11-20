@@ -42,22 +42,20 @@ the communities architecture.
 
 \section{Motivating Scenario}\label{sec:motexample}
 
-In this section, we present a scenario and demonstrate why there is a need for community of services and why it should satisfy all business models involved.
-We first propose an example of real world scenario, focusing on user experience. Nowadays most of the computer applications, are dependant on multiple online
-service provides, examples are vast in daily life of people nowadays, weather forecasting, ticketing services, map services, local places guides and so on. Most mobile or web applications
-cannot independently provide these information and they rely on different online services providing these information.
-The high competition on services, requires applications to use reliable and high quality services.
-Because if user checks a web site or runs an application on his/her mobile, upon having downtime, or having high response delay or encountering any non satisfying quality metric, the user
-will instantly remove the application, which is a huge business concert for application providers. For example, if someone installs a ticketing application on mobile and the application is not using quality service providers, the user would instantly uninstall the application, which has a high negative affect on application visibility. Or lets say you search "Montreal Weather" on a search engine and you click on a web site which is slow (because its using a bad weather web service as source of its raw data), the user will press "back", leave the web site and try another link which has a bad Search Engine Optimization (SEO) effect for the web site, and search engines would not show that web site on search results anymore, which is a business and revenue loss for the application. Thus end user satisfaction is the main goal of all online providers otherwise they will lose the market to competitions very fast. This is the main goal of community of services, to provide higher quality, higher uptime and reliability for end users. To this end, community formation, should consider important QoS parameters while forming the community and during membership management.
+In this section, we present a scenario and demonstrate why there is a need for a community of services and why it should satisfy all business models involved.
+We first propose an example of a real world scenario, focusing on user experience. Nowadays most of the computer applications are dependent on multiple online service provides, there are a plethora of options available to people in today's society, weather forecasting, ticketing services, map services, local places guides and so on. Most mobile or web applications cannot independently provide this information and they rely on different online services to provide this information.
+The high competition within the services industry requires applications to use reliable and high quality online service providers.
 
-High demand on online services has created a big competition on this area. For example an application developer, right now needs to choose between hundreds of web services online providing local places information such as coffees, venues, shops and bars nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongs hundereds or thousands of other service providers, even if they provide high quality of service. Hence, our community of web services, provides them with the chance of joining the communities which already have established market share, and providing them with a great source of revenue, proportional to their QoS and throughput. However, its important for community manager to consider all parties involved, for example if market share is not big enough, bringing
-new web services, can cause revenue drop for the already residing members in community, since basically there would be not enough tasks and revenue to be shared among web services. This will not effect user satisfaction, but other quality web services may collude leave the community, and join another community, hurting the community stability. This is an important issue which has not been addressed previously in similar related works. On the other hand, if communities bound the number of web services exactly to the numbers satisfying their market share, in the case of failure of a web service, the reliability and availability metrics of the community could get hurt. This also has not been efficiently addressed in any other related work. In this research work, we try to propose community formation algorithms, satisfying all parties involved. This is a complete business model, considering end users, community managers and service providers.
+
+If the user were to check a web site or run an application on his/her mobile upon having downtime, or having high response delay or encountering any non-satisfying quality metric, the user will instantly remove the application, which is a huge business concern for application providers. For example, if someone installs a ticketing application on mobile and the application is not using high quality service providers, the user would instantly uninstall the application, which has an extremely negative impact on the visibility of the application. Or let's say you search "Montreal Weather" on a search engine and you click on a web site which is slow because it is using a bad weather web service as source of its raw data, the user will leave the web site and try another link from search results, which has a bad Search Engine Optimization (SEO) effect for the web site, and search engines would not show that web site on search results anymore, which is a business and revenue loss for the application. Thus end user satisfaction is the main goal for online providers otherwise they will lose the market to competitors very quickly. Communities of web service, by providing services with higher quality, higher uptime and reliability for end users, aim to reach this goal. To this end, community management decisions should factor in important QoS parameters while forming the community and during membership management.
+ 
+ 
+High demand on online services has created a big competition on this area. For example an application developer right now needs to choose between hundreds of web services online, providing local places information such as coffees, venues, shops and bars nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongst hundreds or thousands of other service providers, even if they provide a high quality of service. Hence, community of web services provides them with the chance of joining the communities which already have established market share, and providing them with a great source of revenue, proportional to their QoS and throughput. However, it is important for a community manager to consider all parties involved, for example if market share is not big enough, bringing new web services, can cause revenue drop for the already residing members in community,   since basically there would be not enough tasks and revenue to be shared among web services. This will not affect user satisfaction, but other quality web services may collude, leave, and join another community, hurting the community stability. This is an important issue which has not been addressed previously in similar related works. On the other hand, if communities bound the number of web services exactly to the numbers satisfying their market share, in the case of failure of a web service, the reliability and availability metrics of the community could get hurt. This has also not been efficiently addressed in any other related work. In this research work, we try to propose community formation algorithms, satisfying all parties involved. This is a complete business model, considering end users, community managers and service providers.
+
 
 \section{Motivation and research Questions}\label{sec:researchquestions}
 
-Web service communities are dynamic by design \cite{DBLP:journals/ijebr/MaamarSTBB09}. Web services are modeled as intelligent autonomous agents, where they can adopt a strategy maximizing their payoff at any time. In web service communities, a web service has its own right to determine when to join a community and when to leave a community. Community managers can invite or ask a web service to leave in order to maximise their profit. Users can simply stop sending requests to a web service which is not providing satisfactory services.
-
-Most of the recent work on communities of services are either
+Web service communities are dynamic by design \cite{DBLP:journals/ijebr/MaamarSTBB09}. In these communities, web services are modeled as intelligent autonomous agents, where they can adopt a strategy maximizing their payoff at any time. A web service has its own right to determine when to join a community and when to leave a community. Community managers can invite or ask a web service to leave in order to maximise their profit. Users can simply stop sending requests to a web service which is not providing satisfactory services. Thus its important to consider all parties involved in community management decision making process. Most of the recent work on communities of services are either
 user-centric and focus on user satisfaction
 \cite{Chun02user-centricperformance} or system-centric and focus
 on the whole system throughput, performance and utilization. There
@@ -66,7 +64,7 @@ services which are system-centric. However, in real world
 environments and applications, both users and service providers
 are self-interested agents, aiming to maximize their own profit.
 In those environments, both parties (users and services) will
-collaborate as long as they are getting more benefits and payoff. 
+collaborate as long as they are getting more benefits and payoff.
 Our initial research question is:
 \emph{How can we model the community of services for the autonomous agents, in order to maximize the throughput for users, web services and community organizers involved?}
 
@@ -75,13 +73,15 @@ In order to address this shortcoming, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
 DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed mechanisms to help
 users and services to maximize their gain. A two-player
 non-cooperative game between web services and community master was
-introduced in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}. 
+introduced in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}.
 In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
 for selecting web services has been proposed. In this approach,
 the authors proposed a web service selection process that the
 community masters can use. The approach considers the efficiency
 of all the three involved parties, namely users, web services and
-communities. 
+communities. The issue with these solution concepts is that they consider community as whole and model it as one entity in their formulations. A community master decides on behalf of an aggregated function of parameters of all the web services in the community. This can hurt the overall revenue for some individual web services, or even a subset of web services. They can collude and form their own community and gain more, instead of having to adjust and share their resources to other members. Another important issue which needs to be considered is community stability. In community of web services, the web services and community organizers collaborate to perform tasks. Having jointly completed a task and generated revenue, they need to agree on some reasonable method of dividing profits (or tasks) among themselves. This is an key issue for stability of communities which has not had enough attention in related work. If the revenue sharing mechanism is not fair enough for any subset of web services working in the community, as profit maximizing agents, they would just deviate and make their own group inorder to gain more and fair share of profit.
+So an important research question that we would like to address is:
+\emph{How can we model the the fairness, efficiently in communities of web services and form stable communities?}
 
 %The consideration of those inputs is a significant
 %issue as existing web services can lose utility or payoff because
@@ -98,8 +98,7 @@ communities.
 %unsatisfied within the community instead of adjusting its service
 %parameters.
 
-Our question we would like to explore is:
-\emph{How can we model the the fairness efficiently in communities of web services and form stable communities?}
+
 
 
 In \cite{10.1109/TSC.2012.12}, a cooperative scheme among autonomous
@@ -118,7 +117,7 @@ in their model have a very low chance of getting jobs, especially the ones furth
 capabilities.
 
 Another research question we would like to work on is:
-\emph{How can we model the community of web services based on cooperative game theory models in a realistic and applicable way?}
+\emph{How can we model the community of web services based on cooperative game theory models in a realistic, applicable and practical way?}
 
 % ooooooold
 %\indent When monitoring a dialogue between two or more agents, there are many question that should be answered. In this thesis, we are interested in answering the following questions:
@@ -174,7 +173,7 @@ The main objectives in this proposal work are:
 
 
 \section{Proposal Organization}\label{sec:outline}
-The rest of the paper is organized as follows: We present in Chapter~\ref{sec:MAS} the background
+The rest of the proposal is organized as follows: We present in Chapter~\ref{sec:MAS} the background
 needed for our research along with the relevant related work. Chapter~\ref{sec:coalitionformationws} provides the problem statement and presents our solution model in two
-different scenarios with some primitive results. Finally in Chapter 4, we present our conclusion, future plan, and the timetable of our research.
+different scenarios with some primitive results. Finally in Chapter~\ref{sec:conclusionfuturework}, we present our conclusion, future plan, and the timetable of our research.
 

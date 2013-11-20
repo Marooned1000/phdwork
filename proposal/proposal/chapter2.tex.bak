@@ -206,6 +206,8 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
         \subsection{Cooperative Game Examples}\label{sec:CWSDefinition}
 
+        \emph {THIS EXAMPLE IT NOT COMPLETE YET}
+
         An example which has closely resembles our community service model is the \emph{Single landowner and landless workers} example.
         This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain revenue (payoff).
 
@@ -317,7 +319,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         performance as a group can suffer. Existing members may even
         deviate and try to join other communities if they are unsatisfied.
         Those considerations of forming stable and efficient coalitions
-        are the main contributions of our paper.
+        are the main contributions of this proposal.
 
         In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
         for selecting web services has been proposed. In this approach,
@@ -355,6 +357,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
 
         % THIS IS REPEATED
+        \emph {-- this is repeated --}
         In this research work, we use game theory to
         propose a cooperative game model for the aggregation of web
         services within communities. The solution concepts of our
