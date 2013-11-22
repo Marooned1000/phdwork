@@ -2,7 +2,16 @@
 
 \chapter{Cooperative Game Solution Concepts}
 
-This chapter will be in chapter 2 as subsection.
+This chapter was merged with chapter 2
+
+\begin{definition}{\emph{[Preference Level].}} \label{preferenceLevel}
+The preference level of a nonempty subset $\gamma$ of $\Gamma$ denoted by level $(\gamma)$ is the number of the highest numbered
+layer which has a member in $\gamma$.
+\end{definition}
+\begin{example}
+Let $\Gamma = \Gamma_1 \bigcup \Gamma_2 $ with $\Gamma_1$ = $\{ a, b\}$ and $\Gamma_2$ = $\{ c,d \}$ and $\gamma = \{a\}$ and
+$\gamma\prime = \{a,d\}$. We have: level$(\gamma) = 1$ and level$(\gamma\prime) = 2$.
+\end{example}
 
 
 
