@@ -319,7 +319,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         performance as a group can suffer. Existing members may even
         deviate and try to join other communities if they are unsatisfied.
         Those considerations of forming stable and efficient coalitions
-        are the main contributions of this proposal.
+        are the main contributions of this research work.
 
         In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
         for selecting web services has been proposed. In this approach,
