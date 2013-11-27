@@ -14,6 +14,30 @@ $\gamma\prime = \{a,d\}$. We have: level$(\gamma) = 1$ and level$(\gamma\prime) 
 \end{example}
 
 
+\begin{algorithm}{\emph{\textbf{Algorithm} 1.}} \label{algorithm1}\\
+\\ Step 1:  $ W_{(H,h)/(H^{\prime},h^{\prime})}^{P_{Ag_1,Ag_2}} = 0 . $ \\
+\\Step 2:  $(\forall x \in H),(\forall x^{\prime}  \in H^{\prime} ):
+ ( pref(x,x^{\prime}) \in P_{Ag_1,Ag_2}^{pref})\Rightarrow W_{(H,h)/(H^{\prime},h^{\prime})}^{P_{Ag_1,Ag_2}} = W_{(H,h)/(H^{\prime},h^{\prime})}^{P_{Ag_1,Ag_2}}  +  1 $
+\end{algorithm}
+
+
+\begin{theorem}\label{Complexity1}
+If arguments are represented in proportional definite Horn clauses, the arguments selection mechanism runs in polynomial time.
+\end{theorem}
+
+\noindent\emph{\textbf{Proof.}} \emph{It is known from Bentahar et al. \cite{BentaharIEEEIS2007}, that given a Horn knowledge base
+$\Gamma$, a subset $H \subseteq \Gamma$, and a formula $h$; checking whether $(H, h)$ is an argument is polynomial. To decide
+if an argument is irrelevant, we have to check if 1) $H \vdash \neg x$ for an $x \in CK$, which can be done in polynomial time
+since $H$ is a definite Horn formula; or 2) there is a path from the root to $(H, h)$, which is a graph reachability problem, and
+it is known by Jones \cite{Jones} that the problem is in NLOGSPACE. Since NLOGSPACE $\subseteq$ P, the problem can be
+solved in polynomial time. To decide about the preference, we only need to compute the level of an argument from the level of a
+subset of $\Gamma$, which is  a simple procedure that is obviously polynomial. Computing the favorite argument given two arguments
+needs the computation of the arguments' weight, which is again a polynomial procedure as shown by Algorithm 1. To compere two given
+arguments using the risk, we only need to compute the number of formulas in $H$ and check if they are part of different sets,
+which is a polynomial procedure. Finally, the relevance ordering relation is simply based on comparing risks and favorites, which
+are both polynomial, so we are done.}~~$\blacksquare$
+
+
 
 
 
