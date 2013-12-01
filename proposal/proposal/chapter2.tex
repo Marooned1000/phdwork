@@ -209,8 +209,19 @@ In this chapter, we briefly review web services, then we introduce the concept o
             \emph {THIS EXAMPLE IT NOT COMPLETE YET}
 
             \begin{example}\label{ex:simplecore1}
-                Consider a game 
+                Consider a game $G = (N, v)$, with two players where $N = {1,2}$. Each of these players can produce 5 units of output working alone and by collaborating they can produce 20 units worth of output. Therefore we have: $v({1}) = 5, v({2}) = 5, v({1,2}) = 20$. The $core$ of the game, which is the set of all possible distribution of gain among players guaranteeing stability is: $core(N,v) = \{(x_1,x_2) \in R^2 | x_1 >= 5, x_2 >= 5, x_1 + x_2 = 20\}$, as illustrated in figure \ref{fig:coreex1}. Distributing the 20 units of income, among these two players, for all the points in the line will make outcome stable, since non of these players can gain more than 5 by working alone. However although they have same qualities, the core can suggest a stable outcode where one agent can earn three times more than the other agent: $\{5,15\}$. As mentioned in previous section, $core$ result may not be fair, the $core$ only considers stability. However, \emph{Shapley value} considers fairness. According to equation \ref{eq:shapley}, the two  workers should each share 10 units of income, since they have the same marginal contribution to all subsets of the coalition. As you can see the distribution vector of $\{10,10\}$ is also a member in $core$ set. Later we are going to show if $core$ of a coalition game is not empty, and game is convex, the shapely value lies within $core$ set.                
+            \end{example}
 
+            \begin{figure}
+                \begin{center}
+                \includegraphics[width=3in]{Figures/excore.eps}\label{fig:coreex1}
+                \caption{Core of the 2-player game of example \ref{ex:simplecore1}}
+                \end{center}
+            \end{figure}
+            
+            
+            \begin{example}\label{ex:simplecorealpha}
+                Consider a game $G = (N, v)$,  where $N = {1,2,3}$ and $v(\{i\}) = 0$, $v(\{Ci\}) = \alpha for |C| = 2$ and $v(\{N\}) = 1$. The $core$ of the game, 
             \end{example}
 
             \begin{example}\label{ex:simplecore2}
