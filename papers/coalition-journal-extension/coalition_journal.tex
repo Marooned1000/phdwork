@@ -869,29 +869,28 @@ Figure \ref{fig_community} represents the architecture of web service communitie
 Cooperative game is a branch of game theory that studies
 strategies of self-interested entities or agents in a setting
 where those agents can increase their payoff by binding agreements
-and cooperating in groups. We let $N$ be a set of players. Any
-subset $S$ of $N$ can form a group called $coalition$. A
+and cooperating in groups. We let $N$ be a set of players which can form a group called a $coalition$. A
 \emph{coalitional game} is a pair $G = (N, v)$, where $v$ is called
 a \emph{characteristic function} $v: 2^N \to \mathbb{R}$, mapping the set of players of the
-coalition to a real number $v(S)$, the worth of $S$. This number
+coalition to a real number $v(N)$, the worth of $N$. This number
 usually represents the output or payoff or again the performance
 of these players working together as coalition.  If a coalition
-$S$ is formed, then it can divide its worth, $v(S)$ in any
+$S$ is formed, then it can divide its worth, $v(N)$ in any
 possible way among its members. The payoff vector $x \in
-\mathbb{R}^S$ is the amount of payoff being distributed among the
-members of the coalition $S$. The payoff vector satisfies two
+\mathbb{R}^N$ is the amount of payoff being distributed among the
+members of the coalition $N$. The payoff vector satisfies two
 conditions:
 
 \begin{itemize}
     \item $x_i \geq 0$ for all $i \in N$, and
-    \item $\sum_{i \in S} x_i \leq v(S)$
+    \item $\sum_{i \in N} x_i \leq v(N)$
 \end{itemize}
 
 The second criteria is called the \emph{feasibility} condition,
 according to which, the payoff for each agent cannot be more than
 the coalition total gain. A payoff vector is also \emph{efficient}
 if the payoff obtained by a coalition is distributed amongst the
-coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of
+coalition members: $\sum_{i \in N} x_i = v(N)$. This definition of
 the characteristic function works in \emph{transferable utility}
 (TU) settings, where utility (i.e., payoff) is transferable from
 one player to another, or in other words, players have common
@@ -916,8 +915,11 @@ by\cite{shapley_value}:
 
 \emph{Shapley value} is a unique and fair solution concept for
 payoff distribution among the members of the coalition. It
-basically rewards members with the amount of marginal contribution
-they have to the coalition.
+basically rewards members with the amount of average marginal contribution
+they add to the coalition. It checks the contribution of member $i$ by adding the agent, to all possible subsets 
+of coalitions $S$, where ${S \subseteq N\left\backslash\left\{i\right\}$. If he is added to the set $S$, his 
+contribution to the coalition is $v(S \cup \left\{i\right\}) - v(S)$. Average marginal contribution of agent $i$'s 
+is calculated by averaging this value over all possible subsets of $N$, in $Shapley value$ equation (\ref{eq:shapley}).
 
 %\subsubsection{Core}
 
@@ -1144,15 +1146,15 @@ $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $\text{\emph{Input Task Rate}}$\\
 \hline
 Community & Worth & Community & Worth\\
 \hline
-$\left\{C_{ms}_1\right\}$ & 0 & $\left\{C_{ms}_2\right\}$ & 0\\
-$\left\{C_{ms}_1, ws_1\right\}$ & 8 & $\left\{C_{ms}_2, ws_1\right\}$ & 8\\
-$\left\{C_{ms}_1, ws_2\right\}$ & 16 & $\left\{C_{ms}_2, ws_2\right\}$ & 16\\
-$\left\{C_{ms}_1, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_3\right\}$ & 24\\
-$\left\{C_{ms}_1, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_2\right\}$ & 24\\
-$\left\{C_{ms}_1, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_3\right\}$ & 32\\
-$\left\{C_{ms}_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_{ms}_1, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms}_2, ws_1, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_{ms}_1, C_{ms}_2, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
+$\left\{C_{ms_1}\right\}$ & 0 & $\left\{C_{ms_2}\right\}$ & 0\\
+$\left\{C_{ms_1}, ws_1\right\}$ & 8 & $\left\{C_{ms_2}, ws_1\right\}$ & 8\\
+$\left\{C_{ms_1}, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_2\right\}$ & 16\\
+$\left\{C_{ms_1}, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_3\right\}$ & 24\\
+$\left\{C_{ms_1}, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2\right\}$ & 24\\
+$\left\{C_{ms_1}, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_3\right\}$ & 32\\
+$\left\{C_{ms_1}, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{ms_1}, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{ms_1}, C_{ms_2}, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
 $\left\{ws_2\right\}$ & 4.2 & $\left\{ws_3\right\}$ & 6.8\\
 \hline
 Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
@@ -1161,7 +1163,7 @@ Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In Example 3, we consider the case of having different communities with different market share, ${R_C}$ values. Web services also have a small share of market independently, providing them with a small task pull. In these kind of scenarios, the solution considers individual maximization of payoff and also the total worth of all communities which represents the \emph{social welfare}. In this example the most efficient partition of web services is earned by having two coalitions of $\left\{C_{master}_1, ws_2\right\}$ and $\left\{C_{master}_2, ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$. In these types of scenarios, the goal is to reach stability, adopting a distributed approach where all players have the power of choice on the decision of whether or not they join a coalition. The communities usually start the game having some established members, encountering new web services, the communities may exchange web services and new web services would join them having at least one player gaining utility, without hurting any other participant. In this example if we initially having two coalitions of $\left\{C_{master}_1, ws_2\right\}$ and $\left\{C_{master}_2, ws_1\right\}$ and a ${ws_3}$ as new web service, ${ws_3}$ joining ${C_{master}_1}$ would hurt at least itself or $ws_2$, however ${ws_3}$ joining ${C_{master}_2}$ would not hurt any participants and ${ws_3}$ would earn more within the community and the community will have enough web services performing the incoming tasks from users.
+In Example 3, we consider the case of having different communities with different market share, ${R_C}$ values. Web services also have a small share of market independently, providing them with a small task pull. In these kind of scenarios, the solution considers individual maximization of payoff and also the total worth of all communities which represents the \emph{social welfare}. In this example the most efficient partition of web services is earned by having two coalitions of $\left\{C_{master_1}, ws_2\right\}$ and $\left\{C_{master_2}, ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$. In these types of scenarios, the goal is to reach stability, adopting a distributed approach where all players have the power of choice on the decision of whether or not they join a coalition. The communities usually start the game having some established members, encountering new web services, the communities may exchange web services and new web services would join them having at least one player gaining utility, without hurting any other participant. In this example if we initially having two coalitions of $\left\{C_{master_1}, ws_2\right\}$ and $\left\{C_{master_2}, ws_1\right\}$ and a ${ws_3}$ as new web service, ${ws_3}$ joining ${C_{master_1}}$ would hurt at least itself or $ws_2$, however ${ws_3}$ joining ${C_{master_2}}$ would not hurt any participants and ${ws_3}$ would earn more within the community and the community will have enough web services performing the incoming tasks from users.
 
 The first two examples illustrate the fact that a community cannot simply increase its revenue by adding more web services. The web services and even community owners are autonomous agents and would deviate and be displeased about the community if new members cause a drop in their profit. The job of the community master is to attract as many quality web services it can and keep them satisfied; hence the group stability is guaranteed. 
 The third example highlights another type of problem we would like to address, which is how to form best possible groups of communities, and allocate web services among communities in a way which would maximize payoff for of our agents and members already residing in the communities.
@@ -1185,8 +1187,8 @@ service comes with a given QoS ($QoS_{ws}$). The worth of a community
 $v(C)$ is set to Out(C) based on equation \ref{out_c}.
 
 As mentioned in previous section, the worth and output of a
-community of web services is a function of the
-throughput and provided QoS. If the throughput rate is more than
+community  is a function of the
+throughput and provided QoS of its web service members. If the throughput rate is more than
 the master's input request rate, it means the web services inside
 the community are capable of serving more requests than the
 demand. Considering this factor, the valuation function is
@@ -1279,9 +1281,9 @@ v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\})
 Considering $S \subseteq T$:
 \setlength{\abovedisplayshortskip}{2pt}
 \begin{gather*}
-S \cup \left\{i\right\} = (S \cup \left\{i\right\}) \cup T
+T \cup \left\{i\right\} = (S \cup \left\{i\right\}) \cup T
 \\
-T = (S \cup \left\{i\right\}) \cap T
+S = (S \cup \left\{i\right\}) \cap T
 \end{gather*}
 
 By setting $A = S \cup \left\{i\right\}$ and $B = T$ we have:
@@ -1319,17 +1321,16 @@ Thus, in order to keep the characteristic function convex, new web
 services should have more marginal contribution as the coalition
 size grows.
 
-Our algorithm works as follows. We have an established community
-with a master and some member web services already residing in the
-community. A web service would send a join request to the
-community. The ideal solution would be analyzing the \emph{core}
+Our algorithm works as follows. Given an  established community
+with a master and some member web services, a web service would send a \emph{join request} to join  the
+community. Ideally, the \emph{core}
 or \emph{$\epsilon$-core} stability of the group having this new
-member. As the normal core membership algorithm is computationally
+member should be analyzed. As the normal core membership algorithm is computationally
 intractable, we exploit Proposition \ref{proposition1} and Equation
 \ref{eq:convex_snow} to check the convexity of our game having
 characteristic function where the new member is added. In the
-equation, we set $C$ to be our community members $(C)$ before
-having the new web service. We assign ${i}$ to the new web
+equation, let $C$  be our community members before
+having the new web service join the community. Let  ${i}$ be the new web
 service, and then verify the equation for $S$, setting $ S = T /
 W1 $ where $W1$ is the set of all possible subsets of the set $N$
 having the size $1$. We can relax the equation a bit by adding a
@@ -1358,8 +1359,8 @@ linear:
 $O(n^2)$.}
 \end{theorem}
 
-It is possible to develop an anytime algorithm by continuing the
-verification of this condition against all subsets of size $3$,
+It is possible to develop  algorithm that continues the
+verification of this condition against subsets of size $3$,
 $4$, etc. until the algorithm gets interrupted.
 
 \subsection {Web Services and Many Communities}
@@ -1371,7 +1372,7 @@ to the first scenario, master web services form coalitions with
 web services. We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
 structures. As mentioned in Section \ref{sec:coalition}, the used
-algorithms \cite{Sandholm1999209,
+algorithms in \cite{Sandholm1999209,
 DBLP:conf/ijcai/GrecoMPS11,DBLP:conf/ijcai/RahwanMJ11} try to
 solve key fundamental problems of what coalitions to form, and how
 to divide the payoffs among the collaborators.
@@ -1434,18 +1435,22 @@ or split is based on the fact that all players must benefit. The
 new web services will merge with communities if $all$ the players
 are able to improve their individual payoff, and some web services
 may split from old communities, if splitting does not decrease the
-payoff of any web service of the community. According to
+payoff of \emph{any} web service of the community. According to
 \cite{DBLP:journals/corr/abs-cs-0605132}, this sequence of merging
 and splitting will converge to a final partition, where web
 services cannot improve their payoff. More details of this
 algorithm and analysis of generic solutions on coalition formation
 games are described in \cite{DBLP:journals/igtr/AptW09}.
 
-\subsection{Taxtation, Subsiding and Community Stability}\label{s:tax}
+\subsection{Taxation, Subsiding and Community Stability}\label{s:tax}
 
-We discuessed $core$ as one of the preminent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal ammount of $\epsilon$ by deviating. Comuunity stability is an attractice property for communities, also communities would benefit by having slightly more web services then having the exact number of web services satisfying task rate cap. One reason is that there is always the possibility that the agents may leave the community or they may under perform from the quality values they were initially performing with.
+We discussed $core$ as one of the prominent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal amount of $\epsilon$ by deviating. Stability is an attractive property for communities. In addition, communities would benefit by having slightly more web services then the exact number of web services satisfying task rate cap. This is because  there is always a possibility that the agents may leave the community or they may under perform and degrade the quality values they were initially performing with.
 
-One way for communities to ensure community stability could be applying a tax, $\epsilon$ ammount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on same ammount of taxtation, being governed by some external entities or web services would join communities with lesser ammount of tax. Another viable solution in our scenario is to stabilize the game using external subsidies. The reason a game is not stable is that the community is not making enough revenue to allocate the players with enough gain. A community master can subside its community with a constant coefficient value of $\lambda$. Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$. Obviously with a big number of $\lambda$ it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxting in order to reduce the bargaining power of sub coalitions are called $taxtation$ \cite{eps346856} methods.
+One way for communities to ensure  stability could be  by applying a tax, $\epsilon$ amount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on a same amount of taxation, being governed by some external entities or web services would join communities with lesser amount of tax. Another viable solution to our scenario is to stabilize the game using external subsidies. The reason a game is not stable is that the community is not making enough revenue to allocate  enough gain to the players. A community master can subside its community with a constant coefficient value of $\lambda$. 
+
+Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$. 
+
+Obviously with a big number of $\lambda$, it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxing in order to reduce the bargaining power of sub coalitions are called $taxation$ \cite{eps346856} methods.
 
 
 %Thus, another way to garantee \emph{$\epsilon$-core} stability can be achieved by some surplus payments from community coordinators. These concepts of applying cost in coallition values in order to reduce their bargaining power are called $taxtation$ methods\cite{eps346856}.
@@ -1470,12 +1475,12 @@ estimated using the method of maximum likelihood.
 One of the key criteria reflecting the performance of web service
 coalitions is the user satisfaction. User satisfaction can be
 measured in terms of quality and quantity of requests (or tasks)
-successfully answered by the communities. We initiate the
+successfully answered by the communities. We initiated the
 communities with few web services, then let rejecting and
 accepting random web services go for a short number of iterations.
-After that, we start the request distribution for the communities
+After that, we started the request distribution for the communities
 and let them allocate requests among member web services.
-Thereafter, we measure the average output performance of tasks in
+Thereafter, we measured the average output performance of tasks in
 communities following different methods.
 
 \begin{figure}[!t]
@@ -1504,7 +1509,7 @@ size to 25 web services, since the method is computationally
 intractable as number of web services increase and anything more than that would make it
 impractical to run in our simulations. In the other methods, there
 were no cap on size of the community and we had communities of
-size 60 web services at some points. The results show that our
+size 60 web services at some points. In this scenario our community receives 30 tasks on average per iteration, from users. The community, after the task distribution process on each iteration, will reevaluate QoS metrics of its members and can check for new membership requests. Web services may join or leave the community between iterations. The results show that our
 \emph{depth-2 convex checker} method is performing better compared
 to the other methods and its performance is close to optimal
 \emph{$\epsilon$-core} method. Our \emph{depth-1 convex checker}
@@ -1585,7 +1590,8 @@ only if they have enough requests for themselves. In other words,
 web services can join a community when the request rate is less
 than the throughput of all the member web services. We name this
 method \emph{Random Formation} and use it as a benchmark for our
-QoS-aware coalition formation process. As the results illustrate,
+QoS-aware coalition formation process. In this scenario, each user individually generates randomly 
+between 0 to 10 number of tasks per iteration, then the users target a community and direct their requests to the chosen community. As the results illustrate,
 our method forms better coalitions of web services improving
 performance and satisfaction for both web services and coalitions.
 
