@@ -105,7 +105,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         according to which, the payoff for each agent cannot be more than
         the coalition total gain. A payoff vector is also \emph{efficient}
         if the payoff obtained by a coalition is distributed amongst the
-        coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of
+        coalition members: $\sum_{i \in N} x_i = v(N)$. This definition of
         the characteristic function works in \emph{transferable utility}
         (TU) settings, where utility (i.e., payoff) is transferable from
         one player to another, or in other words, players have common
@@ -208,8 +208,6 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
         %\subsection{Examples on Cooperative Game Solution Concepts}\label{sec:CWSDefinition}
 
-            \emph {THIS EXAMPLE IT NOT COMPLETE YET}
-
             \begin{example}\label{ex:simplecore1}
                 Consider a game $G = (N, v)$, with two players where $N = {1,2}$. Each of these players can produce 5 units of output working alone and by collaborating they can produce 20 units worth of output. Therefore we have: $v({1}) = 5, v({2}) = 5, v({1,2}) = 20$. The $core$ of the game, which is the set of all possible distribution of gain among players guaranteeing stability is: $core(N,v) = \{(x_1,x_2) \in R^2 | x_1 >= 5, x_2 >= 5, x_1 + x_2 = 20\}$, as illustrated in figure \ref{fig:coreex1}. Distributing the 20 units of income, among these two players, for all the points in the line will make outcome stable, since non of these players can gain more than 5 by working alone. However although they have same qualities, the core can suggest a stable outcode where one agent can earn three times more than the other agent: $\{5,15\}$. As mentioned in previous section, $core$ result may not be fair, the $core$ only considers stability. However, \emph{Shapley value} considers fairness. According to equation \ref{eq:shapley}, the two  workers should each share 10 units of income, since they have the same marginal contribution to all subsets of the coalition. As you can see the distribution vector of $\{10,10\}$ is also a member in $core$ set. Later we are going to show if $core$ of a coalition game is not empty, and game is convex, the shapely value lies within $core$ set.
             \end{example}
@@ -223,35 +221,35 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
 
             \begin{example}\label{ex:simplecorealpha}
-                In this example, we want to analyse games under conditions which core can be empty. Consider a game $G = (N, v)$,  where $N = {1,2,3}$ and $v(\{i\}) = 0$, $v(\{Ci\}) = \alpha for |C| = 2$ and $v(\{N\}) = 1$. The $(x_1,x_2,x_3)$ distribution vector is in $core$ if $x \geq 0$, $\forall i, \forall j, x_i + x_j \geq \alpha $
+                In this example, we want to analyse games under conditions which core can be empty. Consider a game $G = (N, v)$,  where $N = {1,2,3}$ and $v(\{i\}) = 0$, $v(\{Ci\}) = \alpha for |C| = 2$ and $v(\{N\}) = 1$. The $(x_1,x_2,x_3)$ distribution vector according to equation \ref{eq:core}, is in $core$ if $x_i \geq 0$ which implies each player will get more than 0 which they would when working alone and $\forall i, \forall j, x_i + x_j \geq \alpha $ which implied any pair of players will get more than $\alpha$ which they would earn if they worked in pair without the third player and finally $\sum_{i \in N} x_i = 1$ which implied all the gain is distributed among the three players. Based on these three equations we have, $\forall i \in N 0 \leqslant 1 - \alpha$ and $\sum_{i \in N} x_i = 1$. By summing first equation for all three platers, we conclude $Core (N,v)$ is nonempty iff $\alpha \leqslant \frac{2}{3}$. When alpha is more than $\frac{2}{3}$, the contribution of third player is not good enough to justify the group of three players working together. The third player will increase the revenue with less then $\frac{1}{3}$, and the other two players, both can get better share of revenue if they work together. This is why the group of three players working together when $\alpha > \frac{2}{3}$ is not stable.
             \end{example}
 
-            \begin{example}\label{ex:simplecore2}
-
-                An example which has closely resembles our community service model is the \emph{Single landowner and landless workers} example.
-                This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain revenue (payoff).
-
-                In this game, land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have a game there the set of players are the landowner and the $m$ workers, possible actions for coalitions with only workers would be distributing the zero output for all where no member receives any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers would be the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$. The preference of each player would be the amount of out she obtains.
-
-                In this game the action $a_{N}$ of the grand coalition in which the landowner obtains all the output $f$(n)
-                is in the core: all coalitions that can produce any output include the landowner, and none of these
-                coalitions has any actions that makes her better off than she is in $a_{N}$.
-
-                For any value of n The core contains actions in which the workers receive some output.
-                The workers need the landowner to produce any output, but the landowner
-                also needs the workers to produce more than $f$(1), so stable actions of the grand coalition exist in which the
-                workers receive some output. Take the landowner to be player 1, and consider the action $a_{N}$ of the grand
-                coalition in which each player $i$ obtains the output $x_{i}$, where $x_{1}+...+x_{n}=f(n)$. Under what conditions
-                on  $(x_{1},..,x_{n})$ is $a_{N}$ in the core? Because of my assumption about the shape of the function $f$, the
-                coalitions most capable of profitably deviating from $a_{N}$ consist of the landowner and every worker but one.
-                Such a coalition can, by itself, produce $f(n-1)$, and it may distribute this output in any way among its members.
-                Thus for a deviation by such a coalition not to be profitable, the sum of $x_{i}$ and any collection of $(n-2)$ other
-                $x'_{i}$s must be at least $f(n-1)$. That is, $(x_{1}+...+x_{n})-x_{i}\geq f(n-1)$ for every $j=2,..,n$. Because
-                $x_{1}+...+x_{n}=f(n)$, we conclude that $x_{i}\leq f(n)-f(n-1)$ for every player $j$ with $J\geq 2$ (i.e. every worker).
-                That is, if $a_{N}$ is in the core then $0\leq x_{j}\leq f(n)-f(n-1)$ for every player $J\geq 2$. In fact, every such action
-                is in the core, as you are asked to verify in the following exercise.
-
-            \end{example}
+            %\begin{example}\label{ex:simplecore2}
+%
+%                An example which has closely resembles our community service model is the \emph{Single landowner and landless workers} example.
+%                This example was introduced in \cite{GVK369342747} and represents the \emph{landowner} entity which is providing jobs and \emph{landless workers} who cannot do anything by themselves and need to work with a landowner to gain revenue (payoff).
+%
+%                In this game, land is owned by a single person, the \emph{landowner}. We refer to the other people as \emph{workers}. In this case we have a game there the set of players are the landowner and the $m$ workers, possible actions for coalitions with only workers would be distributing the zero output for all where no member receives any output. The set of actions of a coalition $S$ consisting of the landowner and $k$ workers would be the set of all $S$-allocations of the output $f(k+1)$ among the members of $S$. The preference of each player would be the amount of out she obtains.
+%
+%                In this game the action $a_{N}$ of the grand coalition in which the landowner obtains all the output $f$(n)
+%                is in the core: all coalitions that can produce any output include the landowner, and none of these
+%                coalitions has any actions that makes her better off than she is in $a_{N}$.
+%
+%                For any value of n The core contains actions in which the workers receive some output.
+%                The workers need the landowner to produce any output, but the landowner
+%                also needs the workers to produce more than $f$(1), so stable actions of the grand coalition exist in which the
+%                workers receive some output. Take the landowner to be player 1, and consider the action $a_{N}$ of the grand
+%                coalition in which each player $i$ obtains the output $x_{i}$, where $x_{1}+...+x_{n}=f(n)$. Under what conditions
+%                on  $(x_{1},..,x_{n})$ is $a_{N}$ in the core? Because of my assumption about the shape of the function $f$, the
+%                coalitions most capable of profitably deviating from $a_{N}$ consist of the landowner and every worker but one.
+%                Such a coalition can, by itself, produce $f(n-1)$, and it may distribute this output in any way among its members.
+%                Thus for a deviation by such a coalition not to be profitable, the sum of $x_{i}$ and any collection of $(n-2)$ other
+%                $x'_{i}$s must be at least $f(n-1)$. That is, $(x_{1}+...+x_{n})-x_{i}\geq f(n-1)$ for every $j=2,..,n$. Because
+%                $x_{1}+...+x_{n}=f(n)$, we conclude that $x_{i}\leq f(n)-f(n-1)$ for every player $j$ with $J\geq 2$ (i.e. every worker).
+%                That is, if $a_{N}$ is in the core then $0\leq x_{j}\leq f(n)-f(n-1)$ for every player $J\geq 2$. In fact, every such action
+%                is in the core, as you are asked to verify in the following exercise.
+%
+%            \end{example}
 
 %          Core of landowner-worker game: Check that no coalition can improve upon any action of the grand
 %          coalition in which the output received by every worker is nonnegative and at most $f(n)-f(n-1)$. (Use the fact that
@@ -378,9 +376,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
         capabilities.
 
 
-        % THIS IS REPEATED
-        \emph {-- this is repeated --}
-        In this research work, we use game theory to
+        In this research work, I will use game theory to
         propose a cooperative game model for the aggregation of web
         services within communities. The solution concepts of our
         cooperative game seeks to find efficient ways of forming

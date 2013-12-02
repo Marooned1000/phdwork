@@ -84,29 +84,28 @@ In this chapter, we briefly review web services, then we introduce the concept o
         Cooperative game is a branch of game theory that studies
         strategies of self-interested entities or agents in a setting
         where those agents can increase their payoff by binding agreements
-        and cooperating in groups. We let $N$ be a set of players. Any
-        subset $S$ of $N$ can form a group called $coalition$. A
+        and cooperating in groups. We let $N$ be a set of players which can form a group called a $coalition$. A
         \emph{coalitional game} is a pair $G = (N, v)$, where $v$ is called
         a \emph{characteristic function} $v: 2^N \to \mathbb{R}$, mapping the set of players of the
-        coalition to a real number $v(S)$, the worth of $S$. This number
+        coalition to a real number $v(N)$, the worth of $N$. This number
         usually represents the output or payoff or again the performance
         of these players working together as coalition.  If a coalition
-        $S$ is formed, then it can divide its worth, $v(S)$ in any
+        $S$ is formed, then it can divide its worth, $v(N)$ in any
         possible way among its members. The payoff vector $x \in
-        \mathbb{R}^S$ is the amount of payoff being distributed among the
-        members of the coalition $S$. The payoff vector satisfies two
+        \mathbb{R}^N$ is the amount of payoff being distributed among the
+        members of the coalition $N$. The payoff vector satisfies two
         conditions:
 
         \begin{itemize}
             \item $x_i \geq 0$ for all $i \in N$, and
-            \item $\sum_{i \in S} x_i \leq v(S)$
+            \item $\sum_{i \in N} x_i \leq v(N)$
         \end{itemize}
 
         The second criteria is called the \emph{feasibility} condition,
         according to which, the payoff for each agent cannot be more than
         the coalition total gain. A payoff vector is also \emph{efficient}
         if the payoff obtained by a coalition is distributed amongst the
-        coalition members: $\sum_{i \in S} x_i = v(S)$. This definition of
+        coalition members: $\sum_{i \in N} x_i = v(N)$. This definition of
         the characteristic function works in \emph{transferable utility}
         (TU) settings, where utility (i.e., payoff) is transferable from
         one player to another, or in other words, players have common
@@ -133,7 +132,10 @@ In this chapter, we briefly review web services, then we introduce the concept o
             \emph{Shapley value} is a unique and fair solution concept for
             payoff distribution among the members of the coalition. It
             basically rewards members with the amount of marginal contribution
-            they have to the coalition.
+            they have to the coalition.  It checks the contribution of member $i$ by adding the agent, to all possible subsets
+            of coalitions $S$, where $S \subseteq N\backslash\left\{i\right\}$. If he is added to the set $S$, his
+            contribution to the coalition is $v(S \cup \left\{i\right\}) - v(S)$. Average marginal contribution of agent $i$'s
+            is calculated by averaging this value over all possible subsets of $N$, in $Shapley value$ equation (\ref{eq:shapley}).
 
             %\subsubsection{Core}
 
@@ -221,7 +223,7 @@ In this chapter, we briefly review web services, then we introduce the concept o
 
 
             \begin{example}\label{ex:simplecorealpha}
-                In this example, we want to analyse games under conditions which core can be empty. Consider a game $G = (N, v)$,  where $N = {1,2,3}$ and $v(\{i\}) = 0$, $v(\{Ci\}) = \alpha for |C| = 2$ and $v(\{N\}) = 1$. The $(x_1,x_2,x_3)$ distribution vector is in $core$ if $x >= 0$, $\forall i, \forall j, x_i + x_j >= \alpha $
+                In this example, we want to analyse games under conditions which core can be empty. Consider a game $G = (N, v)$,  where $N = {1,2,3}$ and $v(\{i\}) = 0$, $v(\{Ci\}) = \alpha for |C| = 2$ and $v(\{N\}) = 1$. The $(x_1,x_2,x_3)$ distribution vector according to equation \ref{eq:core}, is in $core$ if $x \geq 0$, $\forall i, \forall j, x_i + x_j \geq \alpha $ 
             \end{example}
 
             \begin{example}\label{ex:simplecore2}
