@@ -3,7 +3,7 @@
 \chapter{Coalition Formation for Autonomous Web Services}\label{sec:coalitionformationws}
 
 In this chapter, we present our coalition model of agent-based web
-services within communities. We start by describing the general
+services within communities\cite{SCC2013efficient}. We start by describing the general
 architecture and considered parameters for web services.
 Thereafter, problem modeling and formulation will be introduced in
 terms of task distribution and community revenue. Web service
@@ -108,7 +108,7 @@ possible to gain better reputation and user satisfaction, which
 results in having higher revenue.
 
 \begin{figure*}[!t]
-\centerline{\includegraphics[width=15cm]{Figures/community.eps}}
+\centerline{\includegraphics[width=15cm]{Figures/archss.eps}}
 \caption{Architecture of Web Service communities}
 \label{fig_community}
 \end{figure*}
