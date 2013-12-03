@@ -2,28 +2,35 @@
 
 \chapter{Coalition Formation for Autonomous Web Services}\label{sec:coalitionformationws}
 
+In this chapter, we present our coalition model of agent-based web
+services within communities. We start by describing the general
+architecture and considered parameters for web services.
+Thereafter, problem modeling and formulation will be introduced in
+terms of task distribution and community revenue. Web service
+cooperative games in different settings will follow along with
+some simulation results.
+
 \section{Preliminaries}\label{s:preliminaries}
 
 In this section, we discuss the parameters and preliminary
 concepts that we use in the rest of the proposal.
 
-\subsection{The Architecture}
+\subsection{Architecture}
 
 Our system consists of three main types of entities working
 together:
 
-\emph{1) Web services} are rational entities\footnote{The term
-rational is used here in the sense that web services are utility
-maximizers} providing services to end users. They aim to maximize
-their individual income by receiving enough requests from end
-users. In order to increase their revenue, web services seek for
-more tasks if they have the capacity and throughput to do so. Web
-services can join communities to have better efficiency by
-collaborating with others, to have access to higher market share,
-and to have opportunity of receiving a bigger task pool from end
-users. Throughout this proposal, in
-our equations, we refer to web services as $ws$ and to the set of
-web services hosted by a given community as $C$. To simplify the
+\emph{1) Web services} are rational entities that aim to maximize
+their utilities by providing high quality services to end users.
+They aim to maximize their individual income by receiving enough
+requests from end users. In order to increase their revenue, web
+services seek for more tasks if they have the capacity and
+throughput to do so. Web services can join communities to have
+better efficiency by collaborating with others, to have access to
+higher market share, and to have opportunity of receiving a bigger
+task pool from end users. Throughout this proposal, in our
+equations, we refer to web services as $ws$ and to the set of web
+services hosted by a given community as $C$. To simplify the
 notation, sometimes we simply write $ws$ instead of $ws \in C$ to
 go through the elements $ws$ of the set $C$.
 
@@ -84,7 +91,21 @@ community \emph{worth} or \emph{payoff} function.
 
 \subsection{Web Service Communities}\label{webservice-communities}
 
-Figure \ref{fig_community} represents the architecture of web service communities. The communities are essentially an abstract model of web services. They aggregate web services and communicate with other entities such as UDDI registries and users, using identical protocols as web services. Web services join communities to increase their utility by having a larger market share and task pool. Community coordinators or master web services are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Community coordinators try to attract quality web services and keep the community as stable and productive as possible to gain better reputation and user satisfaction which results in having a higher market share for the community. The way the web services reside inside communities and how communities of web services are engineered is described comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
+Figure 3 represents our revised architecture of web service
+communities where tasks are to be distributed among the members
+that are interested in forming stable coalitions. As discussed in
+Chapter 2, communities are essentially virtual platforms
+aggregating web services having similar and complementary
+functionalities and communicate with other entities such as UDDI
+registries and users using particular protocols. Web services join
+communities to increase their utility by having larger market
+share and task pool. Community coordinators or master web services
+are responsible for community development, managing membership
+requests from web services and distributing user tasks among the
+community members. Community coordinators try to attract quality
+web services and keep the community as stable and productive as
+possible to gain better reputation and user satisfaction, which
+results in having higher revenue.
 
 \begin{figure*}[!t]
 \centerline{\includegraphics[width=15cm]{Figures/community.eps}}
@@ -97,9 +118,20 @@ Figure \ref{fig_community} represents the architecture of web service communitie
 
 In this section, we present  web services and community coordinator's interactions, the task distribution process and revenue models in web service communities.
 
-\subsection{Task distribution}
+\subsection{Task Distribution}
 
-As mentioned in section \ref{webservice-communities}, communities are robust service providers with well established market share and reputation. By maintaining their reputation and performance, they attract  end users which choose them as service providers to perform their tasks. The community master is characterized by a request rate $(R_C)$ from users. Each web service comes with a given QoS ($QoS_{ws}$) from which the throughput $Th_{ws}$ is excluded. Throughput is the average rate of tasks a web service can perform per time unit. Its exclusion from $QoS_{ws}$ allows us to build our analysis on the particular value of $Th_{ws}$. Thus, web services perform tasks with an average output quality of $QoS_{ws}$ and a throughput rate of $Th_{ws}$.
+As mentioned in Section \ref{webservice-communities}, communities
+are robust service providers with well established market share
+and reputation. By maintaining their reputation and performance,
+they attract  end users which choose them as service providers to
+perform their tasks. The community master is characterized by a
+request rate $(R_C)$ from users. Each web service comes with a
+given QoS ($QoS_{ws}$) from which the throughput $Th_{ws}$ is
+excluded. Throughput is the average rate of tasks a web service
+can perform per time unit. Its exclusion from $QoS_{ws}$ allows us
+to build our analysis on the particular value of $Th_{ws}$. Thus,
+web services perform tasks with an average output quality of
+$QoS_{ws}$ and a throughput rate of $Th_{ws}$.
 
 The community master uses a slightly modified \emph{weighted fair queuing} method to distribute tasks among its members. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In \emph{weighted fair queuing} method \emph{all} the input flow is multiplexed along different paths, however in our case if the input rate $(R_C)$ of the community is more than the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with delay. Thus, the amount of tasks performed by community is $\sum_{ws \in C}{(Th_{ws})}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$. However, when the input rate $(R_C)$ of the community is less than the summation of throughput values of the web services in the community,
 %the community has more web services having more total throughput value than community's request rate
@@ -111,7 +143,16 @@ In this way, players have incentive to reveal their real capabilities to profit 
 
 \subsection{Community Revenue}
 
-The communities and web services earn revenue by performing tasks. The total gain is function of quality ($QoS_{ws}$) and throughput ($Th_{ws}$) of tasks being performed. As mentioned in section \ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain aggregation function of the parameters considered in Table \ref{qosws}. We have adopted a linear equal weight average over all QoS parameters listed in table \ref{qosws} excluding the $Throughput$ and $Cost$ parameters. A community has the option to weigh specific QoS parameters depending on the expectations of their clients.
+The communities and web services earn revenue by performing tasks.
+The total gain is function of quality ($QoS_{ws}$) and throughput
+($Th_{ws}$) of tasks being performed. As mentioned in section
+\ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain
+aggregation function of the parameters considered in Table
+\ref{qosws}. We have adopted a linear equal weight average over
+all QoS parameters listed in Table \ref{qosws} excluding the
+$Throughput$ and $Cost$ parameters. A community has the option to
+weigh specific QoS parameters depending on the expectations of
+their clients.
 
 The maximum potential output of a community $(PO(C))$  is an aggregation of number of tasks, times their quality, for each web service member of the community:
 
@@ -218,7 +259,35 @@ Community $R_C$: 10\\
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%, %%%%%%%%%%%%%%%%%%%%%%
 
-In the first example,  we present the case of a community with $R_C =10 $, and three web services, each having different $QoS_{ws}$ and $Th_{ws}$ values as listed in table \ref{example_1}. The worth of a community is calculated based on $Out(C)$ equation (\ref{out_c}) which is the amount of output being generated by the community. The first table  lists the web services with their aggregated $QoS_{ws}$ parameters, their task input rate while working alone, and also their  throughput value $Th_{ws}$. The second table shows all the possible communities and their respective worth. The obtained values suggest that  communities having more web services have better gain and output. However each community needs to  distribute the gain between web services. Sometimes it is impossible to share the gain between all web services in a way that no subset of them would individually gain more if they form their own group. In this example, the value community of ${ws_1}$ and ${ws_2}$ is 7.2, With ${ws_3}$ joining the community the worth increases to 8.0. However there is no way to distribute the value among web services to have  ${ws_1}$ and ${ws_2}$  earning 7.2, and ${ws_3}$ earning at least 2.4, the gain they could earn before joining the community. This fact makes the group unstable. In the second  example, shown in table \ref{example_2}, we even have situations where a web service (${ws_3}$) joining a community ($\left\{ws_1,ws_2\right\}$) decreases the value of community. The reason is, the community is already full and all tasks are almost being distributed and new community with bad quality can degrade the average quality of tasks being done by the community. In both examples, the request of joining of web service ${ws_3}$ should be rejected by the community.
+In the first example,  we present the case of a community with
+$R_C =10 $, and three web services, each having different
+$QoS_{ws}$ and $Th_{ws}$ values as listed in Table
+\ref{example_1}. The worth of a community is calculated based on
+$Out(C)$ equation (\ref{out_c}) which is the amount of output
+being generated by the community. The first table  lists the web
+services with their aggregated $QoS_{ws}$ parameters, their task
+input rate while working alone, and also their  throughput value
+$Th_{ws}$. The second table shows all the possible communities and
+their respective worth. The obtained values suggest that
+communities having more web services have better gain and output.
+However each community needs to  distribute the gain between web
+services. Sometimes it is impossible to share the gain between all
+web services in a way that no subset of them would individually
+gain more if they form their own group. In this example, the value
+community of ${ws_1}$ and ${ws_2}$ is 7.2, With ${ws_3}$ joining
+the community the worth increases to 8.0. However there is no way
+to distribute the value among web services to have  ${ws_1}$ and
+${ws_2}$  earning 7.2, and ${ws_3}$ earning at least 2.4, the gain
+they could earn before joining the community. This fact makes the
+group unstable. In the second  example, shown in Table
+\ref{example_2}, we even have situations where a web service
+(${ws_3}$) joining a community ($\left\{ws_1,ws_2\right\}$)
+decreases the value of community. The reason is, the community is
+already full and all tasks are almost being distributed and new
+community with bad quality can degrade the average quality of
+tasks being done by the community. In both examples, the request
+of joining of web service ${ws_3}$ should be rejected by the
+community.
 
 %%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!t]
@@ -501,8 +570,8 @@ iterate through all these partitions.
 In our model, we propose using a distributed algorithm where each
 community master and web service can be a decision maker and
 decide for its own good. The aim is to find less complex and
-distributed algorithms for forming web services
-coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}.
+distributed algorithms for forming web services coalitions
+\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}.
 The distributed merge-and-split algorithm in
 \cite{DBLP:journals/igtr/AptW09} suits our application very well.
 It keeps splitting and merging coalitions to partitions which are
@@ -687,4 +756,36 @@ performance and satisfaction for both web services and coalitions.
 (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
 \end{figure}
 
-Finally, in our last experiment, we compare our work with the work in \cite{10.1109/TSC.2012.12} which we call it \emph{High Availability Coalition} method, because of nature of their community valuation function, which focuses on community availability as main consideration. Their community formation model is very different than ours, however we have been very careful to make the experiment environment as fair and similar as possible. We limited our maximum community size by 5 in order to have communities with almost the same size. In their method, they have used web services as backups rather than active collaborative players, and they only get task when the first web service in an ordered chain fails to perform the task. However with recent advancement in cloud and hardware infrastructures availability is less of an issue for web services, and web services are highly available. Part(a) of figure \ref{fig_avail_method} shows our method performs almost performs tasks successfully with rate of three times more than \emph{High Availability Coalition} method because of real cooperative nature and task distribution of our algorithm. This result shows using web services as backups, and not as real collabrative players is a huge waste of web service capability since they have very low chance of getting jobs and its the primary web service (the first in their coordination chain) which does most of the work. The average quality of service of tasks performed is also better since our method considers all quality of service metrics mentioned in table \ref{qosws}. Part(c) shows the availability of community from end user point of view. The \emph {High Availability Coalition} method almost has 100\% uptime since they use web services as backups, so the chance of job failing reduces significantly as community members increase. In our method we have more chance of fail for each web service, however with some subsiding, and hiring a few more web service they can compensate the low chance of failure of web services in our community.
+Finally, in our last experiment, we compare our work with the work
+in \cite{10.1109/TSC.2012.12} which we call it \emph{High
+Availability Coalition} method, because of nature of their
+community valuation function, which focuses on community
+availability as main consideration. Their community formation
+model is very different than ours, however we have been very
+careful to make the experiment environment as fair and similar as
+possible. We limited our maximum community size by 5 in order to
+have communities with almost the same size. In their method, they
+have used web services as backups rather than active collaborative
+players, and they only get task when the first web service in an
+ordered chain fails to perform the task. However with recent
+advancement in cloud and hardware infrastructures availability is
+less of an issue for web services, and web services are highly
+available. Part(a) of figure \ref{fig_avail_method} shows our
+method performs almost performs tasks successfully with rate of
+three times more than \emph{High Availability Coalition} method
+because of real cooperative nature and task distribution of our
+algorithm. This result shows using web services as backups, and
+not as real collabrative players is a huge waste of web service
+capability since they have very low chance of getting jobs and its
+the primary web service (the first in their coordination chain)
+which does most of the work. The average quality of service of
+tasks performed is also better since our method considers all
+quality of service metrics mentioned in Table \ref{qosws}. Part(c)
+shows the availability of community from end user point of view.
+The \emph {High Availability Coalition} method almost has 100\%
+uptime since they use web services as backups, so the chance of
+job failing reduces significantly as community members increase.
+In our method we have more chance of fail for each web service,
+however with some subsiding, and hiring a few more web service
+they can compensate the low chance of failure of web services in
+our community.
