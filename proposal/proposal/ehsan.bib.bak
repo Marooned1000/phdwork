@@ -1,3 +1,12 @@
+
+@inproceedings{SCC2013-1,
+  author    = {Karim Benouaret and Djamal Benslimane and Allel Hadjali and Mahmoud Barhamgi},
+  title     = {Top-k Web Service Compositions Using Fuzzy Dominance Relationship},
+  booktitle = {IEEE SCC},
+  year      = {2011},
+  pages     = {144-151}
+}
+
 @inproceedings{Alescio,
 author = {A. Lomuscio and H. Qu and M. Solanki},
 title = {Towards verifying compliance in agent-based web service
