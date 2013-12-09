@@ -36,7 +36,7 @@
 \subsection{Motivation}
     \begin{frame}{Motivation}
     \begin{itemize}
-        \item High reliance on web services, created high competition and great business opportunities for online service developers 
+        \item High reliance on web services, created high competition and great business opportunities for online service developers
         \item Community goals:
         \begin{itemize}
             \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
@@ -62,9 +62,9 @@
             \item Most of the recent work on communities of
             services are either user-centric and focus on user satisfaction
             or system-centric and focus on the whole system throughput, performance and utilization.
-        \end{itemize}       
-        
-    
+        \end{itemize}
+
+
     \item \textbf{How can we model fair and stable communities as coalitions
         of agent-based web services?}.
         \begin{itemize}
@@ -145,7 +145,7 @@
               \item Web Service Selection
             \end{itemize}                      	      	
         \end{itemize}
-        
+
         \begin{figure}[htbp]
             \centering
             %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -161,7 +161,7 @@
 
     \begin{frame}{Cooperative Game Theory}
       \begin{itemize}
-         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.   
+         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
          \begin{itemize}
             \item A set of tasks needs to be performed, they require different expertise.
             \item Agents do not have enough resource on their own to perform a task.
@@ -170,7 +170,7 @@
                 \item robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
                 \item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
             \end{itemize}
-        \end{itemize}      
+        \end{itemize}
         \item \textbf{issues:}
             \begin{itemize}
                 \item What coalition to form?
@@ -178,11 +178,11 @@
             \end{itemize}
       \end{itemize}
     \end{frame}
-    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame14 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{The classic problem}
-    We have a population $N$ of $n$ agents.    
+\begin{frame}{The Classic Problem}
+    We have a population $N$ of $n$ agents.
     \begin{definition} [Coalition]~\\
        A coalition $C$ is a set of agents: $C \in 2^N$.
         \begin{itemize}
@@ -191,8 +191,8 @@
         \end{itemize}
         \label {dfn:Coalition}
     \end{definition}
-        
-    \begin{itemize}        
+
+    \begin{itemize}
         \item \textbf{problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
         \item \textbf{solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
 
@@ -200,7 +200,7 @@
             \item What are the interesting properties that $x$ should satisfy?
             \item How to determine the payoff vector $x$?
         \end{itemize}
-            
+
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,30 +210,49 @@
     \begin{center}
         $N = \{1,2,3\}$ \\
         $v(\{1\}) = 0, v(\{2\}) = 0, v(\{3\}) = 0$ \\
-        $v(\{1,2\}) = 90, v(\{1,3\}) = 80, v(\{2,3\}) = 70$ \\
+        $v(\{1,2\}) = 90$ \\ 
+        $v(\{1,3\}) = 80$ \\ 
+        $v(\{2,3\}) = 70$ \\
         $v(\{1,2,3\}) = 105$ \\
     \end{center}
-
+    
+    What should we do?
+    \begin{itemize}
+        \item form $\{1,2,3\}$ and share equally $(35,35,35)$?
+        \item 3 can say to 1 ``let's form $\{1,3\}$ and share (40,0,40)''
+        \item 2 can say to 1 ``let's form $\{1,2\}$ and share (45,45,0)''
+        \item 3 can say to 2 ``OK, let's form $\{2,3\}$ and share (0,46,24)''
+        \item 1 can say to 2 and 3, ``fine! $\{1,2,3\}$ and (33,47,25)''
+        \item ...what is a good solution?
+    \end{itemize}
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame15 outline page
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Computation Tree Logic of Knowledge (CTLK)}
-\begin{definition} [Model of CTLK]\label{Model of CTLK}
-A model $ \mathcal{M_K}$ $=(S,I,R_t,\{\approx_i|i\in \mathcal{ A}\}, \mathcal{V})$ that belongs to the set of all models $\mathbb{M}$ is a tuple, where:
-\begin {itemize}
-\item $ S \subseteq L_1 \times \dots \times L_n $ is the set of
-reachable global states for the system.
-\item $ I \subseteq S $ is a set of initial global states for the system.
-\item $ R_t \subseteq S \times S $ is the transition relation defined by $( s,s') \in R_t $ iff there exists a joint action $( a_1, \dots , a_n) \in ACT $ such that $ \tau (s, a_1, \dots, a_n) = s'$.
-\item For each agent $i \in \mathcal{A}$, $ \approx _i  \subseteq S \times S
-$ is the epistemic accessibility relation defined by $ s \approx_i
-s' $ iff $ l_i(s) = l_i(s') $.
-\item $ \mathcal{V} : S \rightarrow 2 ^{\Phi_p} $ is a valuation function where $\Phi_p $ is a set of atomic propositions.
-\end {itemize}
-\label {dfn: Model of CTLK}
-\end{definition}
+\begin{frame}{Transferable and Non Transferable Utility Games}
+    \begin{itemize}
+        \item \textbf{Games with Transferable Utility (TU games)}
+        \begin{itemize}
+            \item Utility is worth the same for all agents
+            \item Utility can be {\color{red} compared} or {\color{red} transfered} between agents.
+            \item Irrespective of the division of the coalitional payoff, members of the coalition enjoy the same total utility.
+        \end{itemize}     
+                        
+        
+        \begin{definition} [Valuation or Characteristic function]\label{dfn:valuationfunction}
+            A \emph{valuation function v} associates a real number $v(C)$ to any subset $C \subseteq N$, i.e., $v:2^N \rightarrow R$ \\
+            A {\color{blue}\emph{TU game}} is a pair $(N,v)$ where $N$ is a set of agents and where $v$ is a valuation function.
+            \label {dfn:valuationfunction}
+        \end{definition}
+                
+        
+                                                               
+        \item \textbf{Games with Non Transferable Utility (NTU games)} \\
+            Agents have different preferences over coalitions and rewards. Non-monetary rewards, i.e. item allocation type of problems where items have different values for different players.
+    \end{itemize}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Syntax of CTLK}
