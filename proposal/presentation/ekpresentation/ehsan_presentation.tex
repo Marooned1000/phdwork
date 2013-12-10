@@ -210,12 +210,12 @@
     \begin{center}
         $N = \{1,2,3\}$ \\
         $v(\{1\}) = 0, v(\{2\}) = 0, v(\{3\}) = 0$ \\
-        $v(\{1,2\}) = 90$ \\ 
-        $v(\{1,3\}) = 80$ \\ 
+        $v(\{1,2\}) = 90$ \\
+        $v(\{1,3\}) = 80$ \\
         $v(\{2,3\}) = 70$ \\
         $v(\{1,2,3\}) = 105$ \\
     \end{center}
-    
+
     What should we do?
     \begin{itemize}
         \item form $\{1,2,3\}$ and share equally $(35,35,35)$?
@@ -225,7 +225,7 @@
         \item 1 can say to 2 and 3, ``fine! $\{1,2,3\}$ and (33,47,25)''
         \item ...what is a good solution?
     \end{itemize}
-    
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame15 outline page
@@ -238,70 +238,68 @@
             \item Utility is worth the same for all agents
             \item Utility can be {\color{red} compared} or {\color{red} transfered} between agents.
             \item Irrespective of the division of the coalitional payoff, members of the coalition enjoy the same total utility.
-        \end{itemize}     
-                        
-        
+        \end{itemize}
+
+
         \begin{definition} [Valuation or Characteristic function]\label{dfn:valuationfunction}
             A \emph{valuation function v} associates a real number $v(C)$ to any subset $C \subseteq N$, i.e., $v:2^N \rightarrow R$ \\
             A {\color{blue}\emph{TU game}} is a pair $(N,v)$ where $N$ is a set of agents and where $v$ is a valuation function.
             \label {dfn:valuationfunction}
         \end{definition}
-                
-        
-                                                               
+
+
+
         \item \textbf{Games with Non Transferable Utility (NTU games)} \\
             Agents have different preferences over coalitions and rewards. Non-monetary rewards, i.e. item allocation type of problems where items have different values for different players.
     \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Syntax of CTLK}
-\begin{definition} [Syntax of CTLK]\label{Syntax of CTLK}~\\
-$~~~~~~~~~~~~~ \varphi ::= p \mid \neg \varphi \mid \varphi \vee
-\varphi \mid EX \varphi  \mid E ( \varphi U \varphi) \mid EG
-\varphi \mid K_i \varphi$\\
-Where:
-\begin{itemize}
-\item $ p \in \Phi_p$ is an atomic proposition; \item The boolean
-connectives $\neg$, and $\vee$ are defined in the usual way; \item
-$E$ is the existential quantifier on paths; \item $X$, $U$, and
-$G$ are CTL path modal connectives standing for ``next", ``until",
-and ``globally" respectively; and \item The modal connective $K_i$
-stands for ``knowledge for agent $i$".
-\end{itemize}
-\label {dfn: Syntax of CTLK}
-\end{definition}
-In this logic, \textbf{$K_i \varphi$ is read as ``agent $i$ knows
-$\varphi"$.}
+\begin{frame}{Some properties of valuation functions}
+    $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
+    \begin{itemize}
+        \item {\color{red} additive:} $v(C_1 \bigcup C_2) = v(C_1) + v(C_2)$
+        \item {\color{red} super additive:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2)$ This is satisfied is many applications, or bigger coalitions will not form.
+        \item {\color{red} weekly super additive:} $v(C_1 \bigcup \{i\}) \geq v(C_1) + v(\{i\})$
+        \item {\color{red} subadditive:} $v(C_1 \bigcup C_2) \leq v(C_1) + v(C_2)$
+    \end{itemize}
+
+    $\forall C_1,C_2 \subseteq N$
+    \begin{itemize}
+        \item {\color{red} convex:} $v(C_1) + v(C_2) \leq v(C_1 \bigcup C_2) + v(C_1 \bigcap C_2)$ Convexity has important properties in cooperative game theory solution concepts.
+    \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Satisfaction of CTLK}
-\begin{definition} [Satisfaction of CTLK]~\\
-Given the model $ \mathcal M$, the satisfaction of a CTLK formula
-$ \varphi$ in a global state $ s$, denoted by $ (\mathcal M, s )
-\models \varphi$, is recursively defined as follows:
+\begin{frame}{Solution properties}
+    Let $x \in R^n$ be a solution of the TU game $(N,v)$
+    \begin{itemize}
+        \item {\color{red} Feasible solution:} $\sum_{i \in N} x(i) \leq v(N)$
+        \item {\color{red} Efficiency:} $x(N) = v(N)$
+        \begin{itemize}
+            \item the payoff distribution is an allocation of the entire worth of the grand coalition to all agents
+        \end{itemize}
+        \item {\color{red} Individual rationality:} $\forall i \in N, x(i) \geq v(\{i\})$
+        \begin{itemize}
+            \item player obtains at least its self-value of payoff
+        \end{itemize}
+        \item {\color{red} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
+    \end{itemize}
 
-\begin{itemize}
-\item $ (\mathcal{M}, s ) \models p$ iff $ p \in \mathcal{V}(s)$;
-\item $ (\mathcal{M}, s ) \models \neg \varphi$ iff $ (\mathcal{M}, s ) \nvDash \varphi$;
-\item $ (\mathcal{M}, s ) \models \varphi \vee \psi$ iff $(\mathcal{M}, s ) \models \varphi$ or $(\mathcal{M}, s ) \models \psi$;
-\item $ (\mathcal{M}, s ) \models EX \varphi $ iff there exists a path $\pi$ starting at $s$ such that $ (\mathcal{M}, \pi(1) ) \models \varphi$;
-\item $ (\mathcal{M}, s ) \models E ( \varphi U \psi)$ iff there exists a path $\pi$ starting at $s$ such that for some $ k \geq 0$,
-$ (\mathcal{M}, \pi(k) ) \models \psi$ and $ (\mathcal{M}, \pi(j) ) \models \varphi$ for all $ 0 \leq j < k$;
+    \vspace{0.2cm}
 
-\end{itemize}
-\label {dfn: Satisfaction of CTLK}
-\end{definition}
+    An {\color{red} imputation} is a payoff distribution $x$ that is efficient and individual rational.
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Satisfaction of CTLK}
-\begin{definition} [Satisfaction of CTLK]~\\
-\begin{itemize}
-\item $ (\mathcal{M}, s ) \models EG \varphi$ iff there exists a path $\pi$  starting at $s$ such that $ (\mathcal{M}, \pi(k) ) \models \varphi$ for all $ k \geq 0$;
-\item $ (\mathcal{M}, s ) \models K_i \varphi $ iff for all global states $s' \in S$ such that $s \approx_i s'$, we have $(\mathcal{M}, s' ) \models \varphi $.
-\end{itemize}
-\label {dfn: Satisfaction of CTLK}
-\end{definition}
+\begin{frame}{Stability}
+    \begin{itemize}
+        \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
+        \item 3 can say to 1 ``let's form $\{1,3\}$ and share (40,0,40)''
+        \item 2 can say to 1 ``let's form $\{1,2\}$ and share (45,45,0)''
+        \item 3 can say to 2 ``OK, let's form $\{2,3\}$ and share (0,46,24)''
+        \item 1 can say to 2 and 3, ``fine! $\{1,2,3\}$ and (33,47,25)''
+        \item ...what is a good solution?
+    \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Computation Tree Logic of Commitment (CTLC)}
