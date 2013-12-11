@@ -292,7 +292,7 @@
 \begin{frame}{Stability}
     \begin{itemize}
         \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
-        \item A condition for a coalition to form: 
+        \item A condition for a coalition to form:
             {\color{red}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{red} $\Rightarrow Stability$ }
         \item The {\color{red} core} is a stability concepts for which no agents prefer to deviate to form a different coalition.
         \item Is the coalition stable $\Leftrightarrow$ Is the core non-empty
@@ -306,9 +306,9 @@
         \begin{itemize}
             \item $\sum_{i \in N} x(i) = v(N)$ (efficiency)
             \item for all $i \in N, x_i \geq v(\{i\})$ (individual rationality)
-        \end{itemize}        
+        \end{itemize}
     \end{definition}
-    
+
     \begin{definition} [Group rationality]\label{dfn:grouprationality}
         $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
     \end{definition}
@@ -320,7 +320,7 @@
         Let $(N,v)$ be a cooperative game, and assume they form the coalition $N$. The core of $(N,v)$ is the set:
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x$ is a group rational imputation$\}$        
+            $Core(N,v) = \{x \in R^n | x$ is a group rational imputation$\}$
         \end{center}
         Equivalently,
         \vspace{0.1cm}
@@ -331,14 +331,41 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Satisfaction of CTLC}
-As the main fragment of CTLC logic is the CTL logic, hereafter, we only recall the semantics of the commitment and fulfillment modalities.
-\begin{itemize}
-\item $ (\mathcal{M_C}, s ) \models C_{i\rightarrow j} \varphi $ iff for all global states $ s' \in S $ such that $ s \sim_{i \rightarrow j} s' $, we have $ (\mathcal{M_C}, s' ) \models \varphi $;
-\item $ (\mathcal{M_C}, s ) \models Fu (C_{i\rightarrow j} \varphi)$ iff there exists $ s' \in S $ such that $ s' \sim_{i \rightarrow j} s $ and $ (\mathcal{M_C}, s' ) \models C_{i\rightarrow j} \varphi$.
-\end{itemize}
+\begin{frame} {Example: Core}
+
+    \begin{center}
+      $N = \{1,2\}$ \\
+      $v(\{1\}) = 5, v(\{2\}) = 5$ \\
+      $v(\{1,2\}) = 20$ \\
+    \end{center}
+
+    $Core(N,n) = \{(x_1,x_2) \in R^2 | x_1 \geq 5, x_2 \geq 5, x_1 + x_2 = 20\}$
+
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+
+    The core may not be fair: the core only considers stability.
+
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Solution Concepts: Shapley Value}
+    \begin{definition} [Marginal contribution]\label{dfn:marginalcontribution}
+        The {\color{red}marginal contribution} of agent $i$ for a coalition $C \subseteq N \backslash \{i\}$ is $mc_i(C) = v(C \cup \{i\}) - v(C)$
+    \end{definition}
+    
+    By considering average marginal contribution over all possible subset of coalitions, we can achieve a fair distribution.
+
+    \begin{definition} [Shapley Value]\label{dfn:shapleyvalue}
+        Given a coalitional game $(N,v)$, the Shapley value of player $i$ is given by \\
+        $\phi_i(N,v) = \sum_{S \subseteq N \backslash \left\{i\right\} } \frac{|S|! (|N|-|S|-1)!}{|N|!} (v(S \cup \left\{i\right\}) - v(S))$
+    \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Research}
 \begin{frame}{Presentation Outline}
