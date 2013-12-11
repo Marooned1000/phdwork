@@ -317,7 +317,16 @@
 \begin{frame} {Solution Concepts: Core}
     The core relates to the stability of the grand coalition: \\ No group of agents has any incentive to change coalition.
     \begin{definition}[$Core$ of a game $(N,v)$]\label{dfn:core}
-        
+        Let $(N,v)$ be a cooperative game, and assume they form the coalition $N$. The core of $(N,v)$ is the set:
+        \vspace{0.1cm}
+        \begin{center}
+            $Core(N,v) = \{x \in R^n | x$ is a group rational imputation$\}$        
+        \end{center}
+        Equivalently,
+        \vspace{0.1cm}
+        \begin{center}
+            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C) \forall C \subseteq N\}$
+        \end{center}
     \end{definition}
 
 \end{frame}

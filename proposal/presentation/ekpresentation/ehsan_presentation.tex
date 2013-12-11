@@ -189,7 +189,6 @@
             \item $N$ is the set of all agents (or players)
             \item $v:2^N \rightarrow R$ is the \emph{valuation function}. For $C \subseteq N$, $v(C)$ is the value obtained by the coalition $C$
         \end{itemize}
-        \label {dfn:Coalition}
     \end{definition}
 
     \begin{itemize}
@@ -244,7 +243,6 @@
         \begin{definition} [Valuation or Characteristic function]\label{dfn:valuationfunction}
             A \emph{valuation function v} associates a real number $v(C)$ to any subset $C \subseteq N$, i.e., $v:2^N \rightarrow R$ \\
             A {\color{blue}\emph{TU game}} is a pair $(N,v)$ where $N$ is a set of agents and where $v$ is a valuation function.
-            \label {dfn:valuationfunction}
         \end{definition}
 
 
@@ -294,51 +292,65 @@
 \begin{frame}{Stability}
     \begin{itemize}
         \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
-        \item 3 can say to 1 ``let's form $\{1,3\}$ and share (40,0,40)''
-        \item 2 can say to 1 ``let's form $\{1,2\}$ and share (45,45,0)''
-        \item 3 can say to 2 ``OK, let's form $\{2,3\}$ and share (0,46,24)''
-        \item 1 can say to 2 and 3, ``fine! $\{1,2,3\}$ and (33,47,25)''
-        \item ...what is a good solution?
+        \item A condition for a coalition to form: 
+            {\color{red}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{red} $\Rightarrow Stability$ }
+        \item The {\color{red} core} is a stability concepts for which no agents prefer to deviate to form a different coalition.
+        \item Is the coalition stable $\Leftrightarrow$ Is the core non-empty
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Computation Tree Logic of Commitment (CTLC)}
-CTLC logic is an extension of CTL logic with modalities for reasoning about \textbf{commitments and their fulfillment}.
-\begin{definition} [Model of CTLC]\label{Model of CTLC}
-A model $\mathcal{M_C}=(S,I,R_t, \{\sim _{i \rightarrow j}|{(i,j)\in \mathcal{A}^2}\},\mathcal{V})$ that belongs to the set of all models $\mathbb{M}$ is a tuple, where:
-\begin {itemize}
-\item $S, I, R_t$ and $\mathcal{V}$ are the same as in Definition (Model of CTLK).
-\item For each pair $(i, j) \in \mathcal{A}^2 $, $\sim _{i \rightarrow j} \subseteq S \times S $ is the social accessibility relation defined by $ s \sim _{i \rightarrow j} s' $ iff
-     1) $ l_i(s) = l_i(s') $ and 2) $ Var_i \cap Var_j \neq \emptyset $ such that  $ \forall x \in Var_i \cap Var_j $ we have $ l_i^x(s) = l_j^x(s') $ and $ \forall y \in Var_j - Var_i $ we have $ l_j^y(s) = l_j^y(s')$.
+\begin{frame}{Solution Concepts: Core}
+    CTLC logic is an extension of CTL logic with modalities for reasoning about \textbf{commitments and their fulfillment}.
+    \begin{definition} [Imputation]\label{dfn:imputationbig}
+        An {\color{red}imputation} is a payoff distribution $x$ that is efficient and individually rational.
+        \begin{itemize}
+            \item $\sum_{i \in N} x(i) = v(N)$ (efficiency)
+            \item for all $i \in N, x_i \geq v(\{i\})$ (individual rationality)
+        \end{itemize}        
+    \end{definition}
+    
+    \begin{definition} [Group rationality]\label{dfn:grouprationality}
+        $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
+    \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} {Solution Concepts: Core}
+    The core relates to the stability of the grand coalition: \\ No group of agents has any incentive to change coalition.
+    \begin{definition}[$Core$ of a game $(N,v)$]\label{dfn:core}
+        Let $(N,v)$ be a cooperative game, and assume they form the coalition $N$. The core of $(N,v)$ is the set:
+        \vspace{0.1cm}
+        \begin{center}
+            $Core(N,v) = \{x \in R^n | x$ is a group rational imputation$\}$        
+        \end{center}
+        Equivalently,
+        \vspace{0.1cm}
+        \begin{center}
+            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C) \forall C \subseteq N\}$
+        \end{center}
+    \end{definition}
 
-\end {itemize}
-\label {dfn: Model of CTLC}
-\end{definition}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Syntax of CTLC}
-\begin{definition}[Syntax of CTLC]~\\
-$ ~~~~~~~~~~~~~\varphi ::= p \mid \neg \varphi \mid \varphi \vee
-\varphi \mid EX \varphi  \mid E ( \varphi U \varphi) \mid EG
-\varphi \mid C_{i\rightarrow j} \varphi \mid Fu (C_{i\rightarrow
-j}\varphi)$.
-\label {dfn: Syntax of CTLC}\\
-Where:
-\begin{itemize}
-  \item $ p, E, X, G, U, \neg $ and $\vee$ are defined as in Definition (Syntax of CTLK);
-  \item The modal connective $C_{i \rightarrow j}$ stands for ``commitment from $i$ to $j$"; and
-  \item The modal connective $Fu$ stands for ``fulfillment".
-\end{itemize}
-\end{definition}
-\textbf{In this logic, $C_{i\rightarrow j}\varphi$ is read as ``agent $i$ commits towards agent $j$ to bring about $\varphi$". $Fu (C_{i\rightarrow j}\varphi)$ is read as ``the commitment $C_{i\rightarrow j}\varphi$ is fulfilled".}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Satisfaction of CTLC}
-As the main fragment of CTLC logic is the CTL logic, hereafter, we only recall the semantics of the commitment and fulfillment modalities.
-\begin{itemize}
-\item $ (\mathcal{M_C}, s ) \models C_{i\rightarrow j} \varphi $ iff for all global states $ s' \in S $ such that $ s \sim_{i \rightarrow j} s' $, we have $ (\mathcal{M_C}, s' ) \models \varphi $;
-\item $ (\mathcal{M_C}, s ) \models Fu (C_{i\rightarrow j} \varphi)$ iff there exists $ s' \in S $ such that $ s' \sim_{i \rightarrow j} s $ and $ (\mathcal{M_C}, s' ) \models C_{i\rightarrow j} \varphi$.
-\end{itemize}
+\begin{frame} {Example: Core}
+
+    \begin{center}
+      $N = \{1,2\}$ \\
+      $v(\{1\}) = 5, v(\{2\}) = 5$ \\
+      $v(\{1,2\}) = 20$ \\      
+    \end{center}
+    
+    $Core(N,n) = \{(x_1,x_2) \in R^2 | x_1 \geq 5, x_2 \geq 5, x_1 + x_2 = 20\}$
+    
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+    
+    The core may not be fair: the core only considers stability.
+    
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
