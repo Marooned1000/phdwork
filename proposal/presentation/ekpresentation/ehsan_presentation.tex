@@ -149,7 +149,7 @@
         \begin{figure}[htbp]
             \centering
             %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png} 
             %%\includegraphics[scale=0.5]{figure1}
             %\caption{The NetBill payment protocol} \label{figure7}
         \end{figure}
@@ -344,7 +344,7 @@
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
+        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png} 
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -357,7 +357,7 @@
     \begin{definition} [Marginal contribution]\label{dfn:marginalcontribution}
         The {\color{red}marginal contribution} of agent $i$ for a coalition $C \subseteq N \backslash \{i\}$ is $mc_i(C) = v(C \cup \{i\}) - v(C)$
     \end{definition}
-    
+
     \begin{itemize}
         \item By considering average marginal contribution over all possible subset of coalitions, we can achieve a fair distribution.\\
         \item Let $\prod(N)$ denote the set of all permutations of the sequence $(1,...n)$. Therefore: $\phi_i(N,v) = \frac{\sum_{\sigma \in \phi_i(N)}}{mc(\sigma)}$
@@ -374,9 +374,23 @@
         \item The core may not always be non-empty
         \item Shapley value always exists and is unique.
         \item When the valuation function is {\color{red}superadditive}, the Shapley value is {\color{red}individually rational}, i.e., it is an imputation.
-        \item When the valuation function is {\color{red}convex}, the Shapley value is also group rational, hence, it is in the {\color{red}core}.        
+        \item When the valuation function is {\color{red}convex}, the Shapley value is also group rational, hence, it is in the {\color{red}core}.
         \item A convex game has a non-empty core
         \item There are other well-known solution concepts: The bargaining set, The nucleolus and The nucleolus.
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{$\epsilon$-Core}
+    \begin{itemize}
+        \item The core may not always be non-empty       
+        \item (To add some items)
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coalition Structures}
+    \begin{itemize}
+        \item To reach a stable partition having many coalitions. 
+        \item (To add some items)       
     \end{itemize}
 \end{frame}
 
@@ -396,155 +410,224 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame16 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Combining Logics}
+\subsection{Problem Formulation and Modeling}
 
-\begin{frame}{A schematic view of our approach}
-
-\begin{figure}[htbp]
-\centering
-%\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-\includegraphics[width=1.05 \columnwidth]{figures/figure9.png}
-%%\includegraphics[scale=0.5]{figure1}
-%\caption{Our approach} %\label{figure9}
-\end{figure}
-
+\begin{frame}{Problem Formulation and Modeling}
+    \begin{itemize}
+        \item Communities are robust service providers with well established market share and reputation
+        \item The community is characterized by a request rate $R_C$
+        \item Web services can perform tasks with some throughput rate ($Th_{ws}$)
+        \item Web services come with different values of $QoS_{ws}$ for different metrics.
+        \item 123
+    \end{itemize}    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Combining Logics}
-Given \textbf{two logics} $L_1$ and $L_2$, their \textbf{languages} $\mathcal{L}_1$ and $\mathcal{L}_2$, and their
-\textbf{axiomatic systems} $\mathcal{X}_1$ and $\mathcal{X}_2$, the logic
-$L_1 \otimes L_2$ is the smallest logic with the following
-characteristics:
-\begin{itemize}
-  \item The language $\mathcal{L}_{L_1\otimes L_2}$ is the union of $\mathcal{L}_{L_1}$ and $\mathcal{L}_{L_2}$.
-  \item The logic $L_1 \otimes L_2$ is axiomatised by the set of axioms $\mathcal{X}_1 \cup \mathcal{X}_2$.
-\end{itemize}
-If the logics $L_1$ and $L_2$ are interpreted using Kripke frames
-$F_1 = (S, R_1^1, \dots, R_n^1)$ and $F_2 = (S, R_1^2, \dots
-,R_m^2 )$ where $R^1_{x/x\in[1,n]}$ and $R^2_{y/y\in[1,m]}$ are
-\textbf{accessibility relations}, then the semantics for $L_1 \otimes L_2$
-can be defined in the Kripke frame $F =(S, R_1^1, \dots , R_n^1,
-R_1^2, \dots ,R_m^2 )$ obtained by the \textit{independent join} of the two
-frames $F_1$ and $F_2$.
-    \end{frame}
+\begin{frame}{Task distribution}
+    \begin{itemize}
+        \item Our model uses a slightly modified $weighted fair queuing$ method for task distribution rather than Contract-Net.
+        \item All the input flow is multiplexed amount different web services with weights proportional to their throughput value ($Th_{ws}$).
+        \item Queues will happen if $R_C$ is more than summation web services throughput.
+        \item Weighted task rate of: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.8 \columnwidth]{figures/community.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}    
+\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame17 Proposed Research
-\begin{frame} {Model of CTLKC}
-\begin{definition} [Model of CTLKC]\label{Model of CTLKC}
-A model $\mathcal{M}=(S,I,R_t,\{\approx_i|i\in \mathcal{ A}\},\{\sim _{i \rightarrow j}|{(i,j)\in \mathcal{A}^2}\},\mathcal{V})$ that belongs to the set of all models $\mathbb{M}$ is a tuple, where:
-\begin {itemize}
-\item $S, I, R_t$ and $\mathcal{V}$ are the same as in Definition (Model of CTLK);
-\item For each agent $i \in \mathcal{A}$, $ \approx _i  \subseteq S \times S
-$ is the epistemic accessibility relation defined by $ s \approx_i
-s' $ iff $ l_i(s) = l_i(s') $;
-\item For each pair $(i, j) \in \mathcal{A}^2 $, $\sim _{i \rightarrow j} \subseteq S \times S $ is the social accessibility relation defined by $ s \sim _{i \rightarrow j} s' $ iff
-     1) $ l_i(s) = l_i(s') $ and
-     2) $ Var_i \cap Var_j \neq \emptyset $ such that  $ \forall x \in Var_i \cap Var_j $ we have $ l_i^x(s) = l_j^x(s') $ and $ \forall y \in Var_j - Var_i $ we have $ l_j^y(s) = l_j^y(s')$;
-\item $ \mathcal{V} : S \rightarrow 2 ^{\Phi_p} $ is a valuation function where $\Phi_p $ is a set of atomic propositions.
-\end {itemize}
-\label {dfn: Model of CTLKC}
-\end{definition}
- \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Syntax of CTLKC}
-
-\begin{definition}[Syntax of CTLKC]~\\
-$ ~~~~~~~~~~~~~\varphi ::= p \mid \neg \varphi \mid \varphi \vee
-\varphi \mid EX \varphi  \mid E ( \varphi U \varphi) \mid EG
-\varphi\mid K_i \varphi \mid C_{i\rightarrow j} \varphi \mid Fu
-(C_{i\rightarrow j}\varphi)$. \label {dfn: Syntax of CTLKC}
-\end{definition}
-
+\begin{frame}{Community Revenue}
+    \begin{itemize}
+        \item Maximum potential output of a community:
+            \begin{equation*}
+                PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
+            \end{equation*}
+        \item if $Th_{ws} > R_C$, the community cannot perform at its maximum potential.
+        \item Actual output:
+            \begin{equation}\label{out_c}
+                Out(C) = \left\{
+                  \begin{array}{l l}
+                    PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{C}$}\\
+                    PO(C) \times \frac{R_{C}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{C}$}
+                  \end{array} \right.
+            \end{equation}
+    \end{itemize}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame18 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Selection Criteria}
-We propose the following criteria based on \textbf{common intuitions}:
-\begin{itemize}
-%\begin{enumerate}
-  \item It should not be the case that an agent commits about everything he knows to others.
-  \item It should not be the case that an agent commits about everything known by others.
-  \item An agent should know about his own commitment.
-  \item An agent should be aware of any commitment directed towards him.
-  \item An agent should know the content of his fulfilled commitment.
-  \item An agent should know the content of any fulfilled commitment directed towards him.
-
-
-\end{itemize}
-
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Continue: Selection Criteria}
-\begin{itemize}
- \item An agent should know about the fulfillment of his commitment.
- \item An agent should know about the fulfillment of any commitment directed towards him.
-  \item A sincere agent should know (i.e., believe) the content of his own commitment.
-  \item A sincere agent should fulfill his commitment.
-  \item A liar agent could not know (i.e., believe) the content of his commitment.
-  \item If an agent knows about his own commitment, then this commitment should exist, which means an agent should not know about a non-existing commitment.
-\end{itemize}
-%\end{enumerate}
+\begin{frame}{Example 1}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    \label{example_1}
+    \centering
+    \begin{tabular}{c c c c}
+    \hline
+    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+    \hline
+    1 & 0.8 & 4 & 3.2\\
+    2 & 0.8 & 5 & 4.0\\
+    3 & 0.8 & 3 & 2.4\\
+    \hline
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    % \caption{Three web services}
+    \label{example_1_2}
+    \centering
+    \begin{tabular}{c c || c c}
+    \hline
+    Community & Worth & Community & Worth\\
+    \hline
+    $\left\{1\right\}$ & 3.2 & $\left\{1,2\right\}$ & 7.2\\
+    $\left\{2\right\}$ & 4.0 & $\left\{1,3\right\}$ & 5.6\\
+    $\left\{3\right\}$ & 2.4 & $\left\{2,3\right\}$ & 6.4\\
+    $\left\{1,2,3\right\}$ & 8.0\\
+    \hline
+    Community $R_C$: 10\\
+    \hline
+    \end{tabular}
+    \end{table}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example 2}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    \label{example_2}
+    \centering
+    \begin{tabular}{c c c c}
+    \hline
+    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+    \hline
+    1 & 0.8 & 5 & 4.0\\
+    2 & 0.7 & 6 & 4.2\\
+    3 & 0.7 & 4 & 2.8\\
+    \hline
+    \end{tabular}
+    \end{table}
 
-\begin{frame}{Running Example: NetBill Payment Protocol}
-%
-\begin{figure}[htbp]
-\centering
-%\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-\includegraphics[width=.75 \columnwidth]{figures/figure1.png}
-%%\includegraphics[scale=0.5]{figure1}
-%\caption{The NetBill payment protocol} \label{figure1}
-\end{figure}
-\begin{itemize}
-\item $C_{Cus \rightarrow Mer}$ $sendPayment$.
- \item $C_{Mer \rightarrow Cus}$ $deliverGoods$.
- \end{itemize}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    % \caption{Three web services}
+    \label{example_2_2}
+    \centering
+    \begin{tabular}{c c || c c}
+    \hline
+    Community & Worth & Community & Worth\\
+    \hline
+    $\left\{1\right\}$ & 4.0 & $\left\{1,2\right\}$ & 7.4\\
+    $\left\{2\right\}$ & 4.2 & $\left\{1,3\right\}$ & 6.8\\
+    $\left\{3\right\}$ & 2.8 & $\left\{2,3\right\}$ & 7.0\\
+    $\left\{1,2,3\right\}$ & 7.3\\
+    \hline
+    Community $R_C$: 10\\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example 3}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{0.8}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    \label{example_3}
+    \centering
+    \begin{tabular}{c c c c}
+    \hline
+    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $\text{\emph{Input Task Rate}}$\\
+    \hline
+    1 & 0.8 & 10 & 5\\
+    2 & 0.8 & 20 & 5\\
+    3 & 0.8 & 30 & 5\\
+    \hline
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{0.8}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    % \caption{Three web services}
+    \label{example_3_2}
+    \centering
+    \begin{tabular}{c c || c c}
+    \hline
+    Community & Worth & Community & Worth\\
+    \hline
+    $\left\{C_{ms_1}\right\}$ & 0 & $\left\{C_{ms_2}\right\}$ & 0\\
+    $\left\{C_{ms_1}, ws_1\right\}$ & 8 & $\left\{C_{ms_2}, ws_1\right\}$ & 8\\
+    $\left\{C_{ms_1}, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_2\right\}$ & 16\\
+    $\left\{C_{ms_1}, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_3\right\}$ & 24\\
+    $\left\{C_{ms_1}, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2\right\}$ & 24\\
+    $\left\{C_{ms_1}, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_2, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, C_{ms_2}, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
+    $\left\{ws_2\right\}$ & 4.2 & $\left\{ws_3\right\}$ & 6.8\\
+    \hline
+    Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
+    \hline
+    \end{tabular}
+    \end{table}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame19 Proposed Research
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Desiderata of Paradoxes}
+\subsection{Web Service Cooperative Games}
 
-\begin{frame}{Desiderata of Paradoxes}
-Paradoxes are represented as reasoning rules that are: 1) not reasonable in
-open MAS, but they are valid in CTLKC; or 2) desirable for the
-interaction between knowledge and commitments, but they can get
-violated in CTLKC because they are not valid.
- \begin{enumerate}
-
-\vspace{0.2cm} \item [P1.]\textbf{[Committing everything known to
-others]}
-
-$K_i \varphi \Rightarrow C_{i \rightarrow j}\varphi, $ for all $j
-\in A$ where $i \neq j$.
-
-\textbf{ Meaning:} An agent (the debtor) commits towards all other
-agents (the creditors) about what he knows.\\
-\textbf{Example 1:}
-$K_{Mer}$ $deliverGoods \Rightarrow$ $C_{Mer \rightarrow
-Cus}$ $deliverGoods$.
-
-\vspace{0.2cm} \item [P2.]\textbf{[Committing everything known by
-others]}
-
- $ K_i K_j \varphi \Rightarrow C_{i \rightarrow j} \varphi$ such that $ i \neq j$.
-
-\textbf{Meaning:} An agent (the debtor) commits toward another
-agent (the creditor) to bring about what he (i.e., the debtor)
-knows about the creditor's knowledge.\\
-\textbf{Example 2:}
-$K_{Cus} K_{Mer}$ $deliverGoods \Rightarrow$ $C_{Cus \rightarrow Mer}$
-$deliverGoods$.
-
-
-\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Scenario One: Web Services and One Community}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.8 \columnwidth]{figures/scenario1.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}   
+    
+    \begin{itemize}
+        \item A typical WS community, where web services can join or leave
+        \item $v(C) = out(C)$
+        \item Membership decision in made based on throughput and QoS of the web services.
+        \item Community master needs to get quality web services to keep community stable, so other web services have no incentive to leave.
+        
+    \end{itemize}
        	
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame20 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Scenario One: Web Services and One Community}
+    \begin{itemize}
+        \item 123123
+        \item 123123
+        \item 123123
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.8 \columnwidth]{figures/scenario2.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+       	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Continue: Desiderata of Paradoxes}
  \begin{enumerate}
@@ -763,18 +846,30 @@ j} \psi$ is satisfiable but not valid
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Activities Goal}
-    \begin{frame}{Research Activities Goal}
-    We aim to cover all possible relations between knowledge and commitments as single and group interactions by:
+\begin{frame}{Research Activities Goal}
+    \begin{itemize}
+        \item Analyzing other cooperative solution concepts such as Kernel
+        and Nucleolus where payoff division is guaranteed to exist and may
+        have optimal results.
 
-        \begin{itemize}
-              \item Defining a new consistent logic that combines knowledge and commitments and solves the nine paradoxes while satisfying the six properties.
-              \item Addressing the model checking problem of the new logic from both algorithmic and complexity perspectives.
-              \item Implementing the new model checking algorithms on top of MCMAS+.
-              \item Identifying a new semantics for group committing.
-              \item Adding the group knowledge to the framework.
-        \end{itemize}
+        \item Applying other valuation function in our scenarios using for
+        instance Weighted Voting Games (WCG) in order to develop a
+        multiple weighted algorithm to find best coalition structures
+        satisfying different weights on each community.
 
+        \item Analyzing the impact of Q-learning and reinforcement
+        learning on the performance of our model.
 
+        \item Developing an approximation algorithm for shapely value
+        payoff distribution vector in community setting.
+
+        \item Developing a community membership algorithm technique for
+        our agents in "incomplete information" settings.
+
+        %\item Developing an open source, Java based Tool, with UI for
+        %solving Core and Shapely solution concepts based on different
+        %input valuation functions.
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -785,7 +880,7 @@ j} \psi$ is satisfiable but not valid
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=.65 \columnwidth]{figures/figure6.png}
+\includegraphics[width=1 \columnwidth]{figures/timetable.png}
 %\includegraphics[width=16cm, height=21cm]{figures/figure6.eps}
 %\caption{Schedule time of research} \label{figure6}
 \end{center}
@@ -797,7 +892,12 @@ j} \psi$ is satisfiable but not valid
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Publications}
 
-1- Submitted a journal paper entitled ``\textbf{Interaction between knowledge and Social Commitments in MASs}", Applied Intelligence Journal, Springer.\\
+    \begin{enumerate}
+        \item Published a paper in 10th International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"} {\color{blue} (Accepted)}
+        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing {\color{blue} (Second round of review)}
+        \item Submitted a Paper to the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{"Analyzing Coopetition Strategies of Services within Communities"} {\color{blue} (Accepted)}
+        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}
+    \end{enumerate}
 
 %\centering
 %\begin{itemize}
