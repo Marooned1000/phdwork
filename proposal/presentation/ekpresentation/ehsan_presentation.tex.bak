@@ -149,7 +149,7 @@
         \begin{figure}[htbp]
             \centering
             %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png} 
+            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
             %%\includegraphics[scale=0.5]{figure1}
             %\caption{The NetBill payment protocol} \label{figure7}
         \end{figure}
@@ -344,7 +344,7 @@
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png} 
+        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -382,15 +382,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{$\epsilon$-Core}
     \begin{itemize}
-        \item The core may not always be non-empty       
+        \item The core may not always be non-empty
         \item (To add some items)
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Coalition Structures}
     \begin{itemize}
-        \item To reach a stable partition having many coalitions. 
-        \item (To add some items)       
+        \item To reach a stable partition having many coalitions.
+        \item (To add some items)
     \end{itemize}
 \end{frame}
 
@@ -419,7 +419,7 @@
         \item Web services can perform tasks with some throughput rate ($Th_{ws}$)
         \item Web services come with different values of $QoS_{ws}$ for different metrics.
         \item 123
-    \end{itemize}    
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -436,7 +436,7 @@
         \includegraphics[width=0.8 \columnwidth]{figures/community.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}    
+    \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -599,12 +599,25 @@
         \includegraphics[width=0.8 \columnwidth]{figures/scenario1.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}   
-    
+    \end{figure}
+
     \begin{itemize}
-        \item 123123
-        \item 123123
-        \item 123123
+        \item A typical WS community, where web services can join or leave
+        \item $v(C) = Out(C)$
+        \item Membership decision in made based on throughput and QoS of the web services.
+        \item Community master needs to get quality web services to keep community stable, so other web services have no incentive to leave.
+    \end{itemize}
+       	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Scenario One: Web Services and One Community}
+
+
+    \begin{itemize}
+        \item Upon receiving membership request the master web service checks if the coalition will be stable having new member.
+        \item $v(C) = Out(C)$
+        \item Membership decision in made based on throughput and QoS of the web services.
+        \item Community master needs to get quality web services to keep community stable, so other web services have no incentive to leave.
     \end{itemize}
        	
 \end{frame}
