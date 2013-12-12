@@ -24,7 +24,6 @@
     	\item {\bf Introduction}
     	\item Background and Literature Review
     	\item Proposed Research
-        \item Contributions and Research Activities
     	\item Time Line
     \end{itemize}
 \end{frame}
@@ -46,7 +45,7 @@
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=1.0 \columnwidth]{figures/figure7.png}
+        %\includegraphics[width=1.0 \columnwidth]{figures/figure7.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -107,7 +106,6 @@
     	\item Introduction
     	\item {\bf Background and Literature Review}
     	\item Proposed Research
-        \item Contributions and Research Activities
     	\item Time Line
     \end{itemize}
 \end{frame}
@@ -387,12 +385,7 @@
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Coalition Structures}
-    \begin{itemize}
-        \item To reach a stable partition having many coalitions.
-        \item (To add some items)
-    \end{itemize}
-\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -403,7 +396,6 @@
     	\item Introduction
     	\item Background and Literature Review
     	\item {\bf Proposed Research}
-        \item Contribution and Research Activities
     	\item Time Line
     \end{itemize}
 \end{frame}
@@ -418,7 +410,6 @@
         \item The community is characterized by a request rate $R_C$
         \item Web services can perform tasks with some throughput rate ($Th_{ws}$)
         \item Web services come with different values of $QoS_{ws}$ for different metrics.
-        \item 123
     \end{itemize}
 \end{frame}
 
@@ -616,230 +607,134 @@
     \begin{itemize}
         \item Upon receiving membership request the master web service checks if the coalition will be stable having the new member.
         \item If the game is convex, core exists.
-        \item If the game is convex, shapley value is in core.
-        \item Convexity Condition: 
-        \item Community master needs to get quality web services to keep community stable, so other web services have no incentive to leave.
+        \item If the game is convex, Shapley value is in core.
+        \item Convexity Condition:
+        \begin{center}          
+          $\forall S,T | S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N,$ \\
+          $v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)$ \\
+          $\Leftrightarrow$  \\
+          $v(S' \cup T') \geq v(S') + v(T') - v(S' \cap T')$            
+        \end{center}
+    \end{itemize}
+       	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Scenario One: Web Services and One Community}
+
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.92 \columnwidth]{figures/dp.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+    
+    \begin{itemize}
+        \item Approximation of the optimum result for each level, is it possible?
     \end{itemize}
        	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Scenario One: Web Services and One Community}
-    \begin{itemize}
-        \item 123123
-        \item 123123
-        \item 123123
+\begin{frame}{Scenario Two: Web Services and Many Community}
+    \begin{itemize}        
+        \item Based on Coalition Structure theory
+        \begin{itemize}    
+            \item What coalitions to form? 
+            \item Stability in coalition structure, is a partition of players, where no other partition can provide all agents with better utility.
+        \end{itemize}
+        \item Has to be distributed not centralized
+        \item Merge and Split Algorithm
+        \begin{itemize}
+            \item Iterative
+            \item Converges to a final partition
+        \end{itemize}
     \end{itemize}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.8 \columnwidth]{figures/scenario2.png}
+        \includegraphics[width=0.5 \columnwidth]{figures/scenario2.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}
-       	
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Continue: Desiderata of Paradoxes}
- \begin{enumerate}
-\vspace{0.2cm} \item [P3.][\textbf{Committing everything known
-from others}]
-$ K_i K_j \varphi \Rightarrow C_{j \rightarrow i} \varphi$ such that $ i \neq j$.
-
-\textbf{Meaning:} An agent (the debtor) commits toward another
-agent (the creditor) to bring about what the creditor knows about
-the debtor's knowledge.\\
-\textbf{Example 3:}\\
-$K_{Cus} K_{Mer}$ $deliverGoods \Rightarrow$ $C_{Mer \rightarrow Cus}$
-$deliverGoods$.
-
-\vspace{0.2cm} \item [P4.][\textbf{Knowing about his own
-commitment}]
-
-$C_{i\rightarrow j} \varphi \Rightarrow K_i (C_{i\rightarrow j}
-\varphi) $ where $i \neq j$.
-
-\textbf{Meaning:} An agent knows about his commitment.
-
-
-\textbf{Example 4:}\\
-$C_{Cus \rightarrow Mer}$ $sendPayment $ $\Rightarrow K_{Cus}$ $(C_{Cus \rightarrow Mer}$ $sendPayment)$.
-\end{enumerate}
-
-        	
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Continue: Desiderata of Paradoxes}
-
-\begin{figure}[htbp]
-    \begin{center}
-%\includegraphics[width=10cm, height=5cm]{figures/figure2.eps}
-    \includegraphics[width=.75 \columnwidth]{figures/figure2.png}
-   % \caption{Model 1} \label{figure2}
-    \end{center}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Continue: Desiderata of Paradoxes}
-\begin{enumerate}
-\vspace{0.2cm} \item [P5.][\textbf{Knowing the content of his own
-fulfilled commitment}]
-
-$Fu (C _{i\rightarrow j} \varphi) \Rightarrow K _i \varphi$ where
-$i \neq j$.
-
-\textbf{Meaning:} An agent knows the content of his fulfilled
-commitment.\\
-\textbf{Example 5:}\\
-$Fu (C _{Cus\rightarrow Mer} sendPayment) \Rightarrow K_{Cus}$ $sendPayment$.
-\begin{figure}[htbp]
-    \begin{center}
-%\includegraphics[width=10cm, height=5cm]{figures/figure2.eps}
-    \includegraphics[width=.75 \columnwidth]{figures/figure3.png}
-   % \caption{Model 2} \label{figure3}
-    \end{center}
-    \end{figure}
-
-\end{enumerate}     	
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame23 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
- \begin{frame}{Continue: Desiderata of Paradoxes}
- \begin{enumerate}
-
-\vspace{0.2cm} \item [P6.][\textbf{Knowing the content of the
-other's fulfilled commitment}]
-
-$Fu (C _{i\rightarrow j} \varphi) \Rightarrow K_j \varphi$ where
-$i \neq j$.
-
-\textbf{Meaning:} The creditor knows the content of the debtor's
-fulfilled commitment.\\
-\textbf{Example 6:}\\
-$ Fu (C_{cust \rightarrow Mer}$ $sendPayment)$ $\Rightarrow $ $k_{Mer} sendPayment$.
-	\begin{figure}[htbp]
-\begin{center}
-%\includegraphics[width=12cm, height=5cm]{figures/figure4.eps}
-\includegraphics[width=.70 \columnwidth]{figures/figure4.png}
-%\caption{Model 3} \label{figure4}
-\end{center}
-\end{figure}
-\end{enumerate}
+    \end{figure}       	
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame24 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Continue: Desiderata of Paradoxes}
-\begin{enumerate}
-    \vspace{0.2cm} \item [P7.][\textbf{Knowing the commitment of the
-other}]
-
-$C_{i\rightarrow j} \varphi \Rightarrow AF K_j (C_{i\rightarrow j}
-\varphi) $ where $i \neq j$.
-
-\textbf{Meaning:} An agent should be aware of any commitments
-directed towards him.\\
-\textbf{Example 7:}\\
-$C_{Mer \rightarrow Cus}$ $deliverGoods$ $\Rightarrow $ $AF K_{Cus}(C_{Mer \rightarrow Cus}$
-$deliverGoods$).
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.50 \columnwidth]{figures/figure5.png}
-%\includegraphics[width=12cm, height=7cm]{figures/figure5.eps}
-%\includegraphics[scale=0.5]{figure4.eps}
-%\caption{Model 4} \label{figure5}
-\end{figure}
-
-\end{enumerate}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Continue: Desiderata of Paradoxes}
-\begin{enumerate}
-    \vspace{0.2cm} \item [P8.][\textbf{Knowing the fulfillment of his
-own commitment}]
-
-$Fu(C _{i\rightarrow j} \varphi) \Rightarrow K_i Fu(C
-_{i\rightarrow j} \varphi)$ where $i \neq j$.
-
-\textbf{Meaning:} The agent knows that he fulfills his commitment.\\
-\textbf{Example 8:}\\
-$Fu(C_{Cus\rightarrow Mer} sendPayment)\Rightarrow K_{Cus}Fu(C_{Cus \rightarrow Mer} sendPayment)$.
-
-\vspace{0.2cm} \item [P9.][\textbf{Knowing the fulfillment of the
-debtor's commitment}]
-
-
-$Fu(C _{i\rightarrow j} \varphi) \Rightarrow K_j Fu(C_{i\rightarrow j} \varphi)$ where $i \neq j$.
-
-\textbf{Meaning:} The creditor knows that the debtor fulfills his
-commitment.\\
-\textbf{Example 9:}\\
-$Fu(C_{Cus \rightarrow Mer} sendPayment)\Rightarrow K_{Mer} Fu(C_{Cus \rightarrow Mer} sendPayment)$.
-\end{enumerate}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame25 outline page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{CTLKC properties}
-\begin{frame}{CTLKC properties}
-In addition to the properties of knowledge (in CTLK) and commitments (in CTLC), those properties hold in CTLKC:
-\begin{enumerate}
-
-\vspace{0.2cm} \item [Prop 1.] $C_{i \rightarrow j}\varphi
-\Rightarrow \varphi$ is satisfiable but not valid.
-\vspace{0.2cm} \item [Prop 2.] $C_{i \rightarrow j}\varphi
-\Rightarrow K_i \varphi$ is satisfiable but not valid.
-\vspace{0.2cm} \item [Prop 3.] $(C_{i \rightarrow j}\varphi \wedge
-K_i (\varphi \Rightarrow \psi)) \Rightarrow C_{i \rightarrow j}
-\psi$ is valid.
-\vspace{0.2cm} \item [Prop 4.] $(C_{i \rightarrow j}(\varphi
-\Rightarrow \psi) \wedge K_i \varphi) \Rightarrow C_{i \rightarrow
-j} \psi$ is valid.
-\vspace{0.2cm} \item [Prop 5.] $(C_{i \rightarrow j}\varphi \wedge
-K_j (\varphi \Rightarrow \psi)) \Rightarrow C_{i \rightarrow j}
-\psi$ is satisfiable but not valid.
-\vspace{0.2cm} \item [Prop 6.] $(C_{i \rightarrow j}(\varphi
-\Rightarrow \psi) \wedge K_j \varphi) \Rightarrow C_{i \rightarrow
-j} \psi$ is satisfiable but not valid
-
-\end{enumerate}
-\end{frame}
-
-\section{Research Activities}
-\begin{frame}{Contribution and Research Activities}
+\begin{frame}{Representation and Complexity issues}
     \begin{itemize}
-     	\itemsep=.5cm
-    	\item Introduction
-    	\item Background and Literature Review
-    	\item Proposed Research
-        \item {\bf Contribution and Research Activities}
-    	\item Time Line
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced subgraph games}
+    \begin{itemize}
+        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+        \item $N = V$
+        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
+        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
+
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Contributions}
-    \begin{frame}{Contributions}
+\subsection{Preliminary Results}
+\begin{frame}{Preliminary Results}
 
-    \begin{itemize}
-     \itemsep=.35cm
-     \item A new combined temporal logic, called CTLKC, that combines both CTLK and CTLC logics is introduced.
-     \item This logic served as a language to express a set of rules that are used to reason about the interaction between knowledge and social commitments.
-     \item Selection criteria are proposed to capture such reasoning rules.
-     \item Nine paradoxes are recognized in CTLKC logic that should be addressed in any consistent logic combining knowledge and commitments.
-     \item Six properties are identified and should be met in any logic combining knowledge and commitments.
-        \end{itemize}
+    \begin{figure}[!t]
+    \centering
+    %\includegraphics[scale=0.6]{graph1Final+.eps}
+    \includegraphics[width=2.1in]{figures/task_done_opt.pdf}
+    \includegraphics[width=2.1in]{figures/task_qos_opt.pdf}
+    \caption{Part (a): Cumulative number of requests successfully
+    done. Part (b): Average QoS of requests performed.}
+    \label{performanceall}
+    \end{figure}
 
+\end{frame}
 
-    \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame27 Contribution and Research Activities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Preliminary Results}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=3in]{figures/least_core.pdf}
+        \caption{Analysis of \emph{$\epsilon$-core} set non-emptiness, for different values of $\epsilon$} \label{f_leastcore}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Preliminary Results}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=2.1in]{figures/s2_task_done.pdf}
+        \includegraphics[width=2.1in]{figures/s2_task_qos.pdf}
+        \caption{Part (a): Cumulative number of tasks succesfully done. Part
+        (b): Average QoS of tasks performed.} \label{performancemany}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Preliminary Results}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=1.45in]{figures/avg_task_ws_done.pdf}
+        \includegraphics[width=1.45in]{figures/avg_qos_ws_done.pdf}
+        \includegraphics[width=1.45in]{figures/avg_avail_ws_done.pdf}
+        \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks succesfully done. Part
+        (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame30 outline page
@@ -851,7 +746,6 @@ j} \psi$ is satisfiable but not valid
     	\item Introduction
     	\item Background and Literature Review
     	\item Proposed Research
-        \item Contribution and Research Activities
     	\item {\bf Time Line}
     \end{itemize}
 \end{frame}
