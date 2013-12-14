@@ -45,7 +45,7 @@
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=1.0 \columnwidth]{figures/figure7.png}
+        %\includegraphics[width=1.0 \columnwidth]{figures/figure7.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -385,12 +385,7 @@
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Representation and Complexitity issues}
-    \begin{itemize}
-        \item To reach a stable partition having many coalitions.
-        \item (To add some items)
-    \end{itemize}
-\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -415,7 +410,6 @@
         \item The community is characterized by a request rate $R_C$
         \item Web services can perform tasks with some throughput rate ($Th_{ws}$)
         \item Web services come with different values of $QoS_{ws}$ for different metrics.
-        \item 123
     \end{itemize}
 \end{frame}
 
@@ -615,11 +609,11 @@
         \item If the game is convex, core exists.
         \item If the game is convex, Shapley value is in core.
         \item Convexity Condition:
-        \begin{center}          
+        \begin{center}
           $\forall S,T | S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N,$ \\
           $v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)$ \\
           $\Leftrightarrow$  \\
-          $v(S' \cup T') \geq v(S') + v(T') - v(S' \cap T')$            
+          $v(S' \cup T') \geq v(S') + v(T') - v(S' \cap T')$
         \end{center}
     \end{itemize}
        	
@@ -635,7 +629,7 @@
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
-    
+
     \begin{itemize}
         \item Approximation of the optimum result for each level, is it possible?
     \end{itemize}
@@ -643,11 +637,11 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Scenario Two: Web Services and Many Community}
-    \begin{itemize}        
+\begin{frame}{Scenario Two: Web Services and Many Communities}
+    \begin{itemize}
         \item Based on Coalition Structure theory
-        \begin{itemize}    
-            \item What coalitions to form? 
+        \begin{itemize}
+            \item What coalitions to form?
             \item Stability in coalition structure, is a partition of players, where no other partition can provide all agents with better utility.
         \end{itemize}
         \item Has to be distributed not centralized
@@ -666,6 +660,32 @@
     \end{figure}       	
 \end{frame}
 
+\begin{frame}{Representation and Complexity issues}
+    \begin{itemize}
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced subgraph games}
+    \begin{itemize}
+        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+        \item $N = V$
+        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
+        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
+
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced subgraph games}
+    
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
