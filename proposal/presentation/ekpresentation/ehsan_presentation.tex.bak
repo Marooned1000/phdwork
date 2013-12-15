@@ -36,7 +36,8 @@
     \begin{frame}{Motivation}
     \begin{itemize}
         \item High reliance on web services, created high competition and great business opportunities for online service developers
-        \item Community goals:
+        \item Community of Web services
+        \item Goals: 
         \begin{itemize}
             \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
             \item \textbf{Web Service Discovery over Internet}.
@@ -639,10 +640,10 @@
         \begin{itemize}
             \item What coalitions to form?
             \item Stability in coalition structure, is a partition of players, where no other partition can provide all agents with better utility.
-            \item Maximising Social Welfare $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS) = \sum_{C \in CS}v(C)$.
+            \item Social welfare: $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS) = \sum_{C \in CS}v(C)$.
         \end{itemize}
         \item Has to be distributed not centralized
-        \item Merge and Split Algorithm
+        \item Merge and Split Algorithm {\footnotesize{\color{blue}{(Krzysztof R. Apt and Andreas Witzel)}}}
         \begin{itemize}
             \item Iterative
             \item Converges to a final partition
