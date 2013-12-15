@@ -108,7 +108,7 @@ possible to gain better reputation and user satisfaction, which
 results in having higher revenue.
 
 \begin{figure*}[!t]
-\centerline{\includegraphics[width=15cm]{Figures/archss.eps}}
+\centerline{\includegraphics[width=15cm]{Figures/archss.png}}
 \caption{Architecture of Web Service communities}
 \label{fig_community}
 \end{figure*}
@@ -182,7 +182,7 @@ In this section, we analyze three numerical examples and discuss the motivation 
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Example 1}
+\caption{Case Study: Example 1}
 \label{example_1}
 \centering
 \begin{tabular}{c c c c}
@@ -223,7 +223,7 @@ Community $R_C$: 10\\
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Example 2}
+\caption{Case Study: Example 2}
 \label{example_2}
 \centering
 \begin{tabular}{c c c c}
@@ -294,7 +294,7 @@ community.
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Example 3}
+\caption{Case Study: Example 3}
 \label{example_3}
 \centering
 \begin{tabular}{c c c c}
