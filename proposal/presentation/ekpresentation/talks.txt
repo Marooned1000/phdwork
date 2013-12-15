@@ -1,0 +1,1 @@
+Thanks everyone for attending. I'm going to present my proposal which is about Cooperative decision making mechanisms for community of autonomous web services in multiagent setting.
