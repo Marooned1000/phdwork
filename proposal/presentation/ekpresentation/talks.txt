@@ -1,1 +1,4 @@
-Thanks everyone for attending. I'm going to present my proposal which is about Cooperative decision making mechanisms for community of autonomous web services in multiagent setting.
+Thanks everyone for attending. I'm going to present my proposal which is about Cooperative decision making mechanisms for community of autonomous web services in multiagent setting. 
+
+I'm going to start with a brief introduction on my research subject and plan, then I'll talk about the background and literature review, then the proposed research and finally the time line.
+
