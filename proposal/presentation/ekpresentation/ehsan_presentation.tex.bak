@@ -24,7 +24,7 @@
     	\item {\bf Introduction}
     	\item Background and Literature Review
     	\item Proposed Research
-    	\item Time Line
+    	\item Timeline and Feature Work
     \end{itemize}
 \end{frame}
 
@@ -36,11 +36,11 @@
     \begin{frame}{Motivation}
     \begin{itemize}
         \item High reliance on web services, created high competition and great business opportunities for online service developers
-        \item Community of web services
-        \item Goals:
+        \item Community of web services, Goals:        
         \begin{itemize}
             \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
             \item \textbf{Facilitate Web Service Discovery over Internet}.
+            \item \textbf{Maintaining high reputation and market share}.
         \end{itemize}
     \end{itemize}
     \begin{figure}[htbp]
@@ -83,7 +83,7 @@
         settings?}
         \begin{itemize}
             \item Modeling the preference and valuation functions considering the worth of all subsets of players in realistic cooperative scenarios
-            \item Solution concepts complexity issues
+            \item Solution concepts complexity issues            
         \end{itemize}
 
 \end{itemize}
@@ -107,7 +107,7 @@
     	\item Introduction
     	\item {\bf Background and Literature Review}
     	\item Proposed Research
-    	\item Time Line
+    	\item Timeline and Feature Work
     \end{itemize}
 \end{frame}
 
@@ -119,6 +119,7 @@
         \begin{itemize}
             \item Ease and improve the process of Web services discovery in an open environment like the Internet
         	\item Improve service quality, availability and responsiveness
+            \item Maintaining high reputation and market share
         \end{itemize}
 
         \begin{figure}[htbp]
@@ -170,7 +171,7 @@
                 \item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
             \end{itemize}
         \end{itemize}
-        \item \textbf{issues:}
+        \item \textbf{Issues:}
             \begin{itemize}
                 \item What coalition to form?
                 \item How to reward each each member when a task is completed?
@@ -191,8 +192,8 @@
     \end{definition}
 
     \begin{itemize}
-        \item \textbf{problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
-        \item \textbf{solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
+        \item \textbf{Problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
+        \item \textbf{Solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
 
         \begin{itemize}
             \item What are the interesting properties that $x$ should satisfy?
@@ -310,7 +311,7 @@
         Equivalently,
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C) \forall C \subseteq N\}$
+            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$
         \end{center}
     \end{definition}
 
@@ -361,6 +362,7 @@
         \item When the valuation function is {\color{red}superadditive}, the Shapley value is {\color{red}individually rational}, i.e., it is an imputation.
         \item When the valuation function is {\color{red}convex}, the Shapley value is also group rational, hence, it is in the {\color{red}core}.
         \item A convex game has a non-empty core
+        \item Core and Shapley value are combinatorial problems.
         \item There are other well-known solution concepts: The bargaining set, The nucleolus and The nucleolus.
     \end{itemize}
 \end{frame}
@@ -377,7 +379,7 @@
     	\item Introduction
     	\item Background and Literature Review
     	\item {\bf Proposed Research}
-    	\item Time Line
+    	\item Timeline and Feature Work
     \end{itemize}
 \end{frame}
 
@@ -397,7 +399,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Task distribution}
     \begin{itemize}
-        \item Our model uses a slightly modified $weighted fair queuing$ method for task distribution rather than Contract-Net.
+        \item Our model uses a slightly modified \emph{weighted fair queuing} method for task distribution rather than Contract-Net.
         \item All the input flow is multiplexed amount different web services with weights proportional to their throughput value ($Th_{ws}$).
         \item Queues will happen if $R_C$ is more than summation web services throughput.
         \item Weighted task rate of: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
@@ -418,7 +420,7 @@
             \begin{equation*}
                 PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
             \end{equation*}
-        \item if $Th_{ws} > R_C$, the community cannot perform at its maximum potential.
+        \item if $\sum_{ws}{Th_{ws}} > R_C$, the community cannot perform at its maximum potential.
         \item Actual output:
             \begin{equation}\label{out_c}
                 Out(C) = \left\{
@@ -613,9 +615,9 @@
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
 
-    \begin{itemize}
-        \item Approximation of the optimum result for each level, is it possible?
-    \end{itemize}
+    %\begin{itemize}
+    %    \item Approximation of the optimum result for each level, is it possible?
+    %\end{itemize}
        	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -718,14 +720,14 @@
     	\item Introduction
     	\item Background and Literature Review
     	\item Proposed Research
-    	\item {\bf Time Line}
+    	\item {\bf Timeline and Feature Work}
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Activities Goal}
 \begin{frame}{Research Activities Goal}
-    \begin{itemize}
+    \begin{enumerate}
         \item Analyzing other cooperative solution concepts such as Kernel
         and Nucleolus where payoff division is guaranteed to exist and may
         have optimal results.
@@ -738,16 +740,13 @@
         \item Analyzing the impact of Q-learning and reinforcement
         learning on the performance of our model.
 
-        \item Developing an approximation algorithm for shapely value
-        payoff distribution vector in community setting.
-
         \item Developing a community membership algorithm technique for
         our agents in "incomplete information" settings.
 
         %\item Developing an open source, Java based Tool, with UI for
         %solving Core and Shapely solution concepts based on different
         %input valuation functions.
-    \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -790,6 +789,7 @@
 
     \begin{itemize}
         \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
+        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
     \end{itemize}
 
 \end{frame}
