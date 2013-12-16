@@ -35,12 +35,12 @@
 \subsection{Motivation}
     \begin{frame}{Motivation}
     \begin{itemize}
-        \item High reliance on web services, created high competition and great business opportunities for online service developers
-        \item Community of web services, Goals:        
+        \item High reliance on web services created high competition and great business opportunities for online service developers
+        \item Community of web services: Clustering similar web services in order to:
         \begin{itemize}
-            \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
+            \item \textbf{Provide better user satisfaction through high availability and responsiveness}.
             \item \textbf{Facilitate Web Service Discovery over Internet}.
-            \item \textbf{Maintaining high reputation and market share}.
+            \item \textbf{Maintain high reputation and market share}.
         \end{itemize}
     \end{itemize}
     \begin{figure}[htbp]
@@ -52,6 +52,52 @@
     \end{figure}
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\subsection{Communities of Web Services}
+%    \begin{frame}{Community of Web Services}
+%       Communities of Web Services
+%       \begin{itemize}
+%           \item Ease and improve the process of Web services discovery in an open environment like the Internet
+%       	\item Improve service quality, availability and responsiveness
+%           \item Maintaining high reputation and market share
+%       \end{itemize}
+
+%       \begin{figure}[htbp]
+%           \centering
+            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%           \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+            %%\includegraphics[scale=0.5]{figure1}
+            %\caption{The NetBill payment protocol} \label{figure7}
+%       \end{figure}
+
+%   \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame10 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Social commitments in MASs}
+    \begin{frame}{Communities of Web Services}
+        Communities of Web Services
+        \begin{itemize}
+            \itemsep=.35cm
+        	\item \textbf{Communities of web services operations}
+            \begin{itemize}
+              \item Community development
+              \item Web services attraction and retention
+              \item Web service selection
+            \end{itemize}                      	      	
+        \end{itemize}
+
+        \begin{figure}[htbp]
+            \centering
+            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+            %%\includegraphics[scale=0.5]{figure1}
+            %\caption{The NetBill payment protocol} \label{figure7}
+        \end{figure}
+    \end{frame}
+
+
+
 \begin{frame}{Problems and Research Questions}
 
 \begin{itemize}
@@ -59,7 +105,7 @@
         community of agent-based services in order to maximize the utility
         of involved users, web services and community organizers?}
         \begin{itemize}
-            \item Most of the recent work on communities of
+            \item Most of the work on communities of
             services are either user-centric and focus on user satisfaction
             or system-centric and focus on the whole system throughput, performance and utilization.
         \end{itemize}
@@ -68,7 +114,7 @@
     \item \textbf{How can we model fair and stable communities as coalitions
         of agent-based web services?}
         \begin{itemize}
-            \item All parties involved are self-interest agents and have the authority to deviate leave the community if they can improve their income in some other ways.
+            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
         \end{itemize}
 
 \end{itemize}
@@ -82,8 +128,8 @@
         among the community members in realistic, applicable and practical
         settings?}
         \begin{itemize}
-            \item Modeling the preference and valuation functions considering the worth of all subsets of players in realistic cooperative scenarios
-            \item Solution concepts complexity issues            
+            \item The first issue is about the evaluation of web services that are working together inside communities.
+            \item The second issue is about the complexity of cooperative game theory solution concepts.
         \end{itemize}
 
 \end{itemize}
@@ -113,47 +159,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame9 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Communities of Web Services}
-    \begin{frame}{Community of Web Services}
-        Communities of Web Services
-        \begin{itemize}
-            \item Ease and improve the process of Web services discovery in an open environment like the Internet
-        	\item Improve service quality, availability and responsiveness
-            \item Maintaining high reputation and market share
-        \end{itemize}
 
-        \begin{figure}[htbp]
-            \centering
-            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
-            %%\includegraphics[scale=0.5]{figure1}
-            %\caption{The NetBill payment protocol} \label{figure7}
-        \end{figure}
-
-    \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame10 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Social commitments in MASs}
-    \begin{frame}{Communities of Web Services}
-        Communities of Web Services
-        \begin{itemize}
-            \itemsep=.35cm
-        	\item \textbf{Communities of web services operations}
-            \begin{itemize}
-              \item Community Development
-              \item Web Services Attraction and Retention
-              \item Web Service Selection
-            \end{itemize}                      	      	
-        \end{itemize}
-
-        \begin{figure}[htbp]
-            \centering
-            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
-            %%\includegraphics[scale=0.5]{figure1}
-            %\caption{The NetBill payment protocol} \label{figure7}
-        \end{figure}
-    \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame11 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,18 +169,18 @@
       \begin{itemize}
          \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
          \begin{itemize}
-            \item A set of tasks needs to be performed, they require different expertise.
-            \item Agents do not have enough resource on their own to perform a task.
-            \item Find complementary agents to perform the tasks.
+            \item Cooperation to perform a set of tasks that requires different expertise.
+            \item Agents do not have enough resource on their own to perform the tasks.
+            \item Examples:
             \begin{itemize}
-                \item robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
-                \item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
+                \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
+                \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
             \end{itemize}
         \end{itemize}
         \item \textbf{Issues:}
             \begin{itemize}
-                \item What coalition to form?
-                \item How to reward each each member when a task is completed?
+                \item Coalition formation.
+                \item Rewarding members when a task is completed.
             \end{itemize}
       \end{itemize}
     \end{frame}
@@ -192,7 +198,7 @@
     \end{definition}
 
     \begin{itemize}
-        \item \textbf{Problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
+        \item \textbf{Problem:} Given a game $(N,v)$, and assuming all agents in $N$ want to cooperate, how to distribute the gain among the agents?
         \item \textbf{Solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
 
         \begin{itemize}
@@ -235,12 +241,15 @@
         \item \textbf{Games with Transferable Utility (TU games)}
         \begin{itemize}
             \item Utility is worth the same for all agents
-            \item Utility can be {\color{red} compared} or {\color{red} transfered} between agents.
-            \item Irrespective of the division of the coalitional payoff, members of the coalition enjoy the same total utility.
+            \item Utility can be {\color{red} compared} or {\color{red} transferred} between agents.
+            \item Irrespective of the division of the coalitional payoff.
+            \begin{itemize}
+                \item In that case members of the coalition enjoy the same total utility.
+            \end{itemize}
         \end{itemize}
 
 
-        \begin{definition} [Valuation or Characteristic function]\label{dfn:valuationfunction}
+        \begin{definition} [Valuation or Characteristic Function]\label{dfn:valuationfunction}
             A \emph{valuation function v} associates a real number $v(C)$ to any subset $C \subseteq N$, i.e., $v:2^N \rightarrow R$ \\
             A {\color{blue}\emph{TU game}} is a pair $(N,v)$ where $N$ is a set of agents and where $v$ is a valuation function.
         \end{definition}
@@ -253,34 +262,36 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Some properties of valuation functions}
+\begin{frame}{Some Properties of Valuation Functions}
     $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
     \begin{itemize}
-        \item {\color{red} additive:} $v(C_1 \bigcup C_2) = v(C_1) + v(C_2)$
-        \item {\color{red} super additive:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2)$ This is satisfied is many applications, or bigger coalitions will not form.
-        \item {\color{red} weekly super additive:} $v(C_1 \bigcup \{i\}) \geq v(C_1) + v(\{i\})$
-        \item {\color{red} subadditive:} $v(C_1 \bigcup C_2) \leq v(C_1) + v(C_2)$
+        \item {\color{blue} Additive:} $v(C_1 \bigcup C_2) = v(C_1) + v(C_2)$
+        \item {\color{blue} Super additive:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2)$ This is satisfied is many applications, or bigger coalitions will not form.
+        \item {\color{blue} Weekly super additive:} $v(C_1 \bigcup \{i\}) \geq v(C_1) + v(\{i\})$        
     \end{itemize}
 
     $\forall C_1,C_2 \subseteq N$
     \begin{itemize}
-        \item {\color{red} convex:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2) - v(C_1 \bigcap C_2)$. Convexity has important properties in cooperative game theory solution concepts.
+        \item {\color{blue} Convex:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2) - v(C_1 \bigcap C_2)$. Convexity has important properties in cooperative game theory solution concepts.
+    \end{itemize}
+    \begin{itemize}
+        \item {\color{red} Subadditive:} $v(C_1 \bigcup C_2) \leq v(C_1) + v(C_2)$
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Solution properties}
+\begin{frame}{Solution Properties}
     Let $x \in R^n$ be a solution of the TU game $(N,v)$
     \begin{itemize}
-        \item {\color{red} Feasible solution:} $\sum_{i \in N} x(i) \leq v(N)$
-        \item {\color{red} Efficiency:} $x(N) = v(N)$
+        \item {\color{blue} Feasible solution:} $\sum_{i \in N} x(i) \leq v(N)$
+        \item {\color{blue} Efficiency:} $x(N) = v(N)$
         \begin{itemize}
             \item the payoff distribution is an allocation of the entire worth of the grand coalition to all agents
         \end{itemize}
-        \item {\color{red} Individual rationality:} $\forall i \in N, x(i) \geq v(\{i\})$
+        \item {\color{blue} Individual rationality:} $\forall i \in N, x(i) \geq v(\{i\})$
         \begin{itemize}
             \item player obtains at least its self-value of payoff
         \end{itemize}
-        \item {\color{red} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
+        \item {\color{blue} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
     \end{itemize}
 
     \vspace{0.2cm}
@@ -293,9 +304,8 @@
     \begin{itemize}
         \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
         \item A condition for a coalition to form:
-            {\color{red}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{red} $\Rightarrow Stability$ }
-        \item The {\color{red} core} is a stability concepts for which no agents prefer to deviate to form a different coalition.
-        \item Is the coalition stable $\Leftrightarrow$ Is the core non-empty
+            {\color{blue}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{red} $\Rightarrow Stability$ }
+        \item The {\color{blue} core} is a stability concept for which no agents prefer to deviate to form a different coalition.        
     \end{itemize}
 \end{frame}
 
@@ -314,6 +324,10 @@
             $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$
         \end{center}
     \end{definition}
+    
+    \begin{itemize}
+       \item The coalition is stable $\Leftrightarrow$ The core is not empty
+    \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -340,12 +354,12 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Solution Concepts: Shapley Value}
-    \begin{definition} [Marginal contribution]\label{dfn:marginalcontribution}
+    \begin{definition} [Marginal Contribution]\label{dfn:marginalcontribution}
         The {\color{red}marginal contribution} of agent $i$ for a coalition $C \subseteq N \backslash \{i\}$ is $mc_i(C) = v(C \cup \{i\}) - v(C)$
     \end{definition}
 
     \begin{itemize}
-        \item By considering average marginal contribution over all possible subset of coalitions, we can achieve a fair distribution.\\
+        \item By considering average marginal contribution over all possible subsets of coalitions, we can achieve a fair distribution.\\
         \item Let $\prod(N)$ denote the set of all permutations of the sequence $(1,...n)$. Therefore: $\phi_i(N,v) = \frac{\sum_{\sigma \in \phi_i(N)}}{mc(\sigma)}$
     \end{itemize}
 

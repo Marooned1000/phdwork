@@ -35,12 +35,12 @@
 \subsection{Motivation}
     \begin{frame}{Motivation}
     \begin{itemize}
-        \item High reliance on web services, created high competition and great business opportunities for online service developers
-        \item Community of web services, Goals:        
+        \item High reliance on web services created high competition and great business opportunities for online service developers
+        \item Community of web services: Clustering similar web services in order to:
         \begin{itemize}
-            \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
+            \item \textbf{Provide better user satisfaction through high availability and responsiveness}.
             \item \textbf{Facilitate Web Service Discovery over Internet}.
-            \item \textbf{Maintaining high reputation and market share}.
+            \item \textbf{Maintain high reputation and market share}.
         \end{itemize}
     \end{itemize}
     \begin{figure}[htbp]
@@ -52,6 +52,52 @@
     \end{figure}
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\subsection{Communities of Web Services}
+%    \begin{frame}{Community of Web Services}
+%       Communities of Web Services
+%       \begin{itemize}
+%           \item Ease and improve the process of Web services discovery in an open environment like the Internet
+%       	\item Improve service quality, availability and responsiveness
+%           \item Maintaining high reputation and market share
+%       \end{itemize}
+
+%       \begin{figure}[htbp]
+%           \centering
+            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%           \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+            %%\includegraphics[scale=0.5]{figure1}
+            %\caption{The NetBill payment protocol} \label{figure7}
+%       \end{figure}
+
+%   \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame10 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Social commitments in MASs}
+    \begin{frame}{Communities of Web Services}
+        Communities of Web Services
+        \begin{itemize}
+            \itemsep=.35cm
+        	\item \textbf{Communities of web services operations}
+            \begin{itemize}
+              \item Community development
+              \item Web services attraction and retention
+              \item Web service selection
+            \end{itemize}                      	      	
+        \end{itemize}
+
+        \begin{figure}[htbp]
+            \centering
+            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+            %%\includegraphics[scale=0.5]{figure1}
+            %\caption{The NetBill payment protocol} \label{figure7}
+        \end{figure}
+    \end{frame}
+
+
+
 \begin{frame}{Problems and Research Questions}
 
 \begin{itemize}
@@ -59,7 +105,7 @@
         community of agent-based services in order to maximize the utility
         of involved users, web services and community organizers?}
         \begin{itemize}
-            \item Most of the recent work on communities of
+            \item Most of the work on communities of
             services are either user-centric and focus on user satisfaction
             or system-centric and focus on the whole system throughput, performance and utilization.
         \end{itemize}
@@ -68,7 +114,7 @@
     \item \textbf{How can we model fair and stable communities as coalitions
         of agent-based web services?}
         \begin{itemize}
-            \item All parties involved are self-interest agents and have the authority to deviate leave the community if they can improve their income in some other ways.
+            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
         \end{itemize}
 
 \end{itemize}
@@ -82,8 +128,8 @@
         among the community members in realistic, applicable and practical
         settings?}
         \begin{itemize}
-            \item Modeling the preference and valuation functions considering the worth of all subsets of players in realistic cooperative scenarios
-            \item Solution concepts complexity issues            
+            \item The first issue is about the evaluation of web services that are working together inside communities.
+            \item The second issue is about the complexity of cooperative game theory solution concepts.
         \end{itemize}
 
 \end{itemize}
@@ -113,47 +159,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame9 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Communities of Web Services}
-    \begin{frame}{Community of Web Services}
-        Communities of Web Services
-        \begin{itemize}
-            \item Ease and improve the process of Web services discovery in an open environment like the Internet
-        	\item Improve service quality, availability and responsiveness
-            \item Maintaining high reputation and market share
-        \end{itemize}
 
-        \begin{figure}[htbp]
-            \centering
-            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
-            %%\includegraphics[scale=0.5]{figure1}
-            %\caption{The NetBill payment protocol} \label{figure7}
-        \end{figure}
-
-    \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame10 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Social commitments in MASs}
-    \begin{frame}{Communities of Web Services}
-        Communities of Web Services
-        \begin{itemize}
-            \itemsep=.35cm
-        	\item \textbf{Communities of web services operations}
-            \begin{itemize}
-              \item Community Development
-              \item Web Services Attraction and Retention
-              \item Web Service Selection
-            \end{itemize}                      	      	
-        \end{itemize}
-
-        \begin{figure}[htbp]
-            \centering
-            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
-            %%\includegraphics[scale=0.5]{figure1}
-            %\caption{The NetBill payment protocol} \label{figure7}
-        \end{figure}
-    \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame11 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,18 +169,18 @@
       \begin{itemize}
          \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
          \begin{itemize}
-            \item A set of tasks needs to be performed, they require different expertise.
-            \item Agents do not have enough resource on their own to perform a task.
-            \item Find complementary agents to perform the tasks.
+            \item Cooperation to perform a set of tasks that requires different expertise.
+            \item Agents do not have enough resource on their own to perform the tasks.
+            \item Examples:
             \begin{itemize}
-                \item robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
-                \item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
+                \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
+                \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
             \end{itemize}
         \end{itemize}
         \item \textbf{Issues:}
             \begin{itemize}
-                \item What coalition to form?
-                \item How to reward each each member when a task is completed?
+                \item  coalition to form?
+                \item How to reward each member when a task is completed?
             \end{itemize}
       \end{itemize}
     \end{frame}
@@ -796,8 +802,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Time Line}
-    \begin{frame}{Time Line}
+\subsection{Timeline}
+    \begin{frame}{Timeline}
 
 
 \begin{figure}[htbp]
@@ -818,7 +824,7 @@
         \item Published a paper in 10th International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"} {\color{blue} (Accepted)}
         \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing {\color{blue} (Second round of review)}
         \item Submitted a Paper to the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{"Analyzing Coopetition Strategies of Services within Communities"} {\color{blue} (Accepted)}
-        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}
+        \item Submitted a Journal Paper to the International Journal of Expert Systems With Applications; IEEE Transactions on Services Computing; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}
     \end{enumerate}
 
 %\centering
