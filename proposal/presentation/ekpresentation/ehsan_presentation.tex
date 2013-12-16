@@ -170,7 +170,7 @@
                 \item transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
             \end{itemize}
         \end{itemize}
-        \item \textbf{issues:}
+        \item \textbf{Issues:}
             \begin{itemize}
                 \item What coalition to form?
                 \item How to reward each each member when a task is completed?
@@ -191,8 +191,8 @@
     \end{definition}
 
     \begin{itemize}
-        \item \textbf{problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
-        \item \textbf{solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
+        \item \textbf{Problem:} a game $(N,v)$, and we assume all agents in $N$ want to cooperate.
+        \item \textbf{Solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
 
         \begin{itemize}
             \item What are the interesting properties that $x$ should satisfy?
@@ -310,7 +310,7 @@
         Equivalently,
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C) \forall C \subseteq N\}$
+            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$
         \end{center}
     \end{definition}
 
@@ -361,6 +361,7 @@
         \item When the valuation function is {\color{red}superadditive}, the Shapley value is {\color{red}individually rational}, i.e., it is an imputation.
         \item When the valuation function is {\color{red}convex}, the Shapley value is also group rational, hence, it is in the {\color{red}core}.
         \item A convex game has a non-empty core
+        \item Core and Shapley value are combinatorial problems.
         \item There are other well-known solution concepts: The bargaining set, The nucleolus and The nucleolus.
     \end{itemize}
 \end{frame}
@@ -397,7 +398,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Task distribution}
     \begin{itemize}
-        \item Our model uses a slightly modified $weighted fair queuing$ method for task distribution rather than Contract-Net.
+        \item Our model uses a slightly modified \emph{weighted fair queuing} method for task distribution rather than Contract-Net.
         \item All the input flow is multiplexed amount different web services with weights proportional to their throughput value ($Th_{ws}$).
         \item Queues will happen if $R_C$ is more than summation web services throughput.
         \item Weighted task rate of: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
@@ -418,7 +419,7 @@
             \begin{equation*}
                 PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
             \end{equation*}
-        \item if $Th_{ws} > R_C$, the community cannot perform at its maximum potential.
+        \item if $\sum_{ws}{Th_{ws}} > R_C$, the community cannot perform at its maximum potential.
         \item Actual output:
             \begin{equation}\label{out_c}
                 Out(C) = \left\{
@@ -613,9 +614,9 @@
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
 
-    \begin{itemize}
-        \item Approximation of the optimum result for each level, is it possible?
-    \end{itemize}
+    %\begin{itemize}
+    %    \item Approximation of the optimum result for each level, is it possible?
+    %\end{itemize}
        	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -652,49 +653,6 @@
         \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
         \item relative e-core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
     \end{itemize}
-\end{frame}
-
-\begin{frame}{Representation and Complexity issues}
-    \begin{itemize}
-        \item Core and Shapley value are combinatorial problems.
-        \item Input size is exponential.
-        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Induced subgraph games}
-    \begin{itemize}
-        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
-        \item $N = V$
-        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
-        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
-        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
-        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
-        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
-
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Different Compact Representations of Coalition Games}
-
-    \begin{table}
-        \small
-        \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
-        Graph (w+)                       & P        & P                        & P               & Not          \\
-        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        \end{tabular}
-    \end{table}
-
-    \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
-    \end{itemize}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -768,7 +726,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Activities Goal}
 \begin{frame}{Research Activities Goal}
-    \begin{itemize}
+    \begin{enumerate}
         \item Analyzing other cooperative solution concepts such as Kernel
         and Nucleolus where payoff division is guaranteed to exist and may
         have optimal results.
@@ -781,16 +739,58 @@
         \item Analyzing the impact of Q-learning and reinforcement
         learning on the performance of our model.
 
-        \item Developing an approximation algorithm for shapely value
-        payoff distribution vector in community setting.
-
         \item Developing a community membership algorithm technique for
         our agents in "incomplete information" settings.
 
         %\item Developing an open source, Java based Tool, with UI for
         %solving Core and Shapely solution concepts based on different
         %input valuation functions.
+    \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Representation and Complexity issues}
+    \begin{itemize}
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
     \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced subgraph games}
+    \begin{itemize}
+        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+        \item $N = V$
+        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
+        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
+
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Different Compact Representations of Coalition Games}
+
+    \begin{table}
+        \small
+        \begin{tabular}{l|c|c|c|c}
+        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Graph (w+)                       & P        & P                        & P               & Not          \\
+        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
+        Synergy                          & NA       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
+        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
+    \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -2,5 +2,7 @@ Thanks everyone for attending. I'm going to present my proposal which is about C
 
 I'm going to start with a brief introduction on my research subject and plan, then I'll talk about the background and literature review, then the proposed research and finally the time line.
 
+Today there is high relaince on web services, almost most of the applications use third party online service providers, since data and services are very specialized. Community of web services was introduced to improve user satisfaction, service quality, availability and reponsiveness of services and also facilitate web service discovery over internet.
 
+There are different parties involved in these communities which work cooperatively as a coalition, users, web services, and community coordinators. We would like to propose a model which can maximise payoff or gain for all parties involved. There is a lot of work only focusing on user satisfaction or are system centric. Since our parties are autonomous they can leave anytime they feel they are not gaining much within the community, we a fair and stable model considering all parties in community is needed. Therefore we opt to use cooperative game thoery methods.
 

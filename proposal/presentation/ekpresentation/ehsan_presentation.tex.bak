@@ -36,17 +36,17 @@
     \begin{frame}{Motivation}
     \begin{itemize}
         \item High reliance on web services, created high competition and great business opportunities for online service developers
-        \item Community of Web services
-        \item Goals: 
+        \item Community of web services
+        \item Goals:
         \begin{itemize}
             \item \textbf{User satisfaction, Service quality, high availability and responsiveness}.
-            \item \textbf{Web Service Discovery over Internet}.
+            \item \textbf{Facilitate Web Service Discovery over Internet}.
         \end{itemize}
     \end{itemize}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        %\includegraphics[width=1.0 \columnwidth]{figures/figure7.png}
+        \includegraphics[width=1.0 \columnwidth]{figures/wsinternet.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -57,7 +57,7 @@
 \begin{itemize}
     \item \textbf{How can we model the
         community of agent-based services in order to maximize the utility
-        of involved users, web services and community organizers?}.
+        of involved users, web services and community organizers?}
         \begin{itemize}
             \item Most of the recent work on communities of
             services are either user-centric and focus on user satisfaction
@@ -66,7 +66,7 @@
 
 
     \item \textbf{How can we model fair and stable communities as coalitions
-        of agent-based web services?}.
+        of agent-based web services?}
         \begin{itemize}
             \item All parties involved are self-interest agents and have the authority to deviate leave the community if they can improve their income in some other ways.
         \end{itemize}
@@ -297,21 +297,7 @@
         \item Is the coalition stable $\Leftrightarrow$ Is the core non-empty
     \end{itemize}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Solution Concepts: Core}
-    CTLC logic is an extension of CTL logic with modalities for reasoning about \textbf{commitments and their fulfillment}.
-    \begin{definition} [Imputation]\label{dfn:imputationbig}
-        An {\color{red}imputation} is a payoff distribution $x$ that is efficient and individually rational.
-        \begin{itemize}
-            \item $\sum_{i \in N} x(i) = v(N)$ (efficiency)
-            \item for all $i \in N, x_i \geq v(\{i\})$ (individual rationality)
-        \end{itemize}
-    \end{definition}
 
-    \begin{definition} [Group rationality]\label{dfn:grouprationality}
-        $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
-    \end{definition}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame} {Solution Concepts: Core}
     The core relates to the stability of the grand coalition: \\ No group of agents has any incentive to change coalition.
@@ -668,49 +654,6 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Representation and Complexity issues}
-    \begin{itemize}
-        \item Core and Shapley value are combinatorial problems.
-        \item Input size is exponential.
-        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Induced subgraph games}
-    \begin{itemize}
-        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
-        \item $N = V$
-        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
-        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
-        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
-        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
-        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
-
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Different Compact Representations of Coalition Games}
-
-    \begin{table}
-        \small
-        \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
-        Graph (w+)                       & P        & P                        & P               & Not          \\
-        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        \end{tabular}
-    \end{table}
-
-    \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
-    \end{itemize}
-
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Preliminary Results}
@@ -805,6 +748,50 @@
         %solving Core and Shapely solution concepts based on different
         %input valuation functions.
     \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Representation and Complexity issues}
+    \begin{itemize}
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced subgraph games}
+    \begin{itemize}
+        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+        \item $N = V$
+        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+        \item {\color{red}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+        \item {\color{red}Convexity:} If all the weights are nonnegative then the game is convex.
+        \item {\color{red}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+        \item This is {\color{red}not complete}. Many TU games cannot be represented by a induced subgraph game
+
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Different Compact Representations of Coalition Games}
+
+    \begin{table}
+        \small
+        \begin{tabular}{l|c|c|c|c}
+        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Graph (w+)                       & P        & P                        & P               & Not          \\
+        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
+        Synergy                          & NA       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
+    \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
