@@ -6,3 +6,5 @@ Today there is high relaince on web services, almost most of the applications us
 
 There are different parties involved in these communities which work cooperatively as a coalition, users, web services, and community coordinators. We would like to propose a model which can maximise payoff or gain for all parties involved. There is a lot of work only focusing on user satisfaction or are system centric. Since our parties are autonomous they can leave anytime they feel they are not gaining much within the community, we a fair and stable model considering all parties in community is needed. Therefore we opt to use cooperative game thoery methods.
 
+However there are complexity issues and we need to model the problem in realistic and useful way.
+
