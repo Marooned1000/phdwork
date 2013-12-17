@@ -165,35 +165,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cooperative Game Theory}
 
-    \begin{frame}{Cooperative Game Theory}
-      \begin{itemize}
-         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
-         \begin{itemize}
-            \item Cooperation to perform a set of tasks that requires different expertise.
-            \item Agents do not have enough resource on their own to perform the tasks.
-            \item Examples:
-            \begin{itemize}
-                \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
-                \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
-            \end{itemize}
-        \end{itemize}
-        \item \textbf{Issues:}
-            \begin{itemize}
-                \item Coalition formation.
-                \item Rewarding members when a task is completed.
-            \end{itemize}
-      \end{itemize}
-    \end{frame}
+%    \begin{frame}{Cooperative Game Theory}
+%      \begin{itemize}
+%         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
+%         \begin{itemize}
+%            \item Cooperation to perform a set of tasks that requires different expertise.
+%            \item Agents do not have enough resource on their own to perform the tasks.
+%            \item Examples:
+%            \begin{itemize}
+%                \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
+%                \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
+%            \end{itemize}
+%        \end{itemize}
+%        \item \textbf{Issues:}
+%            \begin{itemize}
+%                \item Coalition formation.
+%                \item Rewarding members when a task is completed.
+%            \end{itemize}
+%      \end{itemize}
+%    \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame14 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{The Classic Problem}
+\begin{frame}{Cooperative Game Theory}
     \begin{itemize}
-         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
+         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents within coalitions.
     \end{itemize}
-    We have a population $N$ of $n$ agents.
     \begin{definition} [Coalition]~\\
-       A coalition $C$ is a set of agents: $C \in 2^N$.
+       We have a population $N$ of $n$ agents, A coalition $C$ is a set of agents: $C \in 2^N$.
         \begin{itemize}
             \item $N$ is the set of all agents (or players)
             \item $v:2^N \rightarrow R$ is the \emph{valuation function}. For $C \subseteq N$, $v(C)$ is the value obtained by the coalition $C$
@@ -322,8 +321,9 @@
         Equivalently,
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$
+            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$ \\            
         \end{center}
+        \small{$x(N) = \sum_{i \in N} x(i)$}
     \end{definition}
 
     \begin{itemize}
@@ -378,7 +378,7 @@
         \item When the valuation function is {\color{blue}convex}, the Shapley value is also group rational, hence, it is in the {\color{blue}core}.
         \item A convex game has a non-empty core.
         \item Core and Shapley value are combinatorial problems.
-        \item There are other well-known solution concepts: The bargaining set, The nucleolus and The nucleolus.
+        \item There are other well-known solution concepts: The bargaining set, nucleolus and kernel.
     \end{itemize}
 \end{frame}
 
