@@ -615,7 +615,7 @@ complementary functionalities \cite{Zeng:2003:QDW:775152.775211,
 Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,10.1109/ARES.2008.7},
 but probably different non-functional quality attributes, which
 form the QoS parameters. When communities are used, users send
-their requests to the coordinators of those communities, which are
+their requests to the masters of those communities, which are
 responsible of managing the communities, forwarding the requests
 to the suitable member web services and checking the credentials
 of those members. Communities aim to provide higher service
@@ -827,7 +827,7 @@ community as $C$. To simplify the notation, sometimes we simply
 write $ws$ instead of $ws \in C$ to go through the elements $ws$
 of the set $C$, when $C$ can be understood from the context.
 
-\emph{2) Master Web Services} or the community coordinators, are
+\emph{2) Community coordinators} are
 representatives of the communities of web services and responsible
 for their management. Communities receive requests from users and
 aim to host a healthy set of web services to perform the required
@@ -892,7 +892,7 @@ Communities aggregate web services and communicate with other
 entities such as UDDI registries and users, using identical
 protocols as single web services. Web services join communities to
 increase their utility by having a larger market share and task
-pool. Community coordinators or master web services are
+pool. Community coordinators are
 responsible for community development, managing membership
 requests from web services and distributing user tasks among the
 community members. Community coordinators try to attract quality
@@ -1061,7 +1061,7 @@ As mentioned in Section \ref{webservice-communities}, communities
 are robust service providers with well established market share
 and reputation. By maintaining their reputation and performance,
 they attract  end users which choose them as service providers to
-perform their tasks. The community master is characterized by a
+perform their tasks. The community coordinator is characterized by a
 request rate (also called input rate) $(R_C)$ from users. Each web
 service comes with a given QoS ($QoS_{ws}$) from which the
 throughput $Th_{ws}$ is excluded. Throughput is the average rate
@@ -1071,7 +1071,7 @@ value of $Th_{ws}$. Thus, web services perform tasks with an
 average output quality of $QoS_{ws}$ and a throughput rate of
 $Th_{ws}$.
 
-The community master uses a slightly modified \emph{weighted fair
+The community coordinator uses a slightly modified \emph{weighted fair
 queuing} method to distribute tasks among its members. The goal is
 to allocate incoming tasks to web services with a rate matching
 the throughput value of $Th_{ws}$. In the \emph{weighted fair
@@ -1090,12 +1090,12 @@ rate of $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each
 web service ($ws$), so that the total rate of tasks being
 performed is $R_C$, the community's request rate.
 
-While distributing tasks, the community master can verify the
+While distributing tasks, the community coordinator can verify the
 performance, throughput and quality of service of tasks being
-performed by web services. The master can recognize if those web
+performed by web services. The community coordinator can recognize if those web
 services are capable of doing the amount of tasks they advertised.
 If for any reason there is a decline in the quality metric or
-throughput, the master will announce the new parameters, which
+throughput, the coordinator will announce the new parameters, which
 will be considered as benchmark for future performance
 calculations, and penalize the suspicious web services. In this
 way, players will have incentive to truthfully reveal their real
