@@ -732,7 +732,7 @@ can evaluate the $worth$ of each community of web services. When
 facing new membership requests, a typical community master checks
 whether the new coalition having the old and new set of web
 services will keep the community stable or not. The community
-master will reject the membership requests if it finds out that
+coordinate will reject the membership requests if it finds out that
 the new coalition would be unstable, preventing $any$ subset of
 web services from gaining significantly more by deviating from the
 community and joining other communities or forming new ones. The
@@ -741,7 +741,7 @@ combinatorial in nature and proven to be NP-complete
 \cite{Algorithmic}, making this computation impractical in real
 world applications. However, using the concepts of coalition
 stability, we propose approximation algorithms running in
-polynomial time providing web services and community masters with
+polynomial time providing web services and community coordinators with
 applicable and near-optimal decision making mechanisms.
 
 The rest of the paper is organized as follows. Section
@@ -1286,15 +1286,15 @@ $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $\text{\emph{Input Task Rate}}$\\
 \hline
 Community & Worth & Community & Worth\\
 \hline
-$\left\{C_{ms_1}\right\}$ & 0 & $\left\{C_{ms_2}\right\}$ & 0\\
-$\left\{C_{ms_1}, ws_1\right\}$ & 8 & $\left\{C_{ms_2}, ws_1\right\}$ & 8\\
-$\left\{C_{ms_1}, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_2\right\}$ & 16\\
-$\left\{C_{ms_1}, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_3\right\}$ & 24\\
-$\left\{C_{ms_1}, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2\right\}$ & 24\\
-$\left\{C_{ms_1}, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_3\right\}$ & 32\\
-$\left\{C_{ms_1}, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_{ms_1}, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2, ws_3\right\}$ & 32\\
-$\left\{C_{ms_1}, C_{ms_2}, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
+$\left\{C_{1}\right\}$ & 0 & $\left\{C_{2}\right\}$ & 0\\
+$\left\{C_{1}, ws_1\right\}$ & 8 & $\left\{C_{2}, ws_1\right\}$ & 8\\
+$\left\{C_{1}, ws_2\right\}$ & 16 & $\left\{C_{2}, ws_2\right\}$ & 16\\
+$\left\{C_{1}, ws_3\right\}$ & 16 & $\left\{C_{2}, ws_3\right\}$ & 24\\
+$\left\{C_{1}, ws_1, ws_2\right\}$ & 16 & $\left\{C_{2}, ws_1, ws_2\right\}$ & 24\\
+$\left\{C_{1}, ws_1, ws_3\right\}$ & 16 & $\left\{C_{2}, ws_1, ws_3\right\}$ & 32\\
+$\left\{C_{1}, ws_2, ws_3\right\}$ & 16 & $\left\{C_{2}, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{1}, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{2}, ws_1, ws_2, ws_3\right\}$ & 32\\
+$\left\{C_{1}, C_{ms_2}, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
 $\left\{ws_2\right\}$ & 4.2 & $\left\{ws_3\right\}$ & 6.8\\
 \hline
 Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
@@ -1311,7 +1311,7 @@ the solution considers individual maximization of payoff and also
 the total worth of all communities which represents the
 \emph{social welfare}. In this example, the most efficient
 partition of web services is earned by having two coalitions of
-$\left\{C_{master_1}, ws_2\right\}$ and $\left\{C_{master_2},
+$\left\{C_{1}, ws_2\right\}$ and $\left\{C_{2},
 ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$.
 In these types of scenarios, the goal is to reach stability,
 adopting a distributed approach where all players have the power
@@ -1320,10 +1320,10 @@ usually start the game having some established members. They may
 exchange web services and new web services would join them having
 at least one player gaining utility without hurting any other
 participant. In this example, if we initially having two
-coalitions of $\left\{C_{master_1}, ws_2\right\}$ and
-$\left\{C_{master_2}, ws_1\right\}$ and a ${ws_3}$ as new web
-service, ${ws_3}$ joining ${C_{master_1}}$ would hurt at least
-itself or $ws_2$; however, ${ws_3}$ joining ${C_{master_2}}$ would
+coalitions of $\left\{C_{1}, ws_2\right\}$ and
+$\left\{C_{2}, ws_1\right\}$ and a ${ws_3}$ as new web
+service, ${ws_3}$ joining ${C_{1}}$ would hurt at least
+itself or $ws_2$; however, ${ws_3}$ joining ${C_{2}}$ would
 not hurt any participant and ${ws_3}$ would earn more within the
 community and the community will have enough web services
 performing the incoming tasks from users.
@@ -1332,7 +1332,7 @@ The first two examples illustrate the fact that a community cannot
 simply increase its revenue by adding more web services. The web
 services and even community owners are autonomous agents and would
 deviate and be displeased about the community if new members cause
-a drop in their profit. The job of the community master is to
+a drop in their profit. The job of the community coordinator is to
 attract as many quality web services it can and keep them
 satisfied; hence the group stability is guaranteed. The third
 example highlights another type of problem we would like to
@@ -1349,21 +1349,21 @@ services to maximize their profit.
 
 In this section, we present different web service community models
 and focus on the problem of how both web services and community
-masters as rational entities would adopt strategies to maximize
+coordinators as rational entities would adopt strategies to maximize
 their payoff.
 
 \subsection {Scenario 1: Web Services and One Community}
 
 In this scenario, we assume the existence of a typical community
-managed by its master, and web services need to join it to be able
-to get requests from the master. The community master is
+managed by its coordinator, and web services need to join it to be able
+to get requests from the community. The community coordinator is
 characterized by a request rate $(R_{C})$ from users. Each web
 service comes with a given QoS ($QoS_{ws}$). The worth of a
 community $v(C)$ is set to $Out(C)$ based on Equation \ref{out_c}.
 
 As mentioned in the previous section, the worth of a community is
 a function of the throughput and provided QoS of its web service
-members. If the throughput rate is more than the master's input
+members. If the throughput rate is more than the community's input
 request rate, it means the web services inside the community are
 capable of serving more requests than the demand. Considering this
 factor, the valuation function is designed to balance the output
@@ -1372,8 +1372,7 @@ the web service can provide within the particular community.
 %** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
 
 In this first scenario, we only consider one grand coalition and
-analyze the system from the point of view of one single master web
-service and a collection of web services. The master web service
+analyze the system from the point of view of one community and a collection of web services. The community coordinator
 decides which members can join
 %or should leave%
 the community and distributes the requests and income among its
@@ -1500,8 +1499,8 @@ Thus, in order to keep the characteristic function $v$ convex, new
 web services should have more marginal contribution as the
 coalition size grows.
 
-Our algorithm works as follows. Given an  established community
-with a master and some member web services, a web service would
+Our algorithm works as follows. Given an established community
+with a coordinator and some member web services, a web service would
 send a \emph{join request} to join  the community. Ideally, the
 \emph{core} or \emph{$\epsilon$-core} stability of the group
 having this new member should be analyzed. As the normal core
@@ -1545,10 +1544,10 @@ etc. until the algorithm gets interrupted.
 \subsection {Scenario 2: Web Services and Many Communities}
 
 In this scenario, we consider multiple communities managed by
-multiple master web services, each of which is providing
-independent request pools (see Figure \ref{fig_sim2}). Identical
-to the first scenario, master web services form coalitions with
-web services. We use coalition structure formation methods to
+multiple coordinators, each of communities having
+independent request pools (see Figure \ref{fig_sim2}). 
+%Identical to the first scenario, master web services form coalitions with web services. 
+We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
 structures. As mentioned in Section \ref{sec:coalition}, the key
 fundamental problems we aim to solve is what communities to form
@@ -1576,7 +1575,7 @@ exponentially with the number of players, and the centralized
 algorithms need to iterate through all these partitions.
 %These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centralized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}.
 In our model, we propose using a distributed algorithm where each
-community master and web service can be a decision maker and
+community coordinator and web service can be a decision maker and
 decide for its own benefit. The aim is to find less complex and
 distributed algorithms for forming web services coalitions
 \cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}.
@@ -1602,9 +1601,7 @@ one element $p_i > q_i$).
 
 The valuation function $v(C)$ for this scenario is the same as for
 Scenario 1 (i.e., \emph{``Web Services and One Community''}).
-However, in order to prevent master web services joining the same
-community, we set $v(C) = 0$ when $C$ has either none, or more
-than one master web service as member.
+%However, in order to prevent master web services joining the same community, we set $v(C) = 0$ when $C$ has either none, or more than one master web service as member.
 
 In this scenario, as new web services are discovered and get ready
 to join communities, our algorithm keeps merging and splitting
@@ -1646,7 +1643,7 @@ would join communities charging the lowest amount of tax. Another
 viable solution we introduce to our scenario is to stabilize the
 game using external subsidies. The reason a game is not stable is
 that the community is not making enough revenue to allocate enough
-gain to the players. A community master can subside its community
+gain to the players. A community coordinator can subside its community
 with a constant coefficient value of $\lambda$.
 %
 %Rewarding a community with high number of quality participants
@@ -1654,7 +1651,7 @@ with a constant coefficient value of $\lambda$.
 %
 Obviously, with a big value for $\lambda$, it is always possible
 to stabilize the community. However, this can be a costly act for
-the community masters, so they are interested in the minimum
+the community coordinators, so they are interested in the minimum
 subside value of $\lambda$ making the community stable. Subsiding
 or taxing in order to reduce the bargaining power of sub
 coalitions are called $taxation$ \cite{eps346856} methods. We
@@ -1833,7 +1830,7 @@ In the previous experiment, we considered the scenario where all
 web services are stable, will not leave the group, and will
 fulfill their promised QoS for a good period of time. However, in
 real world scenarios of web services, this is not always the case.
-This is the reason why the master would be interested in paying
+This is the reason why the community coordinator would be interested in paying
 web services in order to keep the group reliable from the end
 user's point of view. In our next scenario, we have introduced the
 new instability variable $\tau$ ranging from 0 to 1, 0 meaning web
@@ -2270,7 +2267,7 @@ As mentioned in section \ref{webservice-communities}, communities
 are robust service providers with well established market share
 and reputation. By maintaining their reputation and performance,
 they attract  end users which choose them as service providers to
-perform their tasks. The community master is characterized by a
+perform their tasks. The community coordinator is characterized by a
 request rate $(R_C)$ from users. Each web service comes with a
 given QoS ($QoS_{ws}$) from which the throughput $Th_{ws}$ is
 excluded. Throughput is the average rate of tasks a web service
@@ -2279,7 +2276,7 @@ to build our analysis on the particular value of $Th_{ws}$. Thus,
 web services perform tasks with an average output quality of
 $QoS_{ws}$ and a throughput rate of $Th_{ws}$.
 
-The community master uses a slightly modified \emph{weighted fair
+The community coordinator uses a slightly modified \emph{weighted fair
 queuing} method to distribute tasks among its members. The goal is
 to allocate incoming tasks to web services with a rate matching
 the throughput value of $Th_{ws}$. In \emph{weighted fair queuing}
@@ -2299,13 +2296,13 @@ weighted task rate of $R_C \times
 and the total rate of tasks being performed is $R_C$, the
 community's receiving request rate.
 
-While distributing tasks, the community master can verify the
+While distributing tasks, the community coordinator can verify the
 performance, throughput and quality of service of   tasks being
 performed by web services. It can recognize if web services are
 capable of doing the amount of tasks they advertised. If for any
 reason there is a decline in quality metrics or throughput, the
-community master will announce the new parameters and community
-masters and members can consider those values as benchmark for
+community coordinator will announce the new parameters and community
+coordinators and members can consider those values as benchmark for
 future performance calculations but also to penalize them. In this
 way, players have incentive to reveal their real capabilities to
 profit best from the community and to avoid being penalized. In
@@ -2519,7 +2516,7 @@ considers individual maximization of payoff and also the total
 worth of all communities which represents the \emph{social
 welfare}. In this example the most efficient partition of web
 services is earned by having two coalitions of
-$\left\{C_{master_1}, ws_2\right\}$ and $\left\{C_{master_2},
+$\left\{C_{1}, ws_2\right\}$ and $\left\{C_{2},
 ws_1, ws_3\right\}$, which yields a total value of $32 + 16 = 48$.
 In these types of scenarios, the goal is to reach stability,
 adopting a distributed approach where all players have the power
@@ -2529,10 +2526,10 @@ members, encountering new web services, the communities may
 exchange web services and new web services would join them having
 at least one player gaining utility, without hurting any other
 participant. In this example if we initially having two coalitions
-of $\left\{C_{master_1}, ws_2\right\}$ and $\left\{C_{master_2},
+of $\left\{C_{1}, ws_2\right\}$ and $\left\{C_{2},
 ws_1\right\}$ and a ${ws_3}$ as new web service, ${ws_3}$ joining
-${C_{master_1}}$ would hurt at least itself or $ws_2$, however
-${ws_3}$ joining ${C_{master_2}}$ would not hurt any participants
+${C_{1}}$ would hurt at least itself or $ws_2$, however
+${ws_3}$ joining ${C_{2}}$ would not hurt any participants
 and ${ws_3}$ would earn more within the community and the
 community will have enough web services performing the incoming
 tasks from users.
@@ -2541,7 +2538,7 @@ The first two examples illustrate the fact that a community cannot
 simply increase its revenue by adding more web services. The web
 services and even community owners are autonomous agents and would
 deviate and be displeased about the community if new members cause
-a drop in their profit. The job of the community master is to
+a drop in their profit. The job of the community coordinator is to
 attract as many quality web services it can and keep them
 satisfied; hence the group stability is guaranteed. The third
 example highlights another type of problem we would like to
@@ -2558,14 +2555,14 @@ communities and web services to maximize their profit.
 
 In this section, we present different web service community models
 and focus on the problem of how both web services and community
-masters as rational entities would adopt strategies to maximize
+coordinators as rational entities would adopt strategies to maximize
 their payoff.
 
 \subsection {Web Services and One Community}
 
 In this scenario, we assume the existence of a typical community
-managed by its master, and web services need to join it to be able
-to get requests from the master. The community master is
+managed by its coordinator, and web services need to join it to be able
+to get requests from the community. The community coordinator is
 characterized by a requests rate $(R_{C})$ from users. Each web
 service comes with a given QoS ($QoS_{ws}$). The worth of a
 community $v(C)$ is set to Out(C) based on equation \ref{out_c}.
@@ -2573,7 +2570,7 @@ community $v(C)$ is set to Out(C) based on equation \ref{out_c}.
 As mentioned in previous section, the worth and output of a
 community  is a function of the throughput and provided QoS of its
 web service members. If the throughput rate is more than the
-master's input request rate, it means the web services inside the
+community's input request rate, it means the web services inside the
 community are capable of serving more requests than the demand.
 Considering this factor, the valuation function is designed to
 balance the output performance so that it matches the exact
@@ -2582,8 +2579,8 @@ particular community.
 %** In the case where the limited tasks are distributed among web services uniformly, the value of coalition would be the proportion of the average QoS times their throughput to rate of available requests. **
 
 In this first scenario, we only consider one grand coalition and
-analyze the system from the point of view of one single master web
-service and a collection of web services. The master web service
+analyze the system from the point of view of one single community coordinator 
+and a collection of web services. The community coordinator 
 decides which members can join
 %or should leave%
 the community and distributes the requests and income among its
