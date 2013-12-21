@@ -729,7 +729,7 @@ possibility of joining different already established communities.
 We first propose a representation function for communities of web
 services based on their QoS attributes. By using this function, we
 can evaluate the $worth$ of each community of web services. When
-facing new membership requests, a typical community master checks
+facing new membership requests, a typical community coordinator checks
 whether the new coalition having the old and new set of web
 services will keep the community stable or not. The community
 coordinate will reject the membership requests if it finds out that
@@ -2706,8 +2706,8 @@ Thus, in order to keep the characteristic function convex, new web
 services should have more marginal contribution as the coalition
 size grows.
 
-Our algorithm works as follows. Given an  established community
-with a master and some member web services, a web service would
+Our algorithm works as follows. Given an established community
+with a coordinator and some member web services, a web service would
 send a \emph{join request} to join  the community. Ideally, the
 \emph{core} or \emph{$\epsilon$-core} stability of the group
 having this new member should be analyzed. As the normal core
@@ -2751,9 +2751,9 @@ etc. until the algorithm gets interrupted.
 \subsection {Web Services and Many Communities}
 
 In this scenario, we consider multiple communities managed by
-multiple master web services, each of which is providing
+multiple coordinators, each of which is providing
 independent request pools (see Figure \ref{fig_sim2}). Identical
-to the first scenario, master web services form coalitions with
+to the first scenario, community coordinators form coalitions with
 web services. We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
 structures. As mentioned in Section \ref{sec:coalition}, the used
@@ -2782,7 +2782,7 @@ number of players in $N$, and the centralized algorithms need to
 iterate through all these partitions.
 %These algorithms \cite{DBLP:conf/ijcai/GrecoMPS11, DBLP:conf/ijcai/RahwanMJ11, RePEc:wpa:wuwpga:0110001} are centralized algorithms, where all the complexity. However these algorithms are more intractable than Core stable solutions and practical with some constraints in practice\cite{RePEc:wpa:wuwpga:0110001}.
 In our model, we propose using a distributed algorithm where each
-community master and web service can be a decision maker and
+community coordinator and web service can be a decision maker and
 decide for its own good. The aim is to find less complex and
 distributed algorithms for forming web services
 coalitions\cite{DBLP:journals/igtr/AptW09,Dieckmann02dynamiccoalition,ray2007game}.
@@ -2807,10 +2807,8 @@ players still maintain their payoff ($p_i \geq q_i$ with at least
 one element $p_i > q_i$).
 
 The valuation function $v(C)$ for this scenario is the same as
-\emph{``Web Services and One Community''} scenario. However, in
-order to prevent master web services joining the same community,
-we set $v(C) = 0$ when $C$ has either none, or more than one
-master web service as member.
+\emph{``Web Services and One Community''} scenario. 
+%However, in order to prevent master web services joining the same community, we set $v(C) = 0$ when $C$ has either none, or more than one master web service as member.
 
 In this scenario, as new web services are discovered and get ready
 to join communities, our algorithm keeps merging and splitting
@@ -2851,7 +2849,7 @@ services would join communities with lesser amount of tax. Another
 viable solution to our scenario is to stabilize the game using
 external subsidies. The reason a game is not stable is that the
 community is not making enough revenue to allocate  enough gain to
-the players. A community master can subside its community with a
+the players. A community coordinator can subside its community with a
 constant coefficient value of $\lambda$.
 
 Rewarding a community with high number of quality participants
@@ -2859,7 +2857,7 @@ with $\lambda v(C)$, where $\lambda \leq 1$.
 
 Obviously with a big number of $\lambda$, it is always possible to
 stabilize the community. However, this can be a costly act for
-community masters so they are interested in the minimum subside
+community coordinators so they are interested in the minimum subside
 value of $\lambda$ making the game stable. Subsiding or taxing in
 order to reduce the bargaining power of sub coalitions are called
 $taxation$ \cite{eps346856} methods.
