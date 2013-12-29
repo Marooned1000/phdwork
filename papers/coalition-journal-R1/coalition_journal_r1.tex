@@ -712,8 +712,10 @@ getting jobs, especially the ones further in the chain. This will
 results in a considerable waste of web services capabilities.
 
 \textbf{Web Service Community.}
-Community in general refers to the condition of sharing or having certain
-attitudes and interests in common. Communities of web services 
+Community of web services is a collection of web services with same functionallity having a 
+unique manager and communication end point, which is the access point to the community.
+
+
 \cite{DBLP:journals/internet/BenatallahSD03,
 Zeng:2003:QDW:775152.775211}, the authors introduce community of
 web services as collection of cooperative web services with common
@@ -723,11 +725,22 @@ service cooperation in which web services with different
 functionalities work together to generate a new service with
 composite functionality.
 
+In \cite{DBLP:journals/internet/BenatallahSD03}, Behatallah et al. defined communities as \emph{Service Containers} which aggregates substitutable web services providing a common functionality (same set of operations). They abstracted these \emph{Service Containers} as web services which are created, advertised, discovered and invoked just as elementary web services, they \emph{Container} as a manager is responsible for the mentioned tasks and also web service selection upon recieving a request on run-time. They have proposed a scoring service based on non-functional requrement of the task and web service capabilties to dynamicly chose the web service to perform the task upon reciving requests. A similar concept was proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09}. They introduced web service coimmunities as a collection of web services with a common functionality but different QoS properties. A community manager upon recieving a request, delegates the request to one of its current members. The choice is based on history and quality metrics of each web service. They have proposed an efficient global web service selection algorithm in order to approach quality constraints and preferences for composite services which requres aggregation of different type of services to satisfy a request.
+
+Benslimane et al. \cite{Liris-2770} have proposed multi-layer approach, grouping similar Web services into communities and having an interface implemented as an asbtract Web service for accessing the community on top of the community layer. The intractions between composite, management and community layers and the bindings are performed by a generic driver called Open Software Connectivity (OSC).
+
+Authors in \cite{managing-hela-jalel} have proposed web service communities with centralized access accross distributed web services. They have proposed a framework for web service management, query resolution among communities and a query caching mechanism to improve the performance of query resolution process among many distributed communities by caching previous computed results for answering future quries.
+
+
+
+
+%%%%%%%%%%%%%%%%% OLD
 Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
 then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
 proposed an architecture utilizing \emph{Contract-Net} protocol
-for engineering task distribution within communities. This
-architecture has been further developed in
+for engineering task distribution within communities. 
+
+This architecture has been further developed in
 \cite{conf/IEEEscc/BenharrefSBB11, conf/IEEEscc/KhosravifarBMMT10,
 conf/aina/LimTM11, CSTintercommunity}. Two types of roles have
 been distinguished for community members: masters and slaves.
@@ -738,6 +751,10 @@ to their communities by awarding them better payoff. Moreover,
 they can eject some slave members from the community to improve
 its overall reputation if these members are misbehaving or cannot
 provide the promised QoS \cite{DBLP:journals/ijebr/MaamarSTBB09}.
+%%%%%%%%%%%%%%%%% OLD
+
+
+
 
 \textbf{Contributions.} In this paper, we use game theory to
 propose a cooperative game model for the aggregation of web
