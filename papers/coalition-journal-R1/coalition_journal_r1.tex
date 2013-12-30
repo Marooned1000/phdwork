@@ -658,7 +658,7 @@ the inputs from all the other members and their influence on the
 master's decision are simply ignored. The consideration of those
 inputs and this influence factor is a significant issue as
 existing web services can lose utility or payoff because of the
-new member, which can results in an unhealthy and unstable group.
+new member, which can result in an unhealthy and unstable group.
 The problem comes from the fact that the existing members should
 collaborate with the new web services, so probably their
 performance as a group can suffer. Existing members may even
@@ -713,32 +713,17 @@ results in a considerable waste of web services capabilities.
 
 \textbf{Web Service Community.}
 Community of web services is a collection of web services with same functionallity having a 
-unique manager and communication end point, which is the access point to the community.
+coordinator and communication end point, which is the access point to the community. In \cite{DBLP:journals/internet/BenatallahSD03}, Behatallah et al. defined communities as \emph{Service Containers} which aggregates substitutable web services providing a common functionality (same set of operations). They abstracted \emph{Service Containers} as web services which are created, advertised, discovered and invoked just as elementary web services, they \emph{Container} as a manager is responsible for the mentioned tasks and also web service selection upon recieving a request on run-time. They have proposed a scoring service based on non-functional requrement of the task and web service capabilties to dynamicly chose the web service to perform the task upon reciving requests. A similar concept was proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09}. They introduced web service coimmunities as a collection of web services with a common functionality but different QoS properties. A community manager upon recieving a request, delegates the request to one of its current members. The choice is based on history and quality metrics of each web service. They have proposed an efficient global web service selection algorithm in order to approach quality constraints and preferences for composite services which requres aggregation of different type of services to satisfy a request.
 
-
-\cite{DBLP:journals/internet/BenatallahSD03,
-Zeng:2003:QDW:775152.775211}, the authors introduce community of
-web services as collection of cooperative web services with common
-functionalitiers but different QoS metrics. Therefore
-$communities$ are differentiated from $composition$ types of web
-service cooperation in which web services with different
-functionalities work together to generate a new service with
-composite functionality.
-
-In \cite{DBLP:journals/internet/BenatallahSD03}, Behatallah et al. defined communities as \emph{Service Containers} which aggregates substitutable web services providing a common functionality (same set of operations). They abstracted these \emph{Service Containers} as web services which are created, advertised, discovered and invoked just as elementary web services, they \emph{Container} as a manager is responsible for the mentioned tasks and also web service selection upon recieving a request on run-time. They have proposed a scoring service based on non-functional requrement of the task and web service capabilties to dynamicly chose the web service to perform the task upon reciving requests. A similar concept was proposed in \cite{DBLP:journals/ijebr/MaamarSTBB09}. They introduced web service coimmunities as a collection of web services with a common functionality but different QoS properties. A community manager upon recieving a request, delegates the request to one of its current members. The choice is based on history and quality metrics of each web service. They have proposed an efficient global web service selection algorithm in order to approach quality constraints and preferences for composite services which requres aggregation of different type of services to satisfy a request.
-
-Benslimane et al. \cite{Liris-2770} have proposed multi-layer approach, grouping similar Web services into communities and having an interface implemented as an asbtract Web service for accessing the community on top of the community layer. The intractions between composite, management and community layers and the bindings are performed by a generic driver called Open Software Connectivity (OSC).
+Benslimane et al. \cite{Liris-2770} have proposed a multi-layer approach, grouping similar Web services into communities and having an interface implemented as an asbtract Web service for accessing the community on top of the community layer. The intractions between composite, management and community layers and the bindings are performed by a generic driver called Open Software Connectivity (OSC).
 
 Authors in \cite{managing-hela-jalel} have proposed web service communities with centralized access accross distributed web services. They have proposed a framework for web service management, query resolution among communities and a query caching mechanism to improve the performance of query resolution process among many distributed communities by caching previous computed results for answering future quries.
 
 
-
-
-%%%%%%%%%%%%%%%%% OLD
 Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
 then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
 proposed an architecture utilizing \emph{Contract-Net} protocol
-for engineering task distribution within communities. 
+for engineering task distribution within communities of web services. 
 
 This architecture has been further developed in
 \cite{conf/IEEEscc/BenharrefSBB11, conf/IEEEscc/KhosravifarBMMT10,
@@ -751,7 +736,8 @@ to their communities by awarding them better payoff. Moreover,
 they can eject some slave members from the community to improve
 its overall reputation if these members are misbehaving or cannot
 provide the promised QoS \cite{DBLP:journals/ijebr/MaamarSTBB09}.
-%%%%%%%%%%%%%%%%% OLD
+
+In \cite{Medjahed05adynamic} authors developed a community as a ``container'' that clusters Web services based on a specefic area of interest. All web services in a given community, share the same functionality. These communities are created by \emph{third party community prividers} which use the \emph{community ontology} as a template and define a set of operations that all web services within a community should provide. Using semantic analysis on web service operations, web services either find and join a community with similar functionality or create a new operation description for a new community.
 
 
 
@@ -884,7 +870,7 @@ share and revenue of the community.
 \emph{3) Users} generate requests and try to find the best
 available services. User satisfaction is abstracted as function of
 quantity and quality of tasks accomplished by a given service.
-Higher user satisfaction leads to higher trust an better
+Higher user satisfaction leads to higher trust and better
 reputation of the community as a whole, which helps direct more
 requests towards that community.
 
@@ -1013,8 +999,8 @@ payoff distribution among the members of the coalition. It
 basically rewards members with the amount of average marginal
 contribution they add to the coalition. It checks the contribution
 of member $i$ by adding the agent to all possible subsets of
-coalitions $S$, where $S \subseteq N-\{i\}$. If he is added to the
-set $S$, his contribution to the coalition is $v(S \cup
+coalitions $S$, where $S \subseteq N-\{i\}$. If member $i$ is added to the
+set $S$, its contribution to the coalition is $v(S \cup
 \left\{i\right\}) - v(S)$. Average marginal contribution of agent
 $i$'s is calculated by averaging this value over all possible
 subsets of $N$, in the Shapley value equation (Equation
@@ -1560,7 +1546,7 @@ W1 $ where $W1$ is the set of all possible subsets of the set $N$
 having the size $1$. We can relax the equation a bit by adding a
 constant $\epsilon$ to the left side of the equation. We call this
 method \emph{Depth-1 Convex-Checker} algorithm. If the equation is
-satisfied for all $W1$, we let the new web service joins our
+satisfied for all $W1$, we let the new web service join our
 community, since the web service will contribute positively enough
 to make our new community stable. Since only subsets of size $1$
 are checked, the following Proposition holds.
@@ -1667,10 +1653,10 @@ games are described in \cite{DBLP:journals/igtr/AptW09}.
 We discussed $core$ as one of the prominent solution concepts in
 cooperative games. Working together, completing tasks and
 generating revenue, agents need to distribute the gain in a way no
-agents would gain more by having their own group. However, in most
+agents would gain more by forming their own group. However, in most
 cases the core of a game is empty so we introduced the
 \emph{$\epsilon$-core} concept, where agents would only earn a
-minimal amount of $\epsilon$ by deviating. Stability is an
+minimal amount of $\epsilon$ by deviating the coalition. Stability is an
 attractive property for communities. In addition, communities
 would benefit by having slightly more web services than the exact
 number of web services needed to satisfy the task rate cap. This
@@ -3004,9 +2990,8 @@ constant deviation in \emph{$\epsilon$-core} definition (Equation
 $\epsilon$-core} concept where no coalition would benefit more
 than \emph{$\epsilon$ $\times$ v(C)} by deviating. We set
 $\epsilon$ between 0 and 1 and verify the \emph{relative
-$\epsilon$-core} set non-emptiness. The results in Figure
-\ref{f_leastcore} illustrates that almost 10\% of our random web
-service coalitions have non-empty \emph{core} solution and
+$\epsilon$-core} set non-emptiness. We add a random web service to a random already stable community of web services.
+The results in Figure \ref{f_leastcore} illustrates that almost 10\% of new communities will stay stable and will have non-empty \emph{core} solution and
 \emph{$\epsilon$-core} solution is \emph{always} non-empty when we
 let agents gain only 30\% more of $v(C)$ by deviating.
 
