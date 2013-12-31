@@ -1171,11 +1171,13 @@ Out(C) = \left\{
   \begin{array}{l l}
     PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{C}$}\\
     PO(C) \times \frac{R_{C}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{C}$}
-  \end{array} \right.
+  \end{array} \right. 
 \end{equation}
 
 The revenue function of the web service community is a linear
-function of $Out(C)$ with a positive constant multiplier.
+function of $Out(C)$ with a positive constant multiplier. The 
+worth of a community is set to the output the community 
+can generate $v(C) = Out(C)$.
 
 \subsection{Illustrative Examples}
 
@@ -1703,7 +1705,9 @@ scenarios to validate the applicability and performance of our
 proposed methods in realistic environments. We created a pool of
 web services and populated most of their \emph{QoS} parameters
 from a real world web service dataset
-\cite{DBLP:conf/smc/Al-MasriM09a}. We implemented the simulations
+\cite{DBLP:conf/smc/Al-MasriM09a}\footnote[1]{The implemented 
+environment includes the QWS dataset by Eyhab Al-Masri and Qusay H. Mahmoud 
+freely available at: http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}. We implemented the simulations
 using Java and executed the simulations on an Intel Xeon X3450
 machine with 6GBs of memory. For other parameters missing from the
 dataset, we used normal random distribution with parameters
@@ -1753,8 +1757,8 @@ configuration we used in our simulation, the maximum number we
 could run for this method is 25. In the other methods, there were
 no cap on size of the community and we had communities of size 160
 web services at some points. In this scenario, our community
-receives 130 tasks from users on average per iteration. The
-community, after the task distribution process on each iteration,
+receives 130 tasks from users on average per iteration. These tasks are randomly generated and are expected to be performed by the community. Depending on community task queue and the assigned web services' quality metrics the task will be performed with some qualities.
+The community, after the task distribution process on each iteration,
 will reevaluate QoS metrics of its members and can check for new
 membership requests. Web services may join or leave the community
 between iterations. The results show that our \emph{depth-2 convex
@@ -2902,7 +2906,7 @@ $taxation$ \cite{eps346856} methods.
 
 \section{Experimental Results and Analysis}\label{s:resutls}
 
-In this section, we discuss the experiments we performed for our
+IIn this section, we discuss the experiments we performed for our
 scenarios to validate the applicability and performance of our
 proposed methods in realistic environments. We created a pool of
 web services and populated most of their \emph{QoS} parameters
