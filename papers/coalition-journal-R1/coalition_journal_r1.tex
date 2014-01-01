@@ -1539,8 +1539,8 @@ send a \emph{join request} to join  the community. Ideally, the
 having this new member should be analyzed. As the normal core
 membership algorithm is computationally intractable, we exploit
 Proposition \ref{proposition1} and Equation \ref{eq:convex_snow}
-to check the convexity of our game having characteristic function
-where the new member is added. In this equation (i.e., Equation
+to check the convexity condition for our game considering the characteristic function 
+when the new member is added. In this equation (i.e., Equation
 \ref{eq:convex_snow}), let $C$ be our community members before the
 new web service joins the community. Let  ${i}$ be the new web
 service, and then verify the equation for $S$, setting $ S = T /
@@ -1685,11 +1685,15 @@ with a constant coefficient value of $\lambda$.
 Obviously, with a big value for $\lambda$, it is always possible
 to stabilize the community. However, this can be a costly act for
 the community coordinators, so they are interested in the minimum
-subside value of $\lambda$ making the community stable. Subsiding
-or taxing in order to reduce the bargaining power of sub
+subside value of $\lambda$ making the community stable. When a new web service $i$, wants to join the community, the valuation function of the community members and the new web service is subsided by the community coordinator in order to incentivize formation of this community and is set to:
+\begin{equation}\label{taxv}
+v'(C \cup \{i\}) = \lambda \times v(C \cup \{i\})
+\end{equation}
+In equation \ref{eq:convex_snow} the value of $v'$ is replaced with the valuation function for the new forming coalition $C \cup \{i\}$.
+Subsiding or taxing in order to reduce the bargaining power of sub
 coalitions are called $taxation$ \cite{eps346856} methods. We
 evaluate the effectiveness of these two methods experimentally
-through extensive simulations in the next section.
+through extensive implementations in the next section.
 
 
 %Thus, another way to garantee \emph{$\epsilon$-core} stability can be achieved by some surplus payments from community coordinators. These concepts of applying cost in coallition values in order to reduce their bargaining power are called $taxtation$ methods\cite{eps346856}.
@@ -1707,8 +1711,8 @@ web services and populated most of their \emph{QoS} parameters
 from a real world web service dataset
 \cite{DBLP:conf/smc/Al-MasriM09a}\footnote[1]{The implemented 
 environment includes the QWS dataset by Eyhab Al-Masri and Qusay H. Mahmoud 
-freely available at: http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}. We implemented the simulations
-using Java and executed the simulations on an Intel Xeon X3450
+freely available at: http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}. We implemented the scenarios
+using Java and executed the implementation on an Intel Xeon X3450
 machine with 6GBs of memory. For other parameters missing from the
 dataset, we used normal random distribution with parameters
 estimated using the method of maximum likelihood.
