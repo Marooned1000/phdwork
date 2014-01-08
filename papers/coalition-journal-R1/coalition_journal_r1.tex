@@ -1572,7 +1572,7 @@ is $O(|C|^2)$.}
 
 In fact, it is possible to develop an algorithm that continues the
 verification of this condition against subsets of size $3$, $4$,
-etc. until the algorithm gets interrupted becuase of time constraint. If the algorithm gets intreupted while verification \emph{Depth(n)} conditions, we will have \emph{Depth(n-1)} results.
+etc. until the algorithm gets interrupted becuase of time constraint. If the algorithm gets intreupted while verifying \emph{Depth(n)} conditions, it will have \emph{Depth(n-1)} verified.
 
 \subsection {Scenario 2: Web Services and Many Communities}
 
@@ -1686,7 +1686,7 @@ Obviously, with a big value for $\lambda$, it is always possible
 to stabilize the community. However, this can be a costly act for
 the community coordinators, so they are interested in the minimum
 subside value of $\lambda$ making the community stable. When a new web service $i$, wants to join the community, the valuation function of the community members and the new web service is subsided by the community coordinator in order to incentivize formation of this community and is set to:
-\begin{equation}\label{taxv}
+\begin{equation}\label{eq:taxv}
 v'(C \cup \{i\}) = \lambda \times v(C \cup \{i\})
 \end{equation}
 In equation \ref{eq:taxv} the value of $v'$ is replaced with the valuation function for the new forming coalition $C \cup \{i\}$.
