@@ -69,30 +69,41 @@ publication in Expert Systems With Applications Journal.\\
 \vspace{0.5cm} \textbf{\underline{1. Reviewer}:} The abstract should be shorter and it lacks information on the proposed framework and the decision mechanism based on game theory which are not mentioned. The suggested modifications aim make the abstract and the conclusion more similar.
 
 \vspace{0.2cm}\textbf{\underline{Answer 1}: Thanks for the
-comment. We made the abstract shorter and added the information about our decision making process which based on game-theoretic best response technique in the abstract.}
+comment. We made the abstract shorter and added the information about our decision making process which is based on ``game-theoretic best response technique'' to the abstract.}
 
 \vspace{0.5cm}\textbf{\underline{2. Reviewer}:}  In section 2.2 (system parameters), the authors should specify how many parameters are used before explaining them and using such parameters in the proposed mathematics. This should aid the reader in better understanding.
 
-\vspace{0.2cm}\textbf{\underline{Answer 2}: We added a short summary about the system parameters in section 2.2. We have five system parameters and the other parameters are variables derived or calculated based on these five parameters. The title for Table 1. which was ``List of proposed system parameters'' was not very appropriate and we apologize for the confusion that it has caused. We changed its title to ``List of abbreviations''}
+\vspace{0.2cm}\textbf{\underline{Answer 2}: In the revised version, we added a short summary about the system parameters in section 2.2. We have five system parameters \emph{Task QoS}, \emph{Service QoS}, \emph{Budget}, \emph{Reputation} and \emph{Growth Factor}) and the other variables are derived or calculated based on these five parameters which are listed in Table 1. The title for Table 1. which was ``List of proposed system parameters'' was not very appropriate. We changed its title to ``List of abbreviations''}
 
 
 \vspace{0.5cm}\textbf{\underline{3. Reviewer}:} The text consists on very long paragraphs, mainly section 4 (experimental results), which makes the reading difficult.
 
-\vspace{0.2cm}\textbf{\underline{Answer 3}: In the revised
-version, all the needed concepts are defined. Grand coalition is
-defined as follows: In cooperative game theory, grand coalition is
-a coalition that contains a maximum number of players as long as
-they can maintain a stable (in terms of membership) and beneficial
-(in terms of utility) group for all the players (Section 4.1,
-paragraph 3).}
+\vspace{0.2cm}\textbf{\underline{Answer 3}: We edited the text in the revised version.}
 
 
 \vspace{0.5cm}\textbf{\underline{4. Reviewer}:} Still in section 4, the simulation application should be better specified, adding information on used machine, architecture, most important used services, etc.
 
-\vspace{0.2cm}\textbf{\underline{Answer 4}: The main objective of
-this work is to optimize the gain of web service communities as a
-whole and to ensure the creation of stable communities in terms of
-joining and leaving activities.}
+\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. We added more description and machine and architecture information to excremental section. 
+
+In the previous
+version, the tasks were abstract. In the revised version, the
+tasks are real tasks about flight booking that need to be
+performed by web services. The users provide the flight dates, the
+origin and destination, type of tickets, and number of guests. Web
+services will find different flights with different companies,
+prices, timing, etc. During our experiments, the tasks are
+randomly generated and are coded as XML requests (String) and
+responses are also coded in XML. Based on community task queue
+delay and the assigned web service quality metrics (such as
+reliability, throughput, latency and other metrics) these tasks
+will be performed with different qualities. In the experimental
+results and analysis section (Section 5), we have illustrated and
+evaluated the average QoS of tasks performed. In the revised
+manuscript, we added more explanations and details about the tasks
+in Section 5. Other details are also mentioned in our Answer 5 to
+Reviewer 3.
+
+}
 
 
 
@@ -117,7 +128,7 @@ paragraph.}
 \vspace{0.2cm}\textbf{\underline{Answer 6}: Tha
 }
 
-%\vspace{0.2cm}\textbf{\underline{Answer 9}: We 
+%\vspace{0.2cm}\textbf{\underline{Answer 9}: We
 %\url{http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/}, in}
 
 

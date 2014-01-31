@@ -1,5 +1,5 @@
 SyncTeX Version:1
-Input:1:C:/PhDWork/papers/coalition-journal-R1/response_letter-final.tex
+Input:1:C:/phdwork/notes/papers/coalition-journal-R1/response_letter-final.tex
 Input:2:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls
 Input:3:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo
 Input:4:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
@@ -38,8 +38,8 @@ Input:36:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty
 Input:37:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
 Input:38:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
 Input:39:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty
-Input:40:C:\PhDWork\papers\coalition-journal-R1\latex8.sty
-Input:41:C:\PhDWork\papers\coalition-journal-R1\response_letter-final.aux
+Input:40:C:\phdwork\notes\papers\coalition-journal-R1\latex8.sty
+Input:41:C:\phdwork\notes\papers\coalition-journal-R1\response_letter-final.aux
 Input:42:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd
 Input:43:C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
 Input:44:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
@@ -52,7 +52,7 @@ Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!3538
+!3556
 {1
 [1,100:4736286,51105053:31122136,46368767,0
 [1,100:3296451,51105053:32561971,46368767,0
@@ -14856,8 +14856,8 @@ k1,746:35858423,51105053:15887770
 ]
 !34039
 }11
-Input:50:C:\PhDWork\papers\coalition-journal-R1\response_letter-final.aux
-!85
+Input:50:C:\phdwork\notes\papers\coalition-journal-R1\response_letter-final.aux
+!91
 Postamble:
 Count:7166
 !26
