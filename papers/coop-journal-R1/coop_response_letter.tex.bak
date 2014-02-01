@@ -83,49 +83,19 @@ comment. We made the abstract shorter and added the information about our decisi
 
 \vspace{0.5cm}\textbf{\underline{4. Reviewer}:} Still in section 4, the simulation application should be better specified, adding information on used machine, architecture, most important used services, etc.
 
-\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. We added more description and machine and architecture information to excremental section. 
-
-In the previous
-version, the tasks were abstract. In the revised version, the
-tasks are real tasks about flight booking that need to be
-performed by web services. The users provide the flight dates, the
-origin and destination, type of tickets, and number of guests. Web
-services will find different flights with different companies,
-prices, timing, etc. During our experiments, the tasks are
-randomly generated and are coded as XML requests (String) and
-responses are also coded in XML. Based on community task queue
-delay and the assigned web service quality metrics (such as
-reliability, throughput, latency and other metrics) these tasks
-will be performed with different qualities. In the experimental
-results and analysis section (Section 5), we have illustrated and
-evaluated the average QoS of tasks performed. In the revised
-manuscript, we added more explanations and details about the tasks
-in Section 5. Other details are also mentioned in our Answer 5 to
-Reviewer 3.
-
+\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. In the revised manuscript, we added more explanations and details about the architecture and service types. Each web service was modeled based on a class and we initiated many threads on a single process for the web services. They used abstract XML based messaging system with request parameters and a list of abstract XML based responses. Based on community task queue delay and the assigned web service quality metrics (such as reliability, throughput, latency and other metrics) these tasks will be performed with different qualities. In the experimental results and analysis section (Section 4), we have illustrated and
+evaluated the average QoS of tasks performed. In the revised manuscript, we added more explanations and details about the architecture and service types.
 }
-
 
 
 \vspace{0.5cm}\textbf{\underline{5. Reviewer}:} Figure 3 is misplaced.
 
-\vspace{0.2cm}\textbf{\underline{Answer 5}: The interruption we
-are mentioning can be either caused by time/memory constraints
-when the number of subsets is big enough (timeout) or forced
-manually by the system designer if for example the already
-obtained results are satisfactory. In fact, if the algorithm gets
-interrupted while verifying $depth(n)$, it will have $depth(n-1)$
-already verified. Each depth will have $O(n^2)$ cases to check, so
-for example if it reaches depth 10, and the algorithm gets
-interrupted (manually or because of system resources), we at least
-have checked for all the subsets of depth 9. Clarification has
-been added in the revised manuscript at Section 4.1, last
-paragraph.}
+\vspace{0.2cm}\textbf{\underline{Answer 5}: Thanks for noticing the mistake, we replaced the Figure at the correct position (we put it after the paragraph it was first mentioned on) and double checked all other figures and tables placements.}
 
 
 \vspace{0.5cm}\textbf{\underline{6. Reviewer}:} 6) There are some minor format errors that should be addressed.
 
-\vspace{0.2cm}\textbf{\underline{Answer 6}: Tha
+\vspace{0.2cm}\textbf{\underline{Answer 6}: As mentioned in our Answer 4, we checked the formatting issues of paper as much as we could and we believe other formatting details will be covered the journal editors.
 }
 
 %\vspace{0.2cm}\textbf{\underline{Answer 9}: We
@@ -147,90 +117,25 @@ paragraph.}
 
 \vspace{0.5cm}\textbf{\underline{1. Reviewer}:}  Abstract: In my opinion, it is not necessary to talk about the sample used.
 
-\vspace{0.2cm}\textbf{\underline{Answer 1}: First}
+\vspace{0.2cm}\textbf{\underline{Answer 1}: True, as argued in our Answer 1 to Reviewer 1, We made the abstract more compact and removed some unnecessary details. }
 
 \vspace{0.5cm} \textbf{\underline{2. Reviewer}}:  Introduction: The first phrase ``Services are software systems...'' should include which kind of services are being analysed: intelligent, autonomous,... The definition used does not correspond to ``Services'' as a whole.
 
-\vspace{0.2cm}\textbf{\underline{Answer 2}: We agree, we rephrased
-the sentence as follows:  If the member $i$ is added to the set
-$S$, the contribution of this set to the coalition is $v(S \cup
-\left\{i\right\}) - v(S)$.}
+\vspace{0.2cm}\textbf{\underline{Answer 2}: We agree, the definition was too broad we rephrased
+the sentence as follows: Online Services are software systems providing a standard way of
+interoperability among different applications. These services are developed
+ in an autonomous and intelligent manner to continuously and autonomously interact with each other to
+fulfill users' requests.}
+
 \vspace{0.5cm} \textbf{\underline{3. Reviewer}}: Related work: The authors state in page 21: ``The interesting idea is to consider the benefits under four categories: innovation and learning,...''. If this is an interesting idea, it should be further explained. I agree with the authors, these benefits are very interesting, please provide further details.
 
-\vspace{0.2cm}\textbf{\underline{Answer 3}: In the previous
-version, the tasks were abstract. In the revised version, the
-tasks are real tasks about flight booking that need to be.}
+\vspace{0.2cm}\textbf{\underline{Answer 3}: In the revised manuscript, page 21 we added more description about their framework. }
 
 
 \vspace{0.5cm} \textbf{\underline{4. Reviewer}}:  Conclusion: The paper identifies clearly the implications for practice and further research. I consider the service consumer role very interesting for future research.
 
 \vspace{0.2cm}\textbf{\underline{Answer 4}: We mean deviating from
 the coalition. This has been fixed in the revised version.}
-
-
-
-\vspace{0.2cm}\textbf{\underline{Answer 1}: As argued in our
-Answer 2 to Reviewer 1, we are advocating the idea of community as
-a way to group web services in order to increase the total gain of
-all the members where each web service gain is more than or equal
-to what this web service would obtain being outside the community.
-This is because the community can provide wider visibility, better
-market share, higher reputation, and better way of sharing
-resources. Community for us is an infrastructure and being part of
-it should benefit the web service, but also the community as a
-whole. As argued in [Maamar et al., 2011]\footnote{Z. Maamar, P.
-Thiran, and J. Bentahar (2011). Web services communities: from
-intra-community Coopetition to inter-community Competition. In
-E-Business Application for Product Development and Competitive
-Growth: Emerging Technologies, In Lee editor, pp. 333-343, IGI
-Global.}, inside a community, web services can either compete or
-cooperate. In this paper, we stress the intra-community
-cooperation between web services for a better inter-community
-competition. The main idea is that to form a stable web service
-community and to have fair distribution of the total gain based on
-the contribution of each individual, cooperative game theory,
-particularly coalition game theory, is very suitable to formalize
-such a problem. Cooperation between competitors is a well
-established practice in economical theories (see for instance
-[Chetty and Wilson 2003]\footnote{S. K. Chetty and H. I. M. Wilson
-(2003). Collaborating with competitors to acquire resources.
-International Business Review, vol. 12. pp. 61-81.} and [Bucklin
-and Sengupta 1993]\footnote{L. P. Bucklin and S. Sengupta (1993).
-Organizing successful co-marketing alliances. Journal of
-Marketing. vol. 57, pp. 32-46.}). This happens in real business
-world scenarios. As an example, let us consider major carrier
-airlines providing ticket selling services. Those airlines can be
-seen as competing agents, each one tries to maximize its utility
-by gaining more market share. However, nowadays those companies
-are usually part of different coalitions (alliances) such as Star
-Alliance\footnote{\url{www.staralliance.com}} (28 airline members
-including Scandinavian Airlines, Thai Airways International, Air
-Canada, Lufthansa, and United Airlines),
-SkyTeam\footnote{\url{www.skyteam.com}} (19 members, among them
-Aerom\'{e}xico, Air France, Delta Air Lines, Continental Airlines,
-KLM, and Northwest Airlines), and Oneworld\footnote{\url{
-www.oneworld.com}} (13 members including Air Berlin, American
-Airlines, British Airways, Cathay Pacific, Iberia, Japan Airlines,
-Malaysia Airlines, and Qatar Airways). By sharing resources and
-market share and having the option of service multi-hop air
-tickets combined from different airlines, each airline member of a
-coalition can increase its gain by collaborating. The question is
-when this collaboration would be beneficial for all the agents
-involved? For example the three alliances would not gain anything
-by collaborating and sharing resources with airlines of low
-reputation and quality. They will lose their market and would
-rather stay away from this collaboration. Therefore, no stable
-community can be formed between well established and poor
-airlines. Another example of cooperation among competitors is the
-arrangement between PSA Peugeot Citro\"{e}n and Toyota to create
-Toyota Peugeot Citro\"{e}n Automobile
-(TPCA)\footnote{\url{www.tpca.cz/en/}} in order to share
-components for a new city car where the different companies save
-money on shared costs while remaining competitive in other areas.
-Our solution of cooperation between competitor web services within
-coalitions follows these models. We updated the paper to reflect
-this important discussion by adding a new part, called
-motivations, to the introduction (Section 1).}
 
 
 \end{document}
