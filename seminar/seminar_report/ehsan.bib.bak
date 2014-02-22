@@ -1,0 +1,588 @@
+
+@inproceedings{SCC2013-1,
+  author    = {Karim Benouaret and Djamal Benslimane and Allel Hadjali and Mahmoud Barhamgi},
+  title     = {Top-k Web Service Compositions Using Fuzzy Dominance Relationship},
+  booktitle = {IEEE SCC},
+  year      = {2011},
+  pages     = {144-151}
+}
+
+@inproceedings{Alescio,
+author = {A. Lomuscio and H. Qu and M. Solanki},
+title = {Towards verifying compliance in agent-based web service
+compositions},
+booktitle = {AAMAS(1)},
+pages ={265--272},
+year={2008}
+}
+
+@article{Algorithmic,
+  author    = {Xiaotie Deng and Qizhi Fang},
+  title     = {Algorithmic Cooperative Game Theory},
+  journal   = {Pareto Optimality, Game Theory And Equilibria.
+               Springer Optimization and Its Applications},
+  volume    = {17},
+  year      = {2008},
+  pages     = {159-185}
+}
+
+@inproceedings{SCC2011-1,
+  author    = {Karim Benouaret and Djamal Benslimane and Allel Hadjali and Mahmoud Barhamgi},
+  title     = {Top-k Web Service Compositions Using Fuzzy Dominance Relationship},
+  booktitle = {IEEE SCC},
+  year      = {2011},
+  pages     = {144-151}
+}
+
+
+@inproceedings{ICWS2011-1,
+  author    = {Pablo Rodriguez-Mier},
+  title     = {Automatic Web Service Composition with a Heuristic-Based Search Algorithm},
+  booktitle = {IEEE ICWS},
+  year      = {2011},
+  pages     = {81-88}
+}
+
+@article{DBLP:journals/ijebr/MaamarSTBB09,
+  author    = {Zakaria Maamar and
+               Sattanathan Subramanian and
+               Philippe Thiran and
+               Djamal Benslimane and
+               Jamal Bentahar},
+  title     = {An Approach to Engineer Communities of Web Services: Concepts,
+               Architecture, Operation, and Deployment},
+  journal   = {IJEBR},
+  volume    = {5},
+  number    = {4},
+  year      = {2009},
+  pages     = {1-21},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{shapley_value,
+  author    = {Lloyd S. Shapley},
+  title     = {A Value for n-person Games},
+  journal   = {In Contributions to the
+Theory of Games (Annals of Mathematical Studies)},
+  volume    = {2},
+  year      = {1953},
+  pages     = {307-317}
+}
+
+@book{myerson1991game,
+  title={Game theory: analysis of conflict},
+  author={Myerson, R.B.},
+  isbn={9780674341159},
+  lccn={lc90042901},
+  year={1991},
+  publisher={Harvard University Press}
+}
+
+@inproceedings{DBLP:conf/IEEEscc/KhosravifarABT11,
+  author    = {Babak Khosravifar and
+               Mahsa Alishahi and
+               Jamal Bentahar and
+               Philippe Thiran},
+  title     = {A Game Theoretic Approach for Analyzing the Efficiency of
+               Web Services in Collaborative Networks},
+  booktitle = {IEEE SCC},
+  year      = {2011},
+  pages     = {168-175},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@inproceedings{DBLP:conf/IEEEscc/LimTMB12,
+  author    = {Erbin Lim and
+               Philippe Thiran and
+               Zakaria Maamar and
+               Jamal Bentahar},
+  title     = {On the Analysis of Satisfaction for Web Services Selection},
+  booktitle = {IEEE SCC},
+  year      = {2012},
+  pages     = {122-129},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@inproceedings{DBLP:conf/ijcai/GrecoMPS11,
+  author    = {Gianluigi Greco and
+               Enrico Malizia and
+               Luigi Palopoli and
+               Francesco Scarcello},
+  title     = {On the Complexity of the Core over Coalition Structures},
+  booktitle = {IJCAI},
+  year      = {2011},
+  pages     = {216-221},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@inproceedings{DBLP:conf/ijcai/RahwanMJ11,
+  author    = {Talal Rahwan and
+               Tomasz P. Michalak and
+               Nicholas R. Jennings},
+  title     = {Minimum Search to Establish Worst-Case Guarantees in Coalition
+               Structure Generation},
+  booktitle = {IJCAI},
+  year      = {2011},
+  pages     = {338-343},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@TECHREPORT{RePEc:wpa:wuwpga:0110001,
+  title = {The Coalition Structure Core is Accessible},
+  author = {Kóczy, László Á. and Lauwers, Luc},
+  year = {2002},
+  institution = {EconWPA},
+  type = {Game Theory and Information}
+}
+
+@article{S1971cores,
+    author = {Shapley, L. S.},
+    journal = {International Journal of Game Theory},
+    pages = {11-26},
+    priority = {2},
+    title = {Cores of convex games},
+    volume = {1},
+    year = {1971}
+}
+
+@inproceedings{DBLP:conf/aaai/RahwanMEFSWJ11,
+  author    = {Talal Rahwan and
+               Tomasz P. Michalak and
+               Edith Elkind and
+               Piotr Faliszewski and
+               Jacek Sroka and
+               Michael Wooldridge and
+               Nicholas R. Jennings},
+  title     = {Constrained Coalition Formation},
+  booktitle = {AAAI},
+  year      = {2011},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{eps267179,
+          volume = {34},
+           month = {April},
+           title = {An Anytime Algorithm for Optimal Coalition Structure Generation},
+          author = {Talal Rahwan and Sarvapali Ramchurn and Nicholas Jennings and Andrea Giovannucci},
+            year = {2009},
+           pages = {521--567},
+         journal = {Journal of Artificial Intelligence Research (JAIR)}
+}
+
+@inproceedings{DBLP:conf/smc/Al-MasriM09a,
+  author    = {Eyhab Al-Masri and
+               Qusay H. Mahmoud},
+  title     = {Discovering the Best Web Service: A Neural Network-based
+               Solution},
+  booktitle = {SMC},
+  year      = {2009},
+  pages     = {4250-4255},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/igtr/AptW09,
+  author    = {Krzysztof R. Apt and
+               Andreas Witzel},
+  title     = {A Generic Approach to Coalition Formation},
+  journal   = {IGTR},
+  volume    = {11},
+  number    = {3},
+  year      = {2009},
+  pages     = {347-367},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@ARTICLE{Dieckmann02dynamiccoalition,
+    author = {Tone Dieckmann and Ulrich Schwalbe},
+    title = {Dynamic coalition formation and the core},
+    journal = {Journal of Economic Behavior and Organization},
+    year = {2002}
+}
+
+@book{ray2007game,
+  title={A Game-Theoretic Perspective on Coalition Formation},
+  author={Ray, D.},
+  isbn={9780191607240},
+  year={2007},
+  publisher={OUP Oxford}
+}
+
+@article{DBLP:journals/corr/abs-cs-0605132,
+  author    = {Krzysztof R. Apt and
+               Tadeusz Radzik},
+  title     = {Stable partitions in coalitional games},
+  journal   = {CoRR},
+  volume    = {abs/cs/0605132},
+  year      = {2006},
+  ee        = {http://arxiv.org/abs/cs/0605132},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{DBLP:journals/internet/BenatallahSD03,
+  author    = {Boualem Benatallah and
+               Quan Z. Sheng and
+               Marlon Dumas},
+  title     = {The Self-Serv Environment for Web Services Composition},
+  journal   = {IEEE Internet Computing},
+  volume    = {7},
+  number    = {1},
+  year      = {2003},
+  pages     = {40-48},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/MIC.2003.1167338},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{Sandholm:1999:CSG:317145.317152,
+ author = {Sandholm, Tuomas and Larson, Kate and Andersson, Martin and Shehory, Onn and Tohm{\'e}, Fernando},
+ title = {Coalition structure generation with worst case guarantees},
+ journal = {Artif. Intell.},
+ issue_date = {July 1999},
+ volume = {111},
+ number = {1-2},
+ month = jul,
+ year = {1999},
+ issn = {0004-3702},
+ pages = {209--238},
+ numpages = {30},
+ url = {http://dx.doi.org/10.1016/S0004-3702(99)00036-3},
+ doi = {10.1016/S0004-3702(99)00036-3},
+ acmid = {317152},
+ publisher = {Elsevier Science Publishers Ltd.},
+ address = {Essex, UK},
+ keywords = {anytime algorithm, coalition formation, distributed AI, game theory, multiagent systems, negotiation, resource-bounded reasoning},
+}
+
+@inproceedings{eps346856,
+       booktitle = {Proc. 12th Int. Conf on Autonomous Agents and Multi-Agent Systems},
+           title = {Taxation and stability in cooperative games},
+          author = {Y Zick and Maria Polukarov and N. R. Jennings},
+            year = {2013},
+           pages = {523--530},
+             url = {http://eprints.soton.ac.uk/346856/}
+}
+
+@article{10.1109/TSC.2012.12,
+author = {An Liu and Qing Li and Liusheng Huang and Shi Ying and Mingjun Xiao},
+title = {Coalitional Game for Community-based Autonomous Web Services Cooperation},
+journal ={IEEE Transactions on Services Computing},
+volume = {99},
+number = {PrePrints},
+issn = {1939-1374},
+year = {2012},
+doi = {http://doi.ieeecomputersociety.org/10.1109/TSC.2012.12},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+}
+
+@inproceedings{Zeng:2003:QDW:775152.775211,
+ author = {Zeng, Liangzhao and Benatallah, Boualem and Dumas, Marlon and Kalagnanam, Jayant and Sheng, Quan Z.},
+ title = {Quality driven web services composition},
+ booktitle = {Proceedings of the 12th international conference on World Wide Web},
+ series = {WWW '03},
+ year = {2003},
+ isbn = {1-58113-680-3},
+ location = {Budapest, Hungary},
+ pages = {411--421},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/775152.775211},
+ doi = {10.1145/775152.775211},
+ acmid = {775211},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {QoS, service composition, web services},
+}
+
+@article{Paik:2005:TSS:2229263.2230038,
+ author = {Paik, Hye-Young and Benatallah, B. and Toumani, F.},
+ title = {Toward self-organizing service communities},
+ journal = {Trans. Sys. Man Cyber. Part A},
+ issue_date = {May 2005},
+ volume = {35},
+ number = {3},
+ month = may,
+ year = {2005},
+ issn = {1083-4427},
+ pages = {408--419},
+ numpages = {12},
+ url = {http://dx.doi.org/10.1109/TSMCA.2004.846402},
+ doi = {10.1109/TSMCA.2004.846402},
+ acmid = {2230038},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+ keywords = {Catalog portals, e-catalogs, peer-to-peer (P2P), self-adaptivity},
+}
+
+@ARTICLE{Medjahed05adynamic,
+    author = {Brahim Medjahed},
+    title = {A Dynamic Foundational Architecture for Semantic Web Services},
+    journal = {Distributed And Parallel Databases, an International Journal},
+    year = {2005},
+    volume = {17},
+    pages = {179--206}
+}
+
+@article{10.1109/ARES.2008.7,
+ author = {Zakaria Maamar and Quan Z. Sheng and Djamal Benslimane},
+ title = {Sustaining Web Services High-Availability Using Communities},
+ journal ={2012 Seventh International Conference on Availability, Reliability and Security},
+ volume = {0},
+ isbn = {978-0-7695-3102-1},
+ year = {2008},
+ pages = {834-841},
+ doi = {http://doi.ieeecomputersociety.org/10.1109/ARES.2008.7},
+ publisher = {IEEE Computer Society},
+ address = {Los Alamitos, CA, USA},
+}
+
+
+@inproceedings{Chun02user-centricperformance,
+    author = {Brent N. Chun and David E. Culler},
+    title = {User-centric Performance Analysis of Market-based Cluster Batch Schedulers},
+    booktitle = {The 2nd IEEE/ACM International Symposium on Cluster Computing and the Grid},
+    year = {2002},
+    pages={30}
+}
+@article{mcknight00a,
+    author = {Mcknight, Lee W. and Boroumand, Jahangir},
+    citeulike-article-id = {1585905},
+    citeulike-linkout-0 = {http://jmvidal.cse.sc.edu/library/mcknight00a.pdf},
+    journal = {{IEEE} Computer},
+    keywords = {bibtex-import},
+    pages = {128--129},
+    posted-at = {2007-08-23 14:42:27},
+    priority = {2},
+    title = {{Pricing Internet Services: Approaches and Challenges}},
+    year = {2000}
+}
+
+@inproceedings{Khosravifar:2009:AIR:1586636.1586906,
+ author = {Khosravifar, Babak and Bentahar, Jamal and Thiran, Philippe and Moazin, Ahmad and Guiot, Adrien},
+ title = {An Approach to Incentive-Based Reputation for Communities of Web Services},
+ booktitle = {Proceedings of the 2009 IEEE International Conference on Web Services},
+ series = {ICWS '09},
+ year = {2009},
+ isbn = {978-0-7695-3709-2},
+ pages = {303--310},
+ numpages = {8},
+ doi = {10.1109/ICWS.2009.101},
+ acmid = {1586906},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+ keywords = {Web Service, Community, Reputation},
+}
+@article{Rosario:2008:PQS:1512146.1512290,
+ author = {Rosario, Sidney and Benveniste, Albert and Haar, Stefan and Jard, Claude},
+ title = {Probabilistic QoS and Soft Contracts for Transaction-Based Web Services Orchestrations},
+ journal = {IEEE Trans. Serv. Comput.},
+ issue_date = {October 2008},
+ volume = {1},
+ number = {4},
+ month = oct,
+ year = {2008},
+ issn = {1939-1374},
+ pages = {187--200},
+ numpages = {14},
+ doi = {10.1109/TSC.2008.17},
+ acmid = {1512290},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+ keywords = {Composite Web Services, Web Services, Quality of Services},
+}
+
+@book{GVK369342747,
+  added-at = {2009-08-21T12:15:08.000+0200},
+  address = {New York, NY [u.a.]},
+  author = {Osborne, {Martin J.}},
+  biburl = {http://www.bibsonomy.org/bibtex/2eabdb8c966d1c41b1688e96be4c2415c/fbw_hannover},
+  interhash = {eac9597cabc0925874b5b5e08778ca06},
+  intrahash = {eabdb8c966d1c41b1688e96be4c2415c},
+  isbn = {978-0-19-512895-6},
+  keywords = {Angewandte_Mathematik Game_theory Methoden_und_Techniken_der_Betriebswirtschaft Spieltheorie Wahrscheinlichkeitsrechnung},
+  pagetotal = {XVII, 533},
+  ppn_gvk = {369342747},
+  publisher = {Oxford Univ. Press},
+  timestamp = {2009-08-21T12:15:08.000+0200},
+  title = {An introduction to game theory},
+  url = {http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+369342747&sourceid=fbw_bibsonomy},
+  year = 2004
+}
+
+@techreport{w3cwsdl,
+    abstract = {{WSDL is an XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information. The operations and messages are described abstractly, and then bound to a concrete network protocol and message format to define an endpoint. Related concrete endpoints are combined into abstract endpoints (services). WSDL is extensible to allow description of endpoints and their messages regardless of what message formats or network protocols are used to communicate, however, the only bindings described in this document describe how to use WSDL in conjunction with SOAP 1.1, HTTP GET/POST, and MIME}},
+    author = {Christensen, Erik and Curbera, Francisco and Meredith, Greg and Weerawarana, Sanjiva},
+    citeulike-article-id = {99946},
+    citeulike-linkout-0 = {http://www.w3.org/TR/wsdl},
+    day = {15},
+    keywords = {diplomarbeit, webservices, wsdl},
+    month = mar,
+    organization = {W3C},
+    posted-at = {2008-04-25 09:52:09},
+    priority = {2},
+    title = {{Web Service Definition Language (WSDL)}},
+    url = {http://www.w3.org/TR/wsdl},
+    year = {2001}
+}
+
+@article{journals/dpd/MedjahedB05,
+  added-at = {2005-03-17T00:00:00.000+0100},
+  author = {Medjahed, Brahim and Bouguettaya, Athman},
+  biburl = {http://www.bibsonomy.org/bibtex/2f3db6d8edb33f5ffd1ff01623a793a84/dblp},
+  date = {2005-03-17},
+  description = {dblp},
+  ee = {http://www.springerlink.com/index/10.1007/s10619-004-0190-1},
+  interhash = {422cfa5afd5e339664e959b8b93c94b8},
+  intrahash = {f3db6d8edb33f5ffd1ff01623a793a84},
+  journal = {Distributed and Parallel Databases},
+  keywords = {dblp},
+  number = 2,
+  pages = {179-206},
+  timestamp = {2005-03-17T00:00:00.000+0100},
+  title = {A Dynamic Foundational Architecture for Semantic Web Services.},
+  url = {http://dblp.uni-trier.de/db/journals/dpd/dpd17.html#MedjahedB05},
+  volume = 17,
+  year = 2005
+}
+
+@inproceedings{conf/webist/MaamarLBTS07,
+  added-at = {2012-10-26T00:00:00.000+0200},
+  author = {Maamar, Zakaria and Lahkim, Mohammed and Benslimane, Djamal and Thiran, Philippe and Subramanian, Sattanathan},
+  biburl = {http://www.bibsonomy.org/bibtex/2cb2efc6b8935398d0f99f1bd50ed14ec/dblp},
+  booktitle = {WEBIST (1)},
+  crossref = {conf/webist/2007-1},
+  editor = {Filipe, Joaquim and Cordeiro, José and Encarnação, Bruno and Pedrosa, Vitor},
+  interhash = {16cb06060dd562b2291c8db1a646965a},
+  intrahash = {cb2efc6b8935398d0f99f1bd50ed14ec},
+  isbn = {978-972-8865-77-1},
+  keywords = {dblp},
+  pages = {323-327},
+  publisher = {INSTICC Press},
+  timestamp = {2012-10-26T00:00:00.000+0200},
+  title = {Web Services Communities - Concepts and Operations.},
+  url = {http://dblp.uni-trier.de/db/conf/webist/webist2007-1.html#MaamarLBTS07},
+  year = 2007
+}
+
+@inproceedings{conf/IEEEscc/BenharrefSBB11,
+  added-at = {2011-10-19T00:00:00.000+0200},
+  author = {Benharref, Abdelghani and Serhani, Mohamed Adel and Bouktif, Salah and Bentahar, Jamal},
+  biburl = {http://www.bibsonomy.org/bibtex/273aee7c8a90029592b0c9e91fc71fba4/dblp},
+  booktitle = {IEEE SCC},
+  crossref = {conf/IEEEscc/2011},
+  editor = {Jacobsen, Hans-Arno and Wang, Yang and Hung, Patrick},
+  ee = {http://doi.ieeecomputersociety.org/10.1109/SCC.2011.44},
+  interhash = {d1ba44ceb0d0227943a84abc71cf67b6},
+  intrahash = {73aee7c8a90029592b0c9e91fc71fba4},
+  isbn = {978-1-4577-0863-3},
+  keywords = {dblp},
+  pages = {472-479},
+  publisher = {IEEE},
+  timestamp = {2011-10-19T00:00:00.000+0200},
+  title = {A New Approach for Quality Enforcement in Communities of Web Services.},
+  url = {http://dblp.uni-trier.de/db/conf/IEEEscc/scc2011.html#BenharrefSBB11},
+  year = 2011
+}
+
+@inproceedings{conf/IEEEscc/KhosravifarBMMT10,
+  added-at = {2010-08-12T00:00:00.000+0200},
+  author = {Khosravifar, Babak and Bentahar, Jamal and Moazin, Ahmad and Maamar, Zakaria and Thiran, Philippe},
+  biburl = {http://www.bibsonomy.org/bibtex/2053dcb6180888d63077947c044e37954/dblp},
+  booktitle = {IEEE SCC},
+  crossref = {conf/IEEEscc/2010},
+  ee = {http://doi.ieeecomputersociety.org/10.1109/SCC.2010.75},
+  interhash = {beb8da11a1ad4fd9fa85c038163dc575},
+  intrahash = {053dcb6180888d63077947c044e37954},
+  isbn = {978-0-7695-4126-6},
+  keywords = {dblp},
+  pages = {194-201},
+  publisher = {IEEE Computer Society},
+  timestamp = {2010-08-12T00:00:00.000+0200},
+  title = {Analyzing Communities vs. Single Agent-Based Web Services: Trust Perspectives.},
+  url = {http://dblp.uni-trier.de/db/conf/IEEEscc/scc2010.html#KhosravifarBMMT10},
+  year = 2010
+}
+
+@inproceedings{conf/aina/LimTM11,
+  added-at = {2011-05-17T00:00:00.000+0200},
+  author = {Lim, Erbin and Thiran, Philippe and Maamar, Zakaria},
+  biburl = {http://www.bibsonomy.org/bibtex/29507a97439083793527b47c3942f8586/dblp},
+  booktitle = {AINA},
+  crossref = {conf/aina/2011},
+  ee = {http://dx.doi.org/10.1109/AINA.2011.59},
+  interhash = {134dd12a993772c1ffb90f49482c8edc},
+  intrahash = {9507a97439083793527b47c3942f8586},
+  keywords = {dblp},
+  pages = {578-585},
+  publisher = {IEEE Computer Society},
+  timestamp = {2011-05-17T00:00:00.000+0200},
+  title = {Towards Defining and Assessing the Non-functional Properties of Communities of Web Services.},
+  url = {http://dblp.uni-trier.de/db/conf/aina/aina2011.html#LimTM11},
+  year = 2011
+}
+
+@inproceedings{CSTintercommunity,
+  author = {Z. Maamar, P. Thiran, and J. Bentahar},
+  pages = {333-343},
+  publisher = {E-Business Application for Product Development and Competitive Growth: Emerging Technologies},
+  title = {Web Services Communities: From Intra-Community Coopetition to Inter-Community Competition.},
+  year = 2011
+}
+
+@inproceedings{conf/aaai/YokooCSOI05,
+  added-at = {2012-12-10T00:00:00.000+0100},
+  author = {Yokoo, Makoto and Conitzer, Vincent and Sandholm, Tuomas and Ohta, Naoki and Iwasaki, Atsushi},
+  biburl = {http://www.bibsonomy.org/bibtex/253fdef6afbbe9e93c25d498c1e76e49d/dblp},
+  booktitle = {AAAI},
+  crossref = {conf/aaai/2005},
+  editor = {Veloso, Manuela M. and Kambhampati, Subbarao},
+  ee = {http://www.aaai.org/Library/AAAI/2005/aaai05-080.php},
+  interhash = {6e3391700c6180fb7dda791b19bd2cf9},
+  intrahash = {53fdef6afbbe9e93c25d498c1e76e49d},
+  isbn = {1-57735-236-X},
+  keywords = {dblp},
+  pages = {509-515},
+  publisher = {AAAI Press / The MIT Press},
+  timestamp = {2012-12-10T00:00:00.000+0100},
+  title = {Coalitional Games in Open Anonymous Environments.},
+  url = {http://dblp.uni-trier.de/db/conf/aaai/aaai2005.html#YokooCSOI05},
+  year = 2005
+}
+
+@article{Deng94,
+    abstract = {{An abstract is not available.}},
+    address = {Institute for Operations Research and the Management Sciences (INFORMS), Linthicum, Maryland, USA},
+    author = {Deng, Xiaotie and Papadimitriou, Christos H.},
+    citeulike-article-id = {9053338},
+    citeulike-linkout-0 = {http://portal.acm.org/citation.cfm?id=183317},
+    issn = {0364-765X},
+    journal = {Math. Oper. Res.},
+    keywords = {game\_theory},
+    month = may,
+    pages = {257--266},
+    posted-at = {2011-03-24 13:16:36},
+    priority = {2},
+    publisher = {INFORMS},
+    title = {{On the complexity of cooperative solution concepts}},
+    url = {http://portal.acm.org/citation.cfm?id=183317},
+    volume = {19},
+    year = {1994}
+}
+
+@inproceedings{conf/aaai/Ketchpel94a,
+  added-at = {2012-12-11T00:00:00.000+0100},
+  author = {Ketchpel, Steven P.},
+  biburl = {http://www.bibsonomy.org/bibtex/28248ccdfca15699cc0b7e67cb00fa027/dblp},
+  booktitle = {AAAI},
+  crossref = {conf/aaai/1994-2},
+  editor = {Hayes-Roth, Barbara and Korf, Richard E.},
+  ee = {http://www.aaai.org/Library/AAAI/1994/aaai94-261.php},
+  interhash = {df9bf4602916b084bd696df6dc17f8ac},
+  intrahash = {8248ccdfca15699cc0b7e67cb00fa027},
+  isbn = {0-262-61102-3},
+  keywords = {dblp},
+  pages = 1467,
+  publisher = {AAAI Press / The MIT Press},
+  timestamp = {2012-12-11T00:00:00.000+0100},
+  title = {The Formation of Coalitions Among Self-Interested Agents.},
+  url = {http://dblp.uni-trier.de/db/conf/aaai/aaai94-2.html#Ketchpel94a},
+  year = 1994
+}

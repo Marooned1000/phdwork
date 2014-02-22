@@ -1,0 +1,179 @@
+\setcounter{chapter}{0}
+%*******************************START INTRODUCTION **********************************
+\chapter{Introduction}\label{sec:intro}
+In this chapter we introduce the context of this research, which is about community of web services as autonomous agents and cooperative game theoretic solution concepts. We discuss literature review and their shortcomings then present the motivations behind this work. Also, we discuss our preliminary contributions.
+
+\section{Context}\label{sec:motivation}
+
+Over the past years, online services have become part of many
+scalable business applications. The increasing reliance on
+web-based applications has significantly influenced the way web
+services are engineered. Web services provide a set of stateless
+software functions accessible at a network address over the web.
+The recent developments are shifting web services from passive and
+individual components to autonomous and group-based components
+where interaction, composition, and cooperation are the key
+challenges \cite{ICWS2011-1,SCC2011-1}. The main objective is to
+achieve a seamless integration of business processes, applications
+and web services. Delivering high quality services considering the
+dynamic and unpredictable nature of the Internet is still a very
+critical and challenging issue.
+
+The need for highly available and responsive services has called
+for grouping and collaborative mechanisms of loosely-coupled web
+services, particularly in business settings. The idea of grouping
+web services within communities and the way those communities are
+engineered so that web services can better collaborate have been
+proposed and investigated in
+\cite{DBLP:journals/ijebr/MaamarSTBB09,DBLP:journals/internet/BenatallahSD03,Rosario:2008:PQS:1512146.1512290}.
+Communities are virtual groups of web services having similar
+functionalities \cite{Zeng:2003:QDW:775152.775211, Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,10.1109/ARES.2008.7}, but probably different non-functional quality
+attributes, which form the QoS parameters. When communities are
+used, users send their requests to the masters of those
+communities, which are responsible of managing the communities,
+forwarding the requests to the suitable member web services and
+checking the credentials of those members. Communities aim to
+provide higher service availability and performance than what
+individual web services can provide. The high availability of
+services and the community resilience to failure are guaranteed
+since web services can cooperate and replace each other within the
+same community and since there is no single point of failure in
+the communities architecture.
+
+\section{Motivating Scenario}\label{sec:motexample}
+
+In this section, we present a scenario and demonstrate why there is a need for community of services and why it should satisfy all business models involved.
+We first propose an example of real world scenario, focusing on user experience. Nowadays most of the computer applications, are dependant on multiple online
+service provides, examples are vast in daily life of people nowadays, weather forecasting, ticketing services, map services, local places guides and so on. Most mobile or web applications
+cannot independently provide these information and they rely on different online services providing these information.
+The high competition on services, requires applications to use reliable and high quality services.
+Because if user checks a web site or runs an application on his/her mobile, upon having downtime, or having high response delay or encountering any non satisfying quality metric, the user
+will instantly remove the application, which is a huge business concert for application providers. For example, if someone installs a ticketing application on mobile and the application is not using quality service providers, the user would instantly uninstall the application, which has a high negative affect on application visibility. Or lets say you search "Montreal Weather" on a search engine and you click on a web site which is slow (because its using a bad weather web service as source of its raw data), the user will press "back", leave the web site and try another link which has a bad Search Engine Optimization (SEO) effect for the web site, and search engines would not show that web site on search results anymore, which is a business and revenue loss for the application. Thus end user satisfaction is the main goal of all online providers otherwise they will lose the market to competitions very fast. This is the main goal of community of services, to provide higher quality, higher uptime and reliability for end users. To this end, community formation, should consider important QoS parameters while forming the community and during membership management.
+
+High demand on online services has created a big competition on this area. For example an application developer, right now needs to choose between hundreds of web services online providing local places information such as coffees, venues, shops and bars nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongs hundereds or thousands of other service providers, even if they provide high quality of service. Hence, our community of web services, provides them with the chance of joining the communities which already have established market share, and providing them with a great source of revenue, proportional to their QoS and throughput. However, its important for community manager to consider all parties involved, for example if market share is not big enough, bringing
+new web services, can cause revenue drop for the already residing members in community, since basically there would be not enough tasks and revenue to be shared among web services. This will not effect user satisfaction, but other quality web services may collude leave the community, and join another community, hurting the community stability. This is an important issue which has not been addressed previously in similar related works. On the other hand, if communities bound the number of web services exactly to the numbers satisfying their market share, in the case of failure of a web service, the reliability and availability metrics of the community could get hurt. This also has not been efficiently addressed in any other related work. In this research work, we try to propose community formation algorithms, satisfying all parties involved. This is a complete business model, considering end users, community managers and service providers.
+
+\section{Motivation and research Questions}\label{sec:researchquestions}
+
+Web service communities are dynamic by design \cite{DBLP:journals/ijebr/MaamarSTBB09}. In these communities, web services are modeled as intelligent autonomous agents, where they can adopt a strategy maximizing their payoff at any time. A web service has its own right to determine when to join a community and when to leave a community. Community managers can invite or ask a web service to leave in order to maximise their profit. Users can simply stop sending requests to a web service which is not providing satisfactory services. Thus its important to consider all parties involved in community management decision making process. Most of the recent work on communities of services are either
+user-centric and focus on user satisfaction
+\cite{Chun02user-centricperformance} or system-centric and focus
+on the whole system throughput, performance and utilization. There
+are many contributions in distributed, grid, cluster and cloud
+services which are system-centric. However, in real world
+environments and applications, both users and service providers
+are self-interested agents, aiming to maximize their own profit.
+In those environments, both parties (users and services) will
+collaborate as long as they are getting more benefits and payoff.
+Our initial research question is:
+\emph{How can we model the community of services for the autonomous agents, in order to maximize the throughput for users, web services and community organizers involved?}
+
+
+In order to address this shortcoming, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
+DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed mechanisms to help
+users and services to maximize their gain. A two-player
+non-cooperative game between web services and community master was
+introduced in \cite{DBLP:conf/IEEEscc/KhosravifarABT11}.
+In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
+for selecting web services has been proposed. In this approach,
+the authors proposed a web service selection process that the
+community masters can use. The approach considers the efficiency
+of all the three involved parties, namely users, web services and
+communities. The issue with these solution concepts is that they consider community as whole and model it as one entity in their formulations. A community master decides on behalf of an aggregated function of parameters of all the web services in the community. This can hurt the overall revenue for some individual web services, or even a subset of web services. They can collude and form their own community and gain more, instead of having to adjust and share their resources to other members. Another important issue which needs to be considered is community stability. In community of web services, the web services and community organizers collaborate to perform tasks. Having jointly completed a task and generated revenue, they need to agree on some reasonable method of dividing profits (or tasks) among themselves. This is an key issue for stability of communities which has not had enough attention in related work. If the revenue sharing mechanism is not fair enough for any subset of web services working in the community, as profit maximizing agents, they would just deviate and make their own group inorder to gain more and fair share of profit.
+So an important research question that we would like to address is:
+\emph{How can we model the the fairness, efficiently in communities of web services and form stable communities?}
+
+%The consideration of those inputs is a significant
+%issue as existing web services can lose utility or payoff because
+%of the new member, which can results in an unhealthy and unstable
+%group. The problem comes from the fact that the existing members
+%should collaborate with the new web services, so probably their
+%performance as a group can suffer. Existing members may even
+%deviate and try to join other communities if they are unsatisfied.
+%Those considerations of forming stable and efficient coalitions
+%are the main contributions of our paper.
+
+%However, a high
+%performing web service could deviate anytime it finds itself
+%unsatisfied within the community instead of adjusting its service
+%parameters.
+
+
+
+
+In \cite{10.1109/TSC.2012.12}, a cooperative scheme among autonomous
+web services based on coalitional game theory has been introduced. They have proposed an algorithm to
+reach individually stable coalition partition for web services in order to
+maximize their efficiency. The communities choose new web services on the promise
+that it would benefit the community without decreasing any other web service's
+income. In their model, the worth of community is evaluated with high emphasis on
+availability metric and considering price and cost values only. The community structure is based on a coordination chain,
+where a web service is assigned as a \emph{primary} web service and the community task distribution
+method, will initially invoke the primary web service and only if the primary web service is unavailable
+will invoke the next backup web services as they are ordered in the coordination chain. However in cooperative models, it is preferred to
+have a real and active cooperative activity engaging all agents to perform the tasks more efficiently. Especially nowadays
+with recent advancement in cloud and hardware infrastructures availability is becoming less of an issue. So the backup web services
+in their model have a very low chance of getting jobs, especially the ones further in chain, which is huge waste of web services
+capabilities.
+
+Another research question we would like to work on is:
+\emph{How can we model the community of web services based on cooperative game theory models in a realistic, applicable and practical way?}
+
+% ooooooold
+%\indent When monitoring a dialogue between two or more agents, there are many question that should be answered. In this thesis, we are interested in answering the following questions:
+%\begin{itemize}
+%\item How much are agents certain about selecting a move at each dialogue step?
+%\item How much are agents certain about their dialogues?
+%\item How good are agents in the real dialogue (i.e. the effective dialogue)?
+%\item How far are agents from the right dialogue (i.e. the best dialogue given the knowledge bases of the participants)?
+%\end{itemize}
+%Answering these questions is undoubtedly complex. Therefore, we do not expect a comprehensive answer to all these questions.
+
+\section{Research Objectives and contributions}\label{sec:motexample}
+
+In this research work, I will use game theory to
+propose a cooperative game model for the aggregation of web
+services within communities. The solution concepts of our
+cooperative game seeks to find efficient ways of forming
+coalitions (teams) of web services so that they can maximize their
+gain and payoff, and distribute the gain in a fair way among all
+the web services. Achieving Fairness when the gain is distributed
+among the community members is the main factor to keep the
+coalition stable as no web service will expect to gain better by
+deviating for the community. In other words, the coalition is made
+efficient if all the members are satisfied. We first propose a
+representation function for communities of web services based on
+their QoS attributes. By using this function, we can evaluate the
+$worth$ of each community of web services. When facing new
+membership requests, a typical community master checks whether the
+new coalition having the old and new set of web services will keep
+the community stable or not. The community master will reject the
+membership requests if it finds out that the new coalition would
+be unstable, preventing $any$ subset of web services from gaining
+significantly more by deviating from the community and joining
+other communities or forming new ones. The computation of
+solutions for cooperative game theory problems is combinatorial in
+nature and proven to be NP-complete \cite{Algorithmic}, making
+this computation impractical in real world applications. However,
+using the concepts of coalition stability, we propose
+approximation algorithms running in polynomial time providing web
+services and community masters with applicable and near-optimal
+decision making mechanisms.
+
+\indent In this proposal, I will address the problem of forming stable and efficient coalitions for maximising web services and community revenue.
+The main objectives in this proposal work are:
+\begin{itemize}
+\item To apply cooperative game theory solution concepts in order to address the problem of optimizing coalition formation for a stable community that can maximise the total payoff.
+\item To reduce the complexity of cooperative game theory solution concepts tailored to the problem model of communities of web services in order to make these solutions applicable in real world scenarios.
+\item To increase community stability by subsiding and taxation methods.
+\item To validate the proposed methods by simulation and comparing our results with other similar works.
+\end{itemize}
+
+
+
+
+\section{Proposal Organization}\label{sec:outline}
+The rest of the proposal is organized as follows: We present in Chapter~\ref{sec:MAS} the background
+needed for our research along with the relevant related work. Chapter~\ref{sec:coalitionformationws} provides the problem statement and presents our solution model in two
+different scenarios with some primitive results. Finally in Chapter~\ref{sec:conclusionfuturework}, we present our conclusion, future plan, and the timetable of our research.
+
