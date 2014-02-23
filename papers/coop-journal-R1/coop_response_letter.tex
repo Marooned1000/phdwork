@@ -78,19 +78,19 @@ comment. We made the abstract shorter and added the information about our decisi
 
 \vspace{0.5cm}\textbf{\underline{3. Reviewer}:} The text consists on very long paragraphs, mainly section 4 (experimental results), which makes the reading difficult.
 
-\vspace{0.2cm}\textbf{\underline{Answer 3}: We edited the text in the revised version.}
+\vspace{0.2cm}\textbf{\underline{Answer 3}: We edited the text in the revised version and made some paragraphs shorter to improve readability of paper.}
 
 
 \vspace{0.5cm}\textbf{\underline{4. Reviewer}:} Still in section 4, the simulation application should be better specified, adding information on used machine, architecture, most important used services, etc.
 
-\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. In the revised manuscript, we added more explanations and details about the architecture and service types. Each web service was modeled based on a class and we initiated many threads on a single process for the web services. They used abstract XML based messaging system with request parameters and a list of abstract XML based responses. Based on community task queue delay and the assigned web service quality metrics (such as reliability, throughput, latency and other metrics) these tasks will be performed with different qualities. In the experimental results and analysis section (Section 4), we have illustrated and
-evaluated the average QoS of tasks performed. In the revised manuscript, we added more explanations and details about the architecture and service types.
+\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. In the revised manuscript, we added more explanations and details about the architecture and service types. Web services were modeled as a \emph{class} and using \emph{Await} and \emph{Async} models we initiated many web services, each running as a thread. We implemented XML based messaging system (like SOAP) with request parameters and a list of XML based responses. The request
+contains the flight dates, the origin and destination, type of tickets, and number of guests. The response contains different flights with different companies, prices, timing, etc. We have gathered around 200,000 flights and stored them in our MongoDB database. A pool of web services was initiated and had their \emph{QoS} parameters populated based on the dataset of 2,507 real services functioning on the web.
 }
 
 
 \vspace{0.5cm}\textbf{\underline{5. Reviewer}:} Figure 3 is misplaced.
 
-\vspace{0.2cm}\textbf{\underline{Answer 5}: Thanks for noticing the mistake, we replaced the Figure at the correct position (we put it after the paragraph it was first mentioned on) and double checked all other figures and tables placements.}
+\vspace{0.2cm}\textbf{\underline{Answer 5}: True. In the revised manuscript, we replaced the Figure at the correct position (we put it after the paragraph it was first mentioned on) and double checked all other figures and tables placements.}
 
 
 \vspace{0.5cm}\textbf{\underline{6. Reviewer}:} 6) There are some minor format errors that should be addressed.
@@ -124,7 +124,7 @@ evaluated the average QoS of tasks performed. In the revised manuscript, we adde
 \vspace{0.2cm}\textbf{\underline{Answer 2}: We agree, the definition was too broad we rephrased
 the sentence as follows: Online Services are software systems providing a standard way of
 interoperability among different applications. These services are developed
- in an autonomous and intelligent manner to continuously and autonomously interact with each other to
+ as autonomous and intelligent agents and they continuously and autonomously interact with each other to
 fulfill users' requests.}
 
 \vspace{0.5cm} \textbf{\underline{3. Reviewer}}: Related work: The authors state in page 21: ``The interesting idea is to consider the benefits under four categories: innovation and learning,...''. If this is an interesting idea, it should be further explained. I agree with the authors, these benefits are very interesting, please provide further details.

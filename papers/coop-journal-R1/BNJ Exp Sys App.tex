@@ -132,7 +132,7 @@ Strategies.}
 \section{Introduction}\label{Introduction}
 \textbf {Online Services are software systems providing a standard way of
 interoperability among different applications. These services are developed
- in an autonomous and intelligent manner to continuously and autonomously interact with each other to
+ as autonomous and intelligent agents and they continuously and autonomously interact with each other to
 fulfill users' requests.} Organizing services within virtual
 structures called \emph{communities} has been proposed for the
 purpose of making their discovery easier and increasing the
@@ -1326,14 +1326,12 @@ stochastic services, we mean services that adopt at each moment
 competitive or cooperative strategies in an equally but random
 way. By equally, we mean the choices are fairly divided between
 the two strategies. 
+
 \textbf{The simulation application is written in
-\textit{C\#} using \textit{Visual Studio} and executed the implementation on an Intel Xeon X3450 machine with 6GBs of memory.}
- Developed services are
-initialized with values taken from a real dataset that includes
-$2507$ real services functioning on the web. The dataset records
-the QoS values of $9$ parameters including \textit{availability},
-\textit{throughput}, and
-\textit{reliability} \cite{Almasri}.  %These QoS values
+\textit{C\#} using \textit{Visual Studio}. We performed the implementation on a single Intel Xeon X3450 machine with 6GBs of memory. Web services were modeled as a \emph{class} and using \emph{Await} and \emph{Async} models we initiated many web services, each running as a thread.  We implemented XML based messaging system (like SOAP) with request parameters and a list of XML based responses. The request
+contains the flight dates, the origin and destination, type of tickets, and number of guests. The response contains different flights with different companies, prices, timing, etc. We have gathered around 200,000 flights and stored them in our MongoDB database.  A pool of services are initialized with values taken from a real dataset that includes $2507$ real services functioning on the web.} 
+The dataset records the QoS values of $9$ parameters including \textit{availability},
+\textit{throughput}, and \textit{reliability} \cite{Almasri}.  %These QoS values
 %are determined by monitoring the web services over a $6$-day
 %period.
 
