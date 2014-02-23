@@ -1,0 +1,140 @@
+
+%\documentclass[preprint,authoryear,12pt]{elsarticle}
+\documentclass[times, 12pt,a4paper]{article}
+\usepackage{graphicx,amssymb,amsthm,stmaryrd}%,booktabs}
+\usepackage{times}
+\usepackage{amsmath,url,algorithm,algorithmic,mathrsfs,makeidx}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{latex8}
+
+%journal{Journal of Knowledge-Based Systems}
+
+
+
+\begin{document}
+%\begin{frontmatter}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary} {Corollary}
+\title{\underline{Response Letter}\\\vspace{0.5cm}To Compete or Cooperate? This is the Question in Communities of Autonomous Services}
+\author{Ehsan Khosrowshahi Asl\\
+e\_khosr@encs.concordia.ca\\
+\and
+Jamal Bentahar\\
+bentahar@ciise.concordia.ca \\
+\and
+Rabeb Mizouni\\
+rabeb.mizouni@kustar.ac.ae \\
+\and
+Babak Khosravifar\\
+babak.khosravifar@mcgill.ca \\
+\and
+Hadi Otrok\\
+hadi.otrok@kustar.ac.ae \\
+}
+
+
+\maketitle
+
+
+First, we would like to thank and express our appreciation to the
+reviewers for taking the time to carefully review our manuscript,
+and for their insightful, valuable, and very useful comments. We
+would like to thank the associate and chief editors as well for
+their valuable comments and suggestions for improvements. We
+carefully considered the comments and implemented all of them in
+the revised version. In this letter, we will explain, point by
+point, how the issues raised in the reviews are addressed and
+answered. We hope our answers and revisions will satisfy the
+reviewers and editors, which will make the paper accepted for
+publication in Expert Systems With Applications Journal.\\
+
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%% REVIEWER 1 %%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+  \textbf{Reviewer 1}
+\end{center}
+
+
+\textbf{\underline{Reviewer}:} The presented paper is very good and up to date in the state of the art. The paper addresses a framework in which the agents use decision mechanisms in order to compete or cooperate.
+
+
+\vspace{0.5cm} \textbf{\underline{1. Reviewer}:} The abstract should be shorter and it lacks information on the proposed framework and the decision mechanism based on game theory which are not mentioned. The suggested modifications aim make the abstract and the conclusion more similar.
+
+\vspace{0.2cm}\textbf{\underline{Answer 1}: Thanks for the
+comment. We made the abstract shorter and added the information about our decision making process which is based on ``game-theoretic best response technique'' to the abstract.}
+
+\vspace{0.5cm}\textbf{\underline{2. Reviewer}:}  In section 2.2 (system parameters), the authors should specify how many parameters are used before explaining them and using such parameters in the proposed mathematics. This should aid the reader in better understanding.
+
+\vspace{0.2cm}\textbf{\underline{Answer 2}: In the revised version, we added a short summary about the system parameters in section 2.2. We have five system parameters \emph{Task QoS}, \emph{Service QoS}, \emph{Budget}, \emph{Reputation} and \emph{Growth Factor}) and the other variables are derived or calculated based on these five parameters which are listed in Table 1. The title for Table 1. which was ``List of proposed system parameters'' was not very appropriate. We changed its title to ``List of abbreviations''}
+
+
+\vspace{0.5cm}\textbf{\underline{3. Reviewer}:} The text consists on very long paragraphs, mainly section 4 (experimental results), which makes the reading difficult.
+
+\vspace{0.2cm}\textbf{\underline{Answer 3}: We edited the text in the revised version and made paragraphs shorter to improve readability of paper.}
+
+
+\vspace{0.5cm}\textbf{\underline{4. Reviewer}:} Still in section 4, the simulation application should be better specified, adding information on used machine, architecture, most important used services, etc.
+
+\vspace{0.2cm}\textbf{\underline{Answer 4}: We agree. In the revised manuscript, we added more explanations and details about the architecture and service types. Each web service was modeled based on a class and we initiated many threads on a single process for the web services. They used abstract XML based messaging system with request parameters and a list of abstract XML based responses. Based on community task queue delay and the assigned web service quality metrics (such as reliability, throughput, latency and other metrics) these tasks will be performed with different qualities. In the experimental results and analysis section (Section 4), we have illustrated and
+evaluated the average QoS of tasks performed. In the revised manuscript, we added more explanations and details about the architecture and service types.
+}
+
+
+\vspace{0.5cm}\textbf{\underline{5. Reviewer}:} Figure 3 is misplaced.
+
+\vspace{0.2cm}\textbf{\underline{Answer 5}: Thanks for noticing the mistake, we replaced the Figure at the correct position (we put it after the paragraph it was first mentioned on) and double checked all other figures and tables placements.}
+
+
+\vspace{0.5cm}\textbf{\underline{6. Reviewer}:} 6) There are some minor format errors that should be addressed.
+
+\vspace{0.2cm}\textbf{\underline{Answer 6}: As mentioned in our Answer 4, we checked the formatting issues of paper as much as we could and we believe other formatting details will be covered the journal editors.
+}
+
+%\vspace{0.2cm}\textbf{\underline{Answer 9}: We
+%\url{http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/}, in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% REVIEWER 2 %%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2cm}
+
+\newpage
+
+\begin{center}
+  \textbf{Reviewer 2}
+\end{center}
+
+
+\textbf{\underline{Reviewer}:} The paper perfectly fits within the scope of Expert Systems. This manuscript investigates the development of communities of autonomous services, formalizing the question "To compete or to cooperate?" between them. The authors do so by theorising and conducting a study through a dataset of 2,507 real services functioning on the web.
+
+
+\vspace{0.5cm}\textbf{\underline{1. Reviewer}:}  Abstract: In my opinion, it is not necessary to talk about the sample used.
+
+\vspace{0.2cm}\textbf{\underline{Answer 1}: True, as argued in our Answer 1 to Reviewer 1, We made the abstract more compact and removed some unnecessary details. }
+
+\vspace{0.5cm} \textbf{\underline{2. Reviewer}}:  Introduction: The first phrase ``Services are software systems...'' should include which kind of services are being analysed: intelligent, autonomous,... The definition used does not correspond to ``Services'' as a whole.
+
+\vspace{0.2cm}\textbf{\underline{Answer 2}: We agree, the definition was too broad we rephrased
+the sentence as follows: Online Services are software systems providing a standard way of
+interoperability among different applications. These services are developed
+ in an autonomous and intelligent manner to continuously and autonomously interact with each other to
+fulfill users' requests.}
+
+\vspace{0.5cm} \textbf{\underline{3. Reviewer}}: Related work: The authors state in page 21: ``The interesting idea is to consider the benefits under four categories: innovation and learning,...''. If this is an interesting idea, it should be further explained. I agree with the authors, these benefits are very interesting, please provide further details.
+
+\vspace{0.2cm}\textbf{\underline{Answer 3}: In the revised manuscript, page 21 we added more description about their framework. Here is the quick summary of their definitions as we added to paper: \emph{Innovation and learning perspective} focuses on the knowledge, skills, and systems needed to improve the business continually. Necessary factors to build strategic capabilities and efficiency in addressed in internal business process. Values that customers seek are considered in \emph{customer perspective} and financial performance to maximize the shareholder value are analyzed in \emph{financial perspective}. Their goal is to design the framework for cooperating web services, inline with business strategy of firms in IT industry.}
+
+
+\vspace{0.5cm} \textbf{\underline{4. Reviewer}}:  Conclusion: The paper identifies clearly the implications for practice and further research. I consider the service consumer role very interesting for future research.
+
+\vspace{0.2cm}\textbf{\underline{Answer 4}: Thanks for your comment. As mentioned in the manuscript, this is something we are considering as our furutre work. A case study in which we can collect user feedback, and adding it as a system parameter in our algorithm can improve our decision making process from users perspective which will lead to more efficiency, payoff and income for our web services}
+
+
+\end{document}
