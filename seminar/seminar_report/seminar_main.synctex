@@ -1,5 +1,5 @@
 SyncTeX Version:1
-Input:1:C:/PhDWork/seminar/seminar_report/seminar_main.tex
+Input:1:C:/phdwork/notes/seminar/seminar_report/seminar_main.tex
 Input:2:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls
 Input:3:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo
 Input:4:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latexsym.sty
@@ -16,15 +16,15 @@ Input:14:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty
 Input:15:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty
 Input:16:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty
 Input:17:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\afterpage.sty
-Input:18:C:\PhDWork\seminar\seminar_report\algorithm.sty
-Input:19:C:\PhDWork\seminar\seminar_report\algorithmic.sty
+Input:18:C:\phdwork\notes\seminar\seminar_report\algorithm.sty
+Input:19:C:\phdwork\notes\seminar\seminar_report\algorithmic.sty
 Input:20:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty
 Input:21:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty
 Input:22:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty
-Input:23:C:\PhDWork\seminar\seminar_report\caption.sty
-Input:24:C:\PhDWork\seminar\seminar_report\setspace.sty
+Input:23:C:\phdwork\notes\seminar\seminar_report\caption.sty
+Input:24:C:\phdwork\notes\seminar\seminar_report\setspace.sty
 Input:25:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\multirow.sty
-Input:26:C:\PhDWork\seminar\seminar_report\rotating.sty
+Input:26:C:\phdwork\notes\seminar\seminar_report\rotating.sty
 Input:27:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
 Input:28:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty
 Input:29:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty
@@ -32,7 +32,7 @@ Input:30:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg
 Input:31:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def
 Input:32:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty
 Input:33:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty
-Input:34:C:\PhDWork\seminar\seminar_report\cuthesis.sty
+Input:34:C:\phdwork\notes\seminar\seminar_report\cuthesis.sty
 Input:35:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ccaption\ccaption.sty
 Input:36:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty
 Input:37:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty
@@ -40,9 +40,9 @@ Input:38:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty
 Input:39:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg
 Input:40:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty
 Input:41:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latin1.def
-Input:42:C:\PhDWork\seminar\seminar_report\footnote.sty
-Input:43:C:\PhDWork\seminar\seminar_report\acronym.sty
-Input:44:C:\PhDWork\seminar\seminar_report\suffix.sty
+Input:42:C:\phdwork\notes\seminar\seminar_report\footnote.sty
+Input:43:C:\phdwork\notes\seminar\seminar_report\acronym.sty
+Input:44:C:\phdwork\notes\seminar\seminar_report\suffix.sty
 Input:45:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty
 Input:46:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty
 Input:47:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
@@ -56,15 +56,15 @@ Input:54:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
 Input:55:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
 Input:56:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\dstroke\dsfont.sty
 Input:57:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty
-Input:58:C:\PhDWork\seminar\seminar_report\seminar_main.aux
-Input:59:C:\PhDWork\seminar\seminar_report\title.aux
-Input:60:C:\PhDWork\seminar\seminar_report\Abstract.aux
-Input:61:C:\PhDWork\seminar\seminar_report\chapter1.aux
-Input:62:C:\PhDWork\seminar\seminar_report\chapter2.aux
-Input:63:C:\PhDWork\seminar\seminar_report\chapter3.aux
-Input:64:C:\PhDWork\seminar\seminar_report\chapter5.aux
+Input:58:C:\phdwork\notes\seminar\seminar_report\seminar_main.aux
+Input:59:C:\phdwork\notes\seminar\seminar_report\title.aux
+Input:60:C:\phdwork\notes\seminar\seminar_report\Abstract.aux
+Input:61:C:\phdwork\notes\seminar\seminar_report\chapter1.aux
+Input:62:C:\phdwork\notes\seminar\seminar_report\chapter2.aux
+Input:63:C:\phdwork\notes\seminar\seminar_report\chapter3.aux
+Input:64:C:\phdwork\notes\seminar\seminar_report\chapter5.aux
 Input:65:C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
-Input:66:C:\PhDWork\seminar\seminar_report\title.tex
+Input:66:C:\phdwork\notes\seminar\seminar_report\title.tex
 Input:67:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ulasy.fd
 Input:68:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
 Input:69:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
@@ -74,7 +74,7 @@ Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!4830
+!4938
 {1
 [1,151:4736286,48356311:30785863,43620025,0
 [1,151:7104429,48356311:28417720,44567267,0
@@ -493,8 +493,8 @@ h1,151:7104429,48356311:28417720,0,0
 ]
 !10701
 }1
-Input:70:C:\PhDWork\seminar\seminar_report\seminar_main.toc
-!70
+Input:70:C:\phdwork\notes\seminar\seminar_report\seminar_main.toc
+!76
 {2
 [70,15:4736286,48356311:30785863,43620025,0
 [70,15:7104429,48356311:28417720,44567267,0
@@ -5021,8 +5021,8 @@ k1,173:35522149,48356311:13919818
 ]
 !9325
 }4
-Input:71:C:\PhDWork\seminar\seminar_report\seminar_main.lot
-!69
+Input:71:C:\phdwork\notes\seminar\seminar_report\seminar_main.lot
+!75
 {5
 [1,175:4736286,48356311:30785863,43620025,0
 [1,175:7104429,48356311:28417720,44567267,0
@@ -5701,8 +5701,8 @@ k1,175:35522150,48356311:14019488
 ]
 !14795
 }5
-Input:72:C:\PhDWork\seminar\seminar_report\seminar_main.lof
-!70
+Input:72:C:\phdwork\notes\seminar\seminar_report\seminar_main.lof
+!76
 {6
 [1,177:4736286,48356311:30785863,43620025,0
 [1,177:7104429,48356311:28417720,44567267,0
@@ -7258,8 +7258,8 @@ k1,177:35522148,48356311:13820148
 ]
 !3541
 }7
-Input:73:C:\PhDWork\seminar\seminar_report\Abstract.tex
-!65
+Input:73:C:\phdwork\notes\seminar\seminar_report\Abstract.tex
+!71
 {8
 [1,177:4736286,48356311:30785863,43620025,0
 [1,177:7104429,48356311:28417720,44567267,0
@@ -8176,8 +8176,8 @@ k1,177:35522149,48356311:13720479
 ]
 !24081
 }8
-Input:74:C:\PhDWork\seminar\seminar_report\chapter1.tex
-!66
+Input:74:C:\phdwork\notes\seminar\seminar_report\chapter1.tex
+!72
 {9
 [74,27:4736286,48356311:30785863,43620025,0
 [74,27:7104429,48356311:28417720,44567267,0
@@ -14484,8 +14484,8 @@ k1,190:35522149,48356311:14029455
 ]
 !15595
 }16
-Input:76:C:\PhDWork\seminar\seminar_report\chapter2.tex
-!67
+Input:76:C:\phdwork\notes\seminar\seminar_report\chapter2.tex
+!73
 {17
 [76,28:4736286,48356311:30785863,43620025,0
 [76,28:7104429,48356311:28417720,44567267,0
@@ -25553,8 +25553,8 @@ k1,191:35522149,48356311:13850050
 ]
 !21762
 }30
-Input:77:C:\PhDWork\seminar\seminar_report\chapter3.tex
-!67
+Input:77:C:\phdwork\notes\seminar\seminar_report\chapter3.tex
+!73
 {31
 [77,23:4736286,48356311:30785863,43620025,0
 [77,23:7104429,48356311:28417720,44567267,0
@@ -44813,8 +44813,8 @@ k1,192:35522149,48356311:13850050
 ]
 !14970
 }54
-Input:78:C:\PhDWork\seminar\seminar_report\chapter5.tex
-!67
+Input:78:C:\phdwork\notes\seminar\seminar_report\chapter5.tex
+!73
 {55
 [78,34:4736286,48356311:30785863,43620025,0
 [78,34:7104429,48356311:28417720,44567267,0
@@ -45747,8 +45747,8 @@ k1,194:35522149,48356311:13850050
 ]
 !1528
 }57
-Input:79:C:\PhDWork\seminar\seminar_report\seminar_main.bbl
-!70
+Input:79:C:\phdwork\notes\seminar\seminar_report\seminar_main.bbl
+!76
 {58
 [79,39:4736286,48356311:30785863,43620025,0
 [79,39:7104429,48356311:28417720,44567267,0
@@ -48959,14 +48959,14 @@ k1,225:35522149,48356311:13850050
 ]
 !2835
 }63
-Input:80:C:\PhDWork\seminar\seminar_report\seminar_main.aux
-Input:81:C:\PhDWork\seminar\seminar_report\title.aux
-Input:82:C:\PhDWork\seminar\seminar_report\Abstract.aux
-Input:83:C:\PhDWork\seminar\seminar_report\chapter1.aux
-Input:84:C:\PhDWork\seminar\seminar_report\chapter2.aux
-Input:85:C:\PhDWork\seminar\seminar_report\chapter3.aux
-Input:86:C:\PhDWork\seminar\seminar_report\chapter5.aux
-!403
+Input:80:C:\phdwork\notes\seminar\seminar_report\seminar_main.aux
+Input:81:C:\phdwork\notes\seminar\seminar_report\title.aux
+Input:82:C:\phdwork\notes\seminar\seminar_report\Abstract.aux
+Input:83:C:\phdwork\notes\seminar\seminar_report\chapter1.aux
+Input:84:C:\phdwork\notes\seminar\seminar_report\chapter2.aux
+Input:85:C:\phdwork\notes\seminar\seminar_report\chapter3.aux
+Input:86:C:\phdwork\notes\seminar\seminar_report\chapter5.aux
+!445
 Postamble:
 Count:26000
 !28
