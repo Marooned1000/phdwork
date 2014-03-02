@@ -108,7 +108,7 @@ possible to gain better reputation and user satisfaction, which
 results in having higher revenue.
 
 \begin{figure*}[!t]
-\centerline{\includegraphics[width=15cm]{Figures/archss.png}}
+\centerline{\includegraphics[width=15cm]{Figures/archss.eps}}
 \caption{Architecture of Web Service communities}
 \label{fig_community}
 \end{figure*}
@@ -612,15 +612,80 @@ services cannot improve their payoff. More details of this
 algorithm and analysis of generic solutions on coalition formation
 games are described in \cite{DBLP:journals/igtr/AptW09}.
 
-\subsection{Taxation, Subsiding and Community Stability}\label{s:tax}
+\section{Taxation, Subsiding and Community Stability}\label{s:tax}
 
-ssed $core$ as one of the prominent solution concepts in cooperative games. Working together, completing tasks and generating revenue, agents need to distribute the gain in a way no agents would gain more by having their own group. However, in most cases the core of a game is empty so we introduced the \emph{$\epsilon$-core} concept, where agents would only earn a minimal amount of $\epsilon$ by deviating. Stability is an attractive property for communities. In addition, communities would benefit by having slightly more web services then the exact number of web services satisfying task rate cap. This is because  there is always a possibility that the agents may leave the community or they may under perform and degrade the quality values they were initially performing with.
+We discussed $core$ as one of the prominent solution concepts in
+cooperative games. Working together, completing tasks and
+generating revenue, agents need to distribute the gain in a way no
+agents would gain more by forming their own group. However, in
+most cases, the core of a game is empty, so we introduced the
+\emph{$\epsilon$-core} concept, where agents would only earn a
+minimal amount of $\epsilon$ by deviating from the coalition.
+Stability is an attractive property for communities. In addition,
+communities would benefit by having slightly more web services
+than the exact number of web services needed to satisfy the task
+rate cap. This is because there is always a possibility that the
+web services may leave the community or they may under perform and
+degrade the quality values they were initially performing with.
 
-One way for communities to ensure  stability could be  by applying a tax, $\epsilon$ amount of cost for web services changing communities which would make deviation a costly act. However this would require all community coordinators to agree on a same amount of taxation, being governed by some external entities or web services would join communities with lesser amount of tax. Another viable solution to our scenario is to stabilize the game using external subsidies. The reason a gamWe discue is not stable is that the community is not making enough revenue to allocate  enough gain to the players. A community master can subside its community with a constant coefficient value of $\lambda$.
+The solution we propose for communities to ensure stability is
+applying a tax $\epsilon$, which is an amount of cost for those
+web services that decide to change communities (let us say from
+$C$ to $C'$), which would make deviation a costly act. However,
+this would require all the community coordinators to agree on a
+same amount of taxation, being governed by some external entities;
+otherwise, web services would join communities charging the lowest
+amount of tax. Before deciding to change the community, each web
+service $i$ has to be sure that the gain $g_i(C \rightarrow C')$
+calculated in Equation \ref{eq:gainsh} based on the Shapley values
+of $i$ in the previous and new communities and the tax $\epsilon$
+is positive, which means, what the web service would gain in $C'$
+is greater than what it gains in $C$ and the tax it would pay if
+moving all together:
 
-Rewarding a community with high number of quality participants with $\lambda v(C)$, where $\lambda \leq 1$.
 
-Obviously with a big number of $\lambda$, it is always possible to stabilize the community. However, this can be a costly act for community masters so they are interested in the minimum subside value of $\lambda$ making the game stable. Subsiding or taxing in order to reduce the bargaining power of sub coalitions are called $taxation$ \cite{eps346856} methods.
+\begin{equation}\label{eq:gainsh}
+g_i(C \rightarrow C') = \phi_i(C',v) - \phi_i(C,v) - \epsilon
+\end{equation}
+
+
+Another viable solution we introduce to our scenario is to
+stabilize the game using external subsidies. The reason a game is
+not stable is that the community is not making enough revenue to
+allocate enough gain to the players. A community coordinator can
+subside its community with a constant coefficient value of
+$\lambda$.
+%
+%Rewarding a community with high number of quality participants
+%with $\lambda v(C)$, where $\lambda \leq 1$.
+%
+Obviously, with a big value for $\lambda$, it is always possible
+to stabilize the community. However, this can be a costly act for
+the community coordinators, so they are interested in the minimum
+subside value of $\lambda$ making the community stable. This can
+be achieved by solving the following linear program:
+%
+  \begin{alignat*}{3}
+    \min~   & \lambda  \\
+    \text{s.t. } & \lambda v(C) > v(C') & ~& \text{ for all } C' \subset C
+  \end{alignat*}
+
+
+%When a new web service $i$, wants to join the community, the
+%valuation function of the community members and the new web
+%service is subsided by the community coordinator in order to
+%incentivize formation of this community and is set to:
+%\begin{equation}\label{eq:taxv}
+%v'(C \cup \{i\}) = \lambda \times v(C \cup \{i\})
+%\end{equation}
+%In equation \ref{eq:taxv} the value of $v'$ is
+%replaced with the valuation function for the new forming coalition
+%$C \cup \{i\}$.
+Subsiding or taxing in order to reduce the
+bargaining power of sub coalitions are called $taxation$
+\cite{eps346856} methods. We evaluate the effectiveness of these
+two methods experimentally through extensive implementations in
+the next section.
 
 
 
@@ -749,9 +814,9 @@ performance and satisfaction for both web services and coalitions.
 \begin{figure}[!t]
 \centering
 %\includegraphics[scale=0.6]{graph1Final+.eps}
-\includegraphics[width=3in]{Figures/avg_task_ws_done.eps}
-\includegraphics[width=3in]{Figures/avg_qos_ws_done.eps}
-\includegraphics[width=3in]{Figures/avg_avail_ws_done.eps}
+\includegraphics[width=2.5in]{Figures/avg_task_ws_done.eps}
+\includegraphics[width=2.5in]{Figures/avg_qos_ws_done.eps}
+\includegraphics[width=2.5in]{Figures/avg_avail_ws_done.eps}
 \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks succesfully done. Part
 (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
 \end{figure}
