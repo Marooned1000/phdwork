@@ -14,26 +14,25 @@ discuss our objectives and preliminary contributions.
 Over the past years, online services have become part of many
 scalable business applications. The increasing reliance on
 web-based applications has significantly influenced the way web
-services are engineered. Web services provide a set of stateless
-software functions accessible at a network address over the web.
-The recent developments are shifting web services from passive and
-individual components to autonomous and group-based components
-where interaction, composition, and cooperation are the key
-challenges \cite{ICWS2011-1,SCC2011-1}. The main objective is to
-achieve a seamless integration of business processes, applications
-and web services. Delivering high quality services considering the
-dynamic and unpredictable nature of the Internet is still a very
-critical and challenging issue.
-
-Typically, web services are business applications deployed as
-autonomous and interoperable agents \cite{Alescio}. In fact, the
-W3C consortium defines a web service as ``an abstract notion that
-must be implemented by a concrete agent''. However, the web is
-stocked with agent-based services that offer similar business
-functionalities, which leads to service consumers having
-difficulties in choosing the most appropriate agents to interact
-with.
-
+services are engineered. 
+%Web services provide a set of stateless
+%software functions accessible at a network address over the web.
+%The recent developments are shifting web services from passive and
+%individual components to autonomous and group-based components
+%where interaction, composition, and cooperation are the key
+%challenges \cite{ICWS2011-1,SCC2011-1}. The main objective is to
+%achieve a seamless integration of business processes, applications
+%and web services. Delivering high quality services considering the
+%dynamic and unpredictable nature of the Internet is still a very
+%critical and challenging issue.
+%Typically, web services are business applications deployed as
+%autonomous and interoperable agents \cite{Alescio}. In fact, the
+%W3C consortium defines a web service as ``an abstract notion that
+%must be implemented by a concrete agent''. However, the web is
+%stocked with agent-based services that offer similar business
+%functionalities, which leads to service consumers having
+%difficulties in choosing the most appropriate agents to interact
+%with.
 The need for highly available and responsive services has called
 for grouping and collaborative mechanisms of loosely-coupled web
 services, particularly in business settings. The idea of grouping
@@ -45,19 +44,23 @@ Communities are virtual groups of web services having similar
 functionalities \cite{Zeng:2003:QDW:775152.775211,
 Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,10.1109/ARES.2008.7},
 but probably different non-functional quality attributes, which
-form the QoS parameters. When communities are used, users send
-their requests to the masters of those communities, which are
-responsible of managing the communities, forwarding the requests
-to the suitable member web services and checking the credentials
-of those members. Communities aim to provide higher service
+form the QoS parameters. 
+%When communities are used, users send
+%their requests to the masters of those communities, which are
+%responsible of managing the communities, forwarding the requests
+%to the suitable member web services and checking the credentials
+%of those members.
+Communities aim to provide higher service
 availability and performance than what individual web services can
-provide. The high availability of services and the community
-resilience to failure are guaranteed since web services can
-cooperate and replace each other within the same community and
-since there is no single point of failure in the communities
-architecture.
+provide. 
+%The high availability of services and the community
+%resilience to failure are guaranteed since web services can
+%cooperate and replace each other within the same community and
+%since there is no single point of failure in the communities
+%architecture.
 
-\section{Motivation and Research Questions}\label{sec:researchquestions}
+
+\section{Motivation and Research Objectives}\label{sec:motexample}
 
 Web service communities are dynamic by design
 \cite{DBLP:journals/ijebr/MaamarSTBB09}. In these communities, web
@@ -69,70 +72,7 @@ order to maximize the community profit. Users can simply stop
 sending requests to a web service which is not providing
 satisfactory services. Thus its important to consider all the
 parties involved in the decision making process about the
-community management. Most of the recent work on communities of
-services are either user-centric and focus on user satisfaction
-\cite{Chun02user-centricperformance} or system-centric and focus
-on the whole system throughput, performance and utilization. There
-are many contributions in distributed, grid, cluster and cloud
-services which are system-centric. However, in real world
-environments and applications, both users and service providers
-are self-interested agents, aiming to maximize their own profit.
-In those environments, both parties (users and services) will
-collaborate as long as they are getting more benefits and payoff.
-
-Recently
-\cite{DBLP:conf/IEEEscc/LimTMB12,
-DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed
-mechanisms to help users and services maximize their gain. A
-two-player non-cooperative game between web services and community
-master was introduced in
-\cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In
-\cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
-for selecting web services has been proposed. In this approach,
-the authors proposed a web service selection process that the
-community masters can use. The approach considers the efficiency
-of all the three involved parties, namely users, web services and
-communities. The issue with these solution concepts is that they
-consider community as a whole and model it as one entity in their
-formulations. A community master decides on behalf of all the
-members using an aggregated function of parameters. This can hurt
-the overall revenue for some individual web services, or even a
-subset of web services. Those services can collude and form their
-own community and gain more, instead of having to adjust and share
-their resources with other members. Another important issue which
-needs to be considered is the community stability. In community of
-web services, the members and community organizers collaborate to
-perform tasks. Having jointly completed a task and generated
-revenue, they need to agree on some reasonable method of dividing
-profits (or tasks) among themselves. This is a key issue for the
-group stability still to be investigated. If the revenue sharing
-mechanism is not fair enough for any subset of web services
-working in the community, these agents, as profit maximizing
-entities, would just deviate and make their own group.
-
-In \cite{10.1109/TSC.2012.12}, a cooperative scheme among
-autonomous web services based on coalitional game theory has been
-introduced. The authors have proposed an algorithm to reach
-individually stable coalition partition for web services in order
-to maximize their efficiency. The communities choose new web
-services on the promise that it would benefit the community
-without decreasing any other web service's income. In their model,
-the worth of community is evaluated with high emphasis on the
-availability metric and considering price and cost values only.
-The community structure is based on a coordination chain, where a
-web service is assigned as a \emph{primary} web service and the
-community task distribution method will initially invoke the
-primary web service. Only if the primary web service is
-unavailable, the next backup web services in the ordered
-coordination chain will be invoked. However, in cooperative
-models, it is preferred to have a real and active cooperative
-activity engaging all agents to perform the tasks more
-efficiently. Thus, the final research question we would like to
-work on is: \emph{How can we model and analyze the cooperation
-among the community members in realistic, applicable and practical
-settings?}
-
-\section{Research Objectives and Contributions}\label{sec:motexample}
+community management. 
 
 In this research work, our first objective is to propose a
 cooperative model as game for the aggregation of web services
@@ -193,7 +133,7 @@ and comparison with other similar proposals.
 
 
 \section{Report Organization}\label{sec:outline}
-The rest of the proposal is organized as follows: We present in
+The rest of the report is organized as follows: We present in
 Chapter~\ref{sec:MAS} the background needed for our research along
 with relevant related work. Chapter~\ref{sec:coalitionformationws}
 provides the problem statement and presents our solution model in

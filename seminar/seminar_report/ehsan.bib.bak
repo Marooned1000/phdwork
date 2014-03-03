@@ -599,3 +599,111 @@ address = {Los Alamitos, CA, USA},
     title = {{The nucleolus of a characteristic function game}},
     year = {1969}
 }
+
+@INPROCEEDINGS{Davis67existenceof,
+    author = {Davis and Michael Maschler and M. Maschler},
+    title = {Existence of Stable Payoff Configurations for Cooperative},
+    booktitle = {Essays in Mathematical Economics in Honor of Oskar Morgenstern},
+    year = {1967},
+    pages = {39--52},
+    publisher = {Princeton University Press}
+}
+
+@ARTICLE{RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16,
+title = {Core extensions for non-balanced TU-games},
+author = {Bejan, Camelia and Gomez, Juan Camilo},
+year = {2009},
+journal = {International Journal of Game Theory},
+volume = {38},
+number = {1},
+pages = {3-16},
+keywords = {Core extensions; Efficiency; Taxation; Public goods; C71; H21; H41},
+url = {http://EconPapers.repec.org/RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16}
+}
+
+@inproceedings{Bachrach:2009:CSC:1692490.1692502,
+ author = {Bachrach, Yoram and Elkind, Edith and Meir, Reshef and Pasechnik, Dmitrii and Zuckerman, Michael and Rothe, J\"{o}rg and Rosenschein, Jeffrey S.},
+ title = {The Cost of Stability in Coalitional Games},
+ booktitle = {Proceedings of the 2Nd International Symposium on Algorithmic Game Theory},
+ series = {SAGT '09},
+ year = {2009},
+ isbn = {978-3-642-04644-5},
+ location = {Paphos, Cyprus},
+ pages = {122--134},
+ numpages = {13},
+ url = {http://dx.doi.org/10.1007/978-3-642-04645-2_12},
+ doi = {10.1007/978-3-642-04645-2_12},
+ acmid = {1692502},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+}
+
+@inproceedings{conf/ijcai/MeirRM11,
+  added-at = {2011-08-09T00:00:00.000+0200},
+  author = {Meir, Reshef and Rosenschein, Jeffrey S. and Malizia, Enrico},
+  biburl = {http://www.bibsonomy.org/bibtex/217c5138344071a11b364006a41fd078b/dblp},
+  booktitle = {IJCAI},
+  crossref = {conf/ijcai/2011},
+  editor = {Walsh, Toby},
+  ee = {http://ijcai.org/papers11/Papers/IJCAI11-060.pdf},
+  interhash = {d2b5c1ecd75836db7b1da8ac5b9b4d4f},
+  intrahash = {17c5138344071a11b364006a41fd078b},
+  isbn = {978-1-57735-516-8},
+  keywords = {dblp},
+  pages = {301-306},
+  publisher = {IJCAI/AAAI},
+  timestamp = {2011-08-09T00:00:00.000+0200},
+  title = {Subsidies, Stability, and Restricted Cooperation in Coalitional Games.},
+  url = {http://dblp.uni-trier.de/db/conf/ijcai/ijcai2011.html#MeirRM11},
+  year = 2011
+}
+
+@article{VuFind-10008938119
+title = Web services communities : from intra-community coopetition to inter-community competition,
+journal = E-business applications for product development and competitive growth : emerging technologies.,
+author = Maamar, Zakaria,
+year = 2011,
+crossref = http://www.econbiz.de/Record/web-services-communities-from-intra-community-coopetition-to-inter-community-competition-maamar-zakaria/10008938119
+}
+
+@article{Fouss:2010:PRM:1751668.1751727,
+ author = {Fouss, Francois and Achbany, Youssef and Saerens, Marco},
+ title = {A Probabilistic Reputation Model Based on Transaction Ratings},
+ journal = {Inf. Sci.},
+ issue_date = {June, 2010},
+ volume = {180},
+ number = {11},
+ month = jun,
+ year = {2010},
+ issn = {0020-0255},
+ pages = {2095--2123},
+ numpages = {29},
+ url = {http://dx.doi.org/10.1016/j.ins.2010.01.020},
+ doi = {10.1016/j.ins.2010.01.020},
+ acmid = {1751727},
+ publisher = {Elsevier Science Inc.},
+ address = {New York, NY, USA},
+ keywords = {Rating prediction, Ratings aggregation, Reputation, Trust},
+}
+
+@inproceedings{conf/icwe/YahyaouiZ11,
+  added-at = {2011-06-27T00:00:00.000+0200},
+  author = {Yahyaoui, Hamdi and Zhioua, Sami},
+  biburl = {http://www.bibsonomy.org/bibtex/210d213a225802ee0a7095e724d8fa5c9/dblp},
+  booktitle = {ICWE},
+  crossref = {conf/icwe/2011},
+  editor = {Auer, Soren and Diaz, Oscar and Papadopoulos, George A.},
+  ee = {http://dx.doi.org/10.1007/978-3-642-22233-7_22},
+  interhash = {4fd21df3d4daf9131e13874ea77d4a43},
+  intrahash = {10d213a225802ee0a7095e724d8fa5c9},
+  isbn = {978-3-642-22232-0},
+  keywords = {dblp},
+  pages = {319-330},
+  publisher = {Springer},
+  series = {Lecture Notes in Computer Science},
+  timestamp = {2011-06-27T00:00:00.000+0200},
+  title = {Bootstrapping Trust of Web Services through Behavior Observation.},
+  url = {http://dblp.uni-trier.de/db/conf/icwe/icwe2011.html#YahyaouiZ11},
+  volume = 6757,
+  year = 2011
+}
