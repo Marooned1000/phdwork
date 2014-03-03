@@ -248,15 +248,15 @@ Core stability is a highly desirable property however in many problems it is not
 
 Another approach to stabilize the game can be achieved via external subsides. When \emph{Core} is empty it means the game is not stable since the coalition is unable to generate enough revenue to satisfy the demands of each subset of agents. An external party that is interested in stabilizing the game provides a subsidy to the agents if they form the grand coalition, and thus a value of $\lambda v(C)$ is divided among them, where $\lambda \geq 1$. Clearly any game can be stabilized using a large enough $\lambda$, however the external party would be interested in the minimal subsidy required in order to stabilize the game.
 
-A community can also be stabilized by relaxing the core constraints. According to \emph{Core}, an outcome is unstable if a coalition can benefit even by a small amount from deviating, which is a strong requirement. In fact, in some situations, deviations can be costly, or players may have loyalty to their coalitions, or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeds the cost of performing the deviation. \emph{$\epsilon$-core} relaxes the notion of the core, and only requires that no coalition would benefit significantly, or within a constant amount($\epsilon$) by deviating (see Equation \ref{eq:core}). 
+A community can also be stabilized by relaxing the core constraints. According to \emph{Core}, an outcome is unstable if a coalition can benefit even by a small amount from deviating, which is a strong requirement. In fact, in some situations, deviations can be costly, or players may have loyalty to their coalitions, or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeds the cost of performing the deviation. \emph{$\epsilon$-core} relaxes the notion of the core, and only requires that no coalition would benefit significantly, or within a constant amount($\epsilon$) by deviating (see Equation \ref{eq:core}).
 
    \begin{equation}\label{eq:core2}
        \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
    \end{equation}
-   
+
 Alternatively, the $\epsilon$ can be thought of as a \emph{tax} imposed on a coalition should it choose to deviate. This can again be seen as an external party, trying to stabilize the coalition by imposing some \emph{tax} on deviation. Taxation and subsiding as methods of stabilizing cooperative games have been studied in \cite{RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16, RePEc:mse:cesdoc:12022r, Bachrach:2009:CSC:1692490.1692502, conf/ijcai/MeirRM11}.
 
-\subsection{Stability of Coalitions}
+
 
 \section{Related Work}\label{sec:BRRelatedWork}
 

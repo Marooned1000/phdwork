@@ -524,6 +524,341 @@ the next section.
 
 %The \emph{$\epsilon$-core} concept, in its definition, considers the willing to join or deviate from agent's point of view. It claims agents for any reason will be not willing to deviate to gain less than $\epsilon$ amount of profit. Communities can agree on However, in our case, the community master is willing to keep web services in communities too. There are several reasons for this, one reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. To this end, our communities will reward and valuate web services in the community
 
+\section{Competitive behaviour of services within communities}\label{s:coop}
+
+In previous sections, our focus was on community formation and we the focus was on cooperative behaviour of the web services as agents. However competition within cooperative environments, for business agents having different set of capabilities. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
+in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this paper interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{The Proposed Framework}\label{The Proposed Framework}
+In this section, we first present the architecture of the proposed
+model. We explore the characteristics of intelligent service
+agents and their network. We link this architecture to the
+implemented system where we investigate the services' coopetitive
+attitudes. We compute the involved system parameters and explain
+the services' interactive strategy profiles by highlighting their
+coopetitive choices.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{architecture++.eps}
+\caption{Services are partitioned into competitive and cooperative
+sets. Competitive services may get tasks directly from the master
+agent and they can share it with other cooperative services in
+their collaborative networks within the same community.}
+\label{architectureFigure}
+\end{figure}
+
+\subsubsection{The Architecture}
+
+Figure \ref{architectureFigure} illustrates the architecture of a
+typical community aggregating a number of services with different
+interactive strategies. Some of them compete for the task where
+they directly deal with the master. Some others cooperate in the
+associated task where they only deal with the competed service as
+the task leader and do not directly interact with the master (the
+master deals only with the service that has bid for the task,
+which is responsible of choosing its collaborative network). In
+both sets, some service agents are for certain moments out of any
+collaboration network. We highlight details of the interactive
+strategies in the rest of this section.
+%Figure \ref{algorithm1} %exposes the details of task allocation mechanism that is used to select the web services.
+In the proposed system, the master sorts the competing services
+(i.e., the bidders) based on some parameters (such as reputation)
+that we explain in the rest of this section. The winner to which
+the master allocates the task is the bidder
+service agent that is ranked first. %If the web
+%service is busy or unwilling to take the task, the master
+%allocates the task to the second competing web service in the
+%list.
+There is a chance that some tasks could not be assigned to any
+service. These tasks are accumulated in the task pool to be
+allocated in the next task allocation round. Upon allocation of
+the task, the service is responsible for offering the required QoS
+that is stated in the task being generated by a consumer.
+Afterwards,  the master rewards or penalizes the competing
+service by upgrading or degrading its reputation according to the
+offered QoS compared with the required one. This comparison
+influences the sorting mechanism used by the master to allocate
+the tasks in further task allocation rounds.
+
+
+
+
+
+
+%ok til here
+
+
+\subsubsection{System Parameters}
+In this section, we demonstrate the involved parameters and their
+corresponding formulations and explanations. 
+
+\textbf{Task QoS} ($T_{QoS}^r$) is the required QoS metric for a
+specific task $r$. Users define tasks with specific QoS
+requirements such as response time, availability, and
+successability (or accuracy). We aggregate and
+normalize these metrics to a value between $0$
+and $1$. %Throughout this paper, we refer to this value as
+%$T_{QoS}$.
+
+\textbf{Service QoS} ($QoS_w^r$) is the QoS provided by the
+service $w$ after performing the task $r$. Again, the metrics that
+contribute in computing this QoS are aggregated and normalized to
+a value between $0$ and $1$. The offered quality might or might
+not meet the required task quality $T_{QoS}^r$. In the latter
+case, the service user would be disappointed and a negative
+satisfaction feedback is expected. In our proposed system, both
+cases are considered when calculating the services' reputation.
+
+%\textbf{NTD} is the number of tasks completed by a web service.
+
+\textbf{Budget} ($B_w^t$) is the amount of money the service agent
+$w$ has in its disposal during the window time $t$ (i.e.,
+$[0,t]$), which helps pay for the community membership fees
+($\epsilon$) and is one of the parameters that the service agent
+considers when deciding about getting involved in a competition or
+not.
+
+\textbf{Reputation} ($Rep_w^t$) is a significant factor in any
+online community \cite{Fouss:2010:PRM:1751668.1751727}. Without a reputation enabling
+mechanism, users cannot differentiate among services, specially
+the ones which offer the same type of service. Reputation
+mechanisms usually aggregate users' experiences and in our case it
+strongly depends on QoS that each service provides. Users define
+tasks, each one with specific quality $T_{QoS}^r$, so that after
+performing a certain number of tasks, each one with $QoS_w^r$,
+during a window time $t$, the reputation of $w$ gets evaluated by
+the master agent. $Rep_{w}^{t}$ refers to the reputation of $w$
+during that window time $t$.
+
+In Equation \ref{repr}, we compute the reward that the master
+computes considering the task $r$'s QoS $T_{QoS}^r$ compared with
+the service offered quality $QoS_w^r$. In case the offered quality
+meets user expectations, the reward value would be positive. In
+this system, we consider a small value as default rewards $\eta$
+which the master considers together with the proportional level of
+satisfaction as a weighted value (by $\upsilon$). In this case,
+the higher the offered quality, the more weighted reward. In case
+the offered quality did not meet the user expectations, the reward
+would be negative. A default penalty value $\rho$ (where
+$\rho>\eta$) together with the weighted proportional difference
+are therefore considered. The idea is to harshly penalize the
+services rather than rewarding them. To this end, rational service
+agents should carefully analyze their capabilities once the
+available tasks are announced. Equation \ref{reward} computes the
+obtained reward by $w$ during the window time $t$ considering the
+set $task_w^t$ of tasks performed by $w$ during the window time
+$t$. In our proposal, service agents have the goal of increasing
+their budget, which is directly related to their reputation. Thus,
+they have to decide strategically how to maximize this value.
+
+\begin{equation} \label{repr}
+reward_w^r = \begin{cases}
+\eta + \upsilon \frac{QoS_w^r}{T_{QoS}^r+QoS_w^r}   & \text{if $T_{QoS}^r\leq QoS_w^r$;}\\
+-(\rho +  \upsilon \frac{T_{QoS}^r}{T_{QoS}^r+QoS_w^r} ) & \text{otherwise.}\\
+\end{cases}
+\end{equation}
+
+
+\begin{equation} \label{reward}
+reward_w^t =
+\begin{cases}
+\frac{\sum_{r \in
+task_w^t}reward_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
+\end{equation}
+
+The assigned reputation value is updated by the computed reward
+value. The computed reputation of services is bounded by the
+minimum and maximum reputation values $0$ and $1$. % to constrain
+%the balance the cooperative community of web services. The updated
+Let $\Gamma = Rep_{w}^{t} + reward_w^t$. The updated reputation
+value is then computed as follows:
+
+\begin{equation}\label{repz}
+%Rep_{w}^{t+1} = Rep_{w}^{t} + reward
+%\end{equation}
+%\begin{equation*}
+Rep_{w}^{t+1} = \begin{cases}
+
+\Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
+0  & \text{if $\Gamma < 0$;}\\
+1 & \text{if $\Gamma > 1$.}\\
+\end{cases}
+\end{equation}
+%
+For new services with no previous reputation value, we use the
+bootstrapping trust technique proposed in \cite{conf/icwe/YahyaouiZ11}. This
+technique consists in giving the new services a chance and observe
+their behaviors for a period of testing time. The observation
+sequence is modeled as a hidden Markov model that is used to
+detect the behavior of the service by comparing the observation
+behavior against pre-defined trust patterns. Based on the matching
+result, an initial value is assigned to the service. Using this
+initial reputation value, services quickly converge to their
+actual and stable values using the update function.
+
+\begin{proposition}\label{Complexity-Rep}
+$Rep_{w}^{t}$ can be computed in time $O(|t|)$, i.e., in time
+linear in the size of the window $t$.
+\end{proposition}
+
+\begin{proof}\footnote{In this paper, we
+assume that the common arithmetic and elementary functions, such
+as multiplication, division and trigonometric functions can be
+computed in time $O(1)$ as they operate on inputs of fixed sizes.}
+The function $Rep_{w}^{t}$ is recursive on $t$, but the algorithm
+works by storing the last calculated reputation value in a
+variable, so it will not be recalculated again at each iteration.
+However, the calculation of $reward_w^t$ is needed. Since the
+function $reward_w^t$ can be computed in time linear in the number
+of tasks (see Equations \ref{repr} and \ref{reward}), which in
+turn is linear in the size of the window time, the result follows.
+$\Box$
+\end{proof}
+
+\textbf{Growth Factor} ($G_w^t$) is a parameter which declares
+services' performance based on their recent strategies and
+activities. Growth factor is relative to services' reputation
+$Rep_w^t$, QoS during the window time $t$ $QoS_w^t$, and budget
+$B_w^t$. This factor is the main variable a typical service uses
+to decide about which strategy to adopt. The details about the
+decision making process are described in Section \ref{Theoretical
+Results}. We use Equation \ref{eq:growthfactor} to compute the
+growth factor $G^t_w$ of the service $w$ during the window time
+$t$ as the average of the three aforementioned parameters, where
+$n_t$ is the total number of offered tasks to the whole community
+during the
+window time $t$, %(we consider the time window $t$ large enough so
+%that $n_t \neq 0$),
+$\mu_w$ is the mean received service fee, and $\epsilon$ is the
+cost of community membership.
+
+\begin{equation}\label{eq:growthfactor}
+G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
+\epsilon}}{3}
+\end{equation}
+\begin{equation*}
+\mu_{w} \in\{\mu_{w, CM}, \mu_{w, CO}\},~~~QoS_w^t =
+\begin{cases} \frac{\sum_{r \in
+task_w^t}QoS_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
+\end{equation*}
+
+
+This equation is designed so that it satisfies the following
+desirable properties:
+
+\begin{enumerate}
+
+\item The growth factor function should be monotonically
+increasing in the offered quality of service $QoS_w^t$.
+
+\item The growth factor function should be monotonically
+increasing in the service's reputation $Rep^t_w$.
+
+\item The growth factor function should be monotonically
+increasing in the budget $B_w^t$ if the maximum possible profit is
+positive and monotonically decreasing in $B_w^t$ if the maximum
+possible profit is negative. This property reflects the idea that
+the budget contributes in the increase of the growth factor as far
+as there is a chance to make profit. In fact, the contribution of
+the budget $B_w^t$ in the calculation of the growth factor should
+be proportional to the maximum possible profit $n_t \mu_w -
+\epsilon$ where the service $w$ receives all the offered tasks
+during the window time $t$.
+
+\end{enumerate}
+
+  % if the profit $\beta_w$ made by the web service $w$
+%considering the mean received service fee $\mu_w$ and the cost of
+%community membership $\epsilon$ is positive.
+It is easy to show that Equation \ref{eq:growthfactor} satisfies
+the three aforementioned properties by calculating the partial
+derivatives $\partial G^t_w$ of this function in 1) $QoS_w^t$
+($\frac{\partial G^t_w}{\partial QoS_w^t} = \frac{1}{3} $); 2)
+$Rep^t_w$ ($\frac{\partial G^t_w}{\partial Rep^t_w} = \frac{1}{3}
+$); and 3) $B_w^t$ ($\frac{\partial G^t_w}{\partial B_w^t} =
+\frac{1}{3 (n_t \mu_w - \epsilon)} $). Thus, the sign of the two
+first partial derivatives is positive and the sign of
+$\frac{\partial G^t_w}{\partial B_w^t}$ depends on the sign of the
+maximum profit $n_t \mu_w - \epsilon$, so we are done. The mean
+service fee depends on the strategy adopted by the service because
+a competitive service receives higher fees $\mu_{w, CM}$ compared
+to a cooperative one $\mu_{w, CO}$ ($\mu_{w, CM} > \mu_{w, CO}$).
+The motivation behind this is that a competitive service for a
+given task is the leader for that task while other cooperative
+services are performing specific subtasks as asked by the leader.
+
+
+\begin{proposition}\label{Complexity-Growth_Factor}
+$G_w^t$ can be computed in time linear in the size of the window
+$t$.
+\end{proposition}
+
+\begin{proof}
+As shown in the second part of Equation \ref{eq:growthfactor}, the
+function $QoS_w^t$ can be computed in time linear in the number of
+tasks, which in turn is linear in the size of the window time.
+Since $B_w^t$ is constant, the result follows from Proposition
+\ref{Complexity-Rep}. $\Box$
+\end{proof}
+
+
+\subsubsection{Service Interactive Strategies}
+
+The main goal of each individual service agent is to increase its
+income (payoff). This income can be earned from tasks (or
+requests) done by this service. In our model, services can decide
+to compete to get a task from the master agent or to cooperate
+with other services within a given collaborative network (the way
+a collaborative network is set by a leader is based on the
+cooperative services reputation and their QoS parameters that
+should coincide with the required QoS). Therefore we define two
+types of service strategies. First, when a service has higher
+level of confidence based on its growth factor, it can compete to
+get a task from the master and adopts the competitive strategy.
+Second, when the service agent has a lower level of confidence
+that it does not feel capable to compete, it waits for some other
+services to cooperate with to perform some tasks \footnote{Through
+the paper, requests or tasks are supposed to be decomposable.},
+and thus it adopts the cooperative strategy. Services estimate the
+outcome of all the strategies and choose one of them accordingly.
+This decision is not static but can change over time so service
+agents can switch from one strategy to the other, and this dynamic
+attitude is referred to as coopetition. 
+
+
+
+
+
+
+
+
+
 
 
 \section{Experimental Results and Analysis}\label{s:resutls}
@@ -821,3 +1156,205 @@ our method, we have more chance of failure for each web service.
 However, with some subsidies and by hiring a few more web
 services, the chance of failure of web services in our communities
 can be lowered.
+
+\subsection*{Coopetitive behaviour of services within communities}\label{sb:resutlscoop}
+
+In this section, the objective is to investigate the effectiveness of the proposed strategic system in section \ref{s:coop}.
+
+We start our discussions with cumulative budget comparison
+regarding different communities within which services follow
+different reasoning techniques. Figure \ref{Graph1} part (a)
+illustrates three graphs for three different communities. Each
+community hosts services that follow different reasoning
+techniques: (1) a community that follows the interactive reasoning
+techniques presented in this paper (referred to as coopetitive);
+(2) a community that follows a stochastic reasoning technique so
+decisions about selecting competitive or cooperative strategies
+are totally random (referred to as random coopetitive); and (3) a
+competitive community where all services follow the competitive
+strategy (referred to as competitive). The proposed model's
+reasoning mechanism enables services to effectively select their
+interacting strategies and the obtained budget represents the best
+outcome over the strategic decision making procedure they run all
+the time. This procedure avoids cases where a service selects the
+competitive strategy but gets refused to obtain a task from the
+master. The procedure allows services to make decisions that
+maximize their utilities, so that if the service cannot compete,
+the procedure would suggest to collaborate, which is better than
+competing and failing to obtain the task. In this case (i.e.,
+competing and not getting the task), the service stays idle but
+still pays the community membership fee, which means losing
+utility. The developed strategic decision making mechanism leads
+some service agents to follow cooperative strategies that overall
+maintain an optimal community budget. In the same figure, we
+observe the cumulative budget of a community where services follow
+random interacting strategies. The outcome is clearly lower
+because services at each run randomly decide over their acting
+strategies. This potentially influences the community budget
+because a low quality service if randomly selects to follow the
+competitive strategy, it will fail to perform a task with high QoS
+requirements. This kind of strategy selection is totally
+stochastic while the task allocation algorithm follows a logical
+path. The ideal system is the one that analyzes the optimal
+strategic path and consistently follows strategies that bring
+maximum outcome. The result regarding the community that follows
+the random strategy shows how stochastic decision making degrades
+the community budget, but still this result outperforms the one of
+the purely competitive community. In this purely competitive case,
+all the services follow the competitive strategy and the frequency
+of getting rejected from a task is relatively high. In a community
+with limited number of tasks, the competitive strategy for all
+services highly influences the community budget because a
+potential group of services are losing at every run.
+
+
+The results illustrated in Figure \ref{Graph1} part (a)  verify
+the importance of the strategic decision making procedure to
+logically decide over the possible competitive and cooperative
+choices. Figure \ref{Graph1} part (b) illustrates communities
+average reputation of involved services. The graphs represent the
+influence of the rewards that the master agent uses to encourage
+highly capable services to compete for a task. As for the
+cumulative budget, we observe that the coopetitive community
+outperforms the random coopetitive and competitive communities in
+terms of average reputation. The proposed model's average
+reputation increases because services follow optimal strategies
+where they can perform better so obtain higher rewards. For the
+same reasons as for the cumulative budget, the average reputation
+of the random coopetitive community
+outperforms the one of the competitive community. %The idea is to balance web
+%services' strategies to maintain optimal community budget.
+
+
+\begin{figure}%[h]
+%\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[scale=0.47]{graphbgtmed.eps}
+\includegraphics[scale=0.47]{graphrep.eps}
+\caption{Part (a): Cumulative community budget comparison. Part
+(b): Average community reputation comparison over different
+strategic decisions.} \label{Graph1}
+\end{figure}
+
+
+
+ %Figure \ref{Graph2} part (a) illustrates the reputation of the proposed $Coopetitive$ community where
+ %we highlight the range of reputation change in the community. The vertical lines denote the range of %reputation that is associated with the master web service. The rewards and penalties applied to %different
+% web services show that the master web service over runs extends the reputation range and takes %control of the whole community. In the developed model, web services are encouraged to choose
+ %optimal strategies. This is maintained over growth factor comparison of the $Coopetitive$ web %services.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{graphbgtmed3set.eps}
+\includegraphics[scale=0.35]{graphbgthigh.eps}
+\includegraphics[scale=0.35]{graphbgtveryhigh.eps}
+\caption{High membership fees or less task income impacts on
+different selection strategies. Part (a) Medium membership fee.
+Part (b) High membership fee. Part (c) Very high membership fee.}
+\label{membership_fee_graph}
+\end{figure}
+
+In Figure \ref{membership_fee_graph}, we analyze the scenario
+where the membership fee is high, which is analogous to situations
+where the task income is low. We need to verify how well services
+can perform in these situations. Figure \ref{membership_fee_graph}
+part (a) depicts the results in a normal scenario. In part (b), we
+have increased the membership fee to the high amount of 5 units
+per run. Services will need to pay $5$ units on each iteration of
+tasks being offered. As results, the strategic coopetitive
+decision making process helps services make benefits, but
+stochastic and compete methods lead to lose income since making
+mistakes and trying to compete for jobs the services cannot afford
+while having to pay higher membership fees is making them lose
+budget in a faster pace. In part (c), the membership fee is higher
+than an average income that
+a task can generate. %It might not be rational for selfish
+%self-interest web services to stay in these communities from the
+%utility perspective, but as mentioned there might be other
+%political reasons they might need to stay in these communities. As
+The simulation shows that the stochastic and compete strategies
+make services budget decreases drastically. However, our strategic
+coopetitive decision making process loses budget in a slower pace.
+
+
+
+In Figure \ref{Graph2} parts (a) and (b), we observe the
+competitive and cooperative probability of four different services
+where two of them ($w_1$ and $w_3$) are following optimal
+strategies as suggested by our model (competitive for $w_1$ and
+cooperative for $w_3$) and the two others ($w_2$ and $w_4$) are
+following non-optimal strategies, which are the opposite of what
+our model suggests. Over elapsing runs, services that follow
+optimal strategies bring best reputation. In fact, the master
+agent rewards the high quality service that chooses the
+competitive strategy, cooperates with other peers and successfully
+accomplishes the task. In this system, the reputation regarding
+such a service is increasing over time and the possibility of
+allocating further tasks is increasing as well. By increasing the
+growth factor, such a service (here shown as $w_1$) increases the
+probability of selecting the competitive strategy. On the other
+hand, the other service (here shown as $w_2$) that is incapable of
+competing is penalized by the master agent because the offered
+quality might not meet the required task quality. Thus, $w_2$
+degrades its growth factor by following the competitive strategy.
+As intelligent entity, this service is encouraged to change its
+strategy to the cooperative one and thus, its probability of
+selecting the competitive strategy is decreasing over time. We
+have similar results in Figure \ref{Graph2} part (b) regarding
+services $w_3$ and $w_4$ where unlike $w_4$, $w_3$ is
+strategically following the cooperative strategy allowing for an
+increase in the
+overall reputation. %Therefore, $w_4$ is more seeking the
+%competitive strategy where it can increase its growth factor.
+
+\begin{figure}[h]
+%\centering
+\includegraphics[scale=0.47]{graphcomp.eps}
+\includegraphics[scale=0.47]{graphcoop.eps}
+\caption{Reputation progress of four different services: W$_1$ and
+W$_3$ are following our strategic decision model; W$_2$ and W$_4$
+are following the opposite.} \label{Graph2}
+\end{figure}
+
+
+
+In our model, services are managed by selfish agents in the sense
+they try to maximize their own utilities. We analyze how their
+strategies affect the social welfare, and from user's and
+community's point of view how good the tasks are being performed.
+This directly impacts user's satisfaction and community's
+reputation in general. The Higher quality and quantity of tasks
+performed leads to higher user's satisfaction for the community
+which results in better reputation for the community. The results
+in Figure \ref{graph_task} show the quality and quantity of tasks
+being done successfully in three communities adopting the three
+different aforementioned strategy decision algorithms. Part (a)
+depicts the number of tasks successfully done. When services are
+not capable of performing tasks alone and decide to compete for
+tasks with high QoS requirements, they usually fail to perform the
+task. However, if they opt for cooperating although they have less
+income, they have higher chance of performing tasks
+collaboratively with other services. Figure \ref{graph_task}, Part
+(b) shows the probability of successfully performing tasks, which
+influences users' satisfaction. The results show that services
+using our coopetitive strategy when deciding whether to compete or
+cooperate have higher chance to get high satisfaction ratio
+compared to stochastic and compete strategies. The quality of
+tasks performed are depicted in Figure \ref{graph_task} Part (c).
+The figure shows the average QoS of tasks successfully
+performed. %Collaborating increases the performed QoS of tasks,
+%therefore forming collaborative groups improves user satisfaction.
+As clearly confirmed by the simulation, the coopetitive community
+outperforms the stochastic and compete communities.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.35]{graphtaskdone.eps}
+\includegraphics[scale=0.35]{graphtasksatisfaction.eps}
+\includegraphics[scale=0.35]{graphavgqostask.eps}
+\caption{Overall performance from community's point of view. Part
+(a) Total number of tasks successfully done. Part (b) Ratio of
+tasks satisfied with required QoS. Part (c) Average QoS of
+performed tasks.} \label{graph_task}
+\end{figure} 
+
