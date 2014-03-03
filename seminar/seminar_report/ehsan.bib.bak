@@ -1,10 +1,10 @@
 
-@inproceedings{SCC2013-1,
-  author    = {Karim Benouaret and Djamal Benslimane and Allel Hadjali and Mahmoud Barhamgi},
-  title     = {Top-k Web Service Compositions Using Fuzzy Dominance Relationship},
+@inproceedings{SCC2013efficient,
+  author    = {E. Khosrowshahi Asl and J. Bentahar and H. Otrok and R. Mizouni},
+  title     = {Efficient Coalition Formation for Web Services},
   booktitle = {IEEE SCC},
-  year      = {2011},
-  pages     = {144-151}
+  year      = {2013},
+  pages     = {737-744}
 }
 
 @inproceedings{Alescio,
@@ -585,4 +585,17 @@ address = {Los Alamitos, CA, USA},
   title = {The Formation of Coalitions Among Self-Interested Agents.},
   url = {http://dblp.uni-trier.de/db/conf/aaai/aaai94-2.html#Ketchpel94a},
   year = 1994
+}
+
+
+@article{schmeidler_nucleolus_1969,
+    author = {Schmeidler, D.},
+    citeulike-article-id = {5877497},
+    journal = {{SIAM} Journal on Applied Mathematics},
+    keywords = {file-import-09-10-02},
+    pages = {1163--1170},
+    posted-at = {2009-10-02 16:12:44},
+    priority = {0},
+    title = {{The nucleolus of a characteristic function game}},
+    year = {1969}
 }
