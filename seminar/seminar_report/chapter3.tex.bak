@@ -174,14 +174,14 @@ service and a collection of web services. The master web service
 decides which members can join
 %or should leave%
 the community and distributes the requests and income among its
-community members (see Figure \ref{fig_sim1}).
+community members.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3in]{Figures/s1.eps}`
-\caption{Web Services and A Grand Community}
-\label{fig_sim1}
-\end{figure}
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3in]{Figures/s1.eps}`
+%\caption{Web Services and A Grand Community}
+%\label{fig_sim1}
+%\end{figure}
 
 The membership decision is made based on throughput and \emph{QoS}
 of the considered web service. The goal is to have quality web
@@ -214,7 +214,7 @@ algorithm tractable.
 
 In this scenario, we consider multiple communities managed by
 multiple master web services, each of which is providing
-independent request pools (see Figure \ref{fig_sim2}). Identical
+independent request pools. Identical
 to the first scenario, master web services form coalitions with
 web services. We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
@@ -223,12 +223,12 @@ algorithms in \cite{Sandholm:1999:CSG:317145.317152,DBLP:conf/ijcai/GrecoMPS11,D
 solve key fundamental problems of what coalitions to form, and how
 to divide the payoffs among the collaborators.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3in]{Figures/s2.eps}
-\caption{Web Services and Many Communities}
-\label{fig_sim2}
-\end{figure}
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3in]{Figures/s2.eps}
+%\caption{Web Services and Many Communities}
+%\label{fig_sim2}
+%\end{figure}
 
 In coalition-formation games, formation of the coalitions is the
 most important aspect. The solutions focus on maximizing the
@@ -337,7 +337,7 @@ the next section.
 
 \section{Competitive behaviour of services within communities}\label{s:coop}
 
-In previous sections, our focus was on community formation and we the focus was on cooperative behaviour of the web services as agents. However competition within cooperative environments, for business agents having different set of capabilities. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
+In previous sections, our focus was on community formation and we emphasised on cooperative behaviour of the web services as agents. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
 in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this paper interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
 
 
@@ -479,50 +479,51 @@ The assigned reputation value is updated by the computed reward
 value. The computed reputation of services is bounded by the
 minimum and maximum reputation values $0$ and $1$. % to constrain
 %the balance the cooperative community of web services. The updated
-Let $\Gamma = Rep_{w}^{t} + reward_w^t$. The updated reputation
-value is then computed as follows:
-
-\begin{equation}\label{repz}
-%Rep_{w}^{t+1} = Rep_{w}^{t} + reward
-%\end{equation}
-%\begin{equation*}
-Rep_{w}^{t+1} = \begin{cases}
-
-\Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
-0  & \text{if $\Gamma < 0$;}\\
-1 & \text{if $\Gamma > 1$.}\\
-\end{cases}
-\end{equation}
+%Let $\Gamma = Rep_{w}^{t} + reward_w^t$.
+%The updated reputation
+%value is then computed as follows:
 %
-For new services with no previous reputation value, we use the
-bootstrapping trust technique proposed in \cite{conf/icwe/YahyaouiZ11}. This
-technique consists in giving the new services a chance and observe
-their behaviors for a period of testing time. The observation
-sequence is modeled as a hidden Markov model that is used to
-detect the behavior of the service by comparing the observation
-behavior against pre-defined trust patterns. Based on the matching
-result, an initial value is assigned to the service. Using this
-initial reputation value, services quickly converge to their
-actual and stable values using the update function.
+%\begin{equation}\label{repz}
+%%Rep_{w}^{t+1} = Rep_{w}^{t} + reward
+%%\end{equation}
+%%\begin{equation*}
+%Rep_{w}^{t+1} = \begin{cases}
+%
+%\Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
+%0  & \text{if $\Gamma < 0$;}\\
+%1 & \text{if $\Gamma > 1$.}\\
+%\end{cases}
+%\end{equation}
+%
+%For new services with no previous reputation value, we use the
+%bootstrapping trust technique proposed in \cite{conf/icwe/YahyaouiZ11}. This
+%technique consists in giving the new services a chance and observe
+%their behaviors for a period of testing time. The observation
+%sequence is modeled as a hidden Markov model that is used to
+%detect the behavior of the service by comparing the observation
+%behavior against pre-defined trust patterns. Based on the matching
+%result, an initial value is assigned to the service. Using this
+%initial reputation value, services quickly converge to their
+%actual and stable values using the update function.
 
-\begin{proposition}\label{Complexity-Rep}
-$Rep_{w}^{t}$ can be computed in time $O(|t|)$, i.e., in time
-linear in the size of the window $t$.
-\end{proposition}
+%\begin{proposition}\label{Complexity-Rep}
+%$Rep_{w}^{t}$ can be computed in time $O(|t|)$, i.e., in time
+%linear in the size of the window $t$.
+%\end{proposition}
 
-\begin{proof}\footnote{In this paper, we
-assume that the common arithmetic and elementary functions, such
-as multiplication, division and trigonometric functions can be
-computed in time $O(1)$ as they operate on inputs of fixed sizes.}
-The function $Rep_{w}^{t}$ is recursive on $t$, but the algorithm
-works by storing the last calculated reputation value in a
-variable, so it will not be recalculated again at each iteration.
-However, the calculation of $reward_w^t$ is needed. Since the
-function $reward_w^t$ can be computed in time linear in the number
-of tasks (see Equations \ref{repr} and \ref{reward}), which in
-turn is linear in the size of the window time, the result follows.
-$\Box$
-\end{proof}
+%\begin{proof}\footnote{In this paper, we
+%assume that the common arithmetic and elementary functions, such
+%as multiplication, division and trigonometric functions can be
+%computed in time $O(1)$ as they operate on inputs of fixed sizes.}
+%The function $Rep_{w}^{t}$ is recursive on $t$, but the algorithm
+%works by storing the last calculated reputation value in a
+%variable, so it will not be recalculated again at each iteration.
+%However, the calculation of $reward_w^t$ is needed. Since the
+%function $reward_w^t$ can be computed in time linear in the number
+%of tasks (see Equations \ref{repr} and \ref{reward}), which in
+%turn is linear in the size of the window time, the result follows.
+%$\Box$
+%\end{proof}
 
 \textbf{Growth Factor} ($G_w^t$) is a parameter which declares
 services' performance based on their recent strategies and
@@ -555,16 +556,17 @@ task_w^t}QoS_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
   % if the profit $\beta_w$ made by the web service $w$
 %considering the mean received service fee $\mu_w$ and the cost of
 %community membership $\epsilon$ is positive.
-It is easy to show that Equation \ref{eq:growthfactor} satisfies
-the three aforementioned properties by calculating the partial
-derivatives $\partial G^t_w$ of this function in 1) $QoS_w^t$
-($\frac{\partial G^t_w}{\partial QoS_w^t} = \frac{1}{3} $); 2)
-$Rep^t_w$ ($\frac{\partial G^t_w}{\partial Rep^t_w} = \frac{1}{3}
-$); and 3) $B_w^t$ ($\frac{\partial G^t_w}{\partial B_w^t} =
-\frac{1}{3 (n_t \mu_w - \epsilon)} $). Thus, the sign of the two
-first partial derivatives is positive and the sign of
-$\frac{\partial G^t_w}{\partial B_w^t}$ depends on the sign of the
-maximum profit $n_t \mu_w - \epsilon$, so we are done. The mean
+%It is easy to show that Equation \ref{eq:growthfactor} satisfies
+%the three aforementioned properties by calculating the partial
+%derivatives $\partial G^t_w$ of this function in 1) $QoS_w^t$
+%($\frac{\partial G^t_w}{\partial QoS_w^t} = \frac{1}{3} $); 2)
+%$Rep^t_w$ ($\frac{\partial G^t_w}{\partial Rep^t_w} = \frac{1}{3}
+%$); and 3) $B_w^t$ ($\frac{\partial G^t_w}{\partial B_w^t} =
+%\frac{1}{3 (n_t \mu_w - \epsilon)} $). Thus, the sign of the two
+%first partial derivatives is positive and the sign of
+%$\frac{\partial G^t_w}{\partial B_w^t}$ depends on the sign of the
+%maximum profit $n_t \mu_w - \epsilon$, so we are done.
+The mean
 service fee depends on the strategy adopted by the service because
 a competitive service receives higher fees $\mu_{w, CM}$ compared
 to a cooperative one $\mu_{w, CO}$ ($\mu_{w, CM} > \mu_{w, CO}$).
@@ -573,18 +575,18 @@ given task is the leader for that task while other cooperative
 services are performing specific subtasks as asked by the leader.
 
 
-\begin{proposition}\label{Complexity-Growth_Factor}
-$G_w^t$ can be computed in time linear in the size of the window
-$t$.
-\end{proposition}
-
-\begin{proof}
-As shown in the second part of Equation \ref{eq:growthfactor}, the
-function $QoS_w^t$ can be computed in time linear in the number of
-tasks, which in turn is linear in the size of the window time.
-Since $B_w^t$ is constant, the result follows from Proposition
-\ref{Complexity-Rep}. $\Box$
-\end{proof}
+%\begin{proposition}\label{Complexity-Growth_Factor}
+%$G_w^t$ can be computed in time linear in the size of the window
+%$t$.
+%\end{proposition}
+%
+%\begin{proof}
+%As shown in the second part of Equation \ref{eq:growthfactor}, the
+%function $QoS_w^t$ can be computed in time linear in the number of
+%tasks, which in turn is linear in the size of the window time.
+%Since $B_w^t$ is constant, the result follows from Proposition
+%\ref{Complexity-Rep}. $\Box$
+%\end{proof}
 
 
 \subsubsection{Service Interactive Strategies}
@@ -638,12 +640,9 @@ H. Mahmoud freely available at:
 http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}. To test
 our methods, we formed around 10,000 random coalitions consisting
 of 3 to 160 web services. In average, the communities were populated by 60 web
-services. Thus, in total, the number of used web services is
-600,000. This makes our system scalable enough. We implemented the
+services. We implemented the
 scenarios using Java and executed the experiments on an Intel Xeon
-X3450 machine with 6GBs of memory. For other parameters missing
-from the dataset, we used normal random distribution with
-parameters estimated using the method of maximum likelihood.
+X3450 machine with 6GBs of memory.
 
 One of the key criteria reflecting the performance of web service
 coalitions is the user satisfaction. User satisfaction can be
@@ -681,17 +680,19 @@ For the \emph{optimal core} method, we have used the well known
 core condition to help communities attract web services. We have
 assigned $\epsilon$ to 15\% of total community worth, which means
 $\epsilon = 0.15 \times v(C)$. This allows subsets of the
-coalition to gain maximum 15\% of $v(C)$. In the \emph{optimal
-$\epsilon$-core} method, we capped the coalition size to 25 web
-services, since the method is computationally intractable as the
-number of web services increases. In fact, given the machine
-configuration we used in our experiments, the maximum number we
-could run for this method is 25, which is very realistic if we
-consider the real airlines coalitions (the three well known
-coalitions have respectively 28, 19, and 13 members). In the other
-methods, there were no cap on size of the community and we had
-communities of size 160 web services at some points, as discussed
-above. In the experiments, our \emph{Depth-1 Convex-Checker} and
+coalition to gain maximum 15\% of $v(C)$.
+%In the \emph{optimal
+%$\epsilon$-core} method, we capped the coalition size to 25 web
+%services, since the method is computationally intractable as the
+%number of web services increases. In fact, given the machine
+%configuration we used in our experiments, the maximum number we
+%could run for this method is 25, which is very realistic if we
+%consider the real airlines coalitions (the three well known
+%coalitions have respectively 28, 19, and 13 members). In the other
+%methods, there were no cap on size of the community and we had
+%communities of size 160 web services at some points, as discussed
+%above.
+In the experiments, our \emph{Depth-1 Convex-Checker} and
 \emph{Depth-2 Convex-Checker} methods generate results instantly
 (0.01ms in Java millisecond time unit granularity) in our machines
 since their runtime with respect to the size of input (number of
@@ -783,7 +784,13 @@ impact on the QoS. In fact, using more than 30\% of the community
 valuation as subsidy is not very effective and is costly to
 perform.
 
-\begin{figure*}%[!t]
+\begin{figure*}%[!t]In the previous experiment, we considered the scenario where all
+web services are stable, will not leave the group, and will
+fulfill their promised QoS for a good period of time. However, in
+real world scenarios of web services, this is not always the case.
+This is the reason why the community coordinator would be interested in paying
+web services in order to keep the group reliable from the end
+user's point of view.
 \centerline{\includegraphics[width=6.8in]{tax_dyn.eps}}
 \caption{Analysis of community subsiding coefficient $\lambda$
 having web service different stability levels of $\tau$ on average
@@ -793,13 +800,7 @@ service, and average cost/income of communities.}
 \end{figure*}
 
 
-In the previous experiment, we considered the scenario where all
-web services are stable, will not leave the group, and will
-fulfill their promised QoS for a good period of time. However, in
-real world scenarios of web services, this is not always the case.
-This is the reason why the community coordinator would be interested in paying
-web services in order to keep the group reliable from the end
-user's point of view. In our next scenario, we have introduced the
+In our next scenario, we have introduced the
 new instability variable $\tau$ ranging from 0 to 1, 0 meaning web
 services having no instability issues and will perform as they
 claimed until the end of the experiment, and 1 meaning very
@@ -883,8 +884,7 @@ since services have very low chance of getting jobs and its the
 primary web service (the first in the coordination chain) which
 does most of the work. As shown in Part (b), the average quality
 of service of tasks performed using our solution is also higher
-since our method considers all quality of service metrics
-mentioned in Table \ref{qosws}. Part(c) shows the availability of
+since our method considers all quality of service metrics used. Part(c) shows the availability of
 communities from the end user's point of view. The High
 Availability Coalition model has almost 100\% uptime since web
 services are used as backups, so the chance of job failing is
@@ -897,35 +897,34 @@ can be lowered.
 \subsection*{Coopetitive behaviour of services within communities}\label{sb:resutlscoop}
 
 In this section, the objective is to investigate the effectiveness of the proposed strategic system in section \ref{s:coop}.
-
 We start our discussions with cumulative budget comparison
 regarding different communities within which services follow
 different reasoning techniques. Figure \ref{Graph1} part (a)
 illustrates three graphs for three different communities. Each
 community hosts services that follow different reasoning
 techniques: (1) a community that follows the interactive reasoning
-techniques presented in this paper (referred to as coopetitive);
+techniques presented in this report (referred to as coopetitive);
 (2) a community that follows a stochastic reasoning technique so
 decisions about selecting competitive or cooperative strategies
 are totally random (referred to as random coopetitive); and (3) a
 competitive community where all services follow the competitive
-strategy (referred to as competitive). The proposed model's
-reasoning mechanism allows services to make decisions that
-maximize their utilities, so that if the service cannot compete,
-the procedure would suggest to collaborate, which is better than
-competing and failing to obtain the task. In this case (i.e.,
-competing and not getting the task), the service stays idle but
-still pays the community membership fee, which means losing
-utility. The developed strategic decision making mechanism leads
-some service agents to follow cooperative strategies that overall
-maintain an optimal community budget. In the same figure, we
-observe the cumulative budget of a community where services follow
-random interacting strategies. The outcome is clearly lower
-because services at each run randomly decide over their acting
-strategies. This potentially influences the community budget
-because a low quality service if randomly selects to follow the
-competitive strategy, it will fail to perform a task with high QoS
-requirements. 
+strategy (referred to as competitive).
+%The proposed model's
+%reasoning mechanism allows services to make decisions that
+%maximize their utilities, so that if the service cannot compete,
+%the procedure would suggest to collaborate, which is better than
+%competing and failing to obtain the task. In this case, the service stays idle but
+%still pays the community membership fee, which means losing
+%utility. The developed strategic decision making mechanism leads
+%some service agents to follow cooperative strategies that overall
+%maintain an optimal community budget. In the same figure, we
+%observe the cumulative budget of a community where services follow
+%random interacting strategies. The outcome is clearly lower
+%because services at each run randomly decide over their acting
+%strategies. This potentially influences the community budget
+%because a low quality service if randomly selects to follow the
+%competitive strategy, it will fail to perform a task with high QoS
+%requirements.
 
 
 The results illustrated in Figure \ref{Graph1} part (a)  verify
@@ -962,28 +961,6 @@ strategic decisions.} \label{Graph1}
  %we highlight the range of reputation change in the community. The vertical lines denote the range of %reputation that is associated with the master web service. The rewards and penalties applied to %different
 % web services show that the master web service over runs extends the reputation range and takes %control of the whole community. In the developed model, web services are encouraged to choose
  %optimal strategies. This is maintained over growth factor comparison of the $Coopetitive$ web %services.
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.35]{graphbgtmed3set.eps}
-\includegraphics[scale=0.35]{graphbgthigh.eps}
-\includegraphics[scale=0.35]{graphbgtveryhigh.eps}
-\caption{High membership fees or less task income impacts on
-different selection strategies. Part (a) Medium membership fee.
-Part (b) High membership fee. Part (c) Very high membership fee.}
-\label{membership_fee_graph}
-\end{figure}
-
-In Figure \ref{membership_fee_graph}, we analyze the scenario
-where the membership fee is high, which is analogous to situations
-where the task income is low. We need to verify how well services
-can perform in these situations. Figure \ref{membership_fee_graph}
-part (a) depicts the results in a normal scenario. In part (b), we
-have increased the membership fee to the high amount of 5 units
-per run. Services will need to pay $5$ units on each iteration of
-tasks being offered. In part (c), the membership fee is higher
-than an average income that
-a task can generate. 
 
 
 In our model, services are managed by selfish agents in the sense

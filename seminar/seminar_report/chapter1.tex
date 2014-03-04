@@ -1,20 +1,20 @@
 \setcounter{chapter}{0}
 %*******************************START INTRODUCTION **********************************
 \chapter{Introduction}\label{sec:intro}
-In this chapter, we introduce the context of this research, which
-is about communities of web services abstracted as autonomous
-agents. Those agent-based web services use cooperative game
-theoretic solution concepts for decision making. We discuss the
-motivations of this work and briefly review the literature to
-identify the problems we aim to solve in this thesis. Moreover, we
-discuss our objectives and preliminary contributions.
+%In this chapter, we introduce the context of this research, which
+%is about communities of web services abstracted as autonomous
+%agents. Those agent-based web services use cooperative game
+%theoretic solution concepts for decision making. We discuss the
+%motivations of this work and briefly review the literature to
+%identify the problems we aim to solve in this thesis. Moreover, we
+%discuss our objectives and preliminary contributions.
 
 \section{Context of Research}\label{sec:motivation}
 
 Over the past years, online services have become part of many
 scalable business applications. The increasing reliance on
 web-based applications has significantly influenced the way web
-services are engineered. 
+services are engineered.
 %Web services provide a set of stateless
 %software functions accessible at a network address over the web.
 %The recent developments are shifting web services from passive and
@@ -44,7 +44,7 @@ Communities are virtual groups of web services having similar
 functionalities \cite{Zeng:2003:QDW:775152.775211,
 Paik:2005:TSS:2229263.2230038,Medjahed05adynamic,10.1109/ARES.2008.7},
 but probably different non-functional quality attributes, which
-form the QoS parameters. 
+form the QoS parameters.
 %When communities are used, users send
 %their requests to the masters of those communities, which are
 %responsible of managing the communities, forwarding the requests
@@ -52,7 +52,7 @@ form the QoS parameters.
 %of those members.
 Communities aim to provide higher service
 availability and performance than what individual web services can
-provide. 
+provide.
 %The high availability of services and the community
 %resilience to failure are guaranteed since web services can
 %cooperate and replace each other within the same community and
@@ -72,7 +72,7 @@ order to maximize the community profit. Users can simply stop
 sending requests to a web service which is not providing
 satisfactory services. Thus its important to consider all the
 parties involved in the decision making process about the
-community management. 
+community management.
 
 In this research work, our first objective is to propose a
 cooperative model as game for the aggregation of web services
@@ -101,7 +101,12 @@ computation impractical in real world applications. However, using
 the concepts of coalition stability, the second objective is to
 investigate approximation algorithms running in polynomial time
 providing web services and community masters with applicable and
-near-optimal decision making mechanisms.
+near-optimal decision making mechanisms. 
+
+Within communities, service providers can 
+can have competitive behaviour as they provide the same functionalities and the number of users requests is finite. So as an extension to our work, we have implemented a framework in which service providers can opt for performing tasks if they feel they are capable enough.
+We have implemented an online learning mechanism for service providers with different captaincies to learn over time which strategy to choose based on their own and other service providers status and capabilities. After establishing states of our model and observing convincing results from our learning method, we plan to extend the learning process using reinforcement learning (q-learning) techniques.
+
 
 \indent To summarize, the main problem we aim to tackle in this
 thesis is the formation of stable and efficient coalitions

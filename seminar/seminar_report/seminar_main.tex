@@ -60,8 +60,18 @@
 %
 % Different font in captions
 % Different font in captions
-%\setlength{\abovecaptionskip}{0pt}   % 0.5cm as an example
+\setlength{\abovecaptionskip}{0pt}   % 0.5cm as an example
 %\setlength{\belowcaptionskip}{0pt}   % 0.5cm as an example
+
+
+\usepackage{amsmath}
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{5pt}
+  \setlength\belowdisplayskip{5pt}
+  \setlength\abovedisplayshortskip{5pt}
+  \setlength\belowdisplayshortskip{5pt}
+}
 
 \pagestyle{myheadings}
 \setcounter{secnumdepth}{3}

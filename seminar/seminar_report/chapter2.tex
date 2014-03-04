@@ -11,51 +11,51 @@ the proposal. Finally, we discuss relevant related work on web
 service communities and games in the literature of service
 oriented computing.
 
-\section{Community of Web Services}\label{sec:CommunityWS}
-In this section, we present web services and discuss the concept
-of their communities from architectural and operations
-perspectives.
-
-\subsection{Web Services}\label{sec:CWSWebServices}
-
-In our research work, we abstract web services as rational
-agents\footnote{The term
-        rational is used here in the sense that web services are utility
-        maximizers} providing services to end users. They aim to maximize
-        their individual income by receiving enough requests from end
-        users. In order to increase their revenue, web services seek for
-        more tasks if they have the capacity and throughput to do so. Web
-        services can join communities to have better efficiency by
-        collaborating with others, to have access to broad market share,
-        and to have opportunity of receiving a bigger task pool from end
-        users. Furthermore, the high reliance on web services has increased quality expectations from end users.
-        Communities of web services can provide higher availability, performance, reliability, and recovery for end users.
-
-\subsection{Web Service Communities}\label{sec:CWSDefinition}
- In \cite{DBLP:journals/internet/BenatallahSD03,
-Zeng:2003:QDW:775152.775211}, the authors introduce community of
-web services as collection of cooperative web services with common
-functionalities but different QoS metrics. Therefore
-$communities$ are differentiated from $composition$ types of web
-service cooperation in which web services with different
-functionalities work together to generate a new service with
-composite functionality.
-
-
-Maamar et al. in \cite{DBLP:journals/ijebr/MaamarSTBB09}
-proposed an architecture utilizing \emph{Contract-Net} protocol
-for engineering task distribution within communities. This
-architecture has been further developed in
-\cite{conf/IEEEscc/BenharrefSBB11, conf/IEEEscc/KhosravifarBMMT10,
-conf/aina/LimTM11, CSTintercommunity}. Two types of roles have
-been distinguished for community members: masters and slaves.
-Master web services lead communities and are responsible for
-membership management. They can invite and convince slave web
-services to join the community, and attract new slave web services
-to their communities by awarding them better payoff. Moreover,
-they can eject some slave members from the community to improve
-its overall reputation if these members are misbehaving or cannot
-provide the promised QoS \cite{DBLP:journals/ijebr/MaamarSTBB09}.
+%\section{Community of Web Services}\label{sec:CommunityWS}
+%In this section, we present web services and discuss the concept
+%of their communities from architectural and operations
+%perspectives.
+%
+%\subsection{Web Services}\label{sec:CWSWebServices}
+%
+%In our research work, we abstract web services as rational
+%agents\footnote{The term
+%        rational is used here in the sense that web services are utility
+%        maximizers} providing services to end users. They aim to maximize
+%        their individual income by receiving enough requests from end
+%        users. In order to increase their revenue, web services seek for
+%        more tasks if they have the capacity and throughput to do so. Web
+%        services can join communities to have better efficiency by
+%        collaborating with others, to have access to broad market share,
+%        and to have opportunity of receiving a bigger task pool from end
+%        users. Furthermore, the high reliance on web services has increased quality expectations from end users.
+%        Communities of web services can provide higher availability, performance, reliability, and recovery for end users.
+%
+%\subsection{Web Service Communities}\label{sec:CWSDefinition}
+% In \cite{DBLP:journals/internet/BenatallahSD03,
+%Zeng:2003:QDW:775152.775211}, the authors introduce community of
+%web services as collection of cooperative web services with common
+%functionalities but different QoS metrics. Therefore
+%$communities$ are differentiated from $composition$ types of web
+%service cooperation in which web services with different
+%functionalities work together to generate a new service with
+%composite functionality.
+%
+%
+%Maamar et al. in \cite{DBLP:journals/ijebr/MaamarSTBB09}
+%proposed an architecture utilizing \emph{Contract-Net} protocol
+%for engineering task distribution within communities. This
+%architecture has been further developed in
+%\cite{conf/IEEEscc/BenharrefSBB11, conf/IEEEscc/KhosravifarBMMT10,
+%conf/aina/LimTM11, CSTintercommunity}. Two types of roles have
+%been distinguished for community members: masters and slaves.
+%Master web services lead communities and are responsible for
+%membership management. They can invite and convince slave web
+%services to join the community, and attract new slave web services
+%to their communities by awarding them better payoff. Moreover,
+%they can eject some slave members from the community to improve
+%its overall reputation if these members are misbehaving or cannot
+%provide the promised QoS \cite{DBLP:journals/ijebr/MaamarSTBB09}.
 
 %        \begin{figure}
 %            \begin{center}
@@ -106,7 +106,7 @@ any possible way among its members. The payoff vector $x \in
 \mathbb{R}^N$ is the amount of payoff being distributed among the
 members of the coalition $N$.  A payoff vector is also \emph{efficient}
 if the payoff obtained by a coalition is distributed amongst the
-coalition members: $\sum_{i \in N} x_i = v(N)$. 
+coalition members: $\sum_{i \in N} x_i = v(N)$.
 
 
         \subsection{Cooperative Game Concepts}
@@ -133,7 +133,7 @@ coalition members: $\sum_{i \in N} x_i = v(N)$.
             The core is basically a set of payoff vectors where no subset of
             players $S^\prime$ could gain more than their current payoff by
             deviating and making their own coalition $\sum_{i \in S^\prime}
-            x_i \geq v(S^\prime)$. 
+            x_i \geq v(S^\prime)$.
 
             {\bf Definition 3 (Convex cooperative games)} A game $(N,v)$ with
             characteristic function $v(S)$ is convex if:
@@ -167,9 +167,9 @@ coalition members: $\sum_{i \in N} x_i = v(N)$.
 %            \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
 %            \end{equation}
 
-            \subsubsection*{Coalition Structure Formation}\label{sec:coalition}
+%            \subsubsection*{Coalition Structure Formation}\label{sec:coalition}
 
-            Coalition structure formation is the problem of finding the best
+            \emph{Coalition structure formation} is the problem of finding the best
             partition of web services into teams. In these settings, the
             performance of an individual service is less important than the
             \emph{social welfare} of the whole system, which is the sum of the
@@ -181,24 +181,24 @@ coalition members: $\sum_{i \in N} x_i = v(N)$.
             %The outcome of a characteristic function game in coalition structure settings, consists of two parts; first a disjoint partition of players (agents) into coalitions, called a \emph{coalition structure} (CS) and second a \emph{payoff vector} as mentioned in cooperative game solution concepts, which distributes the value of each coalition among its members.
 
 
-        \subsection{Representation and Complexity Issues}\label{sec:CWSArchitecture}
-
-        Shapely value is the unique ``fair'' way to distribute the total surplus generated by the coalition, among all the players.
-        The nature of the Shapley value is combinatorial, as all possible orderings to form a
-        coalition needs to be considered. This computational complexity can sometimes be
-        an advantage as agents cannot benefit from manipulation. For example, it is NP-complete
-        to determine whether for a bunch of agents to collude and make their own coalition and guarantee
-        an increase in payoff of all participants \cite{conf/aaai/YokooCSOI05}.
-        There are some representations that allow us to compute the Shapley value efficiently by reducing the input size of the problem.
-        One example is \emph{Induced subgraph games}
-        which was introduced by Deng and Papadimitriou \cite{Deng94}. In this representation, players are represented by graph nodes, and
-        their valuation function should be the sum of weights of all edges between the node and all its neighbors. It is a succinct representation, using
-        an adjacency matrix, which needs only $O(n^2)$ space to store all the input, which is a major improvement from $O(2^n)$ because
-        if weights of all the edges in graph are all positive, the Shapley value can be computed in time $O(n^2)$.
-
-        In order to make cooperative game concepts practical in real world application, we have proposed an approximation multi-layer
-        algorithm useful for service oriented computing settings. Our excrements illustrate, these algorithms can provide
-        applicable and near optimal solutions for real world applications.
+%        \subsection{Representation and Complexity Issues}\label{sec:CWSArchitecture}
+%
+%        Shapely value is the unique ``fair'' way to distribute the total surplus generated by the coalition, among all the players.
+%        The nature of the Shapley value is combinatorial, as all possible orderings to form a
+%        coalition needs to be considered. This computational complexity can sometimes be
+%        an advantage as agents cannot benefit from manipulation. For example, it is NP-complete
+%        to determine whether for a bunch of agents to collude and make their own coalition and guarantee
+%        an increase in payoff of all participants \cite{conf/aaai/YokooCSOI05}.
+%        There are some representations that allow us to compute the Shapley value efficiently by reducing the input size of the problem.
+%        One example is \emph{Induced subgraph games}
+%        which was introduced by Deng and Papadimitriou \cite{Deng94}. In this representation, players are represented by graph nodes, and
+%        their valuation function should be the sum of weights of all edges between the node and all its neighbors. It is a succinct representation, using
+%        an adjacency matrix, which needs only $O(n^2)$ space to store all the input, which is a major improvement from $O(2^n)$ because
+%        if weights of all the edges in graph are all positive, the Shapley value can be computed in time $O(n^2)$.
+%
+%        In order to make cooperative game concepts practical in real world application, we have proposed an approximation multi-layer
+%        algorithm useful for service oriented computing settings. Our excrements illustrate, these algorithms can provide
+%        applicable and near optimal solutions for real world applications.
 
 \subsection{Stability of Coalitions}
 

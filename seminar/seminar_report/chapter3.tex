@@ -12,15 +12,8 @@ some simulation results.
 
 \section{Preliminaries}\label{s:preliminaries}
 
-In this section, we discuss the parameters and preliminary
-concepts that we use in the rest of the proposal.
-
-\subsection{Architecture}
-
 Our system consists of three main types of entities working
-together:
-
-\emph{1) Web services} are rational entities that aim to maximize
+together: \emph{1) Web services} are rational entities that aim to maximize
 their utilities by providing high quality services to end users.
 They aim to maximize their individual income by receiving enough
 requests from end users. In order to increase their revenue, web
@@ -30,25 +23,23 @@ better efficiency by collaborating with others, to have access to
 higher market share, and to have opportunity of receiving a bigger
 task pool from end users. Throughout this proposal, in our
 equations, we refer to web services as $ws$ and to the set of web
-services hosted by a given community as $C$. To simplify the
-notation, sometimes we simply write $ws$ instead of $ws \in C$ to
-go through the elements $ws$ of the set $C$.
-
+services hosted by a given community as $C$. 
+%To simplify the
+%notation, sometimes we simply write $ws$ instead of $ws \in C$ to
+%go through the elements $ws$ of the set $C$.
 \emph{2) Master Web Services} or the community coordinators, are representatives of the
 communities of web services and responsible for their management.
 Communities receive requests from users and aim to host a healthy
 set of web services to perform the required tasks. They seek to
 maximize user satisfaction by having tasks accomplished according
-to the desired QoS. In fact, higher user satisfaction will bring
-more user requests and increase the market share and revenue of
-the community.
-
+to the desired QoS. 
+%In fact, higher user satisfaction will bring
+%more user requests and increase the market share and revenue of
+%the community. 
 \emph{3) Users} generate requests and try to find the best
 available services. User satisfaction is abstracted as function of
 quantity and quality of tasks accomplished by a given service.
 Higher user satisfaction leads to higher trust of the community by users hence directing more requests towards that service provider.
-
-\subsection{Web Service Parameters}\label{ws_parameters}
 
 Web services come with different quality of service parameters.
 These parameters include availability, reliability, successability, throughput, latency, capacity, cost, regulatory and security\cite{DBLP:conf/smc/Al-MasriM09a}.
@@ -60,8 +51,6 @@ community, each one of them comes with a given QoS denoted by
 $(QoS_{ws})$. We assume that $(QoS_{ws})$ is obtained by a certain linear weight function of the parameters. We use this quality output later in evaluating the
 community \emph{worth} or \emph{payoff} function.
 
-\subsection{Web Service Communities}\label{webservice-communities}
-
 Figure 3 represents our revised architecture of web service
 communities where tasks are to be distributed among the members
 that are interested in forming stable coalitions. As discussed in
@@ -70,13 +59,14 @@ aggregating web services having similar and complementary
 functionalities and communicate with other entities such as UDDI
 registries and users using particular protocols. Web services join
 communities to increase their utility by having larger market
-share and task pool. Community coordinators or master web services
-are responsible for community development, managing membership
-requests from web services and distributing user tasks among the
-community members. Community coordinators try to attract quality
-web services and keep the community as stable and productive as
-possible to gain better reputation and user satisfaction, which
-results in having higher revenue.
+share and task pool. 
+%Community coordinators or master web services
+%are responsible for community development, managing membership
+%requests from web services and distributing user tasks among the
+%community members. Community coordinators try to attract quality
+%web services and keep the community as stable and productive as
+%possible to gain better reputation and user satisfaction, which
+%results in having higher revenue.
 
 \begin{figure*}[!t]
 \centerline{\includegraphics[width=15cm]{community.eps}}
@@ -91,7 +81,7 @@ In this section, we present  web services and community coordinator's interactio
 
 \subsection{Task Distribution}
 
-As mentioned in Section \ref{webservice-communities}, communities
+As mentioned in Section \ref{s:preliminaries}, communities
 are robust service providers with well established market share
 and reputation. By maintaining their reputation and performance,
 they attract  end users which choose them as service providers to
@@ -337,12 +327,8 @@ the next section.
 
 \section{Competitive behaviour of services within communities}\label{s:coop}
 
-In previous sections, our focus was on community formation and we the focus was on cooperative behaviour of the web services as agents. However competition within cooperative environments, for business agents having different set of capabilities. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
+In previous sections, our focus was on community formation and we emphasised on cooperative behaviour of the web services as agents. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
 in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this paper interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
-
-
-
-
 
 
 
@@ -479,7 +465,7 @@ The assigned reputation value is updated by the computed reward
 value. The computed reputation of services is bounded by the
 minimum and maximum reputation values $0$ and $1$. % to constrain
 %the balance the cooperative community of web services. The updated
-%Let $\Gamma = Rep_{w}^{t} + reward_w^t$. 
+%Let $\Gamma = Rep_{w}^{t} + reward_w^t$.
 %The updated reputation
 %value is then computed as follows:
 %
@@ -642,7 +628,7 @@ our methods, we formed around 10,000 random coalitions consisting
 of 3 to 160 web services. In average, the communities were populated by 60 web
 services. We implemented the
 scenarios using Java and executed the experiments on an Intel Xeon
-X3450 machine with 6GBs of memory. 
+X3450 machine with 6GBs of memory.
 
 One of the key criteria reflecting the performance of web service
 coalitions is the user satisfaction. User satisfaction can be
@@ -680,7 +666,7 @@ For the \emph{optimal core} method, we have used the well known
 core condition to help communities attract web services. We have
 assigned $\epsilon$ to 15\% of total community worth, which means
 $\epsilon = 0.15 \times v(C)$. This allows subsets of the
-coalition to gain maximum 15\% of $v(C)$. 
+coalition to gain maximum 15\% of $v(C)$.
 %In the \emph{optimal
 %$\epsilon$-core} method, we capped the coalition size to 25 web
 %services, since the method is computationally intractable as the
@@ -784,7 +770,13 @@ impact on the QoS. In fact, using more than 30\% of the community
 valuation as subsidy is not very effective and is costly to
 perform.
 
-\begin{figure*}%[!t]
+\begin{figure*}%[!t]In the previous experiment, we considered the scenario where all
+web services are stable, will not leave the group, and will
+fulfill their promised QoS for a good period of time. However, in
+real world scenarios of web services, this is not always the case.
+This is the reason why the community coordinator would be interested in paying
+web services in order to keep the group reliable from the end
+user's point of view.
 \centerline{\includegraphics[width=6.8in]{tax_dyn.eps}}
 \caption{Analysis of community subsiding coefficient $\lambda$
 having web service different stability levels of $\tau$ on average
@@ -794,13 +786,7 @@ service, and average cost/income of communities.}
 \end{figure*}
 
 
-In the previous experiment, we considered the scenario where all
-web services are stable, will not leave the group, and will
-fulfill their promised QoS for a good period of time. However, in
-real world scenarios of web services, this is not always the case.
-This is the reason why the community coordinator would be interested in paying
-web services in order to keep the group reliable from the end
-user's point of view. In our next scenario, we have introduced the
+In our next scenario, we have introduced the
 new instability variable $\tau$ ranging from 0 to 1, 0 meaning web
 services having no instability issues and will perform as they
 claimed until the end of the experiment, and 1 meaning very
@@ -897,7 +883,6 @@ can be lowered.
 \subsection*{Coopetitive behaviour of services within communities}\label{sb:resutlscoop}
 
 In this section, the objective is to investigate the effectiveness of the proposed strategic system in section \ref{s:coop}.
-
 We start our discussions with cumulative budget comparison
 regarding different communities within which services follow
 different reasoning techniques. Figure \ref{Graph1} part (a)
@@ -909,7 +894,7 @@ techniques presented in this report (referred to as coopetitive);
 decisions about selecting competitive or cooperative strategies
 are totally random (referred to as random coopetitive); and (3) a
 competitive community where all services follow the competitive
-strategy (referred to as competitive). 
+strategy (referred to as competitive).
 %The proposed model's
 %reasoning mechanism allows services to make decisions that
 %maximize their utilities, so that if the service cannot compete,

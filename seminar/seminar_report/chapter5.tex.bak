@@ -1,19 +1,8 @@
 \setcounter{chapter}{3}
 \chapter{Conclusion and Future Work}\label{sec:conclusionfuturework}
-In this chapter, we describe the phases of our plan for exploring
-the research challenges and investigating the research issues
-identified in Chapter 3. This chapter also includes research
-methodology and future publication plan.
 
-\section {Conclusion}
-
-In this report, we proposed a cooperative game theorybased
-model for the aggregation of web services
-within communities.
-
-
-The goal of our services is to
-maximize efficiency by collaborating and forming stable
+In this report, we proposed a cooperative game theory based model for the aggregation of web services within communities.
+The goal of our services is to maximize efficiency by collaborating and forming stable
 coalitions. Our method considers stability and fairness for all
 web services within a community and offers an applicable mechanism
 for membership requests and selection of web services. The
@@ -77,10 +66,10 @@ our agents in "incomplete information" settings.
 
 \subsection {Publications }
 
-    \begin{enumerate}        
+    \begin{enumerate}
         \item Published a Journal Paper to the International Journal of Expert Systems With Applications; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}, 2014
-        \item Published a Journal Paper to the IEEE Transactions on Services Computing; \emph{"Efficient Community Formation for Web Services"}, 2014        
+        \item Published a Journal Paper to the IEEE Transactions on Services Computing; \emph{"Efficient Community Formation for Web Services"}, 2014
         \item Published a paper in 10th IEEE International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"}, 2013
-        \item Published a Paper to the 10th International Conference on Service Oriented Computing; \emph{"Analyzing Coopetition Strategies of Services within Communities"}, 2012        
+        \item Published a Paper to the 10th International Conference on Service Oriented Computing; \emph{"Analyzing Coopetition Strategies of Services within Communities"}, 2012
     \end{enumerate}
-    
+

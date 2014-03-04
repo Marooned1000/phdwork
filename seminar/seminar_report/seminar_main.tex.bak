@@ -60,7 +60,7 @@
 %
 % Different font in captions
 % Different font in captions
-%\setlength{\abovecaptionskip}{0pt}   % 0.5cm as an example
+\setlength{\abovecaptionskip}{0.1cm}   % 0.5cm as an example
 %\setlength{\belowcaptionskip}{0pt}   % 0.5cm as an example
 
 \pagestyle{myheadings}
@@ -172,7 +172,7 @@
 \addcontentsline{toc}{chapter}{List of Tables}
 %\listoftables
 \addcontentsline{toc}{chapter}{List of Figures}
-\listoffigures
+%\listoffigures
 %\include{acronym}
 \include{Abstract}
 %
