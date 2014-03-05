@@ -40,7 +40,7 @@
 																		    }
 					 %   \vspace{5mm}
 					    \ligne{by \large Ehsan Khosrowshahi Asl}
-                        \ligne{\date [December, 2013}
+                        \ligne{\date [March, 2014}
 					    \vfill
 					    \ligne{%
 					      \begin{tabular}{l}
@@ -50,10 +50,10 @@
 					    \ligne{%
 									      \begin{tabular}{l l}
 									        Supervisor:&\textsc{\textbf{Dr. Jamal Bentahar }} - CIISE.\\
-									        Supervisor:&\textsc{\textbf{Dr. Hadi Otrok }} - KUSTAR(Khalifa University), ECE.\\
-									        Examiners:&\textsc{\textbf{Dr. Peter Grogono}} - CSE.\\
-									        &\textsc{\textbf{Dr. Ferhat Khendek}} - CSE. \\
-									        &\textsc{\textbf{Dr. Joey Paquet}} - CSE \\
+									        Supervisor:&\textsc{\textbf{Dr. Hadi Otrok }} - KUSTAR, CIISE.\\
+								            Examiners:&\textsc{\textbf{Dr. Ferhat Khendek}} - ECE. \\
+                                            &\textsc{\textbf{Dr. Peter Grogono}} - CSE.\\									        
+									        &\textsc{\textbf{Dr. Joey Paquet}} - CSE. \\
 									     \end{tabular}
 					      }
 					          \date{}

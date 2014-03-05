@@ -1,13 +1,13 @@
 \setcounter{chapter}{0}
 %*******************************START INTRODUCTION **********************************
 \chapter{Introduction}\label{sec:intro}
-In this chapter, we introduce the context of this research, which
-is about communities of web services abstracted as autonomous
-agents. Those agent-based web services use cooperative game
-theoretic solution concepts for decision making. We discuss the
-motivations of this work and briefly review the literature to
-identify the problems we aim to solve in this thesis. Moreover, we
-discuss our objectives and preliminary contributions.
+%In this chapter, we introduce the context of this research, which
+%is about communities of web services abstracted as autonomous
+%agents. Those agent-based web services use cooperative game
+%theoretic solution concepts for decision making. We discuss the
+%motivations of this work and briefly review the literature to
+%identify the problems we aim to solve in this thesis. Moreover, we
+%discuss our objectives and preliminary contributions.
 
 \section{Context of Research}\label{sec:motivation}
 
@@ -70,7 +70,7 @@ service can ask joining a community and has the right to leave it.
 Community managers can invite or ask a web service to leave in
 order to maximize the community profit. Users can simply stop
 sending requests to a web service which is not providing
-satisfactory services. Thus its important to consider all the
+satisfactory services. Thus it is important to consider all the
 parties involved in the decision making process about the
 community management.
 
@@ -101,17 +101,19 @@ computation impractical in real world applications. However, using
 the concepts of coalition stability, the second objective is to
 investigate approximation algorithms running in polynomial time
 providing web services and community masters with applicable and
-near-optimal decision making mechanisms. 
+near-optimal decision making mechanisms.
 
-Within communities, service providers can 
-can have competitive behaviour as they provide the same functionalities and the number of users requests is finite. So as an extension to our work, we have implemented a framework in which service providers can opt for performing tasks if they feel they are capable enough.
-We have implemented an online learning mechanism for service providers with different captaincies to learn over time which strategy to choose based on their own and other service providers status and capabilities. After establishing states of our model and observing convincing results from our learning method, we plan to extend the learning process using reinforcement learning (q-learning) techniques.
+Within communities, services can exhibit competitive Behavior as they provide the same functionalities and the number of users requests is finite. 
+However, for the same reason of being functionally similar, services can cooperate with each other, for example to substitute each other in order to perform some sub-tasks.
+So as an extension of our work, we have proposed a framework in which services can opt for performing tasks if they feel they are capable enough 
+or decide to cooperate by showing the availability to perform some sub-tasks.
+We have implemented an online learning mechanism for services with different capabilities to learn over time which strategy to choose based on their own and other services status and capabilities. After establishing states of our model and observing convincing results from our learning method, we plan to extend the learning process using reinforcement learning (Q-learning) techniques.
 
 
-\indent To summarize, the main problem we aim to tackle in this
-thesis is the formation of stable and efficient coalitions
-maximizing web services and community revenue. The main objectives
-are:
+\indent To summarize, the main problems we aim to tackle in this
+thesis are the formation of stable and efficient coalitions
+maximizing web services and community revenue and the decision over the strategy to play about competing or cooperating. 
+The main objectives are:
 \begin{itemize}
 \item To propose a cooperative model and analyze its solution
 concepts in order to address the problem of optimizing coalition
@@ -138,7 +140,7 @@ and comparison with other similar proposals.
 
 
 \section{Report Organization}\label{sec:outline}
-The rest of the report is organized as follows: We present in
+The rest of the report is organized as follows. We present in
 Chapter~\ref{sec:MAS} the background needed for our research along
 with relevant related work. Chapter~\ref{sec:coalitionformationws}
 provides the problem statement and presents our solution model in

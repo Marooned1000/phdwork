@@ -1,6 +1,8 @@
 \setcounter{chapter}{3}
 \chapter{Conclusion and Future Work}\label{sec:conclusionfuturework}
 
+\section {Conclusion}
+
 In this report, we proposed a cooperative game theory based model for the aggregation of web services within communities.
 The goal of our services is to maximize efficiency by collaborating and forming stable
 coalitions. Our method considers stability and fairness for all
@@ -12,6 +14,20 @@ with high quality. Simulation results show that our approximation
 algorithms are polynomial in complexity and provide web services
 and community owners with applicable and near-optimal decision
 making mechanisms.
+
+We also proposed a coopetitive strategic model to analyze
+the interacting behavior of intelligent services that are active within communities.
+We considered two acting strategies where service agents expect different sort of payoffs:
+(1) competitive strategy where the service claims that it can accomplish a task,
+and therefore can take the responsibility over the service consumer satisfaction; and (2)
+cooperative strategy where the service does not take the responsibility to accomplish
+the task and only cooperates with competitive peers. Our proposed model advances the
+state-of-the-art in cooperative systems by enabling intelligent agent-based services to
+effectively choose their interacting strategies that lead to optimal outcomes. The proposed
+framework provides a reasoning technique that service agents can use to increase
+their overall obtained utilities. The theoretical results presented in this research work are also
+backed by simulation results using a real services dataset. Those results showed that
+our model outperforms existing competitive and random coopetitive strategies.
 
 %As future work, we would like to perform more analytical and
 %theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts based on the
@@ -27,49 +43,44 @@ making mechanisms.
 \indent The future goals in this Ph.D. research work are:
 
 \begin{itemize}
-\item Analyzing other cooperative solution concepts such as Kernel
+\item \textbf{Winter 2014: }Analyzing other cooperative solution concepts such as Kernel
 and Nucleolus where payoff division is guaranteed to exist and may
 have optimal results.
 
-\item Applying other valuation function in our scenarios using for
-instance Weighted Voting Games (WCG) in order to develop a
-multiple weighted algorithm to find best coalition structures
-satisfying different weights on each community.
-
-\item Analyzing the impact of Q-learning and reinforcement
+\item \textbf{Summer 2014: }Analyzing the impact of Q-learning and reinforcement
 learning on the performance of our model.
 
-\item Developing an approximation algorithm for shapely value
-payoff distribution vector in community setting.
+\item \textbf{Fall 2014: }Developing a community membership algorithm technique for
+our agents in more distributed and ``incomplete information'' settings.
 
-\item Developing a community membership algorithm technique for
-our agents in "incomplete information" settings.
-
+\item \textbf{Winter 2015: }Thesis work and Ph.D. Defense.
 %\item Developing an open source, Java based Tool, with UI for
 %solving Core and Shapely solution concepts based on different
 %input valuation functions.
 \end{itemize}
 
 
-\begin{center}
-    \begin{tabular}{ | l | l | p{5cm} |}
-    \hline
-    Term & Activity & Publication \\ \hline
-    Winter 2014 & 1 & 1 \\ \hline
-    Summer 2014 & 1 & 1 \\ \hline
-    Fall 2014 & 1 & 1 \\ \hline
-    Winter 2015 & 1 & 1 \\
-    \hline
-    \end{tabular}
-\end{center}
+%\begin{center}
+%    \begin{tabular}{ | l | l | p{5cm} |}
+%    \hline
+%    Term & Activity & Publication \\ \hline
+%    Winter 2014 & 1 & 1 \\ \hline
+%    Summer 2014 & 1 & 1 \\ \hline
+%    Fall 2014 & 1 & 1 \\ \hline
+%    Winter 2015 & 1 & 1 \\
+%    \hline
+%    \end{tabular}
+%\end{center}
 
 
-\subsection {Publications }
+\section {Publications }
 
     \begin{enumerate}
-        \item Published a Journal Paper to the International Journal of Expert Systems With Applications; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}, 2014
-        \item Published a Journal Paper to the IEEE Transactions on Services Computing; \emph{"Efficient Community Formation for Web Services"}, 2014
-        \item Published a paper in 10th IEEE International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"}, 2013
-        \item Published a Paper to the 10th International Conference on Service Oriented Computing; \emph{"Analyzing Coopetition Strategies of Services within Communities"}, 2012
+        \small{
+        \item E. Khosrowshahi Asl, J. Bentahar, H. Otrok, R. Mizouni, \emph{``Efficient Community Formation for Web Services.''} Accepted at IEEE Transactions on Services Computing, Feb. 2014, IEEE. (Impact factor: 2.46)
+        \item E. Khosrowshahi Asl, J. Bentahar, R. Mizouni, B. Khosravifar, H. Otrok, \emph{``To Compete or to Cooperate? This is the Question in Communities of Autonomous Services.''} In the Journal of Expert Systems and Applications, Feb. 2014, Elsevier. (Impact factor: 1.854, 5-year:  2.339)
+        \item E. Khosrowshahi Asl, J. Bentahar, H. Otrok, R. Mizouni, \emph{``Efficient Coalition Formation for Web Services. In the 10th''} IEEE  International Conference on Services Computing (SCC 2013), Santa Clara Marriott, CA, USA, June 27-July 2, 2013
+        \item B. Khosravifar, M. Alishahi, E. Khosrowshahi Asl, J. Bentahar, R. Mizouni, H. Otrok, \emph{``Analyzing Coopetition Strategies of Services within Communities''}. In the 10th International Conference on Service Oriented Computing, (ICSOC 2012), Shanghai, China, Nov. 2012
+        }
     \end{enumerate}
 

@@ -1,6 +1,6 @@
 
 @inproceedings{SCC2013efficient,
-  author    = {E. Khosrowshahi Asl and J. Bentahar and H. Otrok and R. Mizouni},
+  author    = {Ehsan Khosrowshahi Asl and Jamal Bentahar and Hadi Otrok and Rabeb Mizouni},
   title     = {Efficient Coalition Formation for Web Services},
   booktitle = {IEEE SCC},
   year      = {2013},
@@ -658,12 +658,12 @@ url = {http://EconPapers.repec.org/RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16}
   year = 2011
 }
 
-@article{VuFind-10008938119
-title = Web services communities : from intra-community coopetition to inter-community competition,
-journal = E-business applications for product development and competitive growth : emerging technologies.,
-author = Maamar, Zakaria,
-year = 2011,
-crossref = http://www.econbiz.de/Record/web-services-communities-from-intra-community-coopetition-to-inter-community-competition-maamar-zakaria/10008938119
+@article{VuFind-10008938119,
+title = {Web services communities : from intra-community coopetition to inter-community competition},
+journal = {E-business applications for product development and competitive growth : emerging technologies.},
+author = {Maamar, Zakaria},
+year = {2011},
+crossref = {http://www.econbiz.de/Record/web-services-communities-from-intra-community-coopetition-to-inter-community-competition-maamar-zakaria/10008938119}
 }
 
 @article{Fouss:2010:PRM:1751668.1751727,

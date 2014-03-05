@@ -1,9 +1,9 @@
 \setcounter{chapter}{2}
 
-\chapter{Coalition Formation for Autonomous Web Services}\label{sec:coalitionformationws}
+\chapter{Coalition Formation and Coopetitive Behavior of Autonomous Web Services}\label{sec:coalitionformationws}
 
 In this chapter, we present our coalition model of agent-based web
-services within communities\cite{SCC2013efficient}. We start by describing the general
+services within communities \cite{SCC2013efficient}. We start by describing the general
 architecture and considered parameters for web services.
 Thereafter, problem modeling and formulation will be introduced in
 terms of task distribution and community revenue. Web service
@@ -42,7 +42,7 @@ quantity and quality of tasks accomplished by a given service.
 Higher user satisfaction leads to higher trust of the community by users hence directing more requests towards that service provider.
 
 Web services come with different quality of service parameters.
-These parameters include availability, reliability, successability, throughput, latency, capacity, cost, regulatory and security\cite{DBLP:conf/smc/Al-MasriM09a}\footnote[1]{The implemented environment includes the QWS dataset by Eyhab Al-Masri and Qusay H. Mahmoud freely available at: http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}.
+These parameters include availability, reliability, successability, throughput, latency, capacity, cost, regulatory and security \cite{DBLP:conf/smc/Al-MasriM09a}\footnote[1]{The implemented environment includes the QWS dataset by Eyhab Al-Masri and Qusay H. Mahmoud freely available at: http://www.uoguelph.ca/\textasciitilde{}qmahmoud/qws/.}.
 We adopted a real world dataset \cite{DBLP:conf/smc/Al-MasriM09a}
 which has aggregated and normalized each of these parameters to a
 real value between 0 and 1. Since requests are not shared among
@@ -98,8 +98,8 @@ The community master uses a slightly modified \emph{weighted fair queuing} metho
 %the community has more web services having more total throughput value than community's request rate
 $(R_C)$ the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) and the total rate of tasks being performed is $R_C$, the community's receiving request rate.
 
-While distributing tasks, the community master can verify the performance, throughput and quality of service of   tasks being performed by web services. It can recognize if web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in quality metrics or throughput, the  community master will announce the new parameters and community masters and members can consider those values as benchmark for future performance calculations but also to penalize them.
-In this way, players have incentive to reveal their real capabilities to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may  degrade or improve, a change that the community should adjust to.
+While distributing tasks, the community master can verify the performance, throughput and quality of service of   tasks being performed by web services. It can recognize if web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in quality metrics or throughput, the  community master will announce the new parameters and community masters and members can consider those values as benchmark for future performance calculations. 
+Web services that got their quality declined are penalized, and in this way, players have incentive to reveal their real capabilities to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may  degrade or improve, a change that the community should adjust to.
 % Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
 
 \subsection{Community Revenue}
@@ -208,7 +208,7 @@ independent request pools. Identical
 to the first scenario, master web services form coalitions with
 web services. We use coalition structure formation methods to
 partition web services into non-empty disjoint coalition
-structures. As mentioned in Section \ref{sec:coalition}, the used
+structures. The used
 algorithms in \cite{Sandholm:1999:CSG:317145.317152,DBLP:conf/ijcai/GrecoMPS11,DBLP:conf/ijcai/RahwanMJ11} try to
 solve key fundamental problems of what coalitions to form, and how
 to divide the payoffs among the collaborators.
@@ -325,21 +325,15 @@ the next section.
 
 %The \emph{$\epsilon$-core} concept, in its definition, considers the willing to join or deviate from agent's point of view. It claims agents for any reason will be not willing to deviate to gain less than $\epsilon$ amount of profit. Communities can agree on However, in our case, the community master is willing to keep web services in communities too. There are several reasons for this, one reason is there is always possibility that agents may leave the community or they may under perform from the quality values they were initially performing with. To this end, our communities will reward and valuate web services in the community
 
-\section{Competitive behaviour of services within communities}\label{s:coop}
+\section{Coopetitive Behavior of Services within Communities}\label{s:coop}
 
-In previous sections, our focus was on community formation and we emphasised on cooperative behaviour of the web services as agents. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
-in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this paper interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
-
-
+In previous sections, our focus was on community formation and we emphasised on cooperative behavior of the web services as agents. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
+in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this report interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
 
 
 
-
-
-
-
-\subsection{The Proposed Framework}\label{The Proposed Framework}
-In this section, we first present the architecture of the proposed
+%\subsection{The Proposed Framework}\label{The Proposed Framework}
+Here, we first present the architecture of the proposed
 model. We explore the characteristics of intelligent service
 agents and their network. We link this architecture to the
 implemented system where we investigate the services' coopetitive
@@ -357,7 +351,7 @@ their collaborative networks within the same community.}
 \label{architectureFigure}
 \end{figure}
 
-\subsubsection{The Architecture}
+\subsection{Architecture}
 
 Figure \ref{architectureFigure} illustrates the architecture of a
 typical community aggregating a number of services with different
@@ -381,7 +375,7 @@ the tasks in further task allocation rounds.
 %ok til here
 
 
-\subsubsection{System Parameters}
+\subsection{System Parameters}
 In this section, we demonstrate the involved parameters and their
 corresponding formulations and explanations.
 
@@ -575,7 +569,7 @@ services are performing specific subtasks as asked by the leader.
 %\end{proof}
 
 
-\subsubsection{Service Interactive Strategies}
+\subsection{Service Interactive Strategies}
 
 The main goal of each individual service agent is to increase its
 income (payoff). This income can be earned from tasks (or
@@ -591,7 +585,7 @@ get a task from the master and adopts the competitive strategy.
 Second, when the service agent has a lower level of confidence
 that it does not feel capable to compete, it waits for some other
 services to cooperate with to perform some tasks \footnote{Through
-the paper, requests or tasks are supposed to be decomposable.},
+the report, requests or tasks are supposed to be decomposable.},
 and thus it adopts the cooperative strategy. Services estimate the
 outcome of all the strategies and choose one of them accordingly.
 This decision is not static but can change over time so service
@@ -604,11 +598,9 @@ attitude is referred to as coopetition.
 
 
 
-
-
-
-
 \section{Experimental Results and Analysis}\label{s:resutls}
+
+\subsection{Coalition Formation and Stability}
 
 In this section, we discuss the experiments we performed for our
 scenarios to validate the applicability and performance of our
@@ -685,9 +677,10 @@ since their runtime with respect to the size of input (number of
 web services) is $O(n)$ and $O(n^2)$ respectively. This shows that
 the algorithms are efficient and the system is easily scalable. In
 this scenario, our community receives 130 tasks from users on
-average per iteration. These tasks are about flight booking and
-are expected to be performed by the community. They are randomly
-generated using a poisson distribution (having 130 as parameter).
+average per iteration. These tasks are randomly generated.
+%These tasks are about flight booking and
+%are expected to be performed by the community. They are randomly
+%generated using a poisson distribution (having 130 as parameter).
 Depending on community task queue and the assigned web services'
 quality metrics the task will be performed with some qualities.
 The community, after the task distribution process on each
@@ -880,9 +873,9 @@ However, with some subsidies and by hiring a few more web
 services, the chance of failure of web services in our communities
 can be lowered.
 
-\subsection*{Coopetitive behaviour of services within communities}\label{sb:resutlscoop}
+\subsection{Coopetitive Behavior}\label{sb:resutlscoop}
 
-In this section, the objective is to investigate the effectiveness of the proposed strategic system in section \ref{s:coop}.
+In this section, the objective is to investigate the effectiveness of the proposed strategic system in Section \ref{s:coop}.
 We start our discussions with cumulative budget comparison
 regarding different communities within which services follow
 different reasoning techniques. Figure \ref{Graph1} part (a)
