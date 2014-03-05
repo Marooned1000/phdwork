@@ -1,5 +1,5 @@
 SyncTeX Version:1
-Input:1:C:/PhDWork/proposal/presentation/ekpresentation/ehsan_presentation.tex
+Input:1:C:/PhDWork/seminar/presentation/ekpresentation/ehsan_presentation.tex
 Input:2:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\beamer.cls
 Input:3:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\beamerbasercs.sty
 Input:4:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\beamerbasemodes.sty
@@ -125,26 +125,26 @@ Input:123:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\themes\outer\b
 Input:124:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\themes\inner\beamerinnerthemerounded.sty
 Input:125:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\themes\color\beamercolorthemeorchid.sty
 Input:126:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\themes\color\beamercolorthemewhale.sty
-Input:127:C:\PhDWork\proposal\presentation\ekpresentation\ehsan_presentation.aux
+Input:127:C:\PhDWork\seminar\presentation\ekpresentation\ehsan_presentation.aux
 Input:128:C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
 Input:129:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
 Input:130:C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
-Input:131:C:\PhDWork\proposal\presentation\ekpresentation\ehsan_presentation.out
-Input:132:C:\PhDWork\proposal\presentation\ekpresentation\ehsan_presentation.out
+Input:131:C:\PhDWork\seminar\presentation\ekpresentation\ehsan_presentation.out
+Input:132:C:\PhDWork\seminar\presentation\ekpresentation\ehsan_presentation.out
 Input:133:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-basic-dictionary\translator-basic-dictionary-English.dict
 Input:134:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-bibliography-dictionary\translator-bibliography-dictionary-English.dict
 Input:135:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-environment-dictionary\translator-environment-dictionary-English.dict
 Input:136:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-months-dictionary\translator-months-dictionary-English.dict
 Input:137:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-numbers-dictionary\translator-numbers-dictionary-English.dict
 Input:138:C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-theorem-dictionary\translator-theorem-dictionary-English.dict
-Input:139:C:\PhDWork\proposal\presentation\ekpresentation\ehsan_presentation.nav
+Input:139:C:\PhDWork\seminar\presentation\ekpresentation\ehsan_presentation.nav
 Output:pdf
 Magnification:1000
 Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!12453
+!12448
 {1
 [1,17:4736286,17900937:17266942,13164651,0
 h1,17:4736286,4736286:0,0,0
@@ -1155,16 +1155,16 @@ k1,17:22003228,13100452:7677815
 (1,17:1864679,15428845:20138549,1636624,0
 [1,17:1864679,15428845:20138549,1636624,0
 (1,17:1864679,14814855:20138549,498346,89702
-k1,17:9018621,14814855:7153942
-h1,17:9018621,14814855:0,0,0
-x1,17:11434611,14814855
-x1,17:12018675,14814855
-g1,17:12257881,14814855
-x1,17:13174840,14814855
-g1,17:13414046,14814855
-x1,17:14849286,14814855
-g1,17:14849286,14814855
-k1,17:22003228,14814855:7153942
+k1,17:9574777,14814855:7710098
+h1,17:9574777,14814855:0,0,0
+x1,17:10547554,14814855
+x1,17:11462520,14814855
+g1,17:11701726,14814855
+x1,17:12618685,14814855
+g1,17:12857891,14814855
+x1,17:14293131,14814855
+g1,17:14293131,14814855
+k1,17:22003228,14814855:7710097
 )
 ]
 )
@@ -45647,8 +45647,8 @@ g1,847:22003228,17900937
 ]
 !28906
 }39
-Input:142:C:\PhDWork\proposal\presentation\ekpresentation\ehsan_presentation.aux
-!92
+Input:142:C:\PhDWork\seminar\presentation\ekpresentation\ehsan_presentation.aux
+!91
 Postamble:
 Count:40904
 !27

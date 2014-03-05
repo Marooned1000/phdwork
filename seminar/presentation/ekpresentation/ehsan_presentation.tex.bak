@@ -378,7 +378,7 @@
         \item When the valuation function is {\color{blue}convex}, the Shapley value is also group rational, hence, it is in the {\color{blue}core}.
         \item A convex game has a non-empty core.
         \item Core and Shapley value are combinatorial problems.
-        \item There are other well-known solution concepts: The bargaining set, nucleolus and kernel.
+        \item There are other well-known solution concepts: Bargaining set, nucleolus and kernel.
     \end{itemize}
 \end{frame}
 
@@ -415,9 +415,9 @@
 \begin{frame}{Task Distribution}
     \begin{itemize}
         \item Our model uses a slightly modified \emph{weighted fair queuing} method for task distribution rather than Contract-Net.
-        \item All the input flow is multiplexed amount different web services with weights proportional to their throughput value ($Th_{ws}$).
-        \item Queues will happen if $R_C$ is more than summation web services throughput.
-        \item Weighted task rate of: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
+        \item All the input flow is multiplexed among different web services with weights proportional to their throughput value ($Th_{ws}$).
+        \item Queues will happen if $R_C$ is more than the summation of web services throughput.
+        \item Weighted task rate: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
     \end{itemize}
     \begin{figure}[htbp]
         \centering
@@ -594,7 +594,7 @@
         \item A typical WS community, where web services can join or leave.
         \item $v(C) = Out(C)$.
         \item Membership decision in made based on throughput and QoS of the web services.
-        \item Community master needs to get quality web services to keep community stable, so other web services have no incentive to leave.
+        \item Community master needs to get quality web services to keep the community stable, so other web services have no incentive to leave.
     \end{itemize}
        	
 \end{frame}
@@ -603,7 +603,7 @@
 
 
     \begin{itemize}
-        \item Upon receiving membership request the master web service checks if the coalition will be stable having the new member.
+        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
         \item If the game is convex, core exists.
         \item If the game is convex, Shapley value is in core.
         \item Convexity Condition:
@@ -641,8 +641,8 @@
     \begin{itemize}
         \item Based on Coalition Structure theory
         \begin{itemize}
-            \item What coalitions to form?
-            \item Stability in coalition structure, is a partition of players, where no other partition can provide all agents with better utility.
+            \item Which coalitions to form?
+            \item Stability in coalition structure is a partition of players, where no other partition can provide all agents with better utility.
             \item Social welfare: $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS) = \sum_{C \in CS}v(C)$.
         \end{itemize}
         \item Has to be distributed not centralized.
@@ -682,7 +682,7 @@
     \includegraphics[width=2.1in]{figures/task_done_opt.pdf}
     \includegraphics[width=2.1in]{figures/task_qos_opt.pdf}
     \caption{Part (a): Cumulative number of requests successfully
-    done. Part (b): Average QoS of requests performed.}
+    answered. Part (b): Average QoS of requests performed.}
     \label{performanceall}
     \end{figure}
 
@@ -706,7 +706,7 @@
         %\includegraphics[scale=0.6]{graph1Final+.eps}
         \includegraphics[width=2.1in]{figures/s2_task_done.pdf}
         \includegraphics[width=2.1in]{figures/s2_task_qos.pdf}
-        \caption{Part (a): Cumulative number of tasks succesfully done. Part
+        \caption{Part (a): Cumulative number of tasks successfully performed. Part
         (b): Average QoS of tasks performed.} \label{performancemany}
     \end{figure}
 \end{frame}
@@ -719,7 +719,7 @@
         \includegraphics[width=1.45in]{figures/avg_task_ws_done.pdf}
         \includegraphics[width=1.45in]{figures/avg_qos_ws_done.pdf}
         \includegraphics[width=1.45in]{figures/avg_avail_ws_done.pdf}
-        \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks succesfully done. Part
+        \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks successfully performed. Part
         (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
     \end{figure}
 \end{frame}
@@ -740,8 +740,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Research Activities Goal}
-\begin{frame}{Research Activities Goal}
+\subsection{Future Research Activities}
+\begin{frame}{Future Research Activities}
     \begin{enumerate}
         \item Analyzing other cooperative solution concepts such as Kernel
         and Nucleolus where payoff division is guaranteed to exist and may
@@ -769,21 +769,10 @@
     \begin{itemize}
         \item Core and Shapley value are combinatorial problems.
         \item Input size is exponential.
-        \item Compact or succinct representation of coalition games. A representation so that the input size is a polynomial in the number of agents.
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Induced Subgraph Games}
-    \begin{itemize}
-        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
-        \item $N = V$
-        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
-        \item {\color{blue}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
-        \item {\color{blue}Convexity:} If all the weights are nonnegative then the game is convex.
-        \item {\color{blue}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
-        \item This is {\color{blue}not complete}. Many coalition games cannot be represented by a induced subgraph game.
-
+        \item Compact or succinct representation of coalition games. 
+        \begin{itemize}
+            \item A representation so that the input size is a polynomial in the number of agents.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -803,7 +792,7 @@
     \end{table}
 
     \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement, grows linearly to input size.
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
         \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
     \end{itemize}
 
@@ -830,9 +819,9 @@
 \begin{frame}{Publications}
 
     \begin{enumerate}
-        \item Published a paper in 10th International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"} {\color{blue} (Accepted)}
-        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing {\color{blue} (Second round of review)}
-        \item Submitted a Paper to the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{"Analyzing Coopetition Strategies of Services within Communities"} {\color{blue} (Accepted)}
+        \item Published a paper in 10th IEEE International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"}
+        \item Published a Paper to the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{"Analyzing Coopetition Strategies of Services within Communities"}
+        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing {\color{blue} (Second round of review)}        
         \item Submitted a Journal Paper to the International Journal of Expert Systems With Applications; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}
     \end{enumerate}
 
@@ -841,6 +830,20 @@
 %\item \textbf{Questions Please !}
 %\end{itemize}
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Induced Subgraph Games}
+    \begin{itemize}
+        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+        \item $N = V$
+        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+        \item {\color{blue}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+        \item {\color{blue}Convexity:} If all the weights are nonnegative then the game is convex.
+        \item {\color{blue}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+        \item This is {\color{blue}not complete}. Many coalition games cannot be represented by a induced subgraph game.
+
+    \end{itemize}
 \end{frame}
 
 \end{document}
