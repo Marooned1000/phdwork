@@ -714,7 +714,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Preliminary Results}
+\begin{frame}{Results: Coalition Formation}
     \begin{figure}[!t]
         \centering
         %\includegraphics[scale=0.6]{graph1Final+.eps}
@@ -726,6 +726,35 @@
     \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Results: Coalition Formation}
+    \begin{figure}%[h]
+        %\centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[scale=0.47]{graphbgtmed.eps}
+        \includegraphics[scale=0.47]{graphrep.eps}
+        \caption{Part (a): Cumulative community budget comparison. Part
+        (b): Average community reputation comparison over different
+        strategic decisions.} \label{Graph1}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame30 outline page
