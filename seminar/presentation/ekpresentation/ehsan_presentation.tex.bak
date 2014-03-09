@@ -734,19 +734,29 @@
 
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Results: Taxation and Subsiding}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=3in]{figures/taxtation.eps}
+        \caption{Analysis of community subsiding coefficient $\lambda$ on
+        average community size (a), cost (b), number of tasks performed
+        (c), and average quality of service of tasks performed (d).}
+        \label{f_taxtation}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coalition Formation}
-    \begin{figure}%[h]
-        %\centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[scale=0.47]{graphbgtmed.eps}
-        \includegraphics[scale=0.47]{graphrep.eps}
-        \caption{Part (a): Cumulative community budget comparison. Part
-        (b): Average community reputation comparison over different
-        strategic decisions.} \label{Graph1}
+\begin{frame}{Results: Taxation and Subsiding}
+    \begin{figure}[!t]
+        \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
+        \caption{Analysis of community subsiding coefficient $\lambda$
+        having web service different stability levels of $\tau$ on average
+        community size, number of tasks performed, average quality of
+        service, and average cost/income of communities.}
+        \label{fig_dynamic_taxtation}
     \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -755,6 +765,52 @@
 
 
 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Results: Coopetitive}
+    \begin{figure}%[h]
+        %\centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=2.1in]{figures/graphbgtmed.eps}
+        \includegraphics[width=2.1in]{figures/graphrep.eps}
+        \caption{Part (a): Cumulative community budget comparison. Part
+        (b): Average community reputation comparison over different
+        strategic decisions.} \label{Graph1}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Results: Coopetitive}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.45in]{figures/graphtaskdone.eps}
+        \includegraphics[width=1.45in]{figures/graphtasksatisfaction.eps}
+        \includegraphics[width=1.45in]{figures/graphavgqostask.eps}
+        \caption{Overall performance from community's point of view. Part
+        (a) Total number of tasks successfully done. Part (b) Ratio of
+        tasks satisfied with required QoS. Part (c) Average QoS of
+        performed tasks.} \label{graph_task}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Results: Coopetitive}
+%    \begin{figure}[h]
+%        \centering
+%        \includegraphics[scale=1.45in]{figures/graphbgtmed3set.eps}
+%        \includegraphics[scale=1.45in]{figures/graphbgthigh.eps}
+%        \includegraphics[scale=1.45in]{figures/graphbgtveryhigh.eps}
+%        \caption{High membership fees or less task income impacts on
+%        different selection strategies. Part (a) Medium membership fee.
+%        Part (b) High membership fee. Part (c) Very high membership fee.}
+%        \label{membership_fee_graph}
+%    \end{figure}
+%\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame30 outline page
