@@ -763,7 +763,18 @@
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Learning}
+    \begin{figure}[!t]
+        \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
+        \caption{Analysis of community subsiding coefficient $\lambda$
+        having web service different stability levels of $\tau$ on average
+        community size, number of tasks performed, average quality of
+        service, and average cost/income of communities.}
+        \label{fig_dynamic_taxtation}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
