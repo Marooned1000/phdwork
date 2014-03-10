@@ -621,7 +621,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{$\epsilon$-Core}
+\begin{frame}{Improving Community Stability}
     \begin{itemize}
         \item The core may not always be non-empty, core is a strong condition.
         \item $\epsilon$-core relaxes the core condition.
@@ -629,8 +629,137 @@
         \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
     \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Taxation and Subsiding}
+    \begin{itemize}        
+        \item Least Core
+        \begin{itemize}
+            \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
+        \end{itemize}
+        \item Taxation in Reliability Game Extension
+        \begin{itemize}
+            \item $[Y. Bachrach, E. Elkind, 2009]$
+        \end{itemize}
+        \item Taxation and Cost of Stability
+        \begin{itemize}
+            \item $[R. Meir, J. S. Rosenchein, 2011]$
+        \end{itemize}
+        \item Taxation in Anonymous Games
+        \begin{itemize}
+            \item $[Y. Zick, M. Polukarov, 2013]$
+        \end{itemize}
+        \item Relative Core
+        \begin{itemize}
+            \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
+            \item Can be solved using LP if v(S) is a linear function
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Learning2}
+    \begin{table}[!htb]
+        %\caption{Global caption}
+        \begin{minipage}{.5\linewidth}
+          \caption{Q1}
+          \centering
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 2.434 & 2.624 \\
+                \cline{2-3}
+                Coop & -0.269 & -0.136 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.5\linewidth}
+          \centering
+            \caption{Q2}
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 0.897 & -0.126 \\
+                \cline{2-3}
+                Coop & 1.084 & 0.4 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+
+    \begin{table}[!htb]
+        %\caption{Global caption}
+        \begin{minipage}{.5\linewidth}
+          \caption{Q3}
+          \centering
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 2.064 & 1.826 \\
+                \cline{2-3}
+                Coop & 0.564 & -0.364 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.5\linewidth}
+          \centering
+            \caption{Q4}
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & -0.261 & -0.436 \\
+                \cline{2-3}
+                Coop & 0.725 & 0.632 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+
+
+    \begin{itemize}
+        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
+        \item If the game is convex, core exists.
+        \item Depth-1 Convexity Check: $O(n)$
+    \end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Different Compact Representations of Coalition Games}
+
+    \begin{table}
+        \small
+        \begin{tabular}{l|c|c|c|c}
+        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Graph (w+)                       & P        & P                        & P               & Not          \\
+        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
+        Synergy                          & NA       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
+        Our method                       & P        & NP-hard                  & NP-hard         & Not          \\
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
+        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experimental Results}
 \begin{frame}{Experimental Results}
@@ -720,82 +849,7 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Learning2}
-    \begin{table}[!htb]
-        %\caption{Global caption}
-        \begin{minipage}{.5\linewidth}
-          \caption{Q1}
-          \centering
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 2.434 & 2.624 \\
-                \cline{2-3}
-                Coop & -0.269 & -0.136 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}%
-        \begin{minipage}{.5\linewidth}
-          \centering
-            \caption{Q2}
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 0.897 & -0.126 \\
-                \cline{2-3}
-                Coop & 1.084 & 0.4 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}
-    \end{table}
 
-    \begin{table}[!htb]
-        %\caption{Global caption}
-        \begin{minipage}{.5\linewidth}
-          \caption{Q3}
-          \centering
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 2.064 & 1.826 \\
-                \cline{2-3}
-                Coop & 0.564 & -0.364 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}%
-        \begin{minipage}{.5\linewidth}
-          \centering
-            \caption{Q4}
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & -0.261 & -0.436 \\
-                \cline{2-3}
-                Coop & 0.725 & 0.632 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}
-    \end{table}
-
-
-    \begin{itemize}
-        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
-        \item If the game is convex, core exists.
-        \item Depth-1 Convexity Check: $O(n)$
-        \item Depth-2 Convexity Check: $O(n^2)$
-    \end{itemize}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Results: Coopetitive}
@@ -891,29 +945,7 @@
     \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Different Compact Representations of Coalition Games}
 
-    \begin{table}
-        \small
-        \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
-        Graph (w+)                       & P        & P                        & P               & Not          \\
-        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        \end{tabular}
-    \end{table}
-
-    \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
-        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
-    \end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timeline}
 \begin{frame}{Timeline}

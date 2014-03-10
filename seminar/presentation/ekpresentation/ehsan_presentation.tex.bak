@@ -212,32 +212,6 @@
 
     \end{itemize}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{An Example}
-
-    \begin{center}
-        $N = \{1,2,3\}$ \\
-        $v(\{1\}) = 0, v(\{2\}) = 0, v(\{3\}) = 0$ \\
-        $v(\{1,2\}) = 90$ \\
-        $v(\{1,3\}) = 80$ \\
-        $v(\{2,3\}) = 70$ \\
-        $v(\{1,2,3\}) = 105$ \\
-    \end{center}
-
-    What should we do?
-    \begin{itemize}
-        \item form $\{1,2,3\}$ and share equally $(35,35,35)$?
-        \item 3 can say to 1 ``let's form $\{1,3\}$ and share (40,0,40)''
-        \item 2 can say to 1 ``let's form $\{1,2\}$ and share (45,45,0)''
-        \item 3 can say to 2 ``OK, let's form $\{2,3\}$ and share (0,46,24)''
-        \item 1 can say to 2 and 3, ``fine! $\{1,2,3\}$ and (33,47,25)''
-        \item ...what is a good solution?
-    \end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame15 outline page
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}{Transferable and Non Transferable Utility Games}
@@ -265,53 +239,53 @@
 %    \end{itemize}
 
 %\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Some Properties of Valuation Functions}
+%    $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
+%    \begin{itemize}
+%        \item {\color{blue} Additive:} $v(C_1 \bigcup C_2) = v(C_1) + v(C_2)$
+%        \item {\color{blue} Super additive:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2)$ This is satisfied is many applications, or bigger coalitions will not form.
+%        \item {\color{blue} Weekly super additive:} $v(C_1 \bigcup \{i\}) \geq v(C_1) + v(\{i\})$
+%        \item {\color{red} Subadditive:} $v(C_1 \bigcup C_2) \leq v(C_1) + v(C_2)$
+%    \end{itemize}
+%
+%    $\forall C_1,C_2 \subseteq N$
+%    \begin{itemize}
+%        \item {\color{blue} Convex:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2) - v(C_1 \bigcap C_2)$. Convexity has important properties in cooperative game theory solution concepts.
+%    \end{itemize}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Some Properties of Valuation Functions}
-    $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
-    \begin{itemize}
-        \item {\color{blue} Additive:} $v(C_1 \bigcup C_2) = v(C_1) + v(C_2)$
-        \item {\color{blue} Super additive:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2)$ This is satisfied is many applications, or bigger coalitions will not form.
-        \item {\color{blue} Weekly super additive:} $v(C_1 \bigcup \{i\}) \geq v(C_1) + v(\{i\})$
-        \item {\color{red} Subadditive:} $v(C_1 \bigcup C_2) \leq v(C_1) + v(C_2)$
-    \end{itemize}
+%\begin{frame}{Solution Properties}
+%    Let $x \in R^n$ be a solution of the coalition game $(N,v)$
+%    \begin{itemize}
+%        \item {\color{blue} Feasible solution:} $\sum_{i \in N} x(i) \leq v(N)$
+%        \item {\color{blue} Efficiency:} $\sum_{i \in N} x(i) = v(N)$
+%        \begin{itemize}
+%            \item the payoff distribution is an allocation of the entire worth of the grand coalition to all agents.
+%        \end{itemize}
+%        \item {\color{blue} Individual rationality:} $\forall i \in N, x(i) \geq v(\{i\})$
+%        \begin{itemize}
+%            \item player obtains at least its self-value of payoff.
+%        \end{itemize}
+%        \item {\color{blue} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
+%    \end{itemize}
+%
+%    \vspace{0.2cm}
+%
+%    An {\color{blue} imputation} is a payoff distribution $x$ that is efficient and individual rational.
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Stability}
+%    \begin{itemize}
+%        \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
+%        \item A condition for a coalition to form:
+%            {\color{blue}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{blue} $\Rightarrow Stability$ }
+%        \item The {\color{blue} core} is a stability concept for which no agents prefer to deviate to form a different coalition.
+%    \end{itemize}
+%\end{frame}
 
-    $\forall C_1,C_2 \subseteq N$
-    \begin{itemize}
-        \item {\color{blue} Convex:} $v(C_1 \bigcup C_2) \geq v(C_1) + v(C_2) - v(C_1 \bigcap C_2)$. Convexity has important properties in cooperative game theory solution concepts.
-    \end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Solution Properties}
-    Let $x \in R^n$ be a solution of the coalition game $(N,v)$
-    \begin{itemize}
-        \item {\color{blue} Feasible solution:} $\sum_{i \in N} x(i) \leq v(N)$
-        \item {\color{blue} Efficiency:} $\sum_{i \in N} x(i) = v(N)$
-        \begin{itemize}
-            \item the payoff distribution is an allocation of the entire worth of the grand coalition to all agents.
-        \end{itemize}
-        \item {\color{blue} Individual rationality:} $\forall i \in N, x(i) \geq v(\{i\})$
-        \begin{itemize}
-            \item player obtains at least its self-value of payoff.
-        \end{itemize}
-        \item {\color{blue} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
-    \end{itemize}
-
-    \vspace{0.2cm}
-
-    An {\color{blue} imputation} is a payoff distribution $x$ that is efficient and individual rational.
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Stability}
-    \begin{itemize}
-        \item We all want to work together and get $v(N)$, but we all have different views about how to share the fruits of our work. We can use the values of other coalitions as arguments in favor of a distribution.
-        \item A condition for a coalition to form:
-            {\color{blue}all} agents prefer to be in it. i.e., none of the participants wishes she were in a different coalition or by herself {\color{blue} $\Rightarrow Stability$ }
-        \item The {\color{blue} core} is a stability concept for which no agents prefer to deviate to form a different coalition.
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame} {Solution Concepts: Core}
     The core relates to the stability of the grand coalition: \\ No group of agents has any incentive to change coalition.
     \begin{definition}[$Core$ of a Game $(N,v)$]\label{dfn:core}
@@ -333,28 +307,28 @@
     \end{itemize}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Example: Core}
-
-    \begin{center}
-      $N = \{1,2\}$ \\
-      $v(\{1\}) = 5, v(\{2\}) = 5$ \\
-      $v(\{1,2\}) = 20$ \\
-    \end{center}
-
-    $Core(N,n) = \{(x_1,x_2) \in R^2 | x_1 \geq 5, x_2 \geq 5, x_1 + x_2 = 20\}$
-
-    \begin{figure}[htbp]
-        \centering
-        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
-        %%\includegraphics[scale=0.5]{figure1}
-        %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}
-
-    The core may not be fair: the core only considers stability.
-
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame} {Example: Core}
+%
+%    \begin{center}
+%      $N = \{1,2\}$ \\
+%      $v(\{1\}) = 5, v(\{2\}) = 5$ \\
+%      $v(\{1,2\}) = 20$ \\
+%    \end{center}
+%
+%    $Core(N,n) = \{(x_1,x_2) \in R^2 | x_1 \geq 5, x_2 \geq 5, x_1 + x_2 = 20\}$
+%
+%    \begin{figure}[htbp]
+%        \centering
+%        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%        \includegraphics[width=0.3 \columnwidth]{figures/coreex1.png}
+%        %%\includegraphics[scale=0.5]{figure1}
+%        %\caption{The NetBill payment protocol} \label{figure7}
+%    \end{figure}
+%
+%    The core may not be fair: the core only considers stability.
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Solution Concepts: Shapley Value}
     \begin{definition} [Marginal Contribution]\label{dfn:marginalcontribution}
@@ -490,49 +464,49 @@
     \end{table}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Example 2}
+%    \begin{table}[!t]
+%    \renewcommand{\arraystretch}{1.3}
+%    % if using array.sty, it might be a good idea to tweak the value of
+%    % \extrarowheight as needed to properly center the text within the cells
+%    \label{example_2}
+%    \centering
+%    \begin{tabular}{c c c c}
+%    \hline
+%    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+%    \hline
+%    1 & 0.8 & 5 & 4.0\\
+%    2 & 0.7 & 6 & 4.2\\
+%    3 & 0.7 & 4 & 2.8\\
+%    \hline
+%    \end{tabular}
+%    \end{table}
+%
+%    \begin{table}[!t]
+%    \renewcommand{\arraystretch}{1.3}
+%    % if using array.sty, it might be a good idea to tweak the value of
+%    % \extrarowheight as needed to properly center the text within the cells
+%    % \caption{Three web services}
+%    \label{example_2_2}
+%    \centering
+%    \begin{tabular}{c c || c c}
+%    \hline
+%    Community & Worth & Community & Worth\\
+%    \hline
+%    $\left\{1\right\}$ & 4.0 & $\left\{1,2\right\}$ & 7.4\\
+%    $\left\{2\right\}$ & 4.2 & $\left\{1,3\right\}$ & 6.8\\
+%    $\left\{3\right\}$ & 2.8 & $\left\{2,3\right\}$ & 7.0\\
+%    $\left\{1,2,3\right\}$ & 7.3\\
+%    \hline
+%    Community $R_C$: 10\\
+%    \hline
+%    \end{tabular}
+%    \end{table}
+%\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Example 2}
-    \begin{table}[!t]
-    \renewcommand{\arraystretch}{1.3}
-    % if using array.sty, it might be a good idea to tweak the value of
-    % \extrarowheight as needed to properly center the text within the cells
-    \label{example_2}
-    \centering
-    \begin{tabular}{c c c c}
-    \hline
-    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
-    \hline
-    1 & 0.8 & 5 & 4.0\\
-    2 & 0.7 & 6 & 4.2\\
-    3 & 0.7 & 4 & 2.8\\
-    \hline
-    \end{tabular}
-    \end{table}
-
-    \begin{table}[!t]
-    \renewcommand{\arraystretch}{1.3}
-    % if using array.sty, it might be a good idea to tweak the value of
-    % \extrarowheight as needed to properly center the text within the cells
-    % \caption{Three web services}
-    \label{example_2_2}
-    \centering
-    \begin{tabular}{c c || c c}
-    \hline
-    Community & Worth & Community & Worth\\
-    \hline
-    $\left\{1\right\}$ & 4.0 & $\left\{1,2\right\}$ & 7.4\\
-    $\left\{2\right\}$ & 4.2 & $\left\{1,3\right\}$ & 6.8\\
-    $\left\{3\right\}$ & 2.8 & $\left\{2,3\right\}$ & 7.0\\
-    $\left\{1,2,3\right\}$ & 7.3\\
-    \hline
-    Community $R_C$: 10\\
-    \hline
-    \end{tabular}
-    \end{table}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Example 3}
     \begin{table}[!t]
     \renewcommand{\arraystretch}{0.8}
     % if using array.sty, it might be a good idea to tweak the value of
@@ -621,23 +595,6 @@
        	
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Scenario One: Web Services and One Community}
-
-    \begin{figure}[htbp]
-        \centering
-        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.92 \columnwidth]{figures/dp.png}
-        %%\includegraphics[scale=0.5]{figure1}
-        %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}
-
-    %\begin{itemize}
-    %    \item Approximation of the optimum result for each level, is it possible?
-    %\end{itemize}
-       	
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Scenario Two: Web Services and Many Communities}
     \begin{itemize}
@@ -664,7 +621,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{$\epsilon$-Core}
+\begin{frame}{Improving Community Stability}
     \begin{itemize}
         \item The core may not always be non-empty, core is a strong condition.
         \item $\epsilon$-core relaxes the core condition.
@@ -672,11 +629,114 @@
         \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
     \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame26 Contribution and Research Activities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Taxation and Subsiding}
+    \begin{itemize}
+        
+        \item $\epsilon$-core relaxes the core condition.
+        \item Least Core
+        \begin{itemize}
+            \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
+        \end{itemize}
+        \item Taxation in Reliability Game Extension
+        \begin{itemize}
+            \item $[Y. Bachrach, E. Elkind, 2009]$
+        \end{itemize}
+        \item Taxation in Cost of Stability Games
+        \begin{itemize}
+            \item $[R. Meir, J. S. Rosenchein, 2011]$
+        \end{itemize}
+        \item Taxation in Anonymous Games
+        \item Relative Core
+        \begin{itemize}
+            \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
+            \item Can be solved using LP if v(S) is a linear function
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Preliminary Results}
-\begin{frame}{Preliminary Results}
+\begin{frame}{Learning2}
+    \begin{table}[!htb]
+        %\caption{Global caption}
+        \begin{minipage}{.5\linewidth}
+          \caption{Q1}
+          \centering
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 2.434 & 2.624 \\
+                \cline{2-3}
+                Coop & -0.269 & -0.136 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.5\linewidth}
+          \centering
+            \caption{Q2}
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 0.897 & -0.126 \\
+                \cline{2-3}
+                Coop & 1.084 & 0.4 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+
+    \begin{table}[!htb]
+        %\caption{Global caption}
+        \begin{minipage}{.5\linewidth}
+          \caption{Q3}
+          \centering
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & 2.064 & 1.826 \\
+                \cline{2-3}
+                Coop & 0.564 & -0.364 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.5\linewidth}
+          \centering
+            \caption{Q4}
+            \begin{tabular}{ r|c|c| }
+                \multicolumn{1}{r}{}
+                 &  \multicolumn{1}{c}{Comp}
+                 & \multicolumn{1}{c}{Coop} \\
+                \cline{2-3}
+                Comp & -0.261 & -0.436 \\
+                \cline{2-3}
+                Coop & 0.725 & 0.632 \\
+                \cline{2-3}
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+
+
+    \begin{itemize}
+        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
+        \item If the game is convex, core exists.
+        \item Depth-1 Convexity Check: $O(n)$
+    \end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Experimental Results}
+\begin{frame}{Experimental Results}
 
     \begin{figure}[!t]
     \centering
@@ -750,21 +810,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Results: Taxation and Subsiding}
-    \begin{figure}[!t]
-        \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
-        \caption{Analysis of community subsiding coefficient $\lambda$
-        having web service different stability levels of $\tau$ on average
-        community size, number of tasks performed, average quality of
-        service, and average cost/income of communities.}
-        \label{fig_dynamic_taxtation}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Learning}
     \begin{figure}[!t]
         \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
         \caption{Analysis of community subsiding coefficient $\lambda$
@@ -899,17 +944,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timeline}
-    \begin{frame}{Timeline}
+\begin{frame}{Timeline}
 
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=1 \columnwidth]{figures/timetable.png}
-%\includegraphics[width=16cm, height=21cm]{figures/figure6.eps}
-%\caption{Schedule time of research} \label{figure6}
-\end{center}
-\end{figure}
-    \end{frame}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame27 Milestones %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
