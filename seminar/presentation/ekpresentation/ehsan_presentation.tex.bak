@@ -557,7 +557,7 @@
 \subsection{Web Service Cooperative Games}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Scenario One: Web Services and One Community}
+\begin{frame}{Model}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -633,27 +633,27 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Taxation and Subsiding}
-    \begin{itemize}        
+    \begin{itemize}
         \item Least Core
         \begin{itemize}
             \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
         \end{itemize}
-        \item Taxation in Reliability Game Extension
+        \item Taxation in Reliability Games
         \begin{itemize}
-            \item $[Y. Bachrach, E. Elkind, 2009]$
+            \item \small $[Y. Bachrach, E. Elkind, 2009]$
         \end{itemize}
         \item Taxation and Cost of Stability
         \begin{itemize}
-            \item $[R. Meir, J. S. Rosenchein, 2011]$
+            \item \small $[R. Meir, J. S. Rosenchein, 2011]$
         \end{itemize}
         \item Taxation in Anonymous Games
         \begin{itemize}
-            \item $[Y. Zick, M. Polukarov, 2013]$
+            \item \small $[Y. Zick, M. Polukarov, 2013]$
         \end{itemize}
         \item Relative Core
         \begin{itemize}
             \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
-            \item Can be solved using LP if v(S) is a linear function
+            \item Can be solved using $LP$ if $v(S)$ is a linear function
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -734,6 +734,19 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Representation and Complexity Issues}
+    \begin{itemize}
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games.
+        \begin{itemize}
+            \item A representation so that the input size is a polynomial in the number of agents.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Different Compact Representations of Coalition Games}
@@ -933,17 +946,7 @@
     \end{enumerate}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Representation and Complexity Issues}
-    \begin{itemize}
-        \item Core and Shapley value are combinatorial problems.
-        \item Input size is exponential.
-        \item Compact or succinct representation of coalition games.
-        \begin{itemize}
-            \item A representation so that the input size is a polynomial in the number of agents.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
