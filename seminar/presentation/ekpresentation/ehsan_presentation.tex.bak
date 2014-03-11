@@ -633,9 +633,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Taxation and Subsiding}
-    \begin{itemize}
-        
-        \item $\epsilon$-core relaxes the core condition.
+    \begin{itemize}        
         \item Least Core
         \begin{itemize}
             \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
@@ -644,11 +642,14 @@
         \begin{itemize}
             \item $[Y. Bachrach, E. Elkind, 2009]$
         \end{itemize}
-        \item Taxation in Cost of Stability Games
+        \item Taxation and Cost of Stability
         \begin{itemize}
             \item $[R. Meir, J. S. Rosenchein, 2011]$
         \end{itemize}
         \item Taxation in Anonymous Games
+        \begin{itemize}
+            \item $[Y. Zick, M. Polukarov, 2013]$
+        \end{itemize}
         \item Relative Core
         \begin{itemize}
             \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
@@ -733,6 +734,31 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Different Compact Representations of Coalition Games}
+
+    \begin{table}
+        \small
+        \begin{tabular}{l|c|c|c|c}
+        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Graph (w+)                       & P        & P                        & P               & Not          \\
+        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
+        Synergy                          & NA       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
+        Our method                       & P        & NP-hard                  & NP-hard         & Not          \\
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
+        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experimental Results}
@@ -919,29 +945,7 @@
     \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Different Compact Representations of Coalition Games}
 
-    \begin{table}
-        \small
-        \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
-        Graph (w+)                       & P        & P                        & P               & Not          \\
-        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        \end{tabular}
-    \end{table}
-
-    \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
-        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
-    \end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timeline}
 \begin{frame}{Timeline}
