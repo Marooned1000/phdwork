@@ -646,7 +646,7 @@
         \item The optimal solution concepts will attract only enough services satisfying input task rate, not more.
         \item In case of web service failure, a portion of tasks will not be handled efficiently until replacement is found.
         \item By imposing cost on deviation or subsiding the community, its possible to attract more web services and keep the community stable.
-        \item Will be cost efficient in case of web service failure, or for replacing web services dropping in QoS metrics as they advertised.                
+        \item Will be cost efficient in case of web service failure, or for replacing web services dropping in QoS metrics as they advertised.
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -668,7 +668,7 @@
         \item Relative Core
         \begin{itemize}
             \item $\lambda v(C)$ is divided among players.
-            \item relative $\lambda$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq \frac{1}{\lambda}.v(S)$            
+            \item relative $\lambda$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq \frac{1}{\lambda}.v(S)$
             \item Clearly any community can be stabilized by large enough $\lambda$, however the community coordinator would be interested in the minimal subsidy required to stabilize the game.
             \item Can be solved using $LP$ if $v(S)$ is a linear function
         \end{itemize}
@@ -707,31 +707,96 @@
 \subsection{Coopetitive Behavior of Services within Communities}
 \begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
-        \item Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
+        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
+        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.  
+        
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Coopetitive Behavior of Services within Communities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
-        \item image
+        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
+        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.
+        \item System Parameters:
+        \begin{itemize}
+            \item \textbf{Task QoS} ($T_{QoS}^r$)
+            \item \textbf{Service QoS} ($QoS_w^r$)
+            \item \textbf{Budget} ($B_w^t$)
+            \item \textbf{Reputation} ($Rep_w^t$)
+            \item \textbf{Growth Factor} ($G_w^t$)
+        \end{itemize}
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Coopetitive Behavior of Services within Communities}
 \begin{frame}{Coopetitive Behavior of Services within Communities}
-    \begin{itemize}
-        \item parameters and formula
-    \end{itemize}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.6]{figures/architecture++.eps}
+%        \caption{Services are partitioned into competitive and cooperative
+%        sets. Competitive services may get tasks directly from the master
+%        agent and they can share it with other cooperative services in
+%        their collaborative networks within the same community.}
+        \label{architectureFigure}
+    \end{figure}
+
+    \begin{equation*} \label{repr}
+        reward_w^r = \begin{cases}
+        \eta + \upsilon \frac{QoS_w^r}{T_{QoS}^r+QoS_w^r}   & \text{if $T_{QoS}^r\leq QoS_w^r$;}\\
+        -(\rho +  \upsilon \frac{T_{QoS}^r}{T_{QoS}^r+QoS_w^r} ) & \text{otherwise.}\\
+        \end{cases}
+    \end{equation*}
+
+
+%    \begin{equation} \label{reward}
+%        reward_w^t =
+%        \begin{cases}
+%        \frac{\sum_{r \in
+%        task_w^t}reward_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+%        0 & \text{otherwise.}\\
+%        \end{cases}
+%    \end{equation}
+    
+%    \begin{equation*}\label{repz}
+%        %Rep_{w}^{t+1} = Rep_{w}^{t} + reward
+%        %\end{equation}
+%        %\begin{equation*}
+%        Rep_{w}^{t+1} = \begin{cases}
+%
+%        \Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
+%        0  & \text{if $\Gamma < 0$;}\\
+%        1 & \text{if $\Gamma > 1$.}\\
+%        \end{cases}
+%    \end{equation*}
+    
+    \begin{equation*}\label{eq:repreprowthfactor}
+        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
+    \end{equation*}
+    
+    \begin{equation*}\label{eq:growthfactor}
+        G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
+        \epsilon}}{3}
+    \end{equation*}
+%   \begin{equation*}
+%        %\mu_{w} \in\{\mu_{w, CM}, \mu_{w, CO}\},~~~
+%        QoS_w^t =
+%        \begin{cases} \frac{\sum_{r \in
+%        task_w^t}QoS_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+%        0 & \text{otherwise.}\\
+%        \end{cases}
+%    \end{equation*}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coopetitive}
+\begin{frame}{Experimental Results: Coopetitive}
     \begin{figure}%[h]
         %\centering
         %\includegraphics[scale=0.6]{graph1Final+.eps}
@@ -746,7 +811,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coopetitive}
+\begin{frame}{Experimental Results: Coopetitive}
     \begin{figure}[h]
         \centering
         \includegraphics[width=1.45in]{figures/graphtaskdone.eps}
@@ -761,10 +826,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{QReinforcement Learning: Q-learning}
+\begin{frame}{Reinforcement Learning: Q-learning}
     \begin{itemize}
-        \item A quick review on Markov games and Q-learning algorithm
+        \item MDP (Markov Game):     
+        \begin{itemize}
+            \item \emph{S}: Set of states
+            \item \emph{A}: Actions
+            \item \emph{$T: S \times A \rightarrow P(s) $}
+            \item \emph{$R: S \times A \rightarrow Reward(s,a) $}
+        \end{itemize}
     \end{itemize}
+    
+    \begin{itemize}
+        \item Q-Learning, The goal is to learn:
+        \begin{itemize}            
+            \item The probability of others playing actions from action set on each state.
+            \item $V(s): $ Expected reward over time, starting from state $s$
+            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$                
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{equation*}
+        {\color{blue}V(s)} = max min \sum_{a \in A}{{\color{green}Q(s,a,o)} \times T(s,a,s')}
+    \end{equation*}
+    
+    \begin{equation*}
+        {\color{green}Q(s,a,o)} = R(s,a,o) + \gamma\sum{s'}{T(s,a,o,s'){\color{blue}V(s')}}
+    \end{equation*}
+    
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -834,13 +923,6 @@
         \end{minipage}
     \end{table}
 
-
-    \begin{itemize}
-        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
-        \item If the game is convex, core exists.
-        \item Depth-1 Convexity Check: $O(n)$
-    \end{itemize}
-
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -876,7 +958,7 @@
 
     \begin{itemize}
         \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
-        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
+        \item As long as we keep our services aggregation valuation function v(C) linear, problem can be reduced to LP. Which Polynomial greedy and approximation algorithms already exists.
     \end{itemize}
 
 \end{frame}
@@ -1016,5 +1098,19 @@
 %
 %    \end{itemize}
 %\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Questions}
+    \begin{figure}[!t]
+    \centering
+    %\includegraphics[scale=0.6]{graph1Final+.eps}
+    \includegraphics[width=2.1in]{figures/question.eps}    
+    \label{questionfig}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}

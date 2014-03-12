@@ -557,7 +557,7 @@
 \subsection{Web Service Cooperative Games}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Model}
+\begin{frame}{Community and Web Service Interaction Model}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -575,7 +575,7 @@
        	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Scenario One: Web Services and One Community}
+\begin{frame}{Community and Web Service Interaction Model}
 
 
     \begin{itemize}
@@ -595,38 +595,58 @@
        	
 \end{frame}
 
+%
+%\begin{frame}{Scenario Two: Web Services and Many Communities}
+%    \begin{itemize}
+%        \item Based on Coalition Structure theory
+%        \begin{itemize}
+%            \item Which coalitions to form?
+%            \item Stability in coalition structure is a partition of players, where no other partition can provide all agents with better utility.
+%            \item Social welfare: $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS) = \sum_{C \in CS}v(C)$.
+%        \end{itemize}
+%        \item Has to be distributed not centralized.
+%        \item Merge and Split Algorithm {\footnotesize{\color{blue}{(Krzysztof R. Apt and Andreas Witzel)}}}
+%        \begin{itemize}
+%            \item Is iterative
+%            \item Converges to a final partition
+%        \end{itemize}
+%    \end{itemize}
+%    \begin{figure}[htbp]
+%        \centering
+%        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%        \includegraphics[width=0.5 \columnwidth]{figures/scenario2.png}
+%        %%\includegraphics[scale=0.5]{figure1}
+%        %\caption{The NetBill payment protocol} \label{figure7}
+%    \end{figure}       	
+%\end{frame}
 
-\begin{frame}{Scenario Two: Web Services and Many Communities}
-    \begin{itemize}
-        \item Based on Coalition Structure theory
-        \begin{itemize}
-            \item Which coalitions to form?
-            \item Stability in coalition structure is a partition of players, where no other partition can provide all agents with better utility.
-            \item Social welfare: $\operatorname*{arg\,max}_{CS} v(CS)$ where $v(CS) = \sum_{C \in CS}v(C)$.
-        \end{itemize}
-        \item Has to be distributed not centralized.
-        \item Merge and Split Algorithm {\footnotesize{\color{blue}{(Krzysztof R. Apt and Andreas Witzel)}}}
-        \begin{itemize}
-            \item Is iterative
-            \item Converges to a final partition
-        \end{itemize}
-    \end{itemize}
-    \begin{figure}[htbp]
-        \centering
-        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.5 \columnwidth]{figures/scenario2.png}
-        %%\includegraphics[scale=0.5]{figure1}
-        %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}       	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Experimental Results}
+\begin{frame}{Experimental Results}
+
+    \begin{figure}[!t]
+    \centering
+    %\includegraphics[scale=0.6]{graph1Final+.eps}
+    \includegraphics[width=2.1in]{figures/task_done_opt.eps}
+    \includegraphics[width=2.1in]{figures/task_qos_opt.eps}
+    \caption{Part (a): Cumulative number of requests successfully
+    answered. Part (b): Average QoS of requests performed.}
+    \label{performanceall}
+    \end{figure}
+
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Taxation, Subsiding and Stability}
 \begin{frame}{Improving Community Stability}
     \begin{itemize}
         \item The core may not always be non-empty, core is a strong condition.
-        \item $\epsilon$-core relaxes the core condition.
-        \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
-        \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
+        \item The optimal solution concepts will attract only enough services satisfying input task rate, not more.
+        \item In case of web service failure, a portion of tasks will not be handled efficiently until replacement is found.
+        \item By imposing cost on deviation or subsiding the community, its possible to attract more web services and keep the community stable.
+        \item Will be cost efficient in case of web service failure, or for replacing web services dropping in QoS metrics as they advertised.
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -637,22 +657,19 @@
         \item Least Core
         \begin{itemize}
             \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
+            \item $\epsilon$-core relaxes the core condition.
         \end{itemize}
-        \item Taxation in Reliability Games
-        \begin{itemize}
-            \item \small $[Y. Bachrach, E. Elkind, 2009]$
-        \end{itemize}
-        \item Taxation and Cost of Stability
-        \begin{itemize}
-            \item \small $[R. Meir, J. S. Rosenchein, 2011]$
-        \end{itemize}
-        \item Taxation in Anonymous Games
-        \begin{itemize}
-            \item \small $[Y. Zick, M. Polukarov, 2013]$
-        \end{itemize}
+        \item Taxation in Reliability Games \small $[Y. Bachrach, E. Elkind, 2009]$
+
+        \item Taxation and Cost of Stability \small $[R. Meir, J. S. Rosenchein, 2011]$
+
+        \item Taxation in Anonymous Games \small $[Y. Zick, M. Polukarov, 2013]$
+
         \item Relative Core
         \begin{itemize}
-            \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
+            \item $\lambda v(C)$ is divided among players.
+            \item relative $\lambda$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq \frac{1}{\lambda}.v(S)$
+            \item Clearly any community can be stabilized by large enough $\lambda$, however the community coordinator would be interested in the minimal subsidy required to stabilize the game.
             \item Can be solved using $LP$ if $v(S)$ is a linear function
         \end{itemize}
     \end{itemize}
@@ -660,7 +677,188 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Learning2}
+\begin{frame}{Results: Taxation and Subsiding}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=3in]{figures/taxtation.eps}
+        \caption{Analysis of community subsiding coefficient $\lambda$ on
+        average community size (a), cost (b), number of tasks performed
+        (c), and average quality of service of tasks performed (d).}
+        \label{f_taxtation}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Results: Taxation and Subsiding}
+    \begin{figure}[!t]
+        \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
+        \caption{Analysis of community subsiding coefficient $\lambda$
+        having web service different stability levels of $\tau$ on average
+        community size, number of tasks performed, average quality of
+        service, and average cost/income of communities.}
+        \label{fig_dynamic_taxtation}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Coopetitive Behavior of Services within Communities}
+\begin{frame}{Coopetitive Behavior of Services within Communities}
+    \begin{itemize}
+        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
+        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.  
+        
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coopetitive Behavior of Services within Communities}
+    \begin{itemize}
+        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
+        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.
+        \item System Parameters:
+        \begin{itemize}
+            \item \textbf{Task QoS} ($T_{QoS}^r$)
+            \item \textbf{Service QoS} ($QoS_w^r$)
+            \item \textbf{Budget} ($B_w^t$)
+            \item \textbf{Reputation} ($Rep_w^t$)
+            \item \textbf{Growth Factor} ($G_w^t$)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coopetitive Behavior of Services within Communities}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.6]{figures/architecture++.eps}
+%        \caption{Services are partitioned into competitive and cooperative
+%        sets. Competitive services may get tasks directly from the master
+%        agent and they can share it with other cooperative services in
+%        their collaborative networks within the same community.}
+        \label{architectureFigure}
+    \end{figure}
+
+    \begin{equation*} \label{repr}
+        reward_w^r = \begin{cases}
+        \eta + \upsilon \frac{QoS_w^r}{T_{QoS}^r+QoS_w^r}   & \text{if $T_{QoS}^r\leq QoS_w^r$;}\\
+        -(\rho +  \upsilon \frac{T_{QoS}^r}{T_{QoS}^r+QoS_w^r} ) & \text{otherwise.}\\
+        \end{cases}
+    \end{equation*}
+
+
+%    \begin{equation} \label{reward}
+%        reward_w^t =
+%        \begin{cases}
+%        \frac{\sum_{r \in
+%        task_w^t}reward_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+%        0 & \text{otherwise.}\\
+%        \end{cases}
+%    \end{equation}
+    
+%    \begin{equation*}\label{repz}
+%        %Rep_{w}^{t+1} = Rep_{w}^{t} + reward
+%        %\end{equation}
+%        %\begin{equation*}
+%        Rep_{w}^{t+1} = \begin{cases}
+%
+%        \Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
+%        0  & \text{if $\Gamma < 0$;}\\
+%        1 & \text{if $\Gamma > 1$.}\\
+%        \end{cases}
+%    \end{equation*}
+    
+    \begin{equation*}\label{eq:repreprowthfactor}
+        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
+    \end{equation*}
+    
+    \begin{equation*}\label{eq:growthfactor}
+        G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
+        \epsilon}}{3}
+    \end{equation*}
+%   \begin{equation*}
+%        %\mu_{w} \in\{\mu_{w, CM}, \mu_{w, CO}\},~~~
+%        QoS_w^t =
+%        \begin{cases} \frac{\sum_{r \in
+%        task_w^t}QoS_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+%        0 & \text{otherwise.}\\
+%        \end{cases}
+%    \end{equation*}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Experimental Results: Coopetitive}
+    \begin{figure}%[h]
+        %\centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=2.1in]{figures/graphbgtmed.eps}
+        \includegraphics[width=2.1in]{figures/graphrep.eps}
+        \caption{Part (a): Cumulative community budget comparison. Part
+        (b): Average community reputation comparison over different
+        strategic decisions.} \label{Graph1}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Experimental Results: Coopetitive}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.45in]{figures/graphtaskdone.eps}
+        \includegraphics[width=1.45in]{figures/graphtasksatisfaction.eps}
+        \includegraphics[width=1.45in]{figures/graphavgqostask.eps}
+        \caption{Overall performance from community's point of view. Part
+        (a) Total number of tasks successfully done. Part (b) Ratio of
+        tasks satisfied with required QoS. Part (c) Average QoS of
+        performed tasks.} \label{graph_task}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Reinforcement Learning: Q-learning}
+    \begin{itemize}
+        \item MDP (Markov Game):     
+        \begin{itemize}
+            \item \emph{S}: Set of states
+            \item \emph{A}: Actions
+            \item \emph{$T: S \times A \rightarrow P(s) $}
+            \item \emph{$R: S \times A \rightarrow Reward(s,a) $}
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{itemize}
+        \item Q-Learning, The goal is to learn:
+        \begin{itemize}            
+            \item The probability of others playing actions from action set on each state.
+            \item $V(s): $ Expected reward over time, starting from state $s$
+            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$                
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{equation*}
+        V(s) = max min \sum_{a \in A}{Q(s,a,o)PD(a)}
+    \end{equation*}
+    
+    \begin{equation*}
+        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
+    \end{equation*}
+    
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Prilimanary Results: Q-learning}
     \begin{table}[!htb]
         %\caption{Global caption}
         \begin{minipage}{.5\linewidth}
@@ -727,15 +925,14 @@
 
 
     \begin{itemize}
-        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
-        \item If the game is convex, core exists.
-        \item Depth-1 Convexity Check: $O(n)$
+        \item Upon.
     \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Representation and Complexity Issues}
 \begin{frame}{Representation and Complexity Issues}
     \begin{itemize}
         \item Core and Shapley value are combinatorial problems.
@@ -766,133 +963,64 @@
 
     \begin{itemize}
         \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
-        \item Developing an approximation algorithm for shapely value payoff distribution vector in community setting.
+        \item As long as we keep our services aggregation valuation function v(C) linear, problem can be reduced to LP. Which Polynomial greedy and approximation algorithms already exists.
     \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Experimental Results}
-\begin{frame}{Experimental Results}
 
-    \begin{figure}[!t]
-    \centering
-    %\includegraphics[scale=0.6]{graph1Final+.eps}
-    \includegraphics[width=2.1in]{figures/task_done_opt.eps}
-    \includegraphics[width=2.1in]{figures/task_qos_opt.eps}
-    \caption{Part (a): Cumulative number of requests successfully
-    answered. Part (b): Average QoS of requests performed.}
-    \label{performanceall}
-    \end{figure}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coalition Formation}
-    \begin{figure}[!t]
-        \centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[width=3in]{figures/least_core.eps}
-        \caption{Analysis of \emph{$\epsilon$-core} set non-emptiness, for different values of $\epsilon$}. \label{f_leastcore}
-    \end{figure}
-\end{frame}
+%\begin{frame}{Results: Coalition Formation}
+%    \begin{figure}[!t]
+%        \centering
+%        %\includegraphics[scale=0.6]{graph1Final+.eps}
+%        \includegraphics[width=3in]{figures/least_core.eps}
+%        \caption{Analysis of \emph{$\epsilon$-core} set non-emptiness, for different values of $\epsilon$}. \label{f_leastcore}
+%    \end{figure}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coalition Formation}
-    \begin{figure}[!t]
-        \centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[width=2.1in]{figures/s2_task_done.eps}
-        \includegraphics[width=2.1in]{figures/s2_task_qos.eps}
-        \caption{Part (a): Cumulative number of tasks successfully performed. Part
-        (b): Average QoS of tasks performed.} \label{performancemany}
-    \end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coalition Formation}
-    \begin{figure}[!t]
-        \centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[width=1.45in]{figures/avg_task_ws_done.eps}
-        \includegraphics[width=1.45in]{figures/avg_qos_ws_done.eps}
-        \includegraphics[width=1.45in]{figures/avg_avail_ws_done.eps}
-        \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks successfully performed. Part
-        (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Results: Coalition Formation}
+%    \begin{figure}[!t]
+%        \centering
+%        %\includegraphics[scale=0.6]{graph1Final+.eps}
+%        \includegraphics[width=2.1in]{figures/s2_task_done.eps}
+%        \includegraphics[width=2.1in]{figures/s2_task_qos.eps}
+%        \caption{Part (a): Cumulative number of tasks successfully performed. Part
+%        (b): Average QoS of tasks performed.} \label{performancemany}
+%    \end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Results: Coalition Formation}
+%    \begin{figure}[!t]
+%        \centering
+%        %\includegraphics[scale=0.6]{graph1Final+.eps}
+%        \includegraphics[width=1.45in]{figures/avg_task_ws_done.eps}
+%        \includegraphics[width=1.45in]{figures/avg_qos_ws_done.eps}
+%        \includegraphics[width=1.45in]{figures/avg_avail_ws_done.eps}
+%        \caption{A comparison between our community model and the high availability community model, on communities of size 4,5,6 only. Part (a): Cumulative number of tasks successfully performed. Part
+%        (b): Average QoS of tasks performed. (c) Average Community Service Availability} \label{fig_avail_method}
+%    \end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Taxation and Subsiding}
-    \begin{figure}[!t]
-        \centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[width=3in]{figures/taxtation.eps}
-        \caption{Analysis of community subsiding coefficient $\lambda$ on
-        average community size (a), cost (b), number of tasks performed
-        (c), and average quality of service of tasks performed (d).}
-        \label{f_taxtation}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Taxation and Subsiding}
-    \begin{figure}[!t]
-        \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
-        \caption{Analysis of community subsiding coefficient $\lambda$
-        having web service different stability levels of $\tau$ on average
-        community size, number of tasks performed, average quality of
-        service, and average cost/income of communities.}
-        \label{fig_dynamic_taxtation}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coopetitive}
-    \begin{figure}%[h]
-        %\centering
-        %\includegraphics[scale=0.6]{graph1Final+.eps}
-        \includegraphics[width=2.1in]{figures/graphbgtmed.eps}
-        \includegraphics[width=2.1in]{figures/graphrep.eps}
-        \caption{Part (a): Cumulative community budget comparison. Part
-        (b): Average community reputation comparison over different
-        strategic decisions.} \label{Graph1}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Coopetitive}
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=1.45in]{figures/graphtaskdone.eps}
-        \includegraphics[width=1.45in]{figures/graphtasksatisfaction.eps}
-        \includegraphics[width=1.45in]{figures/graphavgqostask.eps}
-        \caption{Overall performance from community's point of view. Part
-        (a) Total number of tasks successfully done. Part (b) Ratio of
-        tasks satisfied with required QoS. Part (c) Average QoS of
-        performed tasks.} \label{graph_task}
-    \end{figure}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 %\begin{frame}{Results: Coopetitive}
 %    \begin{figure}[h]
@@ -924,49 +1052,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Future Research Activities}
 \begin{frame}{Future Research Activities}
-    \begin{enumerate}
-        \item Analyzing other cooperative solution concepts such as Kernel
-        and Nucleolus where payoff division is guaranteed to exist and may
-        have optimal results.
+    \begin{itemize}
+    \item \textbf{Winter 2014: }Analyzing other cooperative solution concepts such as Kernel
+    and Nucleolus where payoff division is guaranteed to exist and may
+    have optimal results.
 
-        \item Applying other valuation function in our scenarios using for
-        instance Weighted Voting Games (WCG) in order to develop a
-        multiple weighted algorithm to find best coalition structures
-        satisfying different weights on each community.
+    \item \textbf{Summer 2014: }Analyzing the impact of Q-learning and reinforcement
+    learning on the performance of our model.
 
-        \item Analyzing the impact of Q-learning and reinforcement
-        learning on the performance of our model.
+    \item \textbf{Fall 2014: }Developing a community membership algorithm technique for
+    our agents in more distributed and ``incomplete information'' settings.
 
-        \item Developing a community membership algorithm technique for
-        our agents in "incomplete information" settings.
-
-        %\item Developing an open source, Java based Tool, with UI for
-        %solving Core and Shapely solution concepts based on different
-        %input valuation functions.
-    \end{enumerate}
+    \item \textbf{Winter 2015: }Thesis work and Ph.D. Defense.
+    %\item Developing an open source, Java based Tool, with UI for
+    %solving Core and Shapely solution concepts based on different
+    %input valuation functions.
+    \end{itemize}
 \end{frame}
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Timeline}
-\begin{frame}{Timeline}
-
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame27 Milestones %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Publications}
 
     \begin{enumerate}
-        \item Published a paper in 10th IEEE International Conference on Services Computing; \emph{"Efficient Coalition Formation for Web Services"}
-        \item Published a Paper to the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{"Analyzing Coopetition Strategies of Services within Communities"}
-        \item Submitted a Journal Paper to the International Journal of Web and Grid Services; IEEE Transactions on Services Computing {\color{blue} (Second round of review)}
-        \item Submitted a Journal Paper to the International Journal of Expert Systems With Applications; \emph{"To Compete or to Cooperate? This is the Question in Communities of Autonomous Services"}
+        \item Published a Journal Paper at IEEE Transactions on Services Computing; \emph{``Efficient Community Formation for Web Services.''}, Feb. 2014
+        \item Published a Journal Paper at the International Journal of Expert Systems With Applications; \emph{``To Compete or to Cooperate? This is the Question in Communities of Autonomous Services''}, Jan 2014
+        \item Published a paper in 10th IEEE International Conference on Services Computing; \emph{``Efficient Coalition Formation for Web Services''}, 2013
+        \item Published a Paper in the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{``Analyzing Coopetition Strategies of Services within Communities''}, 2012
     \end{enumerate}
 
 %\centering
@@ -976,18 +1090,32 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Induced Subgraph Games}
-    \begin{itemize}
-        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
-        \item $N = V$
-        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
-        \item {\color{blue}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
-        \item {\color{blue}Convexity:} If all the weights are nonnegative then the game is convex.
-        \item {\color{blue}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
-        \item This is {\color{blue}not complete}. Many coalition games cannot be represented by a induced subgraph game.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Induced Subgraph Games}
+%    \begin{itemize}
+%        \item An induced subgraph game is a coalitional game defined by an undirected weighted graph $G = (V,W)$ where $V$ is the set of vertices and $W : V \rightarrow V$ is the set of edges weights. For $(i,j) \in V^2$, $w_{ij}$ is the weight of the edge between $i$ and $j$.
+%        \item $N = V$
+%        \item for all $C \subseteq N, v(C) = \sum_{(i,j) \in C} w_{ij}$
+%        \item {\color{blue}Space Complexity:} Using an adjacency matrix, we need to provide $n^2$ entries.
+%        \item {\color{blue}Convexity:} If all the weights are nonnegative then the game is convex.
+%        \item {\color{blue}Shapley Value:} $\phi_i(N,v) = \frac{1}{2} \sum_{(i,j) \in N^2 | i \neq j}w_{ij}$
+%        \item This is {\color{blue}not complete}. Many coalition games cannot be represented by a induced subgraph game.
+%
+%    \end{itemize}
+%\end{frame}
 
-    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Questions}
+    \begin{figure}[!t]
+    \centering
+    %\includegraphics[scale=0.6]{graph1Final+.eps}
+    \includegraphics[width=2.1in]{figures/question.eps}    
+    \label{questionfig}
+    \end{figure}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
