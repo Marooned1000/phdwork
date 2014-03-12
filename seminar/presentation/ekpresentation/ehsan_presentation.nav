@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.10pt}
+\beamer@endinputifotherversion {3.32pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
@@ -74,27 +74,25 @@
 \headcommand {\beamer@framepages {29}{29}}
 \headcommand {\slideentry {3}{4}{6}{30/30}{Coopetitive Behavior of Services within Communities}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\slideentry {3}{4}{7}{31/31}{Coopetitive Behavior of Services within Communities}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{31}{Representation and Complexity Issues}}\headcommand {\beamer@subsectionpages {25}{30}}
+\headcommand {\slideentry {3}{5}{1}{31/31}{Representation and Complexity Issues}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\beamer@subsectionentry {0}{3}{5}{32}{Representation and Complexity Issues}}\headcommand {\beamer@subsectionpages {25}{31}}
-\headcommand {\slideentry {3}{5}{1}{32/32}{Representation and Complexity Issues}{0}}
+\headcommand {\slideentry {3}{5}{2}{32/32}{Representation and Complexity Issues}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {3}{5}{2}{33/33}{Representation and Complexity Issues}{0}}
+\headcommand {\sectionentry {4}{Milestones}{33}{Milestones}{0}}
+\headcommand {\beamer@sectionpages {12}{32}}
+\headcommand {\beamer@subsectionpages {31}{32}}
+\headcommand {\slideentry {4}{0}{3}{33/33}{}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\sectionentry {4}{Milestones}{34}{Milestones}{0}}
-\headcommand {\beamer@sectionpages {12}{33}}
-\headcommand {\beamer@subsectionpages {32}{33}}
-\headcommand {\slideentry {4}{0}{3}{34/34}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{34}{Future Research Activities}}\headcommand {\beamer@subsectionpages {33}{33}}
+\headcommand {\slideentry {4}{1}{1}{34/34}{Future Research Activities}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{35}{Future Research Activities}}\headcommand {\beamer@subsectionpages {34}{34}}
-\headcommand {\slideentry {4}{1}{1}{35/35}{Future Research Activities}{0}}
+\headcommand {\slideentry {4}{1}{2}{35/35}{Future Research Activities}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {4}{1}{2}{36/36}{Future Research Activities}{0}}
+\headcommand {\slideentry {4}{1}{3}{36/36}{Future Research Activities}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\slideentry {4}{1}{3}{37/37}{Future Research Activities}{0}}
-\headcommand {\beamer@framepages {37}{37}}
-\headcommand {\beamer@partpages {1}{37}}
-\headcommand {\beamer@subsectionpages {35}{37}}
-\headcommand {\beamer@sectionpages {34}{37}}
-\headcommand {\beamer@documentpages {37}}
-\headcommand {\def \inserttotalframenumber {37}}
+\headcommand {\beamer@partpages {1}{36}}
+\headcommand {\beamer@subsectionpages {34}{36}}
+\headcommand {\beamer@sectionpages {33}{36}}
+\headcommand {\beamer@documentpages {36}}
+\headcommand {\def \inserttotalframenumber {36}}

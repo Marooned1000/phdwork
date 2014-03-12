@@ -40,7 +40,7 @@
         \item High reliance on web services created high competition and great business opportunities for online service developers
         \item Community of web services: Clustering similar web services in order to:
         \begin{itemize}
-            \item \textbf{Provide better user satisfaction through high availability and responsiveness}.
+            \item \textbf{Provide Better User Satisfaction Through High Availability and Responsiveness}.
             \item \textbf{Facilitate Web Service Discovery over Internet}.
             \item \textbf{Maintain high reputation and market share}.
         \end{itemize}
@@ -705,15 +705,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Coopetitive Behavior of Services within Communities}
-\begin{frame}{Coopetitive Behavior of Services within Communities}
-    \begin{itemize}
-        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
-        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.  
-        
-    \end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
@@ -761,7 +752,7 @@
 %        0 & \text{otherwise.}\\
 %        \end{cases}
 %    \end{equation}
-    
+
 %    \begin{equation*}\label{repz}
 %        %Rep_{w}^{t+1} = Rep_{w}^{t} + reward
 %        %\end{equation}
@@ -773,11 +764,11 @@
 %        1 & \text{if $\Gamma > 1$.}\\
 %        \end{cases}
 %    \end{equation*}
-    
+
     \begin{equation*}\label{eq:repreprowthfactor}
         Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
     \end{equation*}
-    
+
     \begin{equation*}\label{eq:growthfactor}
         G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
         \epsilon}}{3}
@@ -828,7 +819,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Reinforcement Learning: Q-learning}
     \begin{itemize}
-        \item MDP (Markov Game):     
+        \item MDP (Markov Game):
         \begin{itemize}
             \item \emph{S}: Set of states
             \item \emph{A}: Actions
@@ -836,24 +827,24 @@
             \item \emph{$R: S \times A \rightarrow Reward(s,a) $}
         \end{itemize}
     \end{itemize}
-    
+
     \begin{itemize}
-        \item Q-Learning, The goal is to learn:
-        \begin{itemize}            
+        \item Q-Learning, the goal is to learn:
+        \begin{itemize}
             \item The probability of others playing actions from action set on each state.
             \item $V(s): $ Expected reward over time, starting from state $s$
-            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$                
+            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$
         \end{itemize}
     \end{itemize}
-    
+
     \begin{equation*}
-        V(s) = max min \sum_{a \in A}{Q(s,a,o)PD(a)}
+        {\color{blue}V(s)} = max min \sum_{a \in A}{{\color{green}Q(s,a,o)} \times T(s,a,s')}
     \end{equation*}
-    
+
     \begin{equation*}
-        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
+        {\color{green}Q(s,a,o)} = R(s,a,o) + \gamma\sum{s'}{T(s,a,o,s'){\color{blue}V(s')}}
     \end{equation*}
-    
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -922,11 +913,6 @@
             \end{tabular}
         \end{minipage}
     \end{table}
-
-
-    \begin{itemize}
-        \item Upon.
-    \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1111,7 +1097,7 @@
     \begin{figure}[!t]
     \centering
     %\includegraphics[scale=0.6]{graph1Final+.eps}
-    \includegraphics[width=2.1in]{figures/question.eps}    
+    \includegraphics[width=2.1in]{figures/question.eps}
     \label{questionfig}
     \end{figure}
 \end{frame}
