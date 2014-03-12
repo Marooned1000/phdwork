@@ -134,6 +134,10 @@
             \item The second issue is about the complexity of cooperative game theory solution concepts.
         \end{itemize}
 
+   \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
+        \begin{itemize}
+            \item Services can learn over time how and when to compete for tasks according to their and others capabilities. 
+        \end{itemize}
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -347,7 +351,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Some Properties}
     \begin{itemize}
-        \item The core may not always be non-empty.
+        \item The core set can be empty or have many solutions.
         \item Shapley value always exists and is unique.
         \item When the valuation function is {\color{blue}superadditive}, the Shapley value is {\color{blue}individually rational}, i.e., it is an imputation.
         \item When the valuation function is {\color{blue}convex}, the Shapley value is also group rational, hence, it is in the {\color{blue}core}.
@@ -659,6 +663,7 @@
         \item In case of web service failure, a portion of tasks will not be handled efficiently until replacement is found.
         \item By imposing cost on deviation or subsiding the community, its possible to attract more web services and keep the community stable.
         \item Will be cost efficient in case of web service failure, or for replacing web services dropping in QoS metrics as they advertised.
+        \item \emph{Taxation} would need agreement between all communities (needs a centralized approach), however \emph{subsiding} can be done within communities in distributed manner. 
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -835,8 +840,8 @@
         \begin{itemize}
             \item \emph{S}: Set of states
             \item \emph{A}: Actions
-            \item \emph{$T: S \times A \rightarrow P(s) $}
-            \item \emph{$R: S \times A \rightarrow Reward(s,a) $}
+            \item \emph{$T: S \times A_1 \times A_2 \times ... \times A_k \rightarrow P(s) $}
+            \item \emph{$R: S \times A_1 \times A_2 \times ... \times A_k \rightarrow Reward(s,a) $}
         \end{itemize}
     \end{itemize}
 
