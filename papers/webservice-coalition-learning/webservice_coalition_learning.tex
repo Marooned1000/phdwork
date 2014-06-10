@@ -563,13 +563,13 @@ Web services; Cooperative game theory; Community of services;
 
 \section{Introduction}
 
-\IEEEPARstart{O}{ver} the past years, online services have become part of many scalable business applications. The increasing reliance on online service providers has significantly influenced the way web services are engineered. Delivering high quality services considering the dynamic and unpredictable nature of the Internet is still a very critical and challenging issue. These services can be utilized on top of intelligent decision making agents in order to maximise gain by finding ways of providing services better satisfying end users. The recent developments are shifting web services from passive and individual components to autonomouse and group-based components where interaction, composition, and cooperation are the key challenges [refrences]. To this end the idea of \emph{community} of web services by gathering services having similar functionalies but distinct non-functional properties was developed [refrences]. 
+\IEEEPARstart{O}{ver} the past years, online services have become part of many scalable business applications. The increasing reliance on online service providers has significantly influenced the way web services are engineered. Delivering high quality services considering the dynamic and unpredictable nature of the Internet is still a very critical and challenging issue. These services can be utilized on top of intelligent decision making agents in order to maximize gain by finding ways of providing services better satisfying end users. The recent developments are shifting web services from passive and individual components to autonomous and group-based components where interaction, composition, and cooperation are the key challenges [references]. To this end the idea of \emph{community} of web services by gathering services having similar functionality but distinct non-functional properties was developed [references]. 
 
-Web service ocmmunities faciliate the discovery of web services and also provide services with better quality. These communities act as abstract web services, communicating with external entities via same standard protocols the normal web services employ. Users send their requests to the coordinators of those communities, which play the role of their representatives or access points. The community coordinator in this \emph{community centerilized} architecture is resposible for community management tasks such as verification of credentials of new web services before accepting them to join the community and also firing web services which do not add enough value to the community. 
+Web service communities facilitate the discovery of web services and also provide services with better quality. These communities act as abstract web services, communicating with external entities via same standard protocols the normal web services employ. Users send their requests to the coordinators of those communities, which play the role of their representatives or access points. The community coordinator in this \emph{community centralized} architecture is responsible for community management tasks such as verification of credentials of new web services before accepting them to join the community and also firing web services which do not add enough value to the community. Within communities, 
 
+Recent work have emphasized on motivation and benefits of communities of web services[references]. Communities of web services facilitate discovery of web services, improve the quality of service, and also help individual services find better market share and opportunities. 
 
-
-- We want to give full distributed control to web services as autonomouse agents and distribute the task of communty management among all web services and let them decide how to maximise their efficientcy and join and create communities.
+- We want to give full distributed control to web services as autonomous agents and distribute the task of community management among all web services and let them decide how to maximize their efficiency and join and create communities.
 - Let agents train and learn long term expectations of each action and group they can join with
 - Web services cannot find the optimal solution in big space problem of many web services
 - Add rationalism and less vague decisions
@@ -657,9 +657,181 @@ text text
 
 text text \cite{ICWS2011-1}
 
-\section{Related Work}\label{s:relatedwork}
+\section{Related Work}\label{s:related_work}
 
-text text
+*******THIS ONE IS TEMPRORARY FROM PREVIOUS WORKS*******
+In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
+defined communities as \emph{Service Containers} which aggregate
+substitutable web services providing a common functionality (same
+set of operations). They abstracted \emph{Service Containers} as
+web services which are created, advertised, discovered and invoked
+just as elementary web services. The \emph{Container} is
+considered as a manager which is responsible for web service
+selection upon receiving a request on run-time. The authors have
+proposed a scoring service based on non-functional requirements of
+the request and web service capabilities to dynamically chose the
+web service to perform the requested task. A similar concept was
+proposed by Maamar et al. in
+\cite{DBLP:journals/ijebr/MaamarSTBB09}. The authors introduced
+web service communities as a collection of web services with a
+common functionality but different QoS properties. A community
+manager, upon receiving a request, delegates the request to one of
+its current members. The choice is based on the performance
+history and quality metrics of each web service. The authors have
+proposed an efficient global web service selection algorithm in
+order to approach quality constraints and preferences for
+composite services which require aggregation of different types of
+services to satisfy the user.
+
+Benslimane et al. \cite{Liris-2770} have proposed a multi-layer
+approach grouping similar Web services into communities and having
+an interface implemented as an abstract web service for accessing
+the community on top of the community layer. The interactions
+between composite, management and community layers and the
+bindings are performed by a generic driver called Open Software
+Connectivity (OSC).
+
+In \cite{managing-hela-jalel}, Limam and Akaichi have proposed web
+service communities with centralized access across distributed web
+services. They have proposed a framework for web service
+management, query resolution among communities and a query caching
+mechanism executed by the manager to improve the performance of
+query resolution process among many distributed communities. The
+key idea is to cache previous computed results for answering
+future queries.
+
+
+Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
+then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
+proposed an architecture utilizing \emph{Contract-Net} protocol
+for engineering task distribution within communities of web
+services. The protocol is centrally executed by the community
+manager. This architecture has been further developed in
+\cite{CSTintercommunity, conf/IEEEscc/BenharrefSBB11,
+conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11}. Two types of
+roles have been distinguished for community members: masters and
+slaves. Master web services and community managers that lead
+communities and are responsible for membership management. They
+can invite and convince slave web services to join the community,
+and attract new slave web services to their communities by
+awarding them better payoff. Moreover, they can eject some slave
+members from the community to improve its overall reputation if
+these members are misbehaving or cannot provide the promised QoS.
+
+In \cite{Medjahed05adynamic}, Medjahed and Bouguettaya have
+developed a community as a ``cluster'' that groups Web services
+based on a specific area of interest. All web services in a given
+community share the same functionality. These communities are
+created by \emph{third party community providers} which use the
+\emph{community ontology} as a template and define a set of
+operations that all web services within a community should
+provide. Using semantic analysis on web service operations, web
+services either find and join a community with similar
+functionality or create a new operation description for a new
+community. The authors have described the concept of
+\emph{community agents} associated to \emph{community providers}.
+A community agent is responsible, among other things, of the
+registration of services with the community. An example of a
+community that provides health care services to senior citizens
+has been used. In this example, a governmental entity is needed to
+check the health care standards used by the members before
+authorizing them to be part of the community. Such a central
+entity is represented by the community agent. Thus, community
+agents are playing the role of community managers. In a close work
+\cite{Zeng:2003:QDW:775152.775211}, Zeng et al. have described a
+global planning selection algorithm and a delegation algorithm to
+be run when a request to execute an operation is received by the
+community. This needs a central entity to run those algorithms.
+Such entity plays the same role as the community coordinator or
+manager.
+
+Most of the recent work on communities of services are either
+user-centric and focus on user satisfaction
+\cite{Chun02user-centricperformance} or system-centric and focus
+on the whole system throughput, performance and utilization. There
+are many contributions in distributed, grid, cluster and cloud
+services which are system-centric. However, in real world
+environments and applications, both users and service providers
+are self-interested agents, aiming to maximize their own profit.
+In those environments, both parties (users and services) will
+collaborate as long as they are getting more benefits and payoff.
+
+In this direction, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
+DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed
+mechanisms to help users and services maximize their gain. A
+two-player non-cooperative game between web services and community
+master was introduced in
+\cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In this game-theoretic
+model, the strategies available to a web service when facing a new
+community are requesting to join the community, accepting the
+master's invitation to join the community, or refusing the
+invitation to join. The set of strategies for communities are
+inviting the web service or refusing the web service's join
+request. Based on their capacity, market share and reputation, the
+two players have different sets of utilities over the strategy
+profiles of the game. The main limits of this game model are: 1)
+its consideration of only three quality parameters, while the
+other factors are simply ignored; and 2) the non-consideration of
+the web services already residing within the community. The game
+is only between the community master and the new web service, and
+the inputs from all the other members and their influence on the
+master's decision are simply ignored. The consideration of those
+inputs and this influence factor is a significant issue as
+existing web services can lose utility or payoff because of the
+new member, which can result in an unhealthy and unstable group.
+The problem comes from the fact that the existing members should
+collaborate with the new web services, so probably their
+performance as a group can suffer. Existing members may even
+deviate and try to join other communities if they are unsatisfied.
+Those considerations of forming stable and efficient coalitions
+are the main contributions of our paper.
+
+In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
+for selecting web services has been proposed. In this approach,
+the authors proposed a web service selection process that the
+community masters can use. The approach considers the efficiency
+of all the three involved parties, namely users, web services and
+communities. In this work, it is shown how the gains of these
+parties are coupled together using a linear optimization process.
+However, the optimization problem in this solution tends to
+optimize some parameters considering all web services regardless
+of their efficiency and contribution to the community's welfare.
+Moreover, there are no clear thresholds for accepting or rejecting
+new web services. The solution of the optimization problem could,
+for instance, suggest web services already residing within the
+community to increase or decrease their capacity to cover up the
+weakness of other parties in the system. However, a high
+performing web service could deviate anytime it finds itself
+unsatisfied within the community instead of adjusting its service
+parameters.
+
+In \cite{10.1109/TSC.2012.12}, a cooperative scheme among
+autonomous web services based on coalitional game theory has been
+introduced. The authors have proposed an interesting algorithm to
+reach individually stable coalition partition for web services in
+order to maximize their efficiency. The communities choose new web
+services on the promise that it would benefit the community
+without decreasing any other web service's income. In the proposed
+model, the worth of community is evaluated with high emphasis on
+the availability metric and considering price and cost values
+only. The community structure is based on a coordination chain,
+where a web service is considered as a \emph{primary} web service
+and the community task-distribution method initially invokes the
+primary web service and only if the primary web service is
+unavailable, the method invokes the next backup web services as
+they are ordered in the coordination chain. We believe that this
+coordination chain limits the cooperation power as it introduces a
+sort of hierarchy. However, in pure and open cooperative models,
+such as the one we propose in this paper, active cooperation
+activities engaging simultaneously many agents so that they can
+perform the tasks more efficiently are being used. Moreover, if
+the availability is high, which is the case nowadays with the
+recent advancements in cloud and hardware infrastructures, the
+backup web services will end-up having a very low chance of
+getting jobs, especially the ones further in the chain. This will
+results in a considerable waste of web services capabilities.
+*******THIS ONE IS TEMPRORARY FROM PREVIOUS WORKS*******
+
 
 %\subsection{Subsection Heading Here}
 %Subsection text here.
