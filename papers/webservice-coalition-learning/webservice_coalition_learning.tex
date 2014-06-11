@@ -567,7 +567,13 @@ Web services; Cooperative game theory; Community of services;
 
 Web service communities facilitate the discovery of web services and also provide services with better quality. These communities act as abstract web services, communicating with external entities via same standard protocols the normal web services employ. Users send their requests to the coordinators of those communities, which play the role of their representatives or access points. The community coordinator in this \emph{community centralized} architecture is responsible for community management tasks such as verification of credentials of new web services before accepting them to join the community and also firing web services which do not add enough value to the community. Within communities, 
 
-Recent work have emphasized on motivation and benefits of communities of web services[references]. Communities of web services facilitate discovery of web services, improve the quality of service, and also help individual services find better market share and opportunities. A community master or coordinator is also responsible for \emph{community development}. 
+Recent work have emphasized on motivation and benefits of communities of web services[references]. Communities of web services facilitate discovery of web services, improve the quality of service, and also help individual services find better market share and opportunities. A community master or coordinator is also responsible for \emph{community development}. Community development is about finding the right web service for the community, satisfying all web services and community coordinators involved within the community, which is a challenging task. Many ideas have been proposed to tackle this problem. Some of these work have complex on demand algorithms [3way, coopchina, ourwork] and in order to make it feasible they have simplified the task to make the algorithm executable on-demand or they have simplified the constraints, ignoring important aspects of the problem. For example in [coopchina] a simple egalitarian way of distributing gain which completely ignores gain for collaborative work, instead of complex shapely-value which considers gain for all subset of agents working together which basicly ignores the most important criteria of finding optimal group, has been proposed. Other category of related work exists which they do not focus on all parties involved within the community [2player]. 
+%And some other work which do not focus on rationality on web services or communities involved [refrences]. 
+These solutions generally suffer from high complexity which makes decision making impossible in an on-demand fashion or they simplify important aspects to make it practical in real world hurting the decision making performance. 
+
+In this paper, we have implemented [OurMethodName] in which we initially train our services in different possible communities and let them experiment and check the outcome of different scenarios. Based on the trained results these services can be utilized with efficient methods of foreseeing how each of their decisions would impact their long term and short term goals, therefore opting for best decision available. Having a set of web services with pre-defined set of features, we let web services evaluate performance collaborating with a small subset of other web services. Each web service individually will be utilized with knowledge of collaborating with web services having different set of feature values. By deploying a linear distant function, the web services will be able to predict the outcome of collaborating with different web services which may not have been collaborated in during training process. 
+
+
 
 - We want to give full distributed control to web services as autonomous agents and distribute the task of community management among all web services and let them decide how to maximize their efficiency and join and create communities.
 - Let agents train and learn long term expectations of each action and group they can join with
@@ -579,20 +585,20 @@ Recent work have emphasized on motivation and benefits of communities of web ser
 
 % - The recent developments are shifting web services from passive and individual components to autonomous and group-based components where interactiion, composition, and cooperation are the key challenges. 
 
-We have implemented [OurMethodName] which 
 
-- High demand on online services has created a massive business competition. For example, nowadays users are provided with multiple choices of web services offering local places information such as coffees, venues, and shops nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongst hundreds or thousands of other available services, even if they provide a high quality of service. Hence, the concept of communities of web services provides them with the chance of joining a platform with an established market share and reputation. However, it is crucial for a community manager to consider many factors when inviting or accepting new members. For example,  this may hurt the community stability.
 
-- The high competition within the services industry requires applications to use reliable and high quality online service providers. If the user were to check a web site or run an application on her mobile device upon having downtime, or having high response delay or encountering any non-satisfying quality metric, she will instantly remove the application, which is a huge business concern for application providers. For example, if a user installs a ticketing application on her mobile device and the application is not using high quality service providers, the user would instantly uninstall the application, which has an extremely negative impact on the visibility of the application.
+%- High demand on online services has created a massive business competition. For example, nowadays users are provided with multiple choices of web services offering local places information such as coffees, venues, and shops nearby a geographic position. It is hard for new web services to find their customers and be visible for end users amongst hundreds or thousands of other available services, even if they provide a high quality of service. Hence, the concept of communities of web services provides them with the chance of joining a platform with an established market share and reputation. However, it is crucial for a community manager to consider many factors when inviting or accepting new members. For example,  this may hurt the community stability.
 
-- Most applications cannot independently satisfy users requests and should rely on different online services. The high competition within the services industry requires applications to use reliable and high quality online service providers. 
+%- The high competition within the services industry requires applications to use reliable and high quality online service providers. If the user were to check a web site or run an application on her mobile device upon having downtime, or having high response delay or encountering any non-satisfying quality metric, she will instantly remove the application, which is a huge business concern for application providers. For example, if a user installs a ticketing application on her mobile device and the application is not using high quality service providers, the user would instantly uninstall the application, which has an extremely negative impact on the visibility of the application.
 
-Today web services are 
+%- Most applications cannot independently satisfy users requests and should rely on different online services. The high competition within the services industry requires applications to use reliable and high quality online service providers. 
 
-- softwares rely on third party online service providers 
-- quality of services determines the success of the business 
-- services want to maximise thier utility by cooperating with best possible communities
-- services need to get visible and join market 
+%Today web services are 
+
+%- softwares rely on third party online service providers 
+%- quality of services determines the success of the business 
+%- services want to maximise thier utility by cooperating with best possible communities
+%- services need to get visible and join market 
 
 % Computer Society journal papers do something a tad strange with the very
 % first section heading (almost always called "Introduction"). They place it
