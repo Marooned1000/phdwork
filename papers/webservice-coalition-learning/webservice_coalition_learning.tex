@@ -679,18 +679,32 @@ Figure \ref{fig_community} represents the architecture of web service communitie
 
 \subsection{Internal Features}\label{s:if}
 
-In the presence of multiple service candidates with identical or similar functionalities, quality of service (QoS) provides nonfunctional characteristics for the optimal candidate selection. Based on the previous investigations [2, 10, 14], we identify the most representative QoS properties of Web services in the following
+With a group of web services having identical or similar functionalists, quality of service metrics provide nonfunctional characteristics for the optimal candidate selection. Web service quality metrics have been presented in \cite{Ardagna:2007:ASC:1263152.1263531,Menasce:2002:QIW:613357.613758,10.1109/ISSRE.2011.17}, we have adopted the most representative QoS properties of web services which highly influence the utility of web services.
 
 \begin{itemize}
-  \item QoS performance of Web services is highly related to invocation time, since the service status (e.g., workload, number of clients, etc.) and the network environment (e.g., congestion etc.) change over time.
-  \item Service users are typically distributed in different geographical locations. The user-observed QoS performance of Web services is greatly influenced by the Internet connections between users and Web services. Different users may observe quite different QoS performance when invoking the same Web service.
+
+  \item \emph{Throughput} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity.
+	
+	\item \emph{Availability} is the percentage of time that a service is operating.
+	The probability that the service operation is accessible. Availability is a number in the range [0, 1].
+	
+	\item \emph{Response Time} is the time a service takes to respond to various types of requests. Response time is a function of load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. QoS takes into account not only the average response time, but also the percentile (95th percentile, for example) of the response time.	
+	The expected delay between the time instant when a request is sent and the time when the result is obtained. Execution time is measured in seconds.
+	
+	\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by wsj;o to a value v0 considered as
+correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
+	
 \end{itemize}
+
 
 \subsection{External Features}\label{s:ef}
 
-\subsection{The join challange}\label{s:tjc}
 
-\subsection{Join Consiquences}\label{s:jc}
+\subsection{The join challenge}\label{s:tjc}
+
+\subsection{Join Consequences}\label{s:jc}
+
+\section{The Model}\label{s:model}
 
 \section{Experimental Results and Analysis}\label{s:resutls}
 
