@@ -686,10 +686,11 @@ With a group of web services having identical or similar functionalists, quality
   \item \emph{Throughput} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity.
 	
 	\item \emph{Availability} is the percentage of time that a service is operating.
-	The probability that the service operation is accessible. Availability is a number in the range [0, 1].
+	The probability that the service operation is accessible. Availability is a number in the range $[0, 1]$.
 	
-	\item \emph{Response Time} is the time a service takes to respond to various types of requests. Response time is a function of load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. QoS takes into account not only the average response time, but also the percentile (95th percentile, for example) of the response time.	
-	The expected delay between the time instant when a request is sent and the time when the result is obtained. Execution time is measured in seconds.
+	\item \emph{Execution Time} is the time a service takes to respond to various types of requests. 
+	%is the expected delay between the time instant when a request is sent and the time when the result is obtained. 
+	Execution time is measured in seconds. Execution time can be affected by load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. 
 	
 	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
 	
@@ -698,7 +699,12 @@ With a group of web services having identical or similar functionalists, quality
 
 \subsection{External Features}\label{s:ef}
 
-In order to evaluate the real value of the quality metrics 
+The quantitative values of quality metrics need some benchmark values to represent their goodness. In other words, without some benchmark values it would be hard for web services to identify their goals, and how good or bad they would perform at any specific value of these metrics. Therefore we have introduced two external features to assess web services getting better estimate of their standing within other web services.
+
+\begin{itemize}
+  \item \emph{External Parameter 1} $(exp_1)$. is an estimate of how close the web service's \emph{execution time} to other web services is. It is the difference between web service's \emph{response time} metric and the maximum value of response time of web services, that the web service has recently gathered information about.
+	\item \emph{External Parameter 2} $(exp_2)$ is a comparison of the web service's rate of performing tasks compared to other competing web services. It is the difference between web service's \emph{throughput} metric and the maximum value of throughput of web services, that the web service has recently gathered information about.
+\end{itemize}
 
 \subsection{The join challenge}\label{s:tjc}
 
