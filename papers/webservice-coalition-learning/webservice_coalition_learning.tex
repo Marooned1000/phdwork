@@ -683,14 +683,38 @@ With a group of web services having identical or similar functionalists, QoS met
 
 \begin{itemize}
 
-  \item \emph{Throughput $(Th_{i})$} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity. Throughput is a positive real number.
+  \item \emph{Throughput $(Th_{C})$} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity. Throughput is a positive real number. For communities the expected throughput value of collaborating web services can be estimated as:
 	
-	\item \emph{Availability $(A_{i})$} is the percentage of time that a service is operating.
-	The probability that the service operation is accessible. Availability is also a real number in the range $[0, 1]$.
+	\begin{equation}
+		 Th_{C} = \left\{ 
+			\begin{array}{l l}
+				Th_{w} & \quad \text{if $|C| = 1$}\\
+				\sum_{w \in C}{(Th_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
 	
-	\item \emph{Execution Time $(Rt_{i})$} is the time a service takes to respond to various types of requests. 
+	\item \emph{Availability $(A_{C})$} is the percentage of time that a service is operating.
+	The probability that the service operation is accessible. Availability is also a real number in the range $[0, 1]$. For communities the expected availability of collaborating web services considering they follow a parallel system can be estimated as:
+	
+	\begin{equation}
+		A_{C} = \left\{ 
+			\begin{array}{l l}
+				A_{w} & \quad \text{if $|C| = 1$}\\
+				1-\prod_{w \in C}{(1-A_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
+	
+	\item \emph{Execution Time $(Et_{C})$} is the time a service takes to respond to various types of requests. 
 	%is the expected delay between the time instant when a request is sent and the time when the result is obtained. 
-	Execution time is measured in milliseconds. Execution time can be affected by load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. This internal feature is a positive integer. 
+	Execution time is measured in milliseconds. Execution time can be affected by load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. This internal feature is a positive integer. For communities the expected execution time of collaborating web services can be estimated as:
+	
+	\begin{equation}
+		Et_{C} = \left\{ 
+			\begin{array}{l l}
+				Et_{w} & \quad \text{if $|C| = 1$}\\
+				max_{w \in C}{(Et_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
 	
 	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
 	
