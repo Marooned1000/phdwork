@@ -734,91 +734,23 @@ A community of web services are abstracted as a standard web service providing s
 
 \subsection{Task Distribution}
 
-As mentioned in Section \ref{s:wsc}, communities 
-are robust service providers with well established market share
-and reputation. By maintaining their reputation and performance,
-they attract end users which choose them as service providers to
-perform their tasks. The community coordinator is characterized by a
-request rate (also called input rate) $(R_C)$ from users. Each web
-service comes with a given QoS ($QoS_{ws}$) from which the
-throughput $Th_{ws}$ is excluded. Throughput is the average rate
-of tasks a web service can perform per time unit. Its exclusion
-from $QoS_{ws}$ allows us to build our analysis on the particular
-value of $Th_{ws}$. Thus, web services perform tasks with an
-average output quality of $QoS_{ws}$ and a throughput rate of
-$Th_{ws}$.
+Communities of web services usually employ an implementation of Contract-Net protocol for task distribution, in which services opt for incoming tasks, and they will get the tasks if they ask for them. However in our model our community would try to distribute tasks based on their capabilities and QoS parameters the web services have announced. We have used a slightly modified \emph{weighted fair queuing} method to distribute tasks among the members of the community. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In the \emph{weighted fair queuing} method, the input flow is multiplexed along different paths, however in our case if the rate of incoming tasks are less than communities total throughput $(Th_{C})$ which is the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with delay. 
+%Thus, the amount of tasks performed by the community is $\sum_{ws}{Th_{ws}}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$. 
+However, when incoming task rate is less than the throughput of the community, the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $|input Task Rate| \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) within the community.
 
-The community coordinator uses a slightly modified \emph{weighted fair
-queuing} method to distribute tasks among its members. The goal is
-to allocate incoming tasks to web services with a rate matching
-the throughput value of $Th_{ws}$. In the \emph{weighted fair
-queuing} method, \emph{all} the input flow is multiplexed along
-different paths, however in our case if the request rate $(R_C)$
-of the community is more than the summation of throughput values
-of the web services in the community, some of the input tasks will
-be queued and served with delay. Thus, the amount of tasks
-performed by the community is $\sum_{ws}{Th_{ws}}$ when
-$\sum_{ws}{Th_{ws}} \leq R_{C}$. However, when the input rate
-$(R_C)$ of the community is less than the summation of throughput
-values of the web services in the community,
-%the community has more web services having more total throughput value than community's request rate
-the \emph{weighted fair queuing} algorithm assigns a weighted task
-rate of $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each
-web service ($ws$), so that the total rate of tasks being
-performed is $R_C$, the community's request rate.
-
-While distributing tasks, the community coordinator can verify the
-performance, throughput and quality of service of tasks being
-performed by web services. The community coordinator can recognize if those web
-services are capable of doing the amount of tasks they advertised.
-If for any reason there is a decline in the quality metric or
-throughput, the coordinator will announce the new parameters, which
-will be considered as benchmark for future performance
-calculations, and penalize the suspicious web services. In this
-way, players will have incentive to truthfully reveal their real
-capabilities in order to profit best from the community and to
-avoid being penalized. In addition, the system should be dynamic
-enough to detect and react to web services quality metrics
-variation as over time web service metrics may degrade or improve,
-a change that the community should adjust to.
+While distributing tasks, the community members can verify the performance, throughput and quality of service of tasks being performed by web services. The community can recognize if those web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in the quality metric or throughput, the community can consider the new values as benchmark for future performance calculations, and penalize the suspicious web services. In this way, players will have incentive to truthfully reveal their real capabilities in order to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may degrade or improve, a change that the community should adjust to.
 % Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
 
 \subsection{Community Revenue (Utility)}
 
-The communities and web services earn revenue by performing tasks.
-The total gain is function of quality ($QoS_{ws}$) and throughput
-($Th_{ws}$) of tasks being performed. As mentioned in Section
-\ref{ws_parameters}, $QoS_{ws}$ is obtained by a certain
-aggregation function of the parameters considered in Table
-\ref{qosws}. We have adopted a linear equal weight average over
-all QoS parameters listed in Table \ref{qosws} excluding the
-$Throughput$ and $Cost$ parameters. A community has the option to
-weigh specific QoS parameters depending on the expectations of
+The communities and web services earn revenue by performing tasks. The total gain is function of quality of rate of tasks being performed. 
+We have adopted a linear equal weight average over all QoS parameters listed in Table \ref{qosws} excluding the $Throughput$ and $Cost$ parameters. A community has the option to weigh specific QoS parameters depending on the expectations of
 their clients.
 
-The maximum potential output of a community $C$ $(PO(C))$  is an
-aggregation of the number of performed tasks $T_{ws}$ times the
-quality of service $QoS_{ws}$ for each web service member of the
-community:
-
-\begin{equation}
+\begin{equation}\label{out_c}
 PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
 \end{equation}
 
-If the summation of throughput values ($Th_{ws}$) of community
-members exceeds the input task rate of the community ($R_C$), the
-community cannot perform at its maximum potential. This situation
-denotes the case when the community has more web services than it
-needs to perform the input task load. Thus, the actual output has
-to be normalized to the amount of tasks being performed.
-
-\begin{equation}\label{out_c}
-Out(C) = \left\{
-  \begin{array}{l l}
-    PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{C}$}\\
-    PO(C) \times \frac{R_{C}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{C}$}
-  \end{array} \right.
-\end{equation}
 
 The revenue function of the web service community is a linear
 function of $Out(C)$ with a positive constant multiplier. The
