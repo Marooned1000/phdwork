@@ -741,14 +741,23 @@ However, when incoming task rate is less than the throughput of the community, t
 While distributing tasks, the community members can verify the performance, throughput and quality of service of tasks being performed by web services. The community can recognize if those web services are capable of doing the amount of tasks they advertised. If for any reason there is a decline in the quality metric or throughput, the community can consider the new values as benchmark for future performance calculations, and penalize the suspicious web services. In this way, players will have incentive to truthfully reveal their real capabilities in order to profit best from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services quality metrics variation as over time web service metrics may degrade or improve, a change that the community should adjust to.
 % Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
 
-\subsection{Community Utility}
+\subsection{Community Revenue}
 
-The communities and web services earn revenue by performing tasks. The total gain is function of quality of rate of tasks being performed. 
+The communities and web services earn revenue by performing tasks. The total gain is function of quality of rate of tasks being performed. The utility of a collaborative group of services $U_{C}$ is the revenue of the community. Formula \ref{u_c_normal} is an estimation of the gain of the community.
 
-\begin{equation}\label{out_c}
-U_{C} = (Et_{C} - Exp1_{C} - Exp2_{C}) \times Th_{C} \times A_{C}
+\begin{equation}\label{u_c_normal}
+U_{C} = \big((\alpha \times (A_{C} + Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}
 \end{equation}
 
+The estimation can be improved specially on cases where the input task rate is high and services are under high load of tasks. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on individual throughput $(Th_{w})$ value of services within community, the services with higher throughput within the community will affect the overall utility of community more since they would proportionally do more of the tasks.
+
+
+\begin{equation}\label{u_c_load}
+\begin{split}
+U_{C} = \sum_{ws \in C}&{\bigg(\big((\alpha \times (A_{ws} + Et_{ws}) \\
+        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)}
+\end{split}
+\end{equation}
 
 \subsection{The Join Challenge}\label{s:tjc}
 Sometimes web services can increase their overall utility by starting a collaboration with other web services as communities. This collaboration can help them with better ways of sharing resources, higher reputation, better market share and wider visibility. Web services and communities come with different internal and external parameters and long-term outcome is dependent on these parameters. 
