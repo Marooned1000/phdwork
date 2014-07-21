@@ -751,18 +751,10 @@ U_{C} = \big((\alpha \times (A_{C} + Et_{C}) - \beta \times (exp1_{C} + exp2_{C}
 
 The estimation can be improved specially on cases where the input task rate is high and services are under high load of tasks. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on individual throughput $(Th_{w})$ value of services within community, the services with higher throughput within the community will affect the overall utility of community more since they would proportionally do more of the tasks.
 
-
 \begin{equation}\label{u_c_load}
 \begin{split}
-U_{C} = \sum_{ws \in C}&{\bigg(\big((\alpha \times (A_{ws} + Et_{ws}) \\
-        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)}
-\end{split}
-\end{equation}
-
-\begin{equation}\label{u_c_load}
-\begin{split}
-U_{C} = \sum_{ws \in C}&{\bigg(\big((\alpha \times (A_{ws} + Et_{ws}) \\
-        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)}
+U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} + Et_{ws}) \\
+        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)
 \end{split}
 \end{equation}
 
@@ -775,6 +767,7 @@ The goal of all parties involved in the community is to maximize their long-term
 
 
 \section{The Model}\label{s:model}
+
 
 \section{Experimental Results and Analysis}\label{s:resutls}
 
