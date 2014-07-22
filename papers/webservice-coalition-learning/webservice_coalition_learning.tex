@@ -751,18 +751,10 @@ U_{C} = \big((\alpha \times (A_{C} + Et_{C}) - \beta \times (exp1_{C} + exp2_{C}
 
 The estimation can be improved specially on cases where the input task rate is high and services are under high load of tasks. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on individual throughput $(Th_{w})$ value of services within community, the services with higher throughput within the community will affect the overall utility of community more since they would proportionally do more of the tasks.
 
-
 \begin{equation}\label{u_c_load}
 \begin{split}
-U_{C} = \sum_{ws \in C}&{\bigg(\big((\alpha \times (A_{ws} + Et_{ws}) \\
-        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)}
-\end{split}
-\end{equation}
-
-\begin{equation}\label{u_c_load}
-\begin{split}
-U_{C} = \sum_{ws \in C}&{\bigg(\big((\alpha \times (A_{ws} + Et_{ws}) \\
-        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)}
+U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} + Et_{ws}) \\
+        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)
 \end{split}
 \end{equation}
 
@@ -777,9 +769,20 @@ ion of web services into communities, would make any brute-force type algorithm 
 
 \section{The Model}\label{s:model}
 
-\section{Experimental Results and Analysis}\label{s:resutls}
+\subsection{Learning Date}\label{ss:learningdata}
 
-text text \cite{ICWS2011-1}
+\subsubsection{web services}\label{sss:webservices}
+\subsubsection{filtered data}\label{sss:filtereddata}
+\subsubsection{feature engineering}\label{sss:feng}
+\subsubsection{feature vector generation}\label{sss:fvg}
+
+\subsection{Learning Model}\label{ss:learningmodel}
+
+\subsubsection{training data set}\label{sss:tds}
+\subsubsection{cross validation data set}\label{sss:cvds}
+\subsubsection{sigmoid learned hypothesis function}\label{sss:slh}
+\subsubsection{rationalized decision maker}\label{sss:rdm}
+
 
 \section{Related Work}\label{s:related_work}
 
