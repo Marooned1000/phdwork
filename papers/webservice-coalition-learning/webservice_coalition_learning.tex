@@ -769,14 +769,24 @@ ion of web services into communities, would make any brute-force type algorithm 
 
 \section{The Model}\label{s:model}
 
-In this section we describe our training process and methodology assisting services with a decision making mechanisms.
+In this section we describe our training process and methodology assisting services with a decision making mechanisms. We first present the training process and then we evaluate the learning model of web service in community settings.
 
-\subsection{Learning Date}\label{ss:learningdata}
+\subsection{Learning Data}\label{ss:learningdata}
 
+
+We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17}.
 
 
 \subsubsection{web services}\label{sss:webservices}
+
+We used a data set that is extracted from running web services. In this data set, each web service is associated with a number of features that reflect its functionality. To engage in communities, we add additional features that reflect web service’s utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for community to be formed. Since we have 64 time slots of extracted features for each web service, we could build synthetic data set that contains features of large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for testing web services. We have not implemented a learning model yet, but we do have all training data as well as validation and testing. So we are able to develop a classification algorithm that effectively classify web services and propose appropriate communities that best fit to web service’s requirements. 
+
+With the growing number of Web services over the Internet, designers of service-oriented applications can choose from a broad pool of functionally identical or similar Web services when creating applications. Web services are usually deployed in remote servers and accessed by users through Internet connections. The quality of a service-oriented application, therefore, is greatly influenced by the quality of the invoked Web services. To build high-quality service-oriented applications, non-functional Quality-of-Service (QoS) performance of Web services becomes a major concern for application designers when making service selections [3]. However, the QoS performance of Web services observed from the users' perspective is usually quite different from that declared by the service providers in Service Level Agreement (SLA), due to:
+
 \subsubsection{filtered data}\label{sss:filtereddata}
+
+It becomes an urgent task to explore a time-aware personalized prediction approach for efficiently estimating missing QoS information of Web services for different service users. To address this critical challenge, we propose a model-based approach, called WSPred, for time-aware and personalized QoS prediction of Web services. WSPred collects time-aware QoS information from geographically distributed service users, and combines the local information to get a global user-service-time tensor. By performing tensor factorization, user-specific, service-specific and time-specific latent features are extracted from the past QoS experiences of different service users. The unknown QoS values are therefore estimated by analyzing how the user features are applied to the corresponding service features and time features. We collect a large-scale real-world Web service QoS dataset and conduct extensive experiments to compare the QoS prediction accuracy with several other state-of-the-art approaches. The experimental results show the effectiveness and efficiency of our proposed approach.
+
 \subsubsection{feature engineering}\label{sss:feng}
 \subsubsection{feature vector generation}\label{sss:fvg}
 
