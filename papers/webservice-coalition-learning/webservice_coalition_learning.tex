@@ -775,18 +775,12 @@ In this section we describe our training process and methodology assisting servi
 \subsection{Learning Data}\label{ss:learningdata}
 
 
-We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17}.
-
-
 \subsubsection{web services}\label{sss:webservices}
 
 We used a data set that is extracted from running web services. In this data set, each web service is associated with a number of features that reflect its functionality. To engage in communities, we add additional features that reflect web service’s utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for community to be formed. Since we have 64 time slots of extracted features for each web service, we could build synthetic data set that contains features of large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for testing web services. We have not implemented a learning model yet, but we do have all training data as well as validation and testing. So we are able to develop a classification algorithm that effectively classify web services and propose appropriate communities that best fit to web service’s requirements. 
 
-\subsubsection{data set}\label{sss:dataset}
-
-We haved a real dataset provided by \cite{10.1109/ISSRE.2011.17}.
-
 \subsubsection{filtered data}\label{sss:filtereddata}
+We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17}. The raw data provides real-world QoS evaluation results from several users on 5,825 Web services over 64 different time frames\footnote{http://www.wsdream.net/}. In this data set, each web service is associated with a number of features that reflect its functionality. By summarizing the data provided for each web service over different time slots, we have acquired three quality feature for each individual web service. There quality features are the three internal features introduced in section \ref{s:if}: \emph{throughput}, \emph{availability} and \emph{execution time}. To engage in communities, we add two additional external features that reflect web services estimation of its quality metrics compared to other web services. Therefore, we have generated an array of web services with 5 distinct features. 
 
 \subsubsection{feature engineering}\label{sss:feng}
 \subsubsection{feature vector generation}\label{sss:fvg}
