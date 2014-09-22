@@ -778,7 +778,7 @@ line1
 
 \subsubsection{web services}\label{sss:webservices}
 
-We used a data set that is extracted from running web services. In this data set, each web service is associated with a number of features that reflect its functionality. To engage in communities, we add additional features that reflect web service’s utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for community to be formed. Since we have 64 time slots of extracted features for each web service, we could build synthetic data set that contains features of large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for testing web services. We have not implemented a learning model yet, but we do have all training data as well as validation and testing. So we are able to develop a classification algorithm that effectively classify web services and propose appropriate communities that best fit to web service’s requirements. 
+We used a data set that is extracted from running web services. In this data set, each web service is associated with a number of features that reflect its functionality. To engage in communities, we add additional features that reflect web service’s utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for community to be formed. Since we have 64 different time slots of extracted features for each web service, we could build synthetic data set that contains features of large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for testing web services. We have not implemented a learning model yet, but we do have all training data as well as validation and testing. So we are able to develop a classification algorithm that effectively classify web services and propose appropriate communities that best fit to web service’s requirements. 
 
 \subsubsection{filtered data}\label{sss:filtereddata}
 
@@ -786,11 +786,13 @@ We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17
 %To engage in communities, we add two additional external features that reflect web services estimation of its quality metrics compared to other web services. 
 Therefore, we have generated an array of web services with 3 distinct features. 
 
-Now we want to generate a set of feature vectors representing the communities of web services, for our training purposes. For communities we add two additional external features as discussed in section \ref{s:ef} that reflect the community's estimation of its quality metrics compared to other web services. Therefore we formulate a \emph{Community Feature Vector (CFV)} as $CFV_{<C>} = \{f_1,...f_5\}$ having community of $k$ web services. $C = {ws_1,...ws_k}$. The features $f_1$ through $f_5$ represent the \emph{execution time}, \emph{throughput}, \emph{availability}, the \emph{external parameter 1 and 2} correspondingly. A set of communities, with their feature vectors and utilities evaluated provides our algorithm with raw training data set. We call this set of communities the \emph{template vector} and the set of feature vectors associated with the \emph{template vector} would be the community feature vector set.
+Now we want to generate a set of feature vectors representing the communities of web services, for our training purposes. For communities we add two additional external features as discussed in section \ref{s:ef} that reflect the community's estimation of its quality metrics compared to other web services. Therefore we formulate a \emph{Community Feature Vector (CFV)} as $CFV_{<C>} = \{f_1,...f_5\}$ having community of $k$ web services. $C = {ws_1,...ws_k}$. The features $f_1$ through $f_5$ represent the \emph{execution time}, \emph{throughput}, \emph{availability}, the \emph{external parameter 1 and 2} correspondingly. A set of communities, with their feature vectors and utilities evaluated provides our algorithm with raw training data set. We call this set of communities the \emph{template vector} and the set of feature vectors associated with the \emph{template vector} would be the \emph{community feature vector set (CFVS)}.
 
-%\subsubsection{feature engineering}\label{sss:feng}
-\subsubsection{feature vector set generation}\label{sss:fvg}
+\subsubsection{feature engineering}\label{sss:feng}
+Let $CFVS = \{C_1, C_2,..., C_n\}$ be the community feature vector set with $N$ communities. Based on $CFVS$ set we create a $|N \times N|$ gain matrix for $t$ different time slots. Each entry of $gain_{n,m}^{t}$corresponds to utility gain of web services in $C_n$, when $C_n$ joins $C_m$, based on community and web service data available for time $t$. All these values have to be evaluated by implementing the community with members of $ws_i \in C_n$ and $ws_j \in C_m$ and evaluating its utility. Therefore $gain_{n,m}^{t} = U_{C_n \cup C_m}^{t} - U_{C_{n}}^{t}$. Evaluating the utility gain for all entries of $gain$ matrix is can be a costly process with very big number of $N$, therefore size of feature vector $|N|$ should be chosen carefully. 
 
+Now we let our set of communities in $CFVS$ set, within $|T|$ time frame iterations, choose the the best communities to join. Each community is provided with the raw of data corresponded to them from the $gain$ matrix. So $C_i$ is provided with the data in row $i$ of matrix $gain$ which is all the possible utility values it can gain by joining different communities.
+%\subsubsection{feature vector generation}\label{sss:fvg}
 
 \subsection{Learning Model}\label{ss:learningmodel}
 
@@ -798,6 +800,9 @@ Now we want to generate a set of feature vectors representing the communities of
 \subsubsection{cross validation data set}\label{sss:cvds}
 \subsubsection{sigmoid learned hypothesis function}\label{sss:slh}
 \subsubsection{rationalized decision maker}\label{sss:rdm}
+
+\section{Experiments}\label{s:experiments}
+We have implemented MLISA in Java\footnote{Source code of implementation available at: https://github.com/Marooned202/MLISA}. We have extracted the set of features for 4532 web services in 64 different time slots, through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these set, and combining all possible combinations of size 2,3,4 we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|N| = 10,000$ communities. 
 
 
 \section{Related Work}\label{s:related_work}
