@@ -791,9 +791,23 @@ Now we want to generate a set of feature vectors representing the communities of
 \subsubsection{feature engineering}\label{sss:feng}
 Let $CFVS = \{C_1, C_2,..., C_n\}$ be the community feature vector set with $N$ communities. Based on $CFVS$ set we create a $|N \times N|$ gain matrix for $t$ different time slots. Each entry of $gain_{n,m}^{t}$corresponds to utility gain of web services in $C_n$, when $C_n$ joins $C_m$, based on community and web service data available for time $t$. All these values have to be evaluated by implementing the community with members of $ws_i \in C_n$ and $ws_j \in C_m$ and evaluating its utility. Therefore $gain_{n,m}^{t} = U_{C_n \cup C_m}^{t} - U_{C_{n}}^{t}$. Evaluating the utility gain for all entries of $gain$ matrix is can be a costly process with very big number of $N$, therefore size of feature vector $|N|$ should be chosen carefully. 
 
-Now we let our set of communities in $CFVS$ set, within $|T|$ time frame iterations, choose the the best communities to join. Each community is provided with the raw of data corresponded to them from the $gain$ matrix. So $C_i$ is provided with the data in row $i$ of matrix $gain$ which is all the possible utility values it can gain by joining different communities.
-%\subsubsection{feature vector generation}\label{sss:fvg}
+Now we let our set of communities in $CFVS$ set, within $|T|$ time frame iterations, choose the the best communities to join. Each community is provided with the corresponding row of data from the $gain$ matrix. Basicly $C_i$ is provided with the data in row $i$ of matrix $gain_{n,n}$ which is all the possible utility values it can gain by joining different communities. By ordering the list, each community is utilized with an ordered set of preferences over other communities it likes to join. We define $>_{i}^t$ as preference order of community $i$ at time $t$.
 
+Let $P_{C_i}^t = \{C_1 >_{i}^t C_2 >_{i}^t .... >_{i}^t C_n\}$ be an ordered set of preferences for community $C_i$ at time $t$. Based on this ordered set, we define $K^t(C_i, k)$ as set of $k$ most preferred communities of community $i$ at time $t$.
+%\subsubsection{feature vector generation}\label{sss:fvg}
+\begin{equation}\label{h_t_pref_top}
+\begin{split}				
+K^t(C_i, k) = &\Big\{C_x | C_x >_{i}^t C_y; \forall C_y \in CFVS\ \\
+				      &\wedge C_y \notin \{K^t(i, 1),K^t(i, 2),...,K^t(i, k-1)\} \Big\}				
+\end{split}
+\end{equation}
+Based on $K^t(C_i, k)$ we define a set of communities for $C_i$ in which they are k most preferred communities for community $i$ and also community $i$ belongs to k most preferred communities of any of communities in set $K^t(C_i, k)$. This basically implies the preference is both sided.
+\begin{equation}\label{l_t_top_both}
+\begin{split}	
+L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
+             &\wedge C_i \in \{\bigcup_{C_x \in K^t(C_i, k)}K^t(C_x, k)\}\Big\}
+\end{split}
+\end{equation}
 \subsection{Learning Model}\label{ss:learningmodel}
 
 \subsubsection{training data set}\label{sss:tds}
