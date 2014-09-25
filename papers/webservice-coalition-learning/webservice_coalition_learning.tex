@@ -805,7 +805,7 @@ Based on $K^t(C_i, k)$ we define a set of communities for $C_i$ in which they ar
 \begin{equation}\label{l_t_top_both}
 \begin{split}	
 L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
-             &\wedge C_i \in \{\bigcup_{C_x \in K^t(C_i, k)}K^t(C_x, k)\}\Big\}
+             &\wedge C_i \in \bigcup_{C_x \in K^t(C_j, k)}K^t(C_x, k)\Big\}
 \end{split}
 \end{equation}
 \subsection{Learning Model}\label{ss:learningmodel}
@@ -818,6 +818,80 @@ L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
 \section{Experiments}\label{s:experiments}
 We have implemented MLISA in Java\footnote{Source code of implementation available at: https://github.com/Marooned202/MLISA}. We have extracted the set of features for 4532 web services in 64 different time slots, through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these set, and combining all possible combinations of size 2,3,4 we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|N| = 10,000$ communities. 
 
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_gain.eps}
+\caption{Utility Gain}
+\label{utility_gain1}
+\end{figure}
+
+line line line
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_gain_r.eps}
+\caption{Utility Gain}
+\label{utility_gain2}
+\end{figure}
+
+
+line line line
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_ratio.eps}
+\caption{Utility Gain}
+\label{utility_gain3}
+\end{figure}
+
+line line line
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_ratio_r.eps}
+\caption{Utility Gain}
+\label{utility_gain4}
+\end{figure}
+
+roc roc roc
+
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/roc.eps}
+\caption{RoC Curve}
+\label{roc5}
+\end{figure}
+
+roc roc roc
+
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats1.eps}
+\caption{Overall Utility of all communities}
+\label{stats1}
+\end{figure}
+
+roc roc roc
+
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats2.eps}
+\caption{Utility Gain on time}
+\label{stats2}
+\end{figure}
+
+roc roc roc
+
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats3.eps}
+\caption{Average Community Size}
+\label{stats3}
+\end{figure}
 
 \section{Related Work}\label{s:related_work}
 
