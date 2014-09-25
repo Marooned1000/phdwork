@@ -2,7 +2,7 @@
 
 color1 = [0.0,0.0,0.5];
 color2 = [0.7,0.7,0.95];
-fontsize = 12;
+fontsize = 14;
 
 [v,T,vT]=xlsread('mlisa_chart_utility.xlsx') 
 gainR020 = v((1:1:20),1);
@@ -101,8 +101,8 @@ set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 
 hFig = figure(2);
 bar(xvalue(1:1:10), [gainR020(1:1:10), gainR010(1:1:10), gainR007(1:1:10), gainR005(1:1:10)], 1);
-xlabel('Web services');
-ylabel('Utility Gain');
+xlabel('Web services','FontSize',fontsize);
+ylabel('Utility Gain','FontSize',fontsize);
 axis([0 11 0 400]);
 legend('R=0.2', 'R=0.1', 'R=0.07', 'R=0.05');
 
