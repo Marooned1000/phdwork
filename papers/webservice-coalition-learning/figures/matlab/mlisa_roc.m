@@ -15,7 +15,7 @@ set(gcf,'Position',[100 100 550 375]);
 
 %subplot(1,3,1);
 
-h = plot(it,t,'--go',iy,y,'--mo',iz,z,':bs',itt,tt,'-.r*', 'MarkerSize',2);
+h = plot(it,t,'--go',iy,y,'--ko',iz,z,':bs',itt,tt,'-.r*', 'MarkerSize',2);
 %set(h(1),'linewidth',3);
 grid on;
 
@@ -48,7 +48,7 @@ set(hleg1,'FontSize',10);
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
 xlabel({'False Positive Rate'}, 'FontSize',14);
-ylabel('Attack Detection Rate', 'FontSize',14);
+ylabel('Correct Decision Rate', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
 %set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');
