@@ -13,7 +13,8 @@ set(gcf,'Position',[100 100 550 375]);
 
 %subplot(1,3,1);
 
-h = plot(i,t,i,y,i,z,i,tt,'linewidth', 2);
+%h = plot(i,t,i,y,i,z,i,tt,'linewidth', 2);
+h = plot(i,t,'--g+',i,y,'--ko',i,z,':bs',i,tt,'-.r*', 'MarkerSize',3, 'linewidth', 1);
 %set(h(1),'linewidth',3);
 grid on;
 
@@ -47,7 +48,7 @@ set(hleg1,'FontSize',10);
 
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
-xlabel({'Time';'(a)'}, 'FontSize',14);
+xlabel('Time', 'FontSize',14);
 ylabel('Utility Gain', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
