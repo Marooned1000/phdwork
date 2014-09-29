@@ -38,7 +38,7 @@ set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 axis([0 63 0 30000]);
 
 % Add legend
-hleg1 = legend('R=0.2','R=0.1','R=0.07','R=0.05');
+hleg1 = legend('R=0.20','R=0.10','R=0.07','R=0.05');
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.24,.63,.1,.2]);
 set(hleg1,'Interpreter','none');
