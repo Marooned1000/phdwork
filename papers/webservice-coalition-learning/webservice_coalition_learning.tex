@@ -811,7 +811,11 @@ L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
 
 \subsection{Learning Model}\label{ss:learningmodel}
 
-learning model text
+We let communities pick best communities maximizing their utilities over different time frames. At time $t = 1$, we let each community in the $CFVS$ set choose the best community which is single community in set $C_j = K^t(C_i, 1)$. If community $C_j$ also has the highest preference to join $C_i$ meaning $L^t(C_i, k=1)$ set is not empty, they would join together. Having set $k = 1$ is a very strict and hardly satisfiable. In order to relax the requirement the value of $k$ is being increased as $t$ increases by a rate $r$. Basically $k = r \times t$, On early steps of simulation web services are more strict and as time goes on we let them choose, second, third best options too. However increasing $k$ fast increases the time complexity of $K^t(C_i, k)$ by $O(k^2 + n \times n.log(n))$. 
+
+When communities $C_i$ and $C_j$ are in each others top $k$ preference set, their combination is being added to the list of possible communities that can join others at time $t+1$. Also for each community $C_i$ in our initial $CFVS$ set, we maintain a tree having the community $C_i$ as root. Its children are all the communities $C_i$ decided to join. The tree can have depth more than one, in case the children communities decided to join other communities in later time frames. At the end of process, each community is utilized with a set of possible combination of communities it can join.
+
+Having created $|n|$ trees, for each community $C_i$, our communities are utilized with the path they can should take to maximize their utilities. Using a distance function, communities and web services can utilize these results and find the $C_i$ which closely resembles their parameters. They will be utilized with a tree which has the strategies the community can take to join our communities which will be best possible path to take and communities to join while most likely being accepted by other communities since its a two sided preference.
 
 \section{Experiments}\label{s:experiments}
 We have implemented MLISA in Java\footnote{Source code of implementation available at: https://github.com/Marooned202/MLISA}. We have extracted the set of features for 4532 web services in 64 different time slots, through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these set, and combining all possible combinations of size 2,3,4 we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|N| = 10,000$ communities. 
@@ -824,6 +828,8 @@ We have implemented MLISA in Java\footnote{Source code of implementation availab
 \end{figure}
 
 line line line
+line line line
+line line line
 
 \begin{figure}%[!t]
 \centering
@@ -832,7 +838,8 @@ line line line
 \label{utility_gain2}
 \end{figure}
 
-
+line line line
+line line line
 line line line
 
 \begin{figure}%[!t]
@@ -843,6 +850,8 @@ line line line
 \end{figure}
 
 line line line
+line line line
+line line line
 
 \begin{figure}%[!t]
 \centering
@@ -852,7 +861,8 @@ line line line
 \end{figure}
 
 roc roc roc
-
+roc roc roc
+roc roc roc
 
 \begin{figure}%[!t]
 \centering
@@ -862,7 +872,8 @@ roc roc roc
 \end{figure}
 
 roc roc roc
-
+roc roc roc
+roc roc roc
 
 \begin{figure}%[!t]
 \centering
@@ -872,7 +883,8 @@ roc roc roc
 \end{figure}
 
 roc roc roc
-
+roc roc roc
+roc roc roc
 
 \begin{figure}%[!t]
 \centering
@@ -882,7 +894,8 @@ roc roc roc
 \end{figure}
 
 roc roc roc
-
+roc roc roc
+roc roc roc
 
 \begin{figure}%[!t]
 \centering
