@@ -820,12 +820,31 @@ When communities $C_i$ and $C_j$ are in each others top $k$ preference set, thei
 Having created $|n|$ trees, for each community $C_i$, our communities are utilized with the different possible paths they can take to maximize their utilities. Using a distance function, communities and web services can utilize these results and find the $C_i$ which closely resembles their parameters. They will be utilized with a tree which has the strategies the community can take to join our communities which will be best possible path to take and communities to join while most likely being accepted by other communities since its a two sided preference.
 
 \section{Experiments}\label{s:experiments}
-We have implemented MLISA in Java\footnote{Source code of implementation and data is available at: \emph{https://github.com/Marooned202/MLISA}}. We have extracted the set of features for 4532 web services in 64 different time slots, through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these set, and choosing a subset of set of all possible combinations of size 2,3,4 of these 86 web services, we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities\footnote {The template vector and gain matrix generated are available at \emph{https://github.com/Marooned202/MLISA/tree/master/wsds/data/run}}. 
+We have implemented MLISA in Java\footnote{Source code of implementation and data is available at: \emph{https://github.com/Marooned202/MLISA}}. We have extracted the set of features for 4532 web services in 64 different time slots, through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these set, and choosing a subset of set of all possible combinations of size 2,3,4 of these 86 web services, we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities. Based on equation \ref{u_c_load} the utility of these communities are estimate and the gain matrix $|10000 \times~ 10000|$ of all possible ways of merging these 10,000 communities, is generated\footnote {The template vector and gain matrix generated are available at \emph{https://github.com/Marooned202/MLISA/tree/master/wsds/data/run}} and each community has the ordered preference among other communities known in the set. 
+
+We let communities and web services adopt their strategies based on our $MLISA$ decision making mechanism. Each community based on the decisions adopted will generate with a decision tree profile. We let MLISA run four times with different $r$ rates of 0.05, 0.07, 0.10, 0.20. With slow rate of $r = 0.05$ we increase $k$ in equation \ref{u_c_normal} every 20 time frames which will happen only three times in our 64 step experiment and in the case of $r = 0.20$ k is increased much faster, once every 5 time frames, which increased the complexity of $L^t(C_i,k)$ search for each community in $CFVS$ set. 
+
+Figure \ref{utility_gain_value} depicts the value of utility the 10 communities with 
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_gain_r.eps}
+\caption{MLISA Utility Gain Value}
+\label{utility_gain_value}
+\end{figure}
+
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/utility_ratio_r.eps}
+\caption{MLISA Utility Gain Ratio}
+\label{utility_gain_ratio}
+\end{figure}
+
 
 \begin{figure}%[!t]
 \centering
 \includegraphics[width=3.5in]{figures/utility_gain.eps}
-\caption{Utility Gain}
+\caption{Utility Gain1}
 \label{utility_gain1}
 \end{figure}
 
@@ -836,7 +855,7 @@ line line line
 \begin{figure}%[!t]
 \centering
 \includegraphics[width=3.5in]{figures/utility_gain_r.eps}
-\caption{Utility Gain}
+\caption{Utility Gain2}
 \label{utility_gain2}
 \end{figure}
 
@@ -847,7 +866,7 @@ line line line
 \begin{figure}%[!t]
 \centering
 \includegraphics[width=3.5in]{figures/utility_ratio.eps}
-\caption{Utility Gain}
+\caption{Utility Gain3}
 \label{utility_gain3}
 \end{figure}
 
@@ -855,12 +874,7 @@ line line line
 line line line
 line line line
 
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/utility_ratio_r.eps}
-\caption{Utility Gain}
-\label{utility_gain4}
-\end{figure}
+
 
 roc roc roc
 roc roc roc
