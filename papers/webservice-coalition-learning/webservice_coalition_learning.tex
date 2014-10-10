@@ -824,7 +824,7 @@ We have implemented MLISA in Java\footnote{Source code of implementation and dat
 
 We let communities and web services adopt their strategies based on our $MLISA$ decision making mechanism. Each community based on the decisions adopted will generate with a decision tree profile. We let MLISA run four times with different $r$ rates of 0.05, 0.07, 0.10, 0.20. With slow rate of $r = 0.05$ we increase $k$ in equation \ref{u_c_normal} every 20 time frames which will happen only three times in our 64 step experiment and in the case of $r = 0.20$ k is increased much faster, once every 5 time frames, which increased the complexity of $L^t(C_i,k)$ search for each community in $CFVS$ set. 
 
-Figure \ref{utility_gain_value} depicts the value of utility the 10 communities with 
+Figure \ref{utility_gain_value} depicts utility gain value the 10 random communities in each of the four runs. The utility gain is the increase of utility the communities gain by cooperating and joining other communities. Comparing the different search rates, we can see that the high $r$ values of $0.20$ and $0.10$, all 10 samples have been able to find and collaborate with communities which gives them the best values. However for $r=0.7$ in 1 cases, and $r=0.5$ in 2 cases they have not been able to find the optimal community to form. Figure \ref{utility_gain_ratio} is the same experiment illustrating the ratio of utility gain compared to the communities' initial utility value, rather than the abstract gain value.
 
 \begin{figure}%[!t]
 \centering
@@ -840,45 +840,49 @@ Figure \ref{utility_gain_value} depicts the value of utility the 10 communities 
 \label{utility_gain_ratio}
 \end{figure}
 
+We utilize the same communities and web services with a simple rational decision making mechanism, in which communities would choose to join a community if it increases the utility by any amount. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison in end result of utility gain values. In 18 out of 40 tries, rational agents have not been able to improve their utility at all, becuase the communities they have chosen have rejected their request since probably they would not increase the utility of the other communities if they have joined them. The results show a long term strategic decision mechanism is needed to satisfy all the services within communities with the cooperation. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the results of same experiment as ratio of utility gain.
 
 \begin{figure}%[!t]
 \centering
 \includegraphics[width=3.5in]{figures/utility_gain.eps}
-\caption{Utility Gain1}
-\label{utility_gain1}
+\caption{Utility Gain MLISA and Rational}
+\label{utility_gain_mlisa_and_rational}
 \end{figure}
-
-line line line
-line line line
-line line line
-
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/utility_gain_r.eps}
-\caption{Utility Gain2}
-\label{utility_gain2}
-\end{figure}
-
-line line line
-line line line
-line line line
 
 \begin{figure}%[!t]
 \centering
 \includegraphics[width=3.5in]{figures/utility_ratio.eps}
-\caption{Utility Gain3}
-\label{utility_gain3}
+\caption{Ratio of Utility Gain MLISA and Rational}
+\label{utility_gain_mlisa_and_rational_ratio}
 \end{figure}
 
-line line line
-line line line
-line line line
+Now we would like to evaluate the performance of the strategy profiles generated for our training set for other communities or the evaluation set. We create one thousand communities out of the web services in the data set which have not been involved in training set. We define a distance function which measures the difference between basic features of communities.
 
+\begin{equation}\label{distance_c}
+\begin{split}
+distance (C_1, C_2) & = |Th_{C_1} - Th_{C_2}| \\
+                    & + |A_{C_1} - A_{C_2}| + |Et_{C_1} - Et_{C_2}|
+\end{split}
+\end{equation}
 
+Now each community would try to find the closest community within the trained $CFVS$ set, following its decision profile the community can have a good estimate of possible strategic decisions it can adopt. Basically the trained profiles benefit the new web services in two ways. First they provide the communities with a set of viable communities to join with. And an estimation of utility which the community would gain in long term based on each available decision. In this experiment, we let communities follow the best decision within the decision tree provided to the them. 
 
-roc roc roc
-roc roc roc
-roc roc roc
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+ Method&Miss\\ \hline
+ MLISA r=0.05& 375 \\ \hline
+ MLISA r=0.07& 137 \\ \hline
+ MLISA r=0.10& 6 \\ \hline
+ MLISA r=0.20& 6 \\ \hline
+Rational Method& 717 \\ \hline
+Greedy Method& 828 \\ \hline
+\end{tabular}
+\caption{Number of communities that misses the optimal decision, out of 1,000 communities}
+\label{fail_rate}
+\end{table}
+
+In order to evaluate the performance of the mechanism we have used \emph{receiver operating characteristic} or \emph{ROC curve}, which is a graphical plot illustrating true positive rate against the false positive rate at various threshold settings in classifier systems. In order to be able to classify our communities strategy selection as correct or not, for each community we ran the training process as if the community was already in the set instead of the closest one which its gets the strategy profile from. If actions are same and same utility levels are gained, we classify the decision as correct, otherwise its a wrong decision. The area under the \emph{ROC curve} called \emph{AUC} is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one\cite{xxx} and the higher number reflects better performance from the better solution.  Figure \ref{roc5} illustrates the \emph{ROC curve} evaluation of MLISA decision making mechanism. We compare our method with two other methods. The rational is based on assumption that communities as rational agents would join a community that increases their utility. And the then greedy method only looks up the available list of communities and joins the one that maximizes its utility without considering any long term strategy or the other communities acceptance scenario. Figure \ref{roc5} compares the results for all these methods. The two other methods have very high failure rate compared to our method. Table \ref{fail_rate} illustrates the number of communities which failed to find the optimal and best collaboration group. 
 
 \begin{figure}%[!t]
 \centering
@@ -887,9 +891,7 @@ roc roc roc
 \label{roc5}
 \end{figure}
 
-roc roc roc
-roc roc roc
-roc roc roc
+
 
 \begin{figure}%[!t]
 \centering
