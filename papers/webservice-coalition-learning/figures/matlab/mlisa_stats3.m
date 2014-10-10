@@ -22,7 +22,7 @@ grid on;
 %set(gca,'Ycolor',[0.5 0.5 0.5]);
 set(gca,'XTick',1:1:63);
 %set(gca,'YTick',7000:1500:18000);
-set(gca,'YTick',0:0.5:3.5);
+set(gca,'YTick',0:0.2:3.5);
 set(gca,'tickdir','in')
 set(gca,'XTickLabel',{'1';' ';' ';' ';' ';' ';' ';' ';' ';' ';
     '11';' ';' ';' ';' ';' ';' ';' ';' ';' ';
@@ -35,10 +35,10 @@ set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 
 
-axis([0 63 0 3.5]);
+axis([0 63 1 2.2]);
 
 % Add legend
-hleg1 = legend('R=0.20','R=0.10','R=0.07','R=0.05');
+hleg1 = legend('R=0.05','R=0.07','R=0.10','R=0.20');
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.74,.69,.1,.2]);
 set(hleg1,'Interpreter','none');
@@ -48,7 +48,8 @@ set(hleg1,'FontSize',10);
 
 % Add title and axis labels
 % title('Trigonometric Functions', 'fontsize', 10);
-xlabel({'Time';'(a)'}, 'FontSize',14);
+%xlabel({'Time';'(a)'}, 'FontSize',14);
+xlabel('Time', 'FontSize',14);
 ylabel('Utility Gain', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
