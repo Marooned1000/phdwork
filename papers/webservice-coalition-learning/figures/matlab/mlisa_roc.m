@@ -37,7 +37,7 @@ set(gca,'YTickLabel',num2str(get(gca,'YTick').'));
 %axis([0 50 0 1600]);
 
 % Add legend
-hleg1 = legend(strcat('R=0.20, AUC = ',num2str(abs(trapz(it(1:101),t(1:101))))),strcat('R=0.10, AUC = ',num2str(abs(trapz(iy(1:101),y(1:101))))),strcat('R=0.07, AUC = ',num2str(abs(trapz(iz(1:101),z(1:101))))),strcat('R=0.5, AUC = ',num2str(abs(trapz(itt(1:101),tt(1:101))))),strcat('Greedy, AUC = ',num2str(abs(trapz(iyy(1:101),yy(1:101))))),strcat('Rational, AUC = ',num2str(abs(trapz(izz(1:101),zz(1:101))))));
+hleg1 = legend(strcat('R=0.20, AUC = ',num2str(abs(trapz(it(1:101),t(1:101))))),strcat('R=0.10, AUC = ',num2str(abs(trapz(iy(1:101),y(1:101))))),strcat('R=0.07, AUC = ',num2str(abs(trapz(iz(1:101),z(1:101))))),strcat('R=0.05, AUC = ',num2str(abs(trapz(itt(1:101),tt(1:101))))),strcat('Greedy, AUC = ',num2str(abs(trapz(iyy(1:101),yy(1:101))))),strcat('Rational, AUC = ',num2str(abs(trapz(izz(1:101),zz(1:101))))));
 %set(hleg1,'Location','NorthWest');
 set(hleg1, 'Position', [.66,.235,.1,.2]);
 set(hleg1,'Interpreter','none');
