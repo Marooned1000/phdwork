@@ -25,6 +25,7 @@
     	\item Stability and Core
     	\item Fairness and Shapley Value
     	\item Other Solution Conecpts
+        \item Practical Example
     \end{itemize}
 \end{frame}
 
@@ -165,6 +166,14 @@
             \item player obtains at least its self-value of payoff.
         \end{itemize}
         \item {\color{blue} Group rationality:} $\forall C \subseteq N, \sum_{i \in N} x(i) \geq v(C)$
+        \begin{itemize}
+            \item if $\sum_{i \in N} x(i) < v(C)$ is not worth it for some $C$
+            \item if $\sum_{i \in N} x(i) > v(C)$ is not possible for all $C$
+        \end{itemize}
+        \item {\color{blue} Pareto Optimal:} $\sum_{i \in N} x(i) = v(N)$
+        \begin{itemize}
+            \item no agent can improve its payoff without lowering the payoff of another agent
+        \end{itemize}
         \item {\color{blue} Anonymity:} a solution is independent of the names of the player.
     \end{itemize}
 
@@ -177,6 +186,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Stability and Core}
 \subsection{Stability and Core}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview}
+    \begin{itemize}
+     	\itemsep=.5cm
+    	\item Coalition Games
+    	\item {\bf Stability and Core}
+    	\item Fairness and Shapley Value
+    	\item Other Solution Conecpts
+        \item Practical Example
+    \end{itemize}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Stability}
     \begin{itemize}
@@ -235,6 +257,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fairness and Shapley Value}
 \subsection{Fairness and Shapley Value}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview}
+    \begin{itemize}
+     	\itemsep=.5cm
+    	\item Coalition Games
+    	\item Stability and Core
+    	\item {\bf Fairness and Shapley Value}
+    	\item Other Solution Conecpts
+        \item Practical Example
+    \end{itemize}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Solution Concepts: Shapley Value}
     \begin{definition} [Marginal Contribution]\label{dfn:marginalcontribution}
@@ -268,13 +303,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Other Solution Concepts}
 \subsection{Other Solution Concepts}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{$\epsilon$-Core}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview}
     \begin{itemize}
-        \item The core may not always be non-empty, core is a strong condition.
-        \item $\epsilon$-core relaxes the core condition.
-        \item $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon$
-        \item relative $\epsilon$-Core: $\forall S \subseteq N, \sum_{x_i \in S} x_i \geq (1-\epsilon).v(S)$
+     	\itemsep=.5cm
+    	\item Coalition Games
+    	\item Stability and Core
+    	\item Fairness and Shapley Value
+    	\item {\bf Other Solution Conecpts}
+        \item Practical Example
     \end{itemize}
 \end{frame}
 
@@ -289,24 +327,371 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Kernel}
+\begin{frame}{Excess of a coalition}
     \begin{itemize}
-        \item Todo
-        \item Todo
-        \item Todo
-        \item Todo
+        \item We consider one way to compare two imputations.
     \end{itemize}
+
+    \begin{definition} [Excess of a coalition]\label{dfn:marginalcontribution}
+        Let (N,v) be a $TU$ game, $C \subseteq N$ be a coalition, and $x$ be a payoff distribution over $N$. The excess $e(C,x)$ of coalition $C$ at $x$ is the quantity $e(C,x) = v(C) - x(C)$.
+    \end{definition}
+
+    \begin{itemize}
+        \item Example: 
+        \begin{itemize}
+            \item let $N={1,2,3}, C={1,2}, v({1,2})=8, x=(3,2,5)$
+            \item $e(C,x)=v({1,2})-(x_1 + x_2)=8-(3+2)=3.$
+        \end{itemize}
+        \item We can interpret a positive excess $(e(C,x) > 0)$ as the amount of dissatisfaction or {\color{blue} complaint} of the members of $C$ from the allocation x.
+        \item We can use the excess to define the core:
+        \begin{itemize}
+            \item $Core(N,v)=\{x \in R^n | x is an imputation and \forall C \subseteq N, e(C,x) \leq 0\}$
+        \end{itemize}
+        \item This definition shows that no coalition has any complaint: each coalition's demand can be granted.
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Excess of a coalition: Example}
+
+    \centerline{$N = {1,2,3}$, $v(\{i\})=0$ $for$ $i \in \{1,2,3\}$ $v(\{1,2\}) = 5$}
+    \centerline{$v(\{1,3\}) = 6$, $v(\{2,3\}) = 6$, $v(N) = 8$}
+
+     \begin{itemize}
+        \item Let us consider two payoff vectors $x = \{3, 3,2\}$ and $y = \{2, 3,3\}$.
+        \item Let $e(x)$ denote the sequence of excesses of all coalitions at $x$.
+     \end{itemize}
+     
+     
+     \begin{table}[!htb]
+        \begin{minipage}{.5\linewidth}
+          \centering
+            \begin{tabular}{c|c}                
+                \multicolumn{2}{c}{x = \{3,3,2\}} \\
+                \hline
+                \emph{Coalition C} & $e(C,x)$\\
+                \hline
+                \{1\} & -3\\
+                \{2\} & -3\\
+                \{3\} & -3\\
+                \{1,2\} & -1\\
+                \{1,3\} & 1\\
+                \{2,3\} & 1\\
+                \{1,2,3\} & 0\\
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.5\linewidth}
+          \centering            
+            \begin{tabular}{c|c}                
+                \multicolumn{2}{c}{x = \{2,3,3\}} \\            
+                \hline
+                \emph{Coalition C} & $e(C,x)$\\
+                \hline
+                \{1\} & -2\\
+                \{2\} & -3\\
+                \{3\} & -3\\
+                \{1,2\} & 0\\
+                \{1,3\} & 1\\
+                \{2,3\} & 0\\
+                \{1,2,3\} & 0\\
+            \end{tabular}
+        \end{minipage}
+    \end{table}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Excess of a coalition}
+    \begin{itemize}
+        \item Which payoff should we prefer? $x$ or $y$? 
+        \item Let us write the excess in the decreasing order (from the greatest excess to the smallest)
+        \begin{itemize}
+            \item $Sorted$ $e(C,x):$ $\{1, 1, 0,-1,-2,-3,-3\}$
+            \item $Sorted$ $e(C,y):$ $\{1, 0, 0, 0,-2,-3,-3\}$
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Excess of a coalition: lexicographical order}
+
+    \begin{definition} [lexicographical order $\geq_{lex}$]\label{dfn:lexorder}
+        Let $\geq_{lex}$ denote the lexicographical ordering of $R^m$, 
+        $\forall(x,y) \in R^m, x \geq y$ $iff$ 
+        \begin{itemize}
+            \item $x=y$ or
+            \item $\exists t$ $1 \leq t \leq m$ and $\forall i$ $1 \leq i < t$ $x_i = y_i$ and $x_t > y_t$
+        \end{itemize}
+    \end{definition}
+
+    \begin{itemize}
+        \item Example:
+        \begin{itemize}
+            \item let $\{1, 1, 0,-1,-2,-3,-3\} \geq_{lex} \{1, 0, 0, 0,-2,-3,-3\}$            
+        \end{itemize}        
+        \item Let $l$ be a sequence of $m$ reals. We denote by {\color{blue} $l^*$} the {\color{blue} reordering} of {\color{blue} $l$} in {\color{blue} decreasing} order.
+        \item In the example, $e(x) = \{3,-3,-2,-1, 1, 1,0\}$ and then $e(x)^* = \{1, 1, 0,-1,-2,-3,-3\}$.
+        \item Hence, we can say that $y$ is better than $x$ by writing $e(x)^* \geq e(y)^*$
+    \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Nucleolus}
     \begin{itemize}
-        \item Todo
-        \item Todo
-        \item Todo
-        \item Todo
+        \item Let $(N,v)$ be a $TU$ game.
+        \item Let $Imp$ be the set of all imputations.
+        \item The {\color{blue}$nucleolus Nu(N,v)$} is the set
+        \begin{itemize}
+            \item $Nu(N,v) = \{x \in Imp|\forall y \in Imp e(y)* \geq_{lex} e(x)*\}$
+        \end{itemize}
     \end{itemize}
 \end{frame}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Practical Example}
+\subsection{Problem Formulation and Modeling}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview}
+    \begin{itemize}
+     	\itemsep=.5cm
+    	\item Coalition Games
+    	\item Stability and Core
+    	\item Fairness and Shapley Value
+    	\item Other Solution Conecpts
+        \item {\bf Practical Example}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Problem Formulation and Modeling}
+    \begin{itemize}
+        \item Communities of web services are robust service providers with well established market share and reputation.
+        \item The community is characterized by a request rate $R_C$.
+        \item Web services can perform tasks with some throughput rate ($Th_{ws}$).
+        \item Web services come with different values of $QoS_{ws}$ for different metrics.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Task Distribution}
+    \begin{itemize}
+        \item Our model uses a slightly modified \emph{weighted fair queuing} method for task distribution rather than Contract-Net.
+        \item All the input flow is multiplexed among different web services with weights proportional to their throughput value ($Th_{ws}$).
+        \item Queues will happen if $R_C$ is more than the summation of web services throughput.
+        \item Weighted task rate: $R_C \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ or $Th_{ws}$
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.8 \columnwidth]{figures/community.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Community Revenue}
+    \begin{itemize}
+        \item Maximum potential output of a community:
+            \begin{equation*}
+                PO(C) = \sum_{ws \in C}{(T_{ws} \times QoS_{ws})}
+            \end{equation*}
+        \item if $\sum_{ws}{Th_{ws}} > R_C$, the community cannot perform at its maximum potential.
+        \item Actual output:
+            \begin{equation}\label{out_c}
+                Out(C) = \left\{
+                  \begin{array}{l l}
+                    PO(C) & \quad \text{if $\sum_{ws}{Th_{ws}} \leq R_{C}$}\\
+                    PO(C) \times \frac{R_{C}}{\sum_{ws}{Th_{ws}}} & \quad \text{if $\sum_{ws}{Th_{ws}} > R_{C}$}
+                  \end{array} \right.
+            \end{equation}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example 1}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    \label{example_1}
+    \centering
+    \begin{tabular}{c c c c}
+    \hline
+    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+    \hline
+    1 & 0.8 & 4 & 3.2\\
+    2 & 0.8 & 5 & 4.0\\
+    3 & 0.8 & 3 & 2.4\\
+    \hline
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{1.3}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    % \caption{Three web services}
+    \label{example_1_2}
+    \centering
+    \begin{tabular}{c c || c c}
+    \hline
+    Community & Worth & Community & Worth\\
+    \hline
+    $\left\{1\right\}$ & 3.2 & $\left\{1,2\right\}$ & 7.2\\
+    $\left\{2\right\}$ & 4.0 & $\left\{1,3\right\}$ & 5.6\\
+    $\left\{3\right\}$ & 2.4 & $\left\{2,3\right\}$ & 6.4\\
+    $\left\{1,2,3\right\}$ & 8.0\\
+    \hline
+    Community $R_C$: 10\\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Example 2}
+%    \begin{table}[!t]
+%    \renewcommand{\arraystretch}{1.3}
+%    % if using array.sty, it might be a good idea to tweak the value of
+%    % \extrarowheight as needed to properly center the text within the cells
+%    \label{example_2}
+%    \centering
+%    \begin{tabular}{c c c c}
+%    \hline
+%    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $Th_{ws} \times QoS_{ws}$\\
+%    \hline
+%    1 & 0.8 & 5 & 4.0\\
+%    2 & 0.7 & 6 & 4.2\\
+%    3 & 0.7 & 4 & 2.8\\
+%    \hline
+%    \end{tabular}
+%    \end{table}
+%
+%    \begin{table}[!t]
+%    \renewcommand{\arraystretch}{1.3}
+%    % if using array.sty, it might be a good idea to tweak the value of
+%    % \extrarowheight as needed to properly center the text within the cells
+%    % \caption{Three web services}
+%    \label{example_2_2}
+%    \centering
+%    \begin{tabular}{c c || c c}
+%    \hline
+%    Community & Worth & Community & Worth\\
+%    \hline
+%    $\left\{1\right\}$ & 4.0 & $\left\{1,2\right\}$ & 7.4\\
+%    $\left\{2\right\}$ & 4.2 & $\left\{1,3\right\}$ & 6.8\\
+%    $\left\{3\right\}$ & 2.8 & $\left\{2,3\right\}$ & 7.0\\
+%    $\left\{1,2,3\right\}$ & 7.3\\
+%    \hline
+%    Community $R_C$: 10\\
+%    \hline
+%    \end{tabular}
+%    \end{table}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example 2}
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{0.8}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    \label{example_3}
+    \centering
+    \begin{tabular}{c c c c}
+    \hline
+    $WS$ & $QoS_{ws}$ & $Th_{ws}$ & $\text{\emph{Input Task Rate}}$\\
+    \hline
+    1 & 0.8 & 10 & 5\\
+    2 & 0.8 & 20 & 5\\
+    3 & 0.8 & 30 & 5\\
+    \hline
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[!t]
+    \renewcommand{\arraystretch}{0.8}
+    % if using array.sty, it might be a good idea to tweak the value of
+    % \extrarowheight as needed to properly center the text within the cells
+    % \caption{Three web services}
+    \label{example_3_2}
+    \centering
+    \begin{tabular}{c c || c c}
+    \hline
+    Community & Worth & Community & Worth\\
+    \hline
+    $\left\{C_{ms_1}\right\}$ & 0 & $\left\{C_{ms_2}\right\}$ & 0\\
+    $\left\{C_{ms_1}, ws_1\right\}$ & 8 & $\left\{C_{ms_2}, ws_1\right\}$ & 8\\
+    $\left\{C_{ms_1}, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_2\right\}$ & 16\\
+    $\left\{C_{ms_1}, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_3\right\}$ & 24\\
+    $\left\{C_{ms_1}, ws_1, ws_2\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2\right\}$ & 24\\
+    $\left\{C_{ms_1}, ws_1, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_2, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, ws_1, ws_2, ws_3\right\}$ & 16 & $\left\{C_{ms_2}, ws_1, ws_2, ws_3\right\}$ & 32\\
+    $\left\{C_{ms_1}, C_{ms_2}, ...\right\}$ & 0 & $\left\{ws_1\right\}$ & 6.8\\
+    $\left\{ws_2\right\}$ & 4.2 & $\left\{ws_3\right\}$ & 6.8\\
+    \hline
+    Community $R_{C_1}$: 20 \\ Community $R_{C_2}$: 40\\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame19 Proposed Research
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Web Service Cooperative Games}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Community and Web Service Interaction Model - (Phase 1)}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.8 \columnwidth]{figures/scenario1.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+
+    \begin{itemize}
+        \item A typical WS community, where web services can join or leave.
+        \item $v(C) = Out(C)$.
+        \item Membership decision in made based on throughput and QoS of the web services.
+        \item Community master needs to get quality web services to keep the community stable, so other web services have no incentive to leave.
+    \end{itemize}
+       	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Community and Web Service Interaction Model - (Phase 1)}
+
+
+    \begin{itemize}
+        \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
+        \item If the game is convex, core exists.
+        \item If the game is convex, Shapley value is in core.
+        \item Convexity Condition:
+        \begin{center}
+          $v(A \cup B) \geq v(A) + v(B) - v(A \cap B)$ \\
+          $\Leftrightarrow$  \\
+          $\forall S,T | S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N,$ \\
+          {\color{blue} $v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)$ }
+        \end{center}
+        \item Depth-1 Convexity Check: $O(n)$
+        \item Depth-2 Convexity Check: $O(n^2)$
+    \end{itemize}
+       	
+\end{frame}
+
 
 
 \end{document}

@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.33pt}
+\beamer@endinputifotherversion {3.10pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
@@ -29,28 +29,59 @@
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\slideentry {2}{1}{3}{11/11}{Stability and Core}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\sectionentry {3}{Fairness and Shapley Value}{12}{Fairness and Shapley Value}{0}}
-\headcommand {\beamer@sectionpages {9}{11}}
-\headcommand {\beamer@subsectionpages {9}{11}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{12}{Fairness and Shapley Value}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\slideentry {3}{1}{1}{12/12}{Fairness and Shapley Value}{0}}
+\headcommand {\slideentry {2}{1}{4}{12/12}{Stability and Core}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {3}{1}{2}{13/13}{Fairness and Shapley Value}{0}}
+\headcommand {\sectionentry {3}{Fairness and Shapley Value}{13}{Fairness and Shapley Value}{0}}
+\headcommand {\beamer@sectionpages {9}{12}}
+\headcommand {\beamer@subsectionpages {9}{12}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{13}{Fairness and Shapley Value}}\headcommand {\beamer@subsectionpages {13}{12}}
+\headcommand {\slideentry {3}{1}{1}{13/13}{Fairness and Shapley Value}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\sectionentry {4}{Other Solution Concepts}{14}{Other Solution Concepts}{0}}
-\headcommand {\beamer@sectionpages {12}{13}}
-\headcommand {\beamer@subsectionpages {12}{13}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{14}{Other Solution Concepts}}\headcommand {\beamer@subsectionpages {14}{13}}
-\headcommand {\slideentry {4}{1}{1}{14/14}{Other Solution Concepts}{0}}
+\headcommand {\slideentry {3}{1}{2}{14/14}{Fairness and Shapley Value}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {4}{1}{2}{15/15}{Other Solution Concepts}{0}}
+\headcommand {\slideentry {3}{1}{3}{15/15}{Fairness and Shapley Value}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {4}{1}{3}{16/16}{Other Solution Concepts}{0}}
+\headcommand {\sectionentry {4}{Other Solution Concepts}{16}{Other Solution Concepts}{0}}
+\headcommand {\beamer@sectionpages {13}{15}}
+\headcommand {\beamer@subsectionpages {13}{15}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{16}{Other Solution Concepts}}\headcommand {\beamer@subsectionpages {16}{15}}
+\headcommand {\slideentry {4}{1}{1}{16/16}{Other Solution Concepts}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {4}{1}{4}{17/17}{Other Solution Concepts}{0}}
+\headcommand {\slideentry {4}{1}{2}{17/17}{Other Solution Concepts}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {14}{17}}
-\headcommand {\beamer@sectionpages {14}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\def \inserttotalframenumber {17}}
+\headcommand {\slideentry {4}{1}{3}{18/18}{Other Solution Concepts}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {4}{1}{4}{19/19}{Other Solution Concepts}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {4}{1}{5}{20/20}{Other Solution Concepts}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {4}{1}{6}{21/21}{Other Solution Concepts}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {4}{1}{7}{22/22}{Other Solution Concepts}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\sectionentry {5}{Practical Example}{23}{Practical Example}{0}}
+\headcommand {\beamer@sectionpages {16}{22}}
+\headcommand {\beamer@subsectionpages {16}{22}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{23}{Problem Formulation and Modeling}}\headcommand {\beamer@subsectionpages {23}{22}}
+\headcommand {\slideentry {5}{1}{1}{23/23}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {5}{1}{2}{24/24}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {5}{1}{3}{25/25}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {5}{1}{4}{26/26}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {5}{1}{5}{27/27}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {5}{1}{6}{28/28}{Problem Formulation and Modeling}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{29}{Web Service Cooperative Games}}\headcommand {\beamer@subsectionpages {23}{28}}
+\headcommand {\slideentry {5}{2}{1}{29/29}{Web Service Cooperative Games}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {5}{2}{2}{30/30}{Web Service Cooperative Games}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\beamer@partpages {1}{30}}
+\headcommand {\beamer@subsectionpages {29}{30}}
+\headcommand {\beamer@sectionpages {23}{30}}
+\headcommand {\beamer@documentpages {30}}
+\headcommand {\def \inserttotalframenumber {30}}
