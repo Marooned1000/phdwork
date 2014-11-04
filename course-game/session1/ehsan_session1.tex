@@ -8,7 +8,7 @@
 \title[Lecture 8: Extensive Form Games with Perfect Information]{Lecture 8: Extensive Form Games with Perfect Information}
 \author{INSE 6441/2 DD\\ \vspace{0.2cm} Applied Game Theory and Mechanism Design \\ Fall 2014}
 \institute{Department of Computer Science and Software Engineering\\Concordia University}
-\date{Novermber 17, 2014}
+\date{Novermber 6, 2014}
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame1 title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,7 +232,7 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame} {Example: Core}
+\begin{frame} {Example 1: Core}
 
     \begin{center}
       $N = \{1,2\}$ \\
@@ -251,6 +251,35 @@
     \end{figure}
 
     The core may not be fair: the core only considers stability.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} {Example 2: Three-player majority game}
+    \begin{center}
+      $N = \{1,2,3\}$ \\
+      $v(\{i\}) = 0,$\\
+      $v(\{C\}) = 0, for |C| = 2$ \\
+      $v(N) = 1$ \\
+    \end{center}
+    \[ (x_1, x_2, x_3) \in Core(N,n) \iff \left\{
+      \begin{array}{l l}
+        x_i \geq 0 & \quad \forall i \in N\\
+        x_i + x_j \geq \alpha & \quad \forall(i,j) \in N^2 i \neq j\\
+        \sum_{i \in N} x_i = 1 &
+      \end{array} \right.\]
+    \[ (x_1, x_2, x_3) \in Core(N,n) \iff \left\{
+      \begin{array}{l l}
+        0 \leq x_i \leq 1 - \alpha & \quad \forall i \in N\\        
+        \sum_{i \in N} x_i = 1 &
+      \end{array} \right.\]
+      
+    $Core(N,v)$ is nonempty $iff \alpha \leq \frac{2}{3}$ \\
+
+    \begin{itemize}
+        \item The core may not be fair: the core only considers stability. \\
+        \item The core may not have an answer!
+    \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -337,16 +366,24 @@
     \end{definition}
 
     \begin{itemize}
-        \item Example: 
+        \item Example:
         \begin{itemize}
             \item let $N={1,2,3}, C={1,2}, v({1,2})=8, x=(3,2,5)$
             \item $e(C,x)=v({1,2})-(x_1 + x_2)=8-(3+2)=3.$
         \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Excess of a coalition}
+
+    \begin{itemize}
         \item We can interpret a positive excess $(e(C,x) > 0)$ as the amount of dissatisfaction or {\color{blue} complaint} of the members of $C$ from the allocation x.
         \item We can use the excess to define the core:
-        \begin{itemize}
-            \item $Core(N,v)=\{x \in R^n | x is an imputation and \forall C \subseteq N, e(C,x) \leq 0\}$
-        \end{itemize}
+        \begin{center}
+            $Core(N,v)=\{x \in R^n |$ $x$ $is$ $an$ $imputation$ $and$ $\forall C \subseteq N, e(C,x) \leq 0\}$
+        \end{center}
         \item This definition shows that no coalition has any complaint: each coalition's demand can be granted.
     \end{itemize}
 
@@ -362,12 +399,12 @@
         \item Let us consider two payoff vectors $x = \{3, 3,2\}$ and $y = \{2, 3,3\}$.
         \item Let $e(x)$ denote the sequence of excesses of all coalitions at $x$.
      \end{itemize}
-     
-     
+
+
      \begin{table}[!htb]
         \begin{minipage}{.5\linewidth}
           \centering
-            \begin{tabular}{c|c}                
+            \begin{tabular}{c|c}
                 \multicolumn{2}{c}{x = \{3,3,2\}} \\
                 \hline
                 \emph{Coalition C} & $e(C,x)$\\
@@ -382,9 +419,9 @@
             \end{tabular}
         \end{minipage}%
         \begin{minipage}{.5\linewidth}
-          \centering            
-            \begin{tabular}{c|c}                
-                \multicolumn{2}{c}{x = \{2,3,3\}} \\            
+          \centering
+            \begin{tabular}{c|c}
+                \multicolumn{2}{c}{x = \{2,3,3\}} \\
                 \hline
                 \emph{Coalition C} & $e(C,x)$\\
                 \hline
@@ -398,13 +435,13 @@
             \end{tabular}
         \end{minipage}
     \end{table}
-    
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Excess of a coalition}
     \begin{itemize}
-        \item Which payoff should we prefer? $x$ or $y$? 
+        \item Which payoff should we prefer? $x$ or $y$?
         \item Let us write the excess in the decreasing order (from the greatest excess to the smallest)
         \begin{itemize}
             \item $Sorted$ $e(C,x):$ $\{1, 1, 0,-1,-2,-3,-3\}$
@@ -419,8 +456,8 @@
 \begin{frame}{Excess of a coalition: lexicographical order}
 
     \begin{definition} [lexicographical order $\geq_{lex}$]\label{dfn:lexorder}
-        Let $\geq_{lex}$ denote the lexicographical ordering of $R^m$, 
-        $\forall(x,y) \in R^m, x \geq y$ $iff$ 
+        Let $\geq_{lex}$ denote the lexicographical ordering of $R^m$,
+        $\forall(x,y) \in R^m, x \geq y$ $iff$
         \begin{itemize}
             \item $x=y$ or
             \item $\exists t$ $1 \leq t \leq m$ and $\forall i$ $1 \leq i < t$ $x_i = y_i$ and $x_t > y_t$
@@ -430,8 +467,8 @@
     \begin{itemize}
         \item Example:
         \begin{itemize}
-            \item let $\{1, 1, 0,-1,-2,-3,-3\} \geq_{lex} \{1, 0, 0, 0,-2,-3,-3\}$            
-        \end{itemize}        
+            \item let $\{1, 1, 0,-1,-2,-3,-3\} \geq_{lex} \{1, 0, 0, 0,-2,-3,-3\}$
+        \end{itemize}
         \item Let $l$ be a sequence of $m$ reals. We denote by {\color{blue} $l^*$} the {\color{blue} reordering} of {\color{blue} $l$} in {\color{blue} decreasing} order.
         \item In the example, $e(x) = \{3,-3,-2,-1, 1, 1,0\}$ and then $e(x)^* = \{1, 1, 0,-1,-2,-3,-3\}$.
         \item Hence, we can say that $y$ is better than $x$ by writing $e(x)^* \geq e(y)^*$
@@ -444,7 +481,7 @@
     \begin{itemize}
         \item Let $(N,v)$ be a $TU$ game.
         \item Let $Imp$ be the set of all imputations.
-        \item The {\color{blue}$nucleolus Nu(N,v)$} is the set
+        \item The {\color{blue}$nucleolus$ $Nu(N,v)$} is the set:
         \begin{itemize}
             \item $Nu(N,v) = \{x \in Imp|\forall y \in Imp e(y)* \geq_{lex} e(x)*\}$
         \end{itemize}
