@@ -1,0 +1,14 @@
+Thanks everyone for attending. I'm going to present my proposal which is about Cooperative decision making mechanisms for community of autonomous web services in multiagent setting. 
+
+I'm going to start with a brief introduction on my research subject and plan, then I'll talk about the background and literature review, then the proposed research and finally the time line.
+
+Today there is high relaince on web services and online computing, almost most of the applications use third party online service providers, since data and services are very specialized. Community of web services was introduced to improve user satisfaction, service quality, availability and reponsiveness of services and also facilitate web service discovery over internet and also they maintain high reputation and market share helping web services reach their targets.
+
+There are different parties involved in these communities which work cooperatively as a coalition, users, web services, and community coordinators. We would like to propose a model which can maximise payoff or gain for all parties involved. There is a lot of work only focusing on user satisfaction or are system centric. There are optimization methods which consider the community as a stable group and focus on satisfing users where sometimes service providers need to do some sacrifices to keep the group optimal for users. Since our parties are autonomous they can leave anytime they feel they are not gaining much within the community, we a fair and stable model considering all parties in community is needed. Therefore we opt to use cooperative game thoery methods which provides us with great utilities to tackle with issues concerning selfinterest agents wanting to cooperate.
+
+However there are complexity issues and we need to model the problem in realistic and useful way.
+
+Goals: (3 items)
+community coordinators have two sets of jobs. First they need to run UDDI and WSDL the normal web service protocols to communicate with outside world just as a normal webservice. Inside they also have the job of community management.
+
+
