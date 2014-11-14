@@ -838,7 +838,7 @@ We implemented MLISA in Java\footnote{Source code of implementation and data is 
 
 We let communities and web services adopt their strategies based on our $MLISA$ decision making mechanism. Based on the decisions adopted, each community will generate a decision tree profile. We let MLISA run four times with different $r$ rates of 0.05, 0.07, 0.10 and 0.20. With the slow rate of $r = 0.05$, we increase $k$ in Equation \ref{u_c_normal} for every 20 time frames, which will happen only three times in our 64-step experiment. In the case of $r = 0.20$, k increases much faster, at a rate of once every 5 time frames, which increases the complexity of the $L^t(C_i,k)$ search for each community in the $CFVS$ set. 
 
-Figure \ref{utility_gain_value} depicts the utility gain value the 10 random communities in each of the four runs. The utility gain is the increase of utility the communities gain by cooperating and joining other communities. Comparing the different search rates, we can see that the high $r$ values of $0.20$ and $0.10$, all 10 samples have been able to find and collaborate with communities which gives them the best values. However for $r=0.7$ in 1 cases, and $r=0.5$ in 2 cases they have not been able to find the optimal community to form. Figure \ref{utility_gain_ratio} is the same experiment illustrating the ratio of utility gain compared to the communities' initial utility value, rather than the abstract gain value.
+Figure \ref{utility_gain_value} depicts the utility gain value for ten random communities in each of the four runs. The utility gain is the increase of utility the communities gain by cooperating and joining other communities. Comparing the different search rates, we can see by the high $r$ values of $0.20$ and $0.10$, that all 10 samples were able to find and collaborate with communities that gave them the best values. However, for $r=0.7$ in one case and $r=0.5$ in two cases, they were not able to find and form the optimal community. Figure \ref{utility_gain_ratio}, in the same run, illustrates the ratio of utility gain compared to the communities' initial utility values, rather than the abstract gain value.
 
 \begin{figure}%[!t]
 \centering
@@ -854,7 +854,7 @@ Figure \ref{utility_gain_value} depicts the utility gain value the 10 random com
 \label{utility_gain_ratio}
 \end{figure}
 
-We utilize the same communities and web services with a simple rational decision making mechanism, in which communities would choose to join a community if it increases the utility by any amount. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of end result of utility gain values. In 18 out of 40 tries, rational agents have not been able to improve their utility at all, because the communities they have chosen have rejected their request since probably they would not increase the utility of the other communities if they have joined them. The results show a long term strategic decision mechanism is needed to satisfy all the services within communities with the cooperation. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the results of same experiment as ratio of utility gain.
+We utilize the same communities and web services with a simple rational decision making mechanism, in which communities will choose to join a community if it increases utility by any amount. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of the end result of utility gain values. In 18 out of 40 tries, rational agents were not able to improve their utility at all because the communities they chose rejected their request, most likely because they would not have increased the utility of the other communities if they had joined them. The results show that a long-term strategic decision mechanism is needed to satisfy all of the services within communities. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the same results in terms of ratio of utility gain.
 
 \begin{figure}%[!t]
 \centering
@@ -870,7 +870,7 @@ We utilize the same communities and web services with a simple rational decision
 \label{utility_gain_mlisa_and_rational_ratio}
 \end{figure}
 
-Now we would like to evaluate the performance of the strategy profiles generated for our training set for other communities or the evaluation set. We create one thousand communities out of the web services in the data set which have not been involved in training set. We define a distance function which measures the difference between basic features of communities.
+Now, we evaluate the performance of the strategy profiles generated for our training set for other communities or the evaluation set. We create one thousand communities out of the web services in the data set that were not involved in the training set. We define a distance function that measures the difference between basic features of communities.
 
 \begin{equation}\label{distance_c}
 \begin{split}
@@ -879,7 +879,7 @@ distance (C_1, C_2) & = |Th_{C_1} - Th_{C_2}| \\
 \end{split}
 \end{equation}
 
-Now each community would try to find the closest community within the trained $CFVS$ set, following its decision profile the community can have a good estimate of possible strategic decisions it can adopt. Basically the trained profiles benefit the new web services in two ways. First they provide the communities with a set of viable communities to join with. And an estimation of utility which the community would gain in long term based on each available decision. In this experiment, we let communities follow the best decision within the decision tree provided to the them. 
+Now, each community tries to find the closest community within the trained $CFVS$ set. Following its decision profile, the community can have a good estimate of possible strategic decisions it can adopt. Basically the trained profiles benefit the new web services in two ways. First they provide the communities with a set of viable communities to join with. And an estimation of utility which the community would gain in long term based on each available decision. In this experiment, we let communities follow the best decision within the decision tree provided to the them. 
 
 \begin{table}[h]
 \begin{tabular}{|c|c|}
