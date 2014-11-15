@@ -897,7 +897,7 @@ Greedy Method& 828 \\ \hline
 \end{table}
 
 
-In order to evaluate the performance of the mechanism, we used \emph{Receiver Operating Characteristic (ROC) curve}, which is a graphical plot illustrating the true negative rate against the false positive rate at various threshold settings in classifier systems. In order to classify our communities' selection strategies correctly, for each community, we evaluated the training process by replacing the community in the set with the closest one, from which it gets the strategy profile. If the actions are the same and the same utility levels are gained, we classify the decision as correct. Otherwise, it is classified as a wrong decision. \emph{AUC}, the area under the \emph{ROC curve}, is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one\cite{xxx}, and the higher number reflects better performance from the better solution.  Figure \ref{roc5} illustrates the \emph{ROC curve} evaluation of the MLISA decision making mechanism. We compare our method with two other methods. The \emph{rational} method is based on the assumption that communities, as rational agents, join a community that increases their utility. And the \emph{greedy} method only looks up the available list of communities and joins the one that maximizes its utility without considering any long term strategy or the other communities acceptance scenario. Figure \ref{roc5} compares the results for all these methods. The two other methods have very high failure rate compared to our method. Table \ref{fail_rate} illustrates the number of communities which failed to find the optimal and best collaboration group. The results prove the need of a long term training model for successful decision making process.
+In order to evaluate the performance of the mechanism, we used \emph{Receiver Operating Characteristic (ROC) curve}, which is a graphical plot illustrating the true negative rate against the false positive rate at various threshold settings in classifier systems. In order to classify our communities' selection strategies correctly, for each community, we evaluated the training process by replacing the community in the set with the closest one, from which it gets the strategy profile. If the actions are the same and the same utility levels are gained, we classify the decision as correct. Otherwise, it is classified as a wrong decision. \emph{AUC}, the area under the \emph{ROC curve}, is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one, and the higher number reflects better performance from the better solution.  Figure \ref{roc5} illustrates the \emph{ROC curve} evaluation of the MLISA decision making mechanism. We compare our method with two other methods. The \emph{rational} method is based on the assumption that communities, as rational agents, join a community that increases their utility. The \emph{greedy} method only looks up the available list of communities and simply joins the community that maximizes its utility without considering any long-term strategy or  other communities' acceptance scenarios. Figure \ref{roc5} compares the results for all methods. The two other methods have very high failure rates compared to our method. Table \ref{fail_rate} illustrates the number of communities that failed to find the optimal collaboration group. The results support the need for a long-term training model in a successful decision making process.
 
 \begin{figure}%[!t]
 \centering
@@ -905,7 +905,7 @@ In order to evaluate the performance of the mechanism, we used \emph{Receiver Op
 \caption{RoC Curve}
 \label{roc5}
 \end{figure}
-Now we evaluate the system specific results from users and communities perspective. By distributing tasks among the communities over these time frames we evaluate the revenue for each community. Figure \ref{stats1} shows the overall revenue gain of communities using our method. Figure \ref{stats2} shows the momentarily gain of revenue for each community on each time slot compared to previous time. These results show how the run with higher learning rate of $r=0.20$ starts discovering better communities to join much earlier. The runs with slow rate seem to find some communities to join initially, then they slow down until later where they start discovering new communities to join with.
+Now, we evaluate the system-specific results from users' and communities' perspectives. By distributing tasks among the communities over these time frames, we evaluate the revenue for each community. Figure \ref{stats1} shows the overall revenue gain of communities using our method. Figure \ref{stats2} shows the momentarily revenue gain for each community in each time slot compared to the previous time. These results show that the run with the higher learning rate of $r=0.20$ starts discovering better communities to join much earlier. The runs with slow rates seem to find some communities to join initially, but then they slow down until later, when they start discovering new communities to join.
 
 \begin{figure}%[!t]
 \centering
@@ -922,7 +922,7 @@ Now we evaluate the system specific results from users and communities perspecti
 \label{stats2}
 \end{figure}
 
-Figure \ref{stats3} depicts the average community size over time, which basically implies the number of new communities being formed. These results again show that the run with higher search rate tend to find appropriate communities to join faster.
+Figure \ref{stats3} depicts the average community size over time, which essentially represents the number of new communities being formed. Once again, these results show that the runs with higher search rates tend to find appropriate communities to join faster.
 
 \begin{figure}%[!t]
 \centering
@@ -934,12 +934,12 @@ Figure \ref{stats3} depicts the average community size over time, which basicall
 \section{Related Work}\label{s:related_work}
 
 In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
-defined communities as \emph{Service Containers} which aggregate
+defined communities as \emph{Service Containers} that aggregate
 substitutable web services providing a common functionality (same
 set of operations). They abstracted \emph{Service Containers} as
-web services which are created, advertised, discovered and invoked
+web services that are created, advertised, discovered and invoked
 just as elementary web services. The \emph{Container} is
-considered as a manager which is responsible for web service
+considered as a manager that is responsible for web service
 selection upon receiving a request on run-time. The authors have
 proposed a scoring service based on non-functional requirements of
 the request and web service capabilities to dynamically chose the
@@ -1104,6 +1104,8 @@ backup web services will end-up having a very low chance of
 getting jobs, especially the ones further in the chain. This will
 results in a considerable waste of web services capabilities.
 
+All the proposed frameworks share a common aspect, which is providing the solution based on assumption of having complete information of all services and performing evaluations based on a large number of input each time they want to adopt a strategic decision making process. 
+So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing MLISA a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, MLISA equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available. 
 
 %\subsection{Subsection Heading Here}
 %Subsection text here.

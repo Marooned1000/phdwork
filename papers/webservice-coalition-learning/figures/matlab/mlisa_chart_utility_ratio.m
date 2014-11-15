@@ -98,7 +98,7 @@ set(gca,'XGrid','off','YGrid','on','ZGrid','off');
 hFig = figure(2);
 bar(xvalue(1:1:10), [ratioR020(1:1:10), ratioR010(1:1:10), ratioR007(1:1:10), ratioR005(1:1:10)], 1);
 xlabel('Web services','FontSize',fontsize);
-ylabel('Utility Gain','FontSize',fontsize);
+ylabel('Ratio of the Utility Gain','FontSize',fontsize);
 axis([0 11 0 22]);
 legend('R=0.2', 'R=0.1', 'R=0.07', 'R=0.05');
 
