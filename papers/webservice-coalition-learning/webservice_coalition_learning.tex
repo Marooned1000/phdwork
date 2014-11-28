@@ -587,7 +587,7 @@ In this paper, we introduce DLISA (Distributed Learning-based Intelligent Servic
 
 In further detail, DLISA is applicable for any sort of intelligent agent-based model. To effectively train web services, we used real data sets (information about the data set) to extract web services' individual characteristics and used them to measure outcomes when they cooperate with one another. Engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interaction with others. All paths and the outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DLISA have by far better outcomes in the form of cooperative service providers than the ones that either do not cooperate or randomly find communities to join. 
 
-
+The rest of the paper is organized as follows. In Section 2 we briefly describe the preliminaries, discusses the web service community architecture, and the considered parameters in our feature vectors. Section 3 presents our solution model, the way data is trained and web services utilize them in their decision making process. Section 4 describes our experiments and results. Section 5 discussed relevant related work. Finally Section 6, concludes the paper and identifies future work.
 
 %- We want to give full distributed control to web services as autonomous agents and distribute the task of community management among all web services and let them decide how to maximize their efficiency and join and create communities.
 %- Let agents train and learn long term expectations of each action and group they can join with
@@ -662,7 +662,7 @@ In further detail, DLISA is applicable for any sort of intelligent agent-based m
 %\hfill January 11, 2007
 
 
-\section{The Model}\label{s:preliminaries}
+\section{Preliminaries}\label{s:preliminaries}
 In this section, we first present the architecture of DLISA. We explore the characterestics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
 
 \subsection{Web Services}\label{s:ws}
@@ -848,7 +848,7 @@ L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
 Table \ref{table:nonlin} illustrates an example of a $gain$ matrix for 3 different communities and their combinations. Each row shows the gain the community can achieve by collaborating with other 5 communities. In this example for community $\textless 348 \textgreater$ we have: \\
 $K(\textless 348 \textgreater, 1) = \{\textless1934, 2117\textgreater\}$ and \\
 $K(\textless 348 \textgreater, 2) = \{\textless1934, 2117\textgreater, \textless1934\textgreater\}$ \\
-Since $\textless 348 \textgreater$ is best preferred community of $\textless 1934, 2117 \textgreater$ therefore $L(\textless 348 \textgreater, 1)$ is not empty and would contain community $\{\textless1934, 2117\textgreater\}$.
+Since $\textless 348 \textgreater$ is best preferred community of $\textless 1934, 2117 \textgreater$ therefore $L(\textless 348 \textgreater, 1)$ is not empty and contains the community $\textless1934, 2117\textgreater$.
 
 Having these sets built based on the training model, we are able to build a decision tree wherein each community's preferences are set, as well as the joined events that took place in different time slots. In addition to best choices, web services have access to other ordered choices and can look for the second best or third best if their first try is rejected by the target community. The consequences of each try level is analyzed in more detail in the following section, in which we launch experiments and investigate the effectiveness of the use of a decision tree with different decision layers in joining other communities and enhancing the overall utility. 
 
