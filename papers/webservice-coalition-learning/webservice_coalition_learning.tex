@@ -428,7 +428,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{DLISA: Distributed Learning-based \\ Intelligent Service Agents}
+\title{A Distributed Mechanism for Intelligent \\ Web Service Community Formation}
 %
 %
 % author names and IEEE memberships
@@ -582,7 +582,7 @@ When interacting with communities of web services, users send their requests to 
 In recent work communities of web services have been proposed that facilitate discovery of web services, improve the Quality of Service (QoS), and help individual services find better market share and opportunities. However, there is a twofold challenge that has still not been addressed. The first challenge is community development, which involves finding the right web services for the community, satisfying all web services and community coordinators involved within the community; and the second challenge is from the individual web service's side , such that a web service seeks communities from which to obtain the best outcome. A number of proposals have attempted to address these research problems. These solutions suffer from two main issues: 
 \begin{enumerate}
 	\item The solutions consider a centralized manager for communities and most of the decision making process for communities happens at a centralized entity. The problem is in real world scenarios most service providers work in distributed settings and having a centralized entity making decisions is not very feasible. 
-	\item The solutions propose complex algorithms \cite{DBLP:conf/IEEEscc/LimTMB12, 10.1109/TSC.2012.12, 10.1109/TSC.2014.2312940} to find the optimal strategy, for each time services or communities adopt an strategy. Or the problem is reduced by eliminating important parameters.
+	\item The solutions propose complex algorithms \cite{DBLP:conf/IEEEscc/LimTMB12, 10.1109/TSC.2012.12, 10.1109/TSC.2014.2312940} to find the optimal strategy, for \emph{each time} services or communities adopt an strategy. Or the problem is reduced by eliminating important parameters.
 \end{enumerate}
 Some of these works propose complex on-demand algorithms \cite{DBLP:conf/IEEEscc/LimTMB12, 10.1109/TSC.2012.12, 10.1109/TSC.2014.2312940} to effectively find target points, but they have to simplify the algorithm with limited parameters in order to make it feasible and algorithm executable. Simplified problems sometimes negatively influence the outcome because simplifying the constraints may cause important aspects of the problem to be ignored. For example, \cite{10.1109/TSC.2012.12} proposes a simple egalitarian way of distributing gain, which completely ignores gain for collaborative work of sub-communities instead of calculating the complex shapely-value gain distribution method. This model considers gain for all subsets of agents working together, which basically ignores the most important criteria of finding the optimal group. Other categories of related work exist that do not focus on all the parties involved within the community \cite{DBLP:conf/IEEEscc/KhosravifarABT11}. 
 %And some other work which do not focus on rationality on web services or communities involved [refrences]. 
@@ -594,7 +594,7 @@ The training model utilizes web services with enough information to efficiently 
 
 In further detail, DLISA is applicable for any sort of intelligent agent-based model. To effectively train web services, we used real data sets to extract web services' individual characteristics and used them to measure outcomes when they cooperate with one another. The data set has been extracted by real-world QoS evaluation results from 142 users on 4,532 Web services on 64 different time slots. Combining these data based on each web service point of view on different time slots, we acquired 5 different unique features for 4,532 web services. Engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interaction with others. All paths and the outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DLISA have by far better outcomes in the form of cooperative service providers than the ones that either do not cooperate or randomly find communities to join. 
 
-The rest of the paper is organized as follows. In Section 2 we briefly describe the preliminaries, discusses the web service community architecture, and the considered parameters in our feature vectors. Section 3 presents our solution model, the way data is trained and web services utilize them in their decision making process. Section 4 describes our experiments and results. Section 5 discussed relevant related work. Finally Section 6, concludes the paper and identifies future work.
+The rest of the paper is organized as follows. In Section 2 we briefly describe the preliminaries and problem statement, discusses the web service community architecture, and the considered parameters in our feature vectors. Section 3 presents our solution model, the way data is trained and web services utilize them in their decision making process. Section 4 describes our experiments and results. Section 5 discussed relevant related work. Finally Section 6, concludes the paper and identifies future work.
 
 %- We want to give full distributed control to web services as autonomous agents and distribute the task of community management among all web services and let them decide how to maximize their efficiency and join and create communities.
 %- Let agents train and learn long term expectations of each action and group they can join with
@@ -669,7 +669,7 @@ The rest of the paper is organized as follows. In Section 2 we briefly describe 
 %\hfill January 11, 2007
 
 
-\section{Preliminaries}\label{s:preliminaries}
+\section{Preliminaries and Problem Statement}\label{s:preliminaries}
 In this section, we first present the architecture of DLISA. We explore the characterestics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
 
 \subsection{Web Services}\label{s:ws}
