@@ -428,7 +428,9 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{A Distributed Mechanism for Intelligent \\ Web Service Community Formation}
+%\title{A Distributed Mechanism for Intelligent \\ Web Service Community Formation}
+\title{TDM: Training data-based Model for \\ Dynamic Formation of Web services Communities}
+%
 %
 %
 % author names and IEEE memberships
@@ -739,8 +741,9 @@ Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $|n|$ web services. We def
 	\end{equation}
 	
 	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
-	
 \end{itemize}
+
+	We normalize the range of these features so that each feature contributes approximately proportionately to the final utility outcome value. We subtract the \emph{mean} from each feature then we divide the values of each feature by its \emph{standard deviation}.
 
 
 \subsection{External Features}\label{s:ef}
@@ -748,8 +751,14 @@ Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $|n|$ web services. We def
 The quantitative values of quality metrics need some benchmark values to represent their goodness. In other words, without some benchmark values it would be difficult for web services to identify their goals, and performance quality at any specific value of these metrics. Therefore, we have introduced two external features for assessing web services' estimate with regard to their standing among other web services.
 
 \begin{itemize}
-  \item \emph{External Parameter 1} $(exp_1)$. is an estimate of how close the web service's \emph{execution time} is to other web services. It is the difference between a web service's \emph{response time} metric and the maximum value of response time of web services, about which the web service has recently gathered information.
-	\item \emph{External Parameter 2} $(exp_2)$ is a comparison of the web service's rate of performing tasks to other competing web services. It is the difference between a web service's \emph{throughput} metric and the maximum value of throughput of web services, about which the web service has recently gathered information.
+  \item \emph{External Parameter 1} $(exp_1)$. is an estimate of how close the web service's \emph{execution time} is to other web services. It is the difference between a web service's \emph{execution time} metric and the maximum value of execution time of web services, about which the web service has recently gathered information. The less value means web service has better execution time compared to other web services.
+	\begin{equation}\label{exp_1:f}
+		exp_1 = Et_{i} - Et_{max}
+	\end{equation}
+	\item \emph{External Parameter 2} $(exp_2)$ is a comparison of the web service's rate of performing tasks to other competing web services. It is the difference between a web service's \emph{throughput} metric and the maximum value of throughput of web services, about which the web service has recently gathered information. The less value means web service has better throughput compared to other web services.
+	\begin{equation}\label{exp_2Lf}
+		exp_2 = Th_{max} - Th_{i}
+	\end{equation}
 \end{itemize}
 
 A community of web services is abstracted as a standard web service that provides services that share the same internal and external features mentioned for web services. Inside, they adopt different protocols to manage the community; however, other web services or end users can communicate with communities of web services, using standard protocols, and inner details will be encapsulated for their clients.
@@ -768,14 +777,16 @@ While distributing tasks, the community members can verify the performance, thro
 Communities and web services earn revenue by performing tasks. The total gain is a function of the quality of rate of tasks being performed. The utility of a collaborative group of services $U_{C}$ is the revenue of the community. Formula \ref{u_c_normal} is an estimation of the gain of the community.
 
 \begin{equation}\label{u_c_normal}
-U_{C} = \big((\alpha \times (A_{C} + Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}
+U_{C} = \big((\alpha \times (A_{C} - Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}
 \end{equation}
+
+The $\alpha$ and $\beta$ values are internal and external weight coefficients. Execution time and external parameters are better when they have smaller values hence the negative coefficient for them. The result is then multiplied to the throughput value $Th_{C}$, since communities are performing tasks with $Th_{C}$ rate.
 
 The estimation can be improved, especially in cases where the input task rate is high and services are experiencing high task loads. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on the individual throughput $(Th_{w})$ value of services within community. The services with higher throughput will affect the overall utility of the community more because they would take on proportionately more tasks.
 
 \begin{equation}\label{u_c_load}
 \begin{split}
-U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} + Et_{ws}) \\
+U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} - Et_{ws}) \\
         & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)
 \end{split}
 \end{equation}
@@ -817,7 +828,7 @@ The more common scenario is when both parties benefit from the joining of a web 
 
 In this section, we describe our training process and the methodology used to equip web services with a decision making mechanism. In this methodology, we first present the training process and then we evaluate the learning model for web services in community settings.
 
-\subsection{Learning Data}\label{ss:learningdata}
+\subsection{Data Extraction and Solution Engineering}\label{ss:learningdata}
 
 \subsubsection{web services}\label{sss:webservices}
 
@@ -857,9 +868,11 @@ $K(\textless 348 \textgreater, 1) = \{\textless1934, 2117\textgreater\}$ and \\
 $K(\textless 348 \textgreater, 2) = \{\textless1934, 2117\textgreater, \textless1934\textgreater\}$ \\
 Since $\textless 348 \textgreater$ is best preferred community of $\textless 1934, 2117 \textgreater$ therefore $L(\textless 348 \textgreater, 1)$ is not empty and contains the community $\textless1934, 2117\textgreater$.
 
-Having these sets built based on the training model, we are able to build a decision tree wherein each community's preferences are set, as well as the joined events that took place in different time slots. In addition to best choices, web services have access to other ordered choices and can look for the second best or third best if their first try is rejected by the target community. The consequences of each try level is analyzed in more detail in the following section, in which we launch experiments and investigate the effectiveness of the use of a decision tree with different decision layers in joining other communities and enhancing the overall utility. 
+Using the $gain$ matrix and the mentioned preference ordering relations, we are able to build a decision tree where the list of possible communities to join and their expected utilities are set.
+% as well as the joined events that took place in different time slots. 
+In addition to best choices, web services have access to other ordered choices and can look for the second best or third best if their first try is rejected by the target community. The consequences of each try level is analyzed in more detail in the following section, in which we launch experiments and investigate the effectiveness of the use of a decision tree with different decision layers in joining other communities and enhancing the overall utility. 
 
-\subsection{Learning Model}\label{ss:learningmodel}
+\subsection{Decision Profile Generation}\label{ss:learningmodel}
 
 Our goal is to create a decision making profile for each community in the $CFVS$ set. We are creating an environment where they can experience the outcomes of different strategies. The result will be a decision tree of the feasible and utility increasing moves over time.
 
@@ -899,7 +912,7 @@ $nodes[N] \gets$ initialize $N$ tree nodes representing each community in CFVS\;
 \label{algo:dectree}
 \end{algorithm}
 
-\subsection{DLISA Tree Creation Complexity}\label{ss:complexity}
+\subsection{Decision Tree Creation Complexity}\label{ss:complexity}
 Here we analyze the computational complexity of the DLISA decision tree creation algorithm on each time iteration $t$. Computing top $k$ preferred communities for $C_i$ in $L^t(C_i, k)$ requires an $O(n.log(n))$ sort time. $C_i$ has a result set of size $|k|$, and for each of those $k$ communities we need to check against their $k$ top preferred communities. Considering we already have the list sorted, line 6 in algorithm runs $O(k \times n.log(n))$ times. Doing this search for all communities in $|CFVS|$ set $n$ times (line 5), the overall order of complexity of the algorithm in regards with $n$ and $k$ is: $O(k^2 \times n^2.log(n))$.
 
 \section{Experiments}\label{s:experiments}
