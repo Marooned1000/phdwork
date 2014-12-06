@@ -429,7 +429,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{A Distributed Mechanism for Intelligent \\ Web Service Community Formation}
-\title{TDM: Training data-based Model for \\ Dynamic Formation of Web services Communities}
+\title{DM: A Distributed Decision Making Model for \\ Dynamic Formation of Web services Communities}
 %
 %
 %
@@ -590,9 +590,9 @@ Some of these works propose complex on-demand algorithms \cite{DBLP:conf/IEEEscc
 %And some other work which do not focus on rationality on web services or communities involved [refrences]. 
 These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. 
 
-In this paper, we introduce DLISA (Distributed Learning-based Intelligent Service Agents) community framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. This model uses the trained data in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. 
+In this paper, we introduce DLISA (Distributed Learning-based Intelligent Service Agents) community framework that operates based on a decision model that regulates web service agents' decision making process in terms of cooperating with one another. The decision model in extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. 
 %The training model deploys a logistic regression algorithm to build a hypothesis function that can thoroughly address the aforementioned research problems. 
-The training model utilizes web services with enough information to efficiently decide and predict the outcome of their moves amongst the available services accessible to them. This model works in distributed manner in which our services are self-sufficient in decision making process and do not rely on a centralized decision maker process. Our findings show that communities of web services can efficiently find the appropriate web service to invite cooperating with them as well as allowing a single web service to find the best communities to join them. Furthermore, after being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. In contrast, communities can consider the training and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DLISA equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available. 
+The decision model utilizes web services with enough information to efficiently decide and predict the outcome of their moves amongst the available services accessible to them. This model works in distributed manner in which our services are self-sufficient in decision making process and do not rely on a centralized decision maker process. Our findings show that communities of web services can efficiently find the appropriate web service to invite cooperating with them as well as allowing a single web service to find the best communities to join them. Furthermore, the decision model provides web services with expectations of utilities they would gain while cooperating with communities of different characteristics. In contrast, communities can consider the decision model and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DLISA equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available. 
 
 In further detail, DLISA is applicable for any sort of intelligent agent-based model. To effectively train web services, we used real data sets to extract web services' individual characteristics and used them to measure outcomes when they cooperate with one another. The data set has been extracted by real-world QoS evaluation results from 142 users on 4,532 Web services on 64 different time slots. Combining these data based on each web service point of view on different time slots, we acquired 5 different unique features for 4,532 web services. Engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interaction with others. All paths and the outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DLISA have by far better outcomes in the form of cooperative service providers than the ones that either do not cooperate or randomly find communities to join. 
 
@@ -672,7 +672,7 @@ The rest of the paper is organized as follows. In Section 2 we briefly describe 
 
 
 \section{Preliminaries and Problem Statement}\label{s:preliminaries}
-In this section, we first present the architecture of DLISA. We explore the characterestics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
+In this section, we first present the architecture of DLISA. We explore the characteristics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
 
 \subsection{Web Services}\label{s:ws}
 
@@ -826,7 +826,7 @@ The more common scenario is when both parties benefit from the joining of a web 
 
 \section{The Model}\label{s:model}
 
-In this section, we describe our training process and the methodology used to equip web services with a decision making mechanism. In this methodology, we first present the training process and then we evaluate the learning model for web services in community settings.
+In this section, we describe our data extraction process and the methodology used to equip web services with a decision making mechanism. In this methodology, we first present the data extraction and engineering process and then we evaluate the decision making mechanism for web services in community settings.
 
 \subsection{Data Extraction and Solution Engineering}\label{ss:learningdata}
 
