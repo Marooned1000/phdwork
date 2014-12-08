@@ -429,7 +429,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{A Distributed Mechanism for Intelligent \\ Web Service Community Formation}
-\title{DM: A Distributed Decision Making Model for \\ Dynamic Formation of Web services Communities}
+\title{DDM: Distributed Decision Making Model for Dynamic Formation of Web services Communities}
 %
 %
 %
@@ -743,7 +743,10 @@ Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $|n|$ web services. We def
 	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
 \end{itemize}
 
-	We normalize the range of these features so that each feature contributes approximately proportionately to the final utility outcome value. We subtract the \emph{mean} from each feature then we divide the values of each feature by its \emph{standard deviation}.
+
+\subsubsection{Feature Normalization}\label{sss:fn}
+
+	We normalize the range of these features so that each feature contributes approximately proportionately to the final utility outcome value. We adopt the \emph{standardization} method. We subtract the \emph{mean} from each feature then we divide the values of each feature by its \emph{standard deviation}.
 
 
 \subsection{External Features}\label{s:ef}
