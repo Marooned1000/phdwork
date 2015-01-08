@@ -943,7 +943,7 @@ Figure \ref{utility_gain_value} depicts the utility gain value for ten random co
 \label{utility_gain_ratio}
 \end{figure}
 
-We utilize the same communities and web services with a simple rational decision making mechanism, in which communities will choose to join a community if it increases utility by any amount. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of the end result of utility gain values. In 18 out of 40 tries, rational agents were not able to improve their utility at all because the communities they chose rejected their request, most likely because they would not have increased the utility of the other communities if they had joined them. The results show that a long-term strategic decision mechanism is needed to satisfy all of the services within communities. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the same results in terms of ratio of utility gain.
+We utilize the same communities and web services with a simple rational decision making mechanism, in which communities will choose to join a community if it increases utility by any amount. We call them the \emph{rational} web services. We compare the results with web services which adopted our DDM model. We call them the \emph{trained} web services. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of the end result of utility gain values. In 18 out of 40 tries, \emph{rational} agents were not able to improve their utility at all because the communities they chose rejected their request, most likely because they would not have increased the utility of the other communities if they had joined them. The results show that a long-term strategic decision mechanism is needed to satisfy all of the services within communities. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the same results in terms of ratio of utility gain.
 
 \begin{figure}%[!t]
 \centering
@@ -959,7 +959,8 @@ We utilize the same communities and web services with a simple rational decision
 \label{utility_gain_mlisa_and_rational_ratio}
 \end{figure}
 
-Now, we evaluate the performance of the strategy profiles generated based on our data set for other communities which are not included in the decision tree creation process. We create one thousand communities out of the web services in the data set that were not involved in the decision model creation process. We define a distance function that measures the difference between basic features of communities.
+Now, we evaluate the performance of the decision profiles generated based on our data set for other communities.% which are not included in the decision tree creation process. 
+We create one thousand communities from the web services in the data set that were not involved in the decision model creation process. We define a distance function that measures the difference between basic features of communities, which measures the similarity of communities.
 
 \begin{equation}\label{distance_c}
 \begin{split}
