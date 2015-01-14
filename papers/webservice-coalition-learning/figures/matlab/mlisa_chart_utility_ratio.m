@@ -31,8 +31,8 @@ subplot(2, 2, 1);
 bar(xvalue(1:1:10), ratioR020(1:1:10), 0.4, 'FaceColor',color1);
 hold on
 bar(xvalue(11:1:20), ratioR020(11:1:20), 0.4, 'FaceColor',color2);
-xlabel('Trained WS           Rational WS','FontSize',fontsize);
-ylabel('Utility Gain','FontSize',fontsize);
+xlabel('DDM WS              Rational WS','FontSize',fontsize);
+ylabel('Utility Gain Ratio','FontSize',fontsize);
 title ('R=0.2 (a)','FontSize',fontsize);
 %title('TITLE');
 axis([0 21 0 22]);
@@ -56,8 +56,8 @@ subplot(2, 2, 2);
 bar(xvalue(1:1:10), ratioR010(1:1:10), 0.4, 'FaceColor',color1);
 hold on
 bar(xvalue(11:1:20), ratioR010(11:1:20), 0.4, 'FaceColor',color2);
-xlabel('Trained WS           Rational WS','FontSize',fontsize);
-ylabel('Utility Gain','FontSize',fontsize);
+xlabel('DDM WS              Rational WS','FontSize',fontsize);
+ylabel('Utility Gain Ratio','FontSize',fontsize);
 title ('R=0.1 (b)','FontSize',fontsize);
 axis([0 21 0 22]);
 set(gca,'XTick',[1 5 10 15 20]);
@@ -70,8 +70,8 @@ subplot(2, 2, 3);
 bar(xvalue(1:1:10), ratioR007(1:1:10), 0.4, 'FaceColor',color1);
 hold on
 bar(xvalue(11:1:20), ratioR007(11:1:20), 0.4, 'FaceColor',color2);
-xlabel('Trained WS           Rational WS','FontSize',fontsize);
-ylabel('Utility Gain','FontSize',fontsize);
+xlabel('DDM WS              Rational WS','FontSize',fontsize);
+ylabel('Utility Gain Ratio','FontSize',fontsize);
 title ('R=0.07 (c)','FontSize',fontsize);
 axis([0 21 0 22]);
 set(gca,'XTick',[1 5 10 15 20]);
@@ -84,8 +84,8 @@ subplot(2, 2, 4);
 bar(xvalue(1:1:10), ratioR005(1:1:10), 0.4, 'FaceColor',color1);
 hold on
 bar(xvalue(11:1:20), ratioR005(11:1:20), 0.4, 'FaceColor',color2);
-xlabel('Trained WS           Rational WS','FontSize',fontsize);
-ylabel('Utility Gain','FontSize',fontsize);
+xlabel('DDM WS              Rational WS','FontSize',fontsize);
+ylabel('Utility Gain Ratio','FontSize',fontsize);
 title ('R=0.05 (d)','FontSize',fontsize);
 axis([0 21 0 22]);
 set(gca,'XTick',[1 5 10 15 20]);
