@@ -1,0 +1,19 @@
+2.8 Join Consequences:
+
+beneficial for the community as it hosts a web service that in case of a relative task can engage the web
+
+
+3.1.1 web services
+
+two assumptions: features are computed based on two assumptions that we adopt for a community to be formed
+
+other web services: Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for other web services.
+
+
+3.2 Learning Model
+
+ each community is utilized with a tree of set of possible combination of communities it can join.
+
+Expirements
+
+ with the cooperation: within communities with the cooperation

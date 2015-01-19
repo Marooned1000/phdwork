@@ -1,0 +1,65 @@
+\documentclass[11pt,onecolumn]{IEEETran}
+
+\usepackage{lineno,hyperref}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}\renewcommand{\baselinestretch}{1}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{fancyvrb}
+\usepackage{mathptmx}
+\usepackage{alltt}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage[english]{babel}
+\usepackage{lineno,hyperref}
+%\usepackage[thinlines]{easytable}
+\captionsetup{font=footnotesize}
+
+\modulolinenumbers[3]
+\doublespacing
+
+%\journal{Decision Support Systems}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{
+    \IEEEauthorblockN{\normalsize Omar Abdel Wahab\IEEEauthorrefmark{1}, Jamal Bentahar\IEEEauthorrefmark{1}, Hadi Otrok\IEEEauthorrefmark{2}\IEEEauthorrefmark{1}, Azzam Mourad\IEEEauthorrefmark{3}}\\
+    \IEEEauthorblockA{\IEEEauthorrefmark{1}Concordia Institute for Information Systems Engineering, Concordia University, Montreal, Canada}
+    \\
+    \IEEEauthorblockA{\IEEEauthorrefmark{2}Department of Electrical and Computer Engineering, KUSTAR, Abu Dhabi, UAE}
+    \\
+    \IEEEauthorblockA{\IEEEauthorrefmark{3}Department of Computer Science and Mathematics, Lebanese American University, Beirut, Lebanon}
+}
+\title{A Survey on Trust and Reputation Models for Web Services: Single, Composite, and Communities}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Web services selection constitutes nowadays a major challenge that is still attracting the research community to work on and investigate. The problem arises since decision makers (1) cannot blindly trust the service or its provider, and (2) ignore the environment within which Web service is operating. A way to facilitate the Web services discovery is to group those that offer the same functionality into virtual clusters called communities. Although this facilitates the discovery, it cannot ease the selection since this latter is usually based on non-functional properties such as Quality of Service (QoS) parameters. The fact that no security mechanism is applicable in such a completely open environment, where identities can be easily generated and discarded makes social approaches such as trust and reputation models appealing to apply in the world of Web services. This survey classifies and compares the main findings that contributed in solving problems related to trust and reputation in the context of Web services. First, a high-level classification scheme partitions Web services into three main architectures: single, composite, and communities. Thereafter, a low-level classification within each architecture categorizes the trust and reputation models according to the technique used to build the trust value. Based on this classification, a profound analysis describing the advantages and shortcomings of each class of models is presented; leading to uncover possible topics that need further study and investigation. In particular, we discuss the challenging problem of having active malicious Web service in the composite and community-based architectures. We explain the objectives of such malicious services, list the attacks that they can launch, and show the impact of their misbehavior by means of simulation experiments using several QoS metrics. Thus, the paper can be used by the future researchers as a roadmap to explore new trust and reputation models for Web services taking into account the shortcomings of the existing models.
+\end{abstract}
+\begin{IEEEkeywords}
+Web Services, classification, composition, community, reputation, trust
+\end{IEEEkeywords}
+
+\linenumbers
+\maketitle
+
+\section{Introduction}
+
+
+\end{document}
+
+
+\endinput
+%%
+%% End of file `elsarticle-template-harv.tex'. 
