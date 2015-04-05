@@ -1,0 +1,129 @@
+\documentclass[12pt]{report}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+
+
+
+
+
+\renewcommand{\baselinestretch}{1}
+\pagestyle{headings}
+\setcounter{page}{1}
+\input{config}
+\newcommand{\con}[1]{{\sf #1}}
+\newcommand{\ty}[1]{\mbox{\sl #1}}
+\newcommand{\ml}[1]{\mbox{\tt #1}}
+\newcommand{\ma}[1]{{{$#1$}}}
+\newcommand{\prev}[1]{#1}
+\newcommand\fun{{\to}}
+%\renewcommand{\prod}{\times}
+\newcommand\imp{{\Rightarrow}}
+\newcommand\T{\con{T}}
+\newcommand\F{\con{F}}
+\newcommand\qq{\mbox{\tt{`\hspace{-1.0mm}`}}}
+\newcommand\termbddty{\ty{termbdd}}
+\newcommand{\termbdd}[3]{\mbox{$#1~#2~\mapsto~#3$}}
+\newcommand{\globtermbdd}[2]{\mbox{$#1\hspace{0.5mm}\mapsto\hspace{0.5mm}#2$}}
+\newcommand{\BOX}{\hfill $\Box$}
+
+
+
+
+\newcommand{\algoWithLineNumbers}[3]{{
+  \begin{algorithm}
+  \caption[#1]{\sc #1}
+  \label{#2}
+  \begin{algorithmic}[1]
+    #3
+  \end{algorithmic}
+  \end{algorithm}}} \newcommand{\algo}[3]{{
+  \begin{algorithm}
+  \caption[#1]{\sc #1}
+  \label{#2}
+  \begin{algorithmic}
+    #3
+  \end{algorithmic}
+  \end{algorithm}}}
+\begin{document}
+\cusym{ACL}{Agent Communication Language}
+\cusym{AI}{Artificial Intelligence}
+\cusym{ARCTL}{Action Restricted Computation Tree Logic}
+\cusym{BDD}{Binary Decision Diagram}
+\cusym{BNF}{Backus-Naur Form}
+\cusym{CTL}{Computation Tree Logic}
+\cusym{CTLC}{Computation Tree Logic of Commitment}
+\cusym{CTLK}{Computation Tree Logic of Knowledge}
+\cusym{CTLKC}{Computation Tree Logic of Knowledge and Commitment}
+\cusym{CWB-NC}{Concurrency WorkBench of New Century }
+\cusym{DTMC}{Discrete-Time Markov Chain}
+\cusym{FIPA}{Foundation for Intelligent Physical Agents}
+\cusym{ISPL}{Interpreted Systems Programming Language}
+\cusym{KQML}{Knowledge Query and Manipulation Language}
+\cusym{LTL}{Linear Temporal Logic}
+\cusym{MAS}{Multi-Agent System}
+\cusym{MCK}{Model Checking Knowledge}
+\cusym{MCMAS}{Model Checker for Multi-Agent Systems}
+\cusym{MDP}{Markov Decision Process}
+\cusym{NuSMV}{New Symbolic Model Verifier}
+\cusym{PCTL}{Probabilistic Computation Tree Logic}
+\cusym{PCTLC}{Probabilistic Computation Tree Logic of Commitment}
+\cusym{PCTLK}{Probabilistic Computation Tree Logic of Knowledge}
+\cusym{PO-DTMC}{Partially Observable Discrete-Time Markov Chain}
+\cusym{POMDP}{Partially Observable Markov Decision Process}
+\cusym{PRISM}{PRobabilistIc Symbolic Model checker}
+\cusym{PSPASE}{Polynomial Space}
+\cusym{SMV}{Symbolic Model Verifier}
+\cusym{SPIN}{Simple Promela INterpreter}
+\cusym{TS}{Transition System}
+\cusym{UML}{Unified Modeling Language}
+
+\typeout{------> Cover}
+\include{cover}
+\typeout{------> Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 1 : Introduction.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap1/chap1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 2 : Background.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap2/chap2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 3 : Probabilistic Social Commitments.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap3/chap3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 4: On the Interaction between Probabilistic Knowledge and Probabilistic Commitment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap4/chap4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 5 : Probabilistic Group Social Commitments.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap5/chap5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 6 : Conclusion.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chap6/chap6}
+
+
+\typeout{------> References}
+\bibliographystyle{plain}
+\bibliography{ref}
+%\appendix
+%\input{appendix}
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% TeX-master: t
+%%% End:

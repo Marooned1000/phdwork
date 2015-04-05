@@ -1,0 +1,52 @@
+%\cutitle{A Logic-based Framework for Addressing Probabilistic Social Commitments in Multi-Agent Systems}
+
+%\cutitle{Probabilistic Social Commitments in Multi-Agent Systems: Representation and Model Checking}
+
+%\cutitle{On the Probabilistic Social Commitments in Multi-Agent Systems}
+%\cutitle{Probabilistic Social Commitments: Representation and Verification}
+
+\cutitle{Modeling and Verifying Probabilistic Social Commitments in Multi-Agent Systems}
+
+\cudept{Electrical and Computer Engineering}   % your dept.
+\cudegree{Doctor of Philosophy}           % your expected degree <-,
+\cudegreeshort{Ph.~D.}
+\culname{Sultan}                    % your family name
+\cufname{Khalid Ibrahim}                    % your given name
+
+\cusupervisor{Dr. Jamal Bentahar}        % your Big-Boss complete name
+%\cucosupervisor{Dr. }   % your small big-boss name
+\cuexaminerA{Dr. Olga Ormandjieva}
+\cuexaminerB{Dr. Rachida Dssouli}
+\cuexaminerC{Dr. Abdessamad Ben Hamza}
+%\cuexaminerA{}
+\cuextexaminer{Dr. Elhadi Shakshuki}     % Another of the previous kind
+
+\cuchair{Dr. G\"osta Grahne}           % the boss of your boss
+
+\cumonth{January}                % the month you expected to graduate
+\cuyear{2015}                 % and the year.
+%\cudedication{\ \\ \\ \\ \\ \\ \\ \\ \\
+%\begin{center}{\bf{To My Parents,\\ My Wife and daughter,\\ and My Brothers and Sisters.}} \\
+%\end{center}}
+\cuabstract{\input{abstract}}
+%%
+%
+%
+%
+\cuthanks{\input{ack}}
+
+\cumaketitlepage       % title page, not numbered
+\cumakesignaturepage   % sign. page, not numbered
+\cumakeabstract
+%\cumakededication      % To Mom and Dad
+\cumakethanks          % Thanks Boss!
+\cutocdeep{4}          % how deep you want to go in the toc: 0: reset to 1
+\cumaketableofcontents % Gues\cumakelistoffigures   % id.
+\cumakelistoftables    % id.
+\cumakelistoffigures
+\cumakelistofsymbols   % a gook work should have a list of symbols.
+\custartbody    % this initialize double-spacing, page-numbering ...
+
+%%% Local Variables:
+%%% TeX-master: "thesis"
+%%% End:

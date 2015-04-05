@@ -1,0 +1,109 @@
+\chapter{Conclusion and Future Work}\label{Chap5:Conclusion}
+%********************************************************************
+%This chapter concludes the thesis. First, we give a summary of the main contributions of the thesis. Second, we present some hints for future directions.
+
+%********************************************************************
+\section{Conclusion}
+
+In this thesis, we have put forward a formal framework for agent communication using a commitment-based approach in order to enable effective agent interactions in open, heterogeneous, and dynamic systems when
+uncertainty matters. The main purpose of this framework is to essentially specify and reason about social commitments in probabilistic settings, so they can be formally verified. As an improvement over the existing solutions, our proposed framework targets systems exhibiting probabilistic behavior and considers commitments among a group of agents. The framework is composed of three main components. First, we presented a new probabilistic approach for tackling social commitments in the presence of uncertainty. To specify probabilistic social commitments, we defined a new logic called the probabilistic logic of commitments (PCTLC). Our new logic is interpreted over a new extended version of probabilistic interpreted systems. Furthermore, we introduced a new reduction-based model checking technique for the new logic and implemented it on top of the PRISM model checker. Then, by using the proposed reduction technique, we showed how to evaluate some systems' properties representing probabilistic social commitments -- expressed in terms of the new logic -- against system design models obtained using our extended version of probabilistic interpreted systems.
+
+The second component of our framework focused on the interaction between knowledge and social commitments in probabilistic MASs. We introduced a new logic called the probabilistic logic of knowledge and commitment (PCTL$^{kc}$) to represent and reason about such interactions. PCTL$^{kc}$ logic is interpreted over a new version of probabilistic interpreted systems that has epistemic accessibility relations and social accessability relations at its core. To verify the new logic, we developed a verification technique based on model checking and implemented it using the PRISM tool. Our interest in the first and second contributions was focused on the common two-agent commitment scenarios (i.e. agent-to-agent scheme).
+
+In the third part of the framework, we improved and extended our work in the second part as follows:
+
+\begin{enumerate}
+
+\item We refined and improved PCTL$^{kc}$ to overcome the inconsistency problem appeared when taking the recent work of Al-Saqqar et al. \cite{Al-Saqqar2014a} into consideration. Therefore, in this part, we adopted CTLKC$^+$ \cite{Al-Saqqar2014a} as a basis for our new logic and combined it with PCTL.
+
+\item We extended the scope of interacting agents from agent-to-agent to agent-to-many. This allowed us to investigate different commitment schemes such as the case of committing to multiple agents. In this respect, we defined an adequate semantics for group social commitments for the first time in the literature.
+\end{enumerate}
+
+\noindent Based on the new semantics of group social commitments and the consistent logic of knowledge and commitment presented in \cite{Al-Saqqar2014a}, we presented a new probabilistic logic of knowledge and commitment called (PCTL$^{\textrm{kc+}}$). The new logic accommodates new operators for group social commitments and group knowledge in addition to the modalities already found in PCTL$^{kc}$. The expressiveness power of  PCTL$^{\textrm{kc+}}$ outperforms those of existing logics because of its ability not only to capture and express the combinations of knowledge and social commitments in the presence of uncertainty, but also to express formulae involving group social commitments. Formulae of PCTL$^{\textrm{kc+}}$ are interpreted over a new extended version of probabilistic interpreted systems. Our new version of interpreted systems integrates a modified version of social accessabilities that accounts for basic social commitments, group social commitments, and knowledge. To evaluate the new logic (PCTL$^{\textrm{kc+}}$), we proposed a reduction-based model checking technique and implemented it on top of PRISM.
+
+Furthermore, we proved the soundness of all proposed verification techniques. Also, using different case studies we were successfully able to demonstrate the effectiveness and usefulness of our proposed work and evaluate the scalability of the introduced verification techniques.
+
+Finally, as the proposed framework permits addressing probabilistic social commitments as well as their interaction with knowledge when the scope of interacting parties moves beyond the common one-to-one scheme, we believe that it will advance the literature of agent communication and help MASs designers build more effective and efficient systems.
+
+%To conclude, we believe that the proposed framework
+%********************************************************************
+%* Section 7: Future Work
+%********************************************************************
+\section{Future Work}
+
+There is still a long way to go in order to develop a comprehensive framework for probabilistic social commitments in MASs. In the future, we plan to extend our work by investigating several directions.
+
+First, time complexity and space complexity of our proposed verification techniques are not analysed yet. Therefore, we intend to compute the complexity of the proposed reduction techniques of the three components.
+
+Second, we are planning to extend our framework to support more commitment schemes such as many-to-one and many-to-many commitments. This is extremely important because in real settings there exist situations where performing such commitment scenarios contributes towards improving the efficiency of MASs.
+
+Third, integrating more commitment actions (such as assign, delegate, ..etc) \cite{Singh2000} are of a great interest to investigate. This helps ensure that all possible commitment operations employed in probabilistic environments are adequately dealt with.
+
+Forth, we intend to explore the interaction between social commitments and norms in probabilistic systems.
+
+Fifth, another direction that we intend to explore is the probabilistic conditional social commitments. Conditional social commitment is still in  its infancy \cite{Kholy2014} and investigating it in systems exhibiting stochastic behavior is an open point for research.
+
+Finally, we plan to extend the PRISM model checker to accommodate our new operators (i.e. commitment and group commitment) and then develop dedicated verification algorithms for the proposed logics and implement them directly into PRISM. So doing will allow us to compare the results obtained from the indirect method (reduction-based techniques) with the results of the direct method (dedicated algorithms).
+
+
+
+
+\newpage
+\textbf{Publications in refereed journals and conferences}
+
+\textbf{Journals}
+
+\begin{itemize}
+\item K. Sultan, J. Bentahar, M. El-Menshawy, "Model Checking Probabilistic Social Commitments for Intelligent Agent Communication", Journal of Applied Soft Computing, Elsevier, 2014.  %[Impact factor in 2013: 2.679, 5-year: 2.970]
+
+\item K. Sultan, J. Bentahar, W. Wan, F. Al-Saqqar, "Modeling and Verifying Probabilistic Multi-  Agent Systems using Knowledge and Social Commitments", Journal of Expert Systems with Applications, Elsevier, 2014.  %[Impact factor in 2012: 1.854, 5-year: 2.339]
+
+\item F. Al-Saqqar, J. Bentahar, K. Sultan, M. El-Menshawy, "On the Interaction between Knowledge and Social Commitments in Multi-Agent Systems", Applied Intelligence Journal, Springer, 2014. 
+    
+\item F. Al-Saqqar, J. Bentahar, K. Sultan, W. Wan, E. Khosrowshahi
+Asl, "Model Checking Temporal Knowledge and Commitments in Multi-Agent Systems Using Reduction", Simulation Modeling Practice and Theory Journal, Elsevier, 2015.
+\end{itemize}
+
+\textbf{Conferences}
+
+\begin{itemize}
+
+\item K. Sultan, J. Bentahar, O. Marey, "A Probabilistic Logic to Reason about the Interaction between Knowledge and Social Commitments in MASs", In the Proc. of The 13th International Conference on Intelligent Software Methodologies, Tools, and Techniques (SOMET\_14), Langkawi, Malaysia, 2014.
+
+\item M. Mbarki, O. Marey, J. Bentahar, K. Sultan,  "Agent Types and Adaptive Negotiation Strategies in Argumentation-Based Negotiation", In the Proc. of the IEEE International Conference on Tools with Artificial Intelligence (ICTAI), Limassol, Cyprus, 2014.
+
+\item K. Sultan, M. El-Menshawy, J. Bentahar, "Reasoning about Social Commitments in the Presence of Uncertainty", In the Proc. of The 12th International Conference on Intelligent Software Methodologies, Tools, and Techniques (SOMET\_13), Budapest, Hungary, 2013.
+\end{itemize}
+
+\textbf{Articles in process for publication in refereed journals}
+
+\begin{itemize}
+\item K. Sultan, J. Bentahar, R. Mizouni, "Model Checking the Interaction Between Individual and Group Knowledge and Commitments in Probabilistic Multi-Agent Systems", Engineering Applications of Artificial Intelligence, Elsevier, (submitted: August 2014).
+\item O. Marey, J. Bentahar, E. Khosrowshahi Asl, K. Sultan, R. Dssouli, "Decision Making under Subjective Uncertainty in Argumentation-Based Negotiation.  Ambient Intelligence and Humanized Computing, (submitted: November 2014).
+\end{itemize}
+
+%. Abstracting tokens and control paths
+
+%This thesis can be extended in the following directions.
+% \begin{itemize}
+%   \item Extend our semantic to support more SysML features,
+%   \item We intend to formalize SysML and UML daigrams such as state machines and sequence diagrams,  then,
+%   \item Extend our framework to support them
+%   \item Extend the specification framework to handle the reliability requirements and prove formally the soundness of the proposed framework.
+%   \item we intend to transform a SysML activity diagram to its fractal form in order to benefit from our abstraction framework. This helps in the abstraction/refinement process of UML/SysML diagrams. Second, we extend our framework to handle other UML and SysML models such as state machine and sequence diagrams.
+%  \item  Finally, we intend to investigate reducing the property within the model and applying our approach on different real systems.
+%  \item Abstracting tokens and control paths.
+%  \item Framework Extension: Extend our security verification framework to support other SysML behavioral diagrams: State machine, and Sequence diagrams,
+%  \item Ensure the equivalence between SysML behavioral diagrams,
+%  \item Extract the syntax from the metamodels.
+%  \item Studying the completeness of system completeness.
+%  \item Compositional verification for other operators.
+%  \item we plan to extend our framework to handle more compositional verification techniques like assume-guaranty.
+%  \item we explore other abstraction approaches especially data abstraction targeting more system features like time and data.
+%  \item Finally, we intend to investigate reducing the property within the model.
+%   \item Finally, we want to validate our approach on cyber-forensics systems.
+% \end{itemize}
+
+
+%In future, we would like to extend our work by investigating several directions.
+%First, we intend to build our implementation within PRISM model checker. Second, we plan to extend our framework to handle more compositional verification techniques like assume-guaranty. Next, we explore other abstraction approaches especially data abstraction targeting more system features like time and data.

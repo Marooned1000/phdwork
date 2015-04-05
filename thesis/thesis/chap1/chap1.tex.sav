@@ -1,0 +1,229 @@
+%\input{chap1/introduction.tex}
+
+\setcounter{chapter}{0}
+
+\chapter{Introduction}\label{cha:introduction}
+
+In this chapter, we introduce the context of our research, which falls in the area of agent communications within Multi-Agent Systems (MASs). More precisely, it is concerned with modeling and verifying social commitments --as means of interaction among agents-- in the presence of probabilistic behavior. We also identify the motivations, problems, and research questions that we address in this thesis. Then, we present our objectives and review the our methodology. Finally, we conclude this chapter by providing the thesis outline.
+
+
+\section{Context of Research} \label{sec:context}
+
+
+
+\subsection{Multi-Agent Systems (MASs)}
+Nowadays, the use of distributed environments to solve complex
+real world problems using entities called agents is on rise
+\cite{Park2005,Biswas08}. Agents are active, social, and adaptable computer systems situated in some dynamic environment and capable of autonomous actions. %to achieve their objectives \cite{Wooldridge2009}. %To attain their objectives, agents need abilities to cooperate, coordinate, and negotiate.
+Ideally, an agent has to be \cite{Wooldridge1995}:
+
+\begin{itemize}
+\item Reactive: able to respond to changes in its environment.
+\item Pro-active: capable to behave with respect to its goals (goal-directed behavior).
+\item Social: able to interact and communicate with others.
+\item Autonomous: able to operate without direct intervention of others.
+\end{itemize}
+
+In addition to being autonomous, agents are possibly heterogeneous; that is, agents may be independently designed by different programmers and hence it is difficult to make assumptions about their present or future behavior.
+
+A multi-agent system (MAS) consists of a set of these autonomous
+entities, which interact with each other and their
+surrounding environment to achieve their (joint) objectives
+\cite{Wooldridge2009}. In an open system, autonomous agents can enter and
+exit at any time. In principle, open MASs provide no
+guarantees about the behaviors of their agents. This means that
+when agents are working together, such as carrying out a business
+protocol, an agent's misbehavior may potentially create an
+exception for another agent and obstruct its proper working.
+However, one can look at multi-agent systems from different
+perspectives. From the computing perspective, a MAS is a
+computational paradigm and an advance in computer science. From
+the software engineering perspective, multi-agent technology is a
+new software engineering paradigm providing new abstractions for
+different phases of software development process. MASs approaches
+can be seen as very efficient and modular ways of modeling and
+implementing systems as they are capable of designing and
+programming autonomous agents with different abilities, behaviors,
+and intentions. From the artificial intelligence perspective, MASs
+provide better understanding and modeling of social intelligence
+and emergent behaviors.
+
+%This communication has been recently
+%modeled by means of communicative social commitments
+%\cite{Bentahar2012}. As opposite to the mental
+%approaches such as \cite{WuSSCSW12}---which focus on the minds of
+%interacting agents---, social commitments proved to be a powerful
+%representation for agent interactions. They, in fact, provide a
+%social semantics that abstracts away from the agents internal
+%states and offers social and observable meaning to agent messages
+%exchange.
+
+\subsection{Agent Communication Languages (ACLs)}
+Communication is a fundamental aspect for autonomous agents in MASs to coordinate with one another to solve complex problems that are difficult for an individual agent to tackle. Therefore, communication among agents is a key element to build effective open MASs. In many realistic settings, agents need to interact to realize their goals. The types of interactions among the agents vary according to the goals of the agents and the context of the
+transactions they are performing. An agent may cooperate with
+other agents in performing a certain task, compete with others for
+achieving a shared goal, or do a combination of both in order to
+perform individual or group tasks. Simply put, agents exchange
+information by means of messages. However, there have been many
+attempts to agree on standards for agent communication. Semantics
+of messages are defined either internally (privately) in terms of
+an agents' beliefs and goals, or externally (publicly) in terms of
+agents' social commitments. %Communication between agents are
+%governed by means of protocols. Roughly speaking, a protocol
+%determines which messages can be exchanged and in which order.
+In the context of this thesis, we focus on the kind of
+communication in which the semantics of messages is defined
+publicly, i.e., in terms of social commitments.
+
+
+
+
+
+%\subsection{Knowledge}
+
+\section{Motivations} \label{Motivations}
+Having conducted the literature review of addressing social commitments in MASs, we have noticed that though social commitments have been extensively under research for more than a decade, current proposals to represent and verify social commitments, for instance \cite{Bentahar2009,Bentahar2012,Bentahar2009,Bentahar2004,colombetti2000,El-Menshawy2010,El-Menshawy2013a,Singh2000}, assume typical settings in which agents behave in a certain manner, and consequently commitments among interacting agents are treated under the assumption of certainty. In fact, it is unrealistic to presuppose that all autonomous agents will behave as expected because their actions are based on observing the environment changes and in many situations, agents can not observe all the changes in the environment, instead each agent can only have a partial view of other agents' behavior. This imperfect information about the environment leads autonomous agents to make estimations about the observable world as a part of their autonomous decision making processes \cite{Walley1996} causing uncertainty in the transitions may arise due to .
+
+%Therefore, when the system being modeled is an open system, i.e., interacts with an environment, then uncertainty in the transitions may arise due to imperfect information about the environment.
+In fact, in the formulation of agent-based systems, the role of uncertainty is crucial for an efficient and coherent resolution of complex problems. Moreover, agents in MASs overcome classical problems thanks to their individual capabilities to be autonomous and to adapt their behavior with the changing of the environment in which they live and
+interact. This means that agents inevitably meet uncertainty
+during their work, or in many cases, for the high complexity
+of the problem, the information they handle is (or needs to
+be) approximate. Furthermore, due to agents' autonomy, a request to create a social commitment is not always followed by the creation of that commitment. Besides, in some situations, even if there is some state of affairs that an agent wants to bring about, its actions might not reliably drive the state of affairs into the desired state \cite{Xuan1999}. Consequently, the problem of verifying social commitments is made more complicated by the presence of uncertainty which makes agents uncertain about the effects of their actions on their peers and not fully aware of the situations other agents are encountering.
+
+Therefore, a major challenge in our research is to accurately represent and reason about social commitments in the presence of uncertainty. Another ambitious challenge is to verify the specified probabilistic social commitments.
+
+In this research, we investigate a formal and systematic way to
+represent and verify social commitments in the presence of
+uncertainty. That is to realize interactions of agents where no
+assumptions are made on the internal states of the interacting
+agents as well as no assumptions are made about the presence of a reliable behavior. Therefore, the motivation for this thesis is to introduce a new logical framework by which we can represent and reason about agent interactions defined in terms of social commitments in uncertain settings.
+
+
+
+\section{Problem Statement} \label{}
+
+The main problem we are addressing in this thesis is the problem
+of defining a formal interaction framework for agent communication
+using a commitment-based approach in order to enable agent
+interactions in open, heterogeneous, and dynamic systems where
+uncertainty is a key factor.
+
+Current research initiatives focus mainly on qualitative model checking of social commitments to ensure the correctness of commitment-based communication in MASs.
+
+
+Since we use the model checking technique, temporal logics have been extended to express social commitments. The downside of current commitment logics resides in their expressiveness. Existing commitment logics can not express probabilistic social commitments. To circumvent this downside, we propose to extend the probabilistic branching-time temporal logic PCTL by a new social operator for commitments and their fulfilments.
+
+In order to do so, some questions
+arise. The first question is \textbf{how can we define a logic
+capable of specifying and reasoning about social commitments
+employed in uncertain settings?}. In the literature of social
+commitments there is no work that considers dealing with
+commitments in the presence of probabilistic behavior. That is why
+our thinking was directed towards existing logics to investigate
+the possibility of exploiting them to help us define our logic.
+However, \textbf{which temporal logic to choose} is the second
+question to be answered. Existing probabilistic temporal logics
+such as PCTL \cite{Hansson1994} and PCTL$^*$ \cite{Bair1998}
+do not consider neither commitments nor agent communication. We
+propose to extend PCTL with modal operators for commitments and
+their fulfillments. However, any logic needs to be associated with
+a computational model to interpret the formulae. So, our third
+question is \textbf{which formalism to use in order to model the
+target MASs?}. In fact, there have been various computational
+models proposed to model MASs such as Markov Chains
+\cite{Baier2008} and interpreted systems \cite{Fagin1995}.
+Interpreted systems is more suitable for our research as it was
+introduced originally to model MASs. However, the original version
+of interpreted systems introduced by Fagin et. al in
+\cite{Fagin1995} does not capture the probabilistic behavior of
+the systems and does not account for the communication between
+interacting agents as well. Therefore, our model combines two
+existing extended versions of interpreted systems introduced
+respectively by Halpern \cite{Halpern2003} and Wan et al.
+\cite{Wan2012,Wan2013} to capture the stochastic behavior of the system,
+and Bentahar et al. \cite{Bentahar2012} and El-Menshawy et al.
+\cite{El-Menshawy2013a} to model the communication between
+interacting agents. Furthermore, to verify the proposed logic, we need
+to answer the following question: \textbf{which formal
+verification technique to use?} In fact, there are three main
+verification techniques to verify systems against given
+requirements in the literature namely testing, theorem proving,
+and model checking. Model checking has some advantages over the
+others since it is fully automated and supports scalability. On
+the other hand, in testing, it is hard to generate exhausted test
+cases, and theorem proving requires expertise and cannot be
+performed for huge systems. So, we use a model checking technique
+as a means of formal verification. However, \textbf{which model
+checking technique to use} should be answered as many techniques
+are already in use. As our approach is built on PCTL, we propose
+reducing the model checking problem of our logic to the one of
+PCTL. Finally, to check the effectiveness of our approach, we need
+to implement the proposed model checking technique. Here, we need
+to answer the question \textbf{which model checker to extend in
+order to model check the proposed logic?} In this respect, we
+advocate the PRISM model checker as it already allows us to
+analyze and verify systems that exhibit probabilistic behavior,
+and it also performs symbolic model checking of PCTL in which it
+manipulates sets of states rather than single states. Such sets
+are efficiently represented and transformed by means of Binary
+Decision Diagrams (BDDs), which helps alleviate the state space
+problem associated with model checking.
+
+\section{Objectives} \label{}
+The main objective of this research are:
+\begin{enumerate}
+
+\item To define a new formal, meaningful, declarative, and
+verifiable modal logic that is capable of representing and
+reasoning about commitments and their fulfillments in the presence
+of uncertainty. This objective is to extend the probabilistic
+logic PCTL with social operators. In this respect, we need to
+define a new syntax with modalities for the commitments and their
+fulfillments along with presenting the semantics of the added
+modalities.
+
+\item To develop a new version of interpreted systems to model our
+target MASs. The aimed formalism combines two extended versions of
+interpreted systems introduced respectively by Halpern
+\cite{Halpern2003} and Wan et al. \cite{Wan2012,Wan2013} to capture the
+stochastic behavior of the system, and Bentahar et al.
+\cite{Bentahar2012} and El-Menshawy et al. \cite{El-Menshawy2013a}
+to model the communication between interacting agents.
+
+\item To develop a new model checking technique for verifying
+commitment-based protocols using our proposed logic. This
+objective comprises the development of a set of reduction rules to
+reduce the problem of model checking our logic to the problem of
+model checking an existing logic such as PCTL.
+
+\item To implement our proposed reduction rules on top of one of
+the existing probabilistic model checkers (namely PRISM) in order to
+automatically verify commitment-based protocols against some given
+properties.
+
+\item To evaluate the results obtained from PRISM by implementing the reduction rules on top of another probabilistic model checker (namely MCK) and compare the results obtained from both model checkers.
+
+\item To analyze the completeness and complexity of the proposed logic.
+\item To investigate the relationship between the probabilistic social commitments and probabilistic knowledge.
+
+\end{enumerate}
+
+
+\section{Methodology} \label{}
+
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics [width=14cm, height=4.5cm]{Figures/approach}
+%  \caption{A schematic view of the proposed approach}
+%\label{approach}
+%\end{center}
+%\end{figure}
+
+
+\section{Thesis Contributions}
+
+
+\section{Thesis Organization}
+The remainder of this proposal is organized as follows. We present in Chapter \ref{cha:background} the background needed for our research along with the relevant related work. In Chapter \ref{cha:PCTLC}, we summarize the original formalism of interpreted systems introduced in \cite{Fagin1995} to model MASs and two existing versions of this formalism with probabilities \cite{Halpern2003,Wan2012,Wan2013} and shared and unshared variables \cite{Bentahar2012,El-Menshawy2013a}, then we present our extended version of the interpreted systems along with defining the syntax and semantics of PCTLC. The relationship between probabilistic commitments (res. probabilistic fulfillments) and conventional commitments (res. conventional fulfillments) are also given in this chapter. The problem of model checking PCTLC is presented in Chapter \ref{cha:model checking}. This chapter also reports some experimental results of our reduction-based model checking technique to show the effectiveness of the proposed approach. Finally, Chapter \ref{cha:future work} is devoted to present our conclusions, future plan, and the timetable of our research.
+

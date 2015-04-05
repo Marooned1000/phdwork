@@ -1,0 +1,128 @@
+\usepackage[left=1.5in, right=1.0in, top=1.0in, bottom=1.0in]{geometry}
+\usepackage{layout}
+\usepackage{setspace}
+\usepackage{aeguill}
+\usepackage{lscape }
+\newcommand{\stereotype}[1]{
+	\guillemotleft {#1}\guillemotright
+}
+
+%\usepackage{rotfloat }
+%\usepackage{sidewaystable}
+\doublespacing
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{cuthesis}
+%\usepackage{stmaryrd}
+\usepackage{epsfig}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage{alltt}
+\usepackage{framed}
+%%packages
+%\usepackage{amsmath}
+%\usepackage{setspace}
+\usepackage{subfig}
+%\usepackage[mathscr]{euscript}
+\usepackage{mathrsfs}
+%\usepackage{pst-node}
+%\usepackage{dsfont} % for mathds
+%\usepackage{helvet}
+%\usepackage{courier}
+\usepackage{gastex}
+%%\usepackage{ps4pdf}
+%%\PSforPDF{usepackage{pst-all}}
+%%\usetheme{Warsaw}
+\usepackage{graphicx}
+\usepackage[graphicx]{realboxes}
+%\usepackage{makeidx}
+%\usepackage{makeidx}
+%\usepackage{multicol}
+%\usepackage{footmisc}
+%\usepackage{times}
+\usepackage{graphics}
+%\usepackage{epsfig}
+%\usepackage{amsthm}
+\usepackage{mathptmx}
+%\usepackage[ruled,vlined]{algorithm2e}
+\usepackage[psamsfonts]{amssymb} % needed for \rightarrowtail
+\usepackage[only,varotimes,varodot]{stmaryrd} % needed for \varotimes
+\usepackage{mathtools} % in order to use Coloneqq
+%\usepackage{array}
+\usepackage{bussproofs} % for proofs
+%\usepackage{dsfont}
+%\usepackage{gastex}
+%\usepackage{alltt}
+%\usepackage{hyperref}
+%\usepackage{wrapfig}
+%\usepackage[babel=true]{csquotes}
+%%\usepackage[french]{babel}
+%
+\usepackage{fancybox} % used for shadow box
+%\usepackage{multirow}
+%\usepackage{longtable}
+\usepackage{listings}
+%\usepackage{pdflscape} %landscape package
+%
+%%\usepackage{MnSymbol}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+% %Define code packages and options pseudocode
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+%%\algrenewcommand{\algorithmiccomment}[1]{\\\hskip3em$/*$ #1 $*/$}
+%%\algrenewcommand{\Call}[2]{\textit{\mbox{#1}}(#2)}
+ \newcommand{\qinput}{\textbf{Input:$~~~~$}}
+\newcommand{\qoutput}{\\\textbf{Output: }}
+ \newcommand{\sem}[1]{[\![#1]\!]} %semantic
+%
+%% ----------------------------------------------------------------
+%\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+%\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+%% THEOREMS -------------------------------------------------------
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corllary}{Corollary}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{property}{Property}[chapter]
+\theoremstyle{definition}
+%\newtheorem{definition}{Definition}
+
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{axiom}{Axiom}[chapter]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+
+\newtheorem{definition}{Definition}[chapter]
+%\newtheorem{theorem}{Theorem}[chapter]
+%\newtheorem{lemma}{Lemma}
+%\newtheorem*{proof}{Proof}[section]
+%\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+%\newproof{proof}{Proof}
+
+%\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+
+%Macro
+
+
+\newcommand{\nmarked}[2]{{\overline{#1}}^{#2}} % marking #1 by the #2 number of tokens
+\newcommand{\marked}[1]{\overline{#1}} %marking #1 by one overbar
+
+\newcommand{\activityedge}{\!\rightarrowtail\!}
+\newcommand{\labeled}[2]{#1\colon\!#2}
+\newcommand{\emptyaction}{o}
+
+\newcommand{\ie}{i.e.~\/}
+\newcommand{\eg}{e.g.~\/}
+\newcommand{\etc}{etc.\/}

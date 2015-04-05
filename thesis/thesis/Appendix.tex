@@ -1,0 +1,565 @@
+\chapter{Chapiter 3}
+In this Appendix, we present proofs of the previous theorems and propositions. %For more details, the complete proofs are accessible from this link\footnote{ http://users.encs.concordia.ca/$\sim$s\_oucha}.
+
+\begin{lemma}[Soundness]
+The mapping algorithm $\Gamma$ is sound, \ie $M_\mathcal{A}\sqsubseteq_{\mathscr{R}}M_\mathcal{P}$.
+\end{lemma}
+\begin{proof}
+To prove $M_\mathcal{A}\sqsubseteq_{\mathcal{R}}M_\mathcal{P}$, we follow a structural induction reasoning on NuAC terms and their related PRISM terms. For that, let $s,s'\in S(M_\mathcal{A})$ and $t,t'\in S(M_\mathcal{P})$. We distinguish the following cases where $L(s)$ takes different values:
+\begin{enumerate}
+  \item $L(s)=\labeled{l}{\marked{x}\activityedge\mathcal{N}}$ such as $x\in\{\iota,a,a!v\}\Rightarrow\exists s\stackrel{l}{\longrightarrow_{1}}s',~L(s')=\labeled{l}{x\activityedge\marked{\mathcal{N}}}$.\\
+      For $L(t)=\Gamma(L(s))$, we have $L(t)=\langle L(x),\neg L(\mathcal{N})\rangle$ then $\exists t\stackrel{l}{\longrightarrow_{1}}t'$ where  $L(t')=\langle\neg L(x), L(\mathcal{N})\rangle$.
+  \item $L(s)=\labeled{l}{\marked{\varodot}}$ then $\exists s\stackrel{l}{\longrightarrow_{1}}s'$ such as $L(s')=\lvert\mathcal{A}\rvert$. For $L(t)=\Gamma(L(s))$, we have  $L(t)=\langle l \rangle$ then $\exists t\stackrel{l}{\longrightarrow_{1}}t'$ where $\forall l_i\in\mathcal{L}: L(t')=\langle\cdots,\neg l_i,\cdots\rangle$. %It is clear that $\mu(s)=\mu(t)=1$ then $s\sqsubseteq_{\mathcal{R}}t$.
+  \item $L(s)=\labeled{l}{\marked{\varotimes}}$ then $\exists s\stackrel{l}{\longrightarrow_{1}}s'$ such as $L(s')=\labeled{l}{\varotimes}$. For $L(t)=\Gamma(L(s))$, we have  $L(t)=\langle l\rangle$ then $\exists t\stackrel{l}{\longrightarrow_{1}}t'$ where $L(t')=\langle\neg l\rangle$. %It is clear that $\mu(s)=\mu(t)=1$ then $s\sqsubseteq_{\mathcal{R}}t$.
+  \item $L(s)=\labeled{l}{}\nmarked{F(\mathcal{N}_{1},\mathcal{N}_{2})}{m}$ then $\exists s\stackrel{l}{\longrightarrow_{1}}s'$ such as $L(s')=\labeled{l}{}\nmarked{F(\marked{\mathcal{N}_{1}},\marked{\mathcal{N}_{2}})}{m-1}$. For $L(t)=\Gamma(L(s))$, we have  $L(t)=\langle l,\neg l_{\mathcal{N}_{1}},\neg l_{\mathcal{N}_{2}}\rangle$ then $\exists t\stackrel{l}{\longrightarrow_{1}}t'$ where $\forall l: L(t')=\langle\neg l, l_{\mathcal{N}_{1}}, l_{\mathcal{N}_{2}}\rangle$. %It is clear that $\mu(s)=\mu(t)=1$ then $s\sqsubseteq_{\mathcal{R}}t$.
+\end{enumerate}
+
+From the obtained results, we found that $\mu(s)=\mu(t)=1$ then $s\sqsubseteq_{\mathcal{R}}t$. In addition, the unique initial state of $\mathcal{M_{A}}$ is always corresponding to the unique initial state in $\mathcal{M_{P}}$. By following the same style of proof, we find that $\mathcal{M_{A}}\sqsubseteq_{\mathcal{R}}\mathcal{M_{P}}$, which confirms that Theorem \ref{th:ver} holds.
+
+\end{proof}
+\begin{proposition}[PCTL Preservation]\label{Th:VerPctlPreservation}
+For two PAs $M_\mathcal{A}$ and $M_\mathcal{P}$ such that $\Gamma(\mathcal{A})=\mathcal{P}$ where $M_\mathcal{A}\sqsubseteq_{\mathscr{R}}M_\mathcal{P}$. For a $PCTL$ property $\phi$, then: $(M_\mathcal{A}\models\phi)\Leftrightarrow(M_\mathcal{P}\models\phi)$.
+\end{proposition}
+\begin{proof}
+%Our abstraction is sound and the proof is provided in Appendix \ref{sub:Proofsound}.
+
+To prove the preservation of PCTL properties, we follow an inductive reasoning on the PCTL structure. While $M_\mathcal{A}\sqsubseteq_{\mathcal{R}}M_\mathcal{P}$, for each PCTL operator $\zeta\in\{\neg,\wedge,\mathrm{X},\mathrm{U}^{\leq\,k},\mathrm{U},\mathrm{P}_{\bowtie\,p}\}$ we have:
+$M_\mathcal{A}\models\zeta \Longleftrightarrow M_\mathcal{P}\models\zeta$ which means:
+
+$(M_\mathcal{A}\models\phi_{PCTL})\Longleftrightarrow(M_\mathcal{P}\models\phi_{PCTL})$.
+
+\end{proof}
+
+\chapter{Chapiter 4}
+\section{Motivation Proof}\label{sub:motivation}
+Let $\mathcal{A}$ be a SysML activity diagram and $\widehat{\mathcal{A}}$ is its abstracted model obtained by the algorithm $\delta$ with respect to a PCTL property  $\phi$. The complexity of checking $\phi$ takes into consideration the complexity of the abstraction algorithm $\delta$, the complexity of the mapping algorithm of the obtained diagram into PRISM code and the complexity of the probabilistic model checking procedure. The both first algorithms are a DFS-based procedures with a time complexity of $\mathcal{O}(|\mathcal{A}|)$, the third one is of $\mathcal{O}(Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|)$ such that
+$\upsilon_{max}=max\{k:\phi_1\mathrm{U}^{\leq\,k}\phi_2~occurs~in~\phi\}$ and
+$M_{\mathcal{A}}\equiv\mathscr{S}(\mathcal{A})$. Hence, Equation \ref{eq:con}  and  Equation \ref{qqq} present the complexity with and without abstraction, respectively.
+\begin{align}
+%\begin{array}{llll}
+A&=\mathcal{O}(\mathcal{A}\models p)=\mathcal{O}(|\mathcal{A}|)+O(Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|)\label{eq:con}\\
+B&=\mathcal{O}(\mathcal{A}\models p)=\mathcal{O}(|\mathcal{A}|)+\mathcal{O}(|\widehat{\mathcal{A}}|)+\mathcal{O}(Poly(|M_{\widehat{\mathcal{A}}}~~|)\times \upsilon_{max}\times |\phi|)\label{qqq}
+%\end{array}
+\end{align}
+
+By comparing the equations \ref{eq:con} and \ref{qqq}, we have:
+\begin{equation*}
+\begin{array}{rcll}
+%B<A&\Leftrightarrow&\mathcal{O}(|\mathcal{A}|)+\mathcal{O}(|\widehat{\mathcal{A}}|)+\mathcal{O}(Poly(|M_{\widehat{\mathcal{A}}}~~|)\times \upsilon_{max}\times |\phi|)<\mathcal{O}(|\mathcal{A}|)+Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|)\\
+B<A&\Leftrightarrow&|\mathcal{A}|+|\widehat{\mathcal{A}}|+Poly(|M_{\widehat{\mathcal{A}}}~~|)\times \upsilon_{max}\times |\phi|<|\mathcal{A}|+Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|\\
+&\Leftrightarrow&|\widehat{\mathcal{A}}|+Poly(|M_{\widehat{\mathcal{A}}}~~|)\times \upsilon_{max}\times |\phi|<Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|\\
+\\
+&\Leftrightarrow&\frac{|\widehat{\mathcal{A}}|}{Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|}+\frac{Poly(|M_{\widehat{\mathcal{A}}}~~|)}{Poly(|M_{\mathcal{A}}|)} <1\\
+\\&\Leftrightarrow&\frac{Poly(|M_{\widehat{\mathcal{A}}}~~|)}{Poly(|M_{\mathcal{A}}|)} \lesssim 1 (while \frac{|\widehat{\mathcal{A}}|}{Poly(|M_{\mathcal{A}}|)\times \upsilon_{max}\times |\phi|}\simeq0)\\
+\end{array}
+\label{eq:abs}
+\end{equation*}
+From this result of comparison, we conclude that applying the abstraction is useful for any model.\qed
+\setcounter{proposition}{0}
+
+\section{The Abstraction Approach Proof}\label{sub:AbstProof}
+
+\begin{proposition}%\label{Prop:prop1}
+Let $\mathcal{A}= \mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k}$ be a SysML activity diagram with $k$ call behaviors and $\phi$ be a PCTL property. Then: \begin{center}$\forall i\leq k: \mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{i}}\mathcal{A}_{i}\models\phi~\Rightarrow~\mathcal{A}\models\phi$.\end{center}
+\end{proposition}
+
+\begin{proof}
+The proof of this proposition follows an induction reasoning on PCTL structure by taking into consideration the size of call behaviors composition ``$k$''.
+\begin{enumerate}
+  \item Case of $\phi=\phi_1\mathrm{U}\phi_2$\\
+   Let $i< k$: $\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{i}}\mathcal{A}_{i}\models\phi$ $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$(Assumption)\\
+$~~~~~~~~~~~~~~~~~~~~~\Leftrightarrow \exists m,~\forall j<m:\pi(j)\models_{Adv}\phi_{1}\wedge\pi(m)\models_{Adv}\phi_{2}$. $~~~~~~~~~~~~~~~~~~~~~~~~~~$(Definition)\\
+By calling a new behavior $\mathcal{A}_{i+1}$, the satisfaction path $\pi$ will not be changed while $a_{i+1}$ stays unchanged during the execution of $\mathcal{A}_{i+1}$ then we have:\\ $ \exists m',~\forall j'<m':\pi(j')\models_{Adv}\phi_{1}\wedge\pi(m')\models_{Adv}\phi_{2}$
+$\Leftrightarrow ~\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{i+1}}\mathcal{A}_{i+1}\models\phi$.\\
+By following the same kind of construction up to $k$ behavior, we will have:\\ $\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k}\models\phi$ which means: \\$~~~~~\qquad\qquad\exists m'',~\forall j''<m'':\pi(j'')\models_{Adv}\phi_{1}\wedge\pi(m'')\models_{Adv}\phi_{2}$.
+ Then: $\mathcal{A}\models\phi_1\mathrm{U}\phi_2$.
+\\ By following the same kind of proof, we deduce the satisfaction relation for    $\phi_1\mathrm{U}^{\leq\,k}\phi_2$ and $\mathrm{X}\phi$ cases.
+  \item Case of $\phi=\phi_1\mathrm{U}^{\leq\,l}\phi_2$\\
+When $j''=j$ and $m''=m$ after calling a new behavior then $\mathcal{A}\models\phi_1\mathrm{U}^{\leq\,l}\phi_2$.
+Else, $\mathcal{A}\models\phi_1\mathrm{U}^{\leq\,l'}\phi_2 $ such that $l'\geq l$
+ \item Case of $\mathrm{X}\phi$\\
+ While $a_{i+1}$ stays true during the execution of $\mathcal{A}_{i+1}$ then the next operator is preserved.
+\end{enumerate}
+\end{proof}
+\begin{proposition}%\label{Prop:prop2}
+Let $\mathcal{A}= \mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k}$ be a SysML activity diagram with $k$ call behaviors, $\mathcal{A}_{id}$ is the identity element for ``$\uparrow$'' operator and $\phi$ be a PCTL property. For a proposition $\alpha$, we have the following:
+\begin{center}
+  $\forall 1\leq i\leq k,~\alpha\notin(\sum_{\phi}\cap\sum_{\mathcal{A}_i}):[\mathcal{A}_{i}= \mathcal{A}_{id}\wedge (\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k})\models\phi]\Rightarrow[\mathcal{A}\models\phi]$.
+\end{center}
+\end{proposition}
+\begin{proof}
+The proof is similar to that one of Proposition \ref{Prop:prop1}, for both cases of until and next operators.  For the case of bounded until, the satisfaction of $\phi$ is not deduced while some steps are mimicked by the identity element. But, we can infer the satisfaction of two important properties are:
+      \begin{enumerate}
+        \item   $\forall 1\leq i\leq k,~\alpha\notin(\sum_{\phi}\cap\sum_{\mathcal{A}_i}):$\\$~~~~~~~~~~~~~~~~~[\mathcal{A}_{i}= \mathcal{A}_{id}\wedge (\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k})\models\phi_1\mathrm{U}^{\leq\,l}\phi_2]
+            \Rightarrow\mathcal{A}\models\phi_1\mathrm{U}\phi_2$.
+        \item   $\forall 1\leq i\leq k,~\alpha\notin(\sum_{\phi}\cap\sum_{\mathcal{A}_i}):$\\ $~~~~~~~~~~~~~~~~~~  [\mathcal{A}_{i}= \mathcal{A}_{id}\wedge (\mathcal{A}_{0}\uparrow_{a_{1}}\ldots\uparrow_{a_{k}}\mathcal{A}_{k})\models\phi_1\mathrm{U}^{\leq\,l}\phi_2]
+            \Rightarrow\exists l'\geq l:\mathcal{A}\models\phi_1\mathrm{U}^{\leq\,l'}\phi_2$.
+      \end{enumerate}
+\end{proof}
+
+\section{Complexity}\label{app:Comp}
+
+\begin{proposition}[Application Order]
+Let ``$\mathcal{A}$'' be a NuAC term and ``$\phi$'' be a PCTL property, we have:
+$\Psi(\Upsilon(\Psi(\mathcal{A}),\phi))\equiv\Psi(\Upsilon(\mathcal{A},\phi))$.
+\end{proposition}
+\begin{proof}
+Let $M_{1}=\Psi(\mathcal{A}), M_{2}=\Upsilon(M_{1},\phi)$ and $M_{3}=\Psi(M_{2})$, we have:
+\begin{enumerate}
+  \item $M_{1}=\Psi(\mathcal{A})\Leftrightarrow$ if $\exists \labeled{l}{\mathcal{N}_{k}\activityedge\mathcal{N}_{m}}\in\mathcal{A}$, then $\labeled{l}{\mathcal{N}_{k}\activityedge\mathcal{N}_{m}}$ is replaced by $\labeled{l}{\mathcal{N}_{km}}$ if one of the control merging rules is satisfied.
+  \item $M_{2}=\Upsilon(M_{1},\phi)\Leftrightarrow$ $\forall\!a\notin\Sigma_\phi:\Upsilon(\nmarked{\labeled{l}{a}}{n}\activityedge\mathcal{N},\phi)=\nmarked{\labeled{l}{\epsilon}}{n}\activityedge\mathcal{N}$. In fact, $\Upsilon$ produces new consecutive control nodes and preserves the diagram structure.
+  \item $M_{3}=\Psi(M_{2})\Leftrightarrow$ if $\exists \labeled{l}{\mathcal{N}_{i}\activityedge\mathcal{N}_{j}}\in\mathcal{A}$, then $\labeled{l}{\mathcal{N}_{i}\activityedge\mathcal{N}_{j}}$ is replaced by $\labeled{l}{\mathcal{N}_{ij}}$. The minimization rules are applied on the initial and the produced one by $\Psi$ function.
+\end{enumerate}
+It is clear that the first step has no effect on the second one. In addition, applying $\Psi$ two times successively is equivalent to applying it once. Thus, the proposition holds.
+\end{proof}
+
+\section{Abstraction Soundness Proof}\label{sub:Proofsound}
+\setcounter{proposition}{3}
+\setcounter{lemma}{0}
+
+\begin{lemma}[$\Upsilon$-Soundness]%\label{prop:sound1}
+The abstraction algorithm $\Upsilon$ is sound, \ie $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Upsilon}M_\mathcal{{\widehat{A}}}$.
+\end{lemma}
+
+\begin{proof}
+To prove $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Upsilon}M_\mathcal{{\widehat{A}}}$, we follow a structural induction reasoning on NuAC terms such that $\mathcal{\widehat{A}}=\Upsilon(\mathcal{A})$. For that, let $s,s'\in S(M_{\mathcal{A}})$\footnote{$S(M)$ is the set of states of $M$.} and $t,t'\in S(M_{\mathcal{\widehat{A}}})$. We distinguish the following cases where $L(s)$ takes different values:
+%The proof follows a structural induction on NuAC terms.
+%In an inductive way, we select the $\marked{a}\activityedge\mathcal{N}$ case to prove the soundness for $\mathscr{A}bs$ procedure and $\marked{Decision(p,\langle g\rangle\mathcal{N},\langle \neg g\rangle\mathcal{N})}$ for $\mathscr{M}inim$ procedure. The remaining cases can be proved similarly.
+\begin{itemize}
+  \item Case $a\activityedge\mathcal{N}$:\\
+Let $L(s)=\marked{a}\activityedge\mathcal{N}\Rightarrow\exists~s':
+s\rightarrow~s'$ by applying ACT-2 such that:\\ $L(s^{\prime})=a\activityedge\marked{\mathcal{N}}\Rightarrow\mu_{s}(s^{\prime})=1$.\\
+By considering $t$ as the abstracted state of $s$ where $L(t)=\Upsilon(L(s))$, we can distinguish two cases for ABS-1 and ABS-2 that are presented respectively as follows:
+\begin{enumerate}
+  \item $a\in\!\Sigma_\phi:  L(t)=\Upsilon(\marked{a}\activityedge\mathcal{N})=\marked{a}\activityedge~\Upsilon(\mathcal{N})$. By applying ACT-2, $\exists~t':
+t\rightarrow t'$ such that:  $L(t^{\prime})=a\activityedge\marked{\Upsilon(\mathcal{N})}\Rightarrow\mu_{t}(t^{\prime})=1$.
+Then, it exists a weight function $\triangle$ for $\mathscr{R}_\Upsilon=\{(s^{\prime},t^{\prime})\}$ such that:\\
+$\triangle(s^{\prime},t^{\prime})=1\Rightarrow\mu_{s}(s^{\prime})=\triangle(s^{\prime},t^{\prime})$ and
+$\triangle(t^{\prime},s^{\prime})=1\Rightarrow\mu_{t}(t^{\prime})=\triangle(t^{\prime},s^{\prime})$. \\While $\triangle(s,t)>0$ then $~s\sqsubseteq_{\mathscr{R}_\Upsilon}~t$.
+  \item $a\notin\!\Sigma_\phi:L(t)=\Upsilon(s)
+=\Upsilon(\marked{a}\activityedge\mathcal{N})=\marked{\epsilon}\activityedge~\Upsilon(\mathcal{N})
+\Rightarrow\exists~t':~t\rightarrow~t'$.\\
+ By applying ACT-2 rule such that $L(t^{\prime})=\epsilon\activityedge
+\marked{\mathcal{N}}\Rightarrow\mu_{2}(t^{\prime})=1$. Then it exists a weight function $\triangle$ for $\mathscr{R}_\Upsilon=\{(s^{\prime},t^{\prime})\}$ such that:\\
+$\triangle(s^{\prime},t^{\prime})=1\Rightarrow\triangle(s^{\prime},t^{\prime})=\mu_{s}(s^{\prime})$ and
+$\triangle(t^{\prime},s^{\prime})=1\Rightarrow\mu_{t}(t^{\prime})=\triangle(t^{\prime},s^{\prime})$, with
+$\triangle(s,t)>0$ then $~s\sqsubseteq_{\mathscr{R}_\Upsilon}~t$.
+\end{enumerate}
+  \item Case $\mathcal{N}_1\stackrel{g}{\mapsto}\mathcal{N}_2$ is similar to the case of $\marked{a}\activityedge\mathcal{N}$ after applying ABS-3 and ABS-4.
+
+\end{itemize}
+It is clear that, the marked NuAC term $\mathcal{A}$ is the unique initial state of $M_{\mathcal{A}}$ corresponding to the unique initial state in $M_{\widehat{\mathcal{A}}}$. By following the same style of proof, we find: \\ $~~~~~~~~~~~~~~M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Upsilon}M_\mathcal{{\widehat{A}}}$, which confirms that Proposition \ref{prop:sound1} holds.
+\end{proof}
+
+\begin{proposition}[$\Upsilon$-Preservation]%\label{prop:preserv1}
+For two PAs $M_\mathcal{{A}}$ and $M_\mathcal{\widehat{A}}$ such that $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Upsilon}M_\mathcal{{\widehat{A}}}$. If $\phi$ is a $PCTL_{\backslash X}$ property, then we have: $(M_\mathcal{\widehat{A}}\models\phi)\Rightarrow(M_\mathcal{{A}}\models\phi)$.
+\end{proposition}
+\begin{proof}
+To prove the preservation of PCTL properties by $\mathscr{R}_\Upsilon$, we follow an inductive reasoning on PCTL structure after applying each $\Upsilon$-abstraction rule.
+
+
+  Let $\pi\in~M$ with $\pi=(s_{0}\cdots~s_{i}\cdots~s_{j}\cdots~s_{n})$ and $\pi'\in~\widehat{M}$ with  $\pi'=(t_{0}\cdots~t_{k}\cdots t_{l}\cdots~t_{m})$ are two finite paths such that; $\forall s\in\pi:\exists s'\in\pi',~ s\sqsubseteq_{\mathscr{R}_\Upsilon}s'$.
+For PCTL expression satisfaction, we distinguish these cases:
+\begin{itemize}
+  \item Case $\phi_{1}\mathrm{U}\phi_{2}$:\\
+ %For $\phi_{1}=\marked{a}\activityedge\mathcal{N}$ and $\phi_{2}$.
+For $\pi$ and $\pi'$ such that:
+  $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Leftrightarrow \exists r'\leq m:\forall u\leq r'-1,~ L(s_{u}')=\phi_{1}$ and $L(s_{r}')=\phi_{2}$. Similarly,
+  $\pi\models \phi_{1}\mathrm{U}\phi_{2}\Leftrightarrow \exists r\leq n:\forall w\leq r-1,~ L(s_{w})=\phi_{1}$ and $L(s_{r})=\phi_{2}$. By applying the ABS rules, the states that do not satisfy either $\phi_{1}$ and $\phi_{2}$ in $\pi$ are mimicked. \\Consequently, $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Rightarrow\pi\models (\phi_{1}\Rightarrow F \phi_{2}).$
+  \item Case $\mathrm{P}_{\bowtie\,p}[\phi_{1}\mathrm{U}\phi_{2}]$:\\
+ We have $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Rightarrow\pi\models (\phi_{1}\Rightarrow F \phi_{2})$ and the mimicked states with the ABS rules have a Dirac distribution, then: $\pi'\models P_{\bowtie\,p}[\phi_{1}\mathrm{U}\phi_{2}]\Rightarrow\pi\models P_{\bowtie\,p}[\phi_{1}\Rightarrow F \phi_{2}]$.
+\end{itemize}
+By following the same proof style on PCTL structure, we conclude that:
+  \begin{center}
+  $(M_\mathcal{\widehat{A}}\models P_{\bowtie\,p}[\phi])\Rightarrow~(M_\mathcal{{A}}\models P_{\bowtie\,p}[\phi])$.
+  \end{center}
+\end{proof}
+%\subsection{Property Preservation Proof}\label{sub:ProofPres}
+
+
+
+\begin{lemma}[$\Psi$-Soundness]%\label{prop:sound2}
+The abstraction algorithm $\Psi$ is sound, \ie $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Psi}M_\mathcal{{\widehat{A}}}$.
+\end{lemma}
+\begin{proof}
+To prove $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Psi}M_\mathcal{{\widehat{A}}}$, we follow a structural induction reasoning on NuAC terms by comparing each term before and after applying  $\Psi$ rules. Let $s_0,s_1,s_2,s_3,s_4\in S(M_\mathcal{{A}})$ and $t_0,t_1,t_2,t_3\in S(M_\mathcal{{\widehat{A}}})$. We distinguish the following cases where $L(s_0)$ takes different values:
+\begin{itemize}
+  \item \textbf{Case} $D(p,g,\mathcal{N},\mathcal{N'})$:
+Let $L(s_0)=\marked{D(p_{1},g_{1},\mathcal{N}_{1},\mathcal{N}^{'}_{1})}$, by applying PDEC-1 rule, we will have: $s_{0}\rightarrow~\mu_{0}(s_1,s_2)$ such that:
+
+ \begin{itemize}
+   \item  $L(s_1)=D(p_{1},g_{1},\marked{\mathcal{N}_{1}},\mathcal{N}^{'}_{1})$ such as $\mu_{0}(s_1)=p_1$,
+   \item $L(s_2)=D(p_{1},g_{1},\mathcal{N}_{1},\marked{\mathcal{N}^{'}_{1}})$  such as $\mu_{0}(s_2)=1-p_1$.
+ \end{itemize}
+
+By considering $\mathcal{N}_{1}=D(p_{2},g_{2},\mathcal{N}_{2},\mathcal{N}^{'}_{2})$, let $t_0$ be the merged state of $s_0$ with $s_1$ by applying the MIN-2 rule, we will have:\\
+$L(t_0)=D(p_{1}\times p_{2},g_{1}\wedge g_{2},\mathcal{N}_{2},\mathcal{N}^{'}_{2},1-p_{1},\mathcal{N'}_{1})$
+$\Rightarrow\exists t_1, t_2, t_3: t_0\rightarrow \mu'(t_1,t_2,t_3)$. By applying PDEC-1 rule, we have:
+\begin{itemize}
+  \item $L(t_1)=D(p_{1}\times p_{2},g_{1}\wedge g_{2},\marked{\mathcal{N}}_{2},\mathcal{N}^{'}_{2},1-p_{1},\neg g_{1},\mathcal{N'}_{1})\Rightarrow\mu'(t_1)=p_{1}\times\!p_{2}.$
+  \item $L(t_2)=D(p_{1}\times p_{2},g_{1}\wedge g_{2},\mathcal{N}_{2},\marked{\mathcal{N}^{'}_{2}},1-p_{1},\neg g_{1},\mathcal{N'}_{1})\Rightarrow\mu'(t_2)=p_{1}\times\!(1-p_{2}).$
+  \item $L(t_3)=D(p_{1}\times p_{2},g_{1}\wedge g_{2},\mathcal{N}_{2},\mathcal{N}^{'}_{2},1-p_{1},\neg g_{1},\marked{\mathcal{N}^{'}_{1}})\Rightarrow\mu'(t_3)=1-p_{1}.$
+\end{itemize}
+It exists a weight function $\triangle$ for $\mathscr{R}_\Psi=\{(s_0,t_0),(s_3,t_1),(s_4,t_2),(s_2,t_3)\}$ such that:
+\begin{enumerate}
+  \item $\triangle(s_{3},t_{1})=p_1\Rightarrow\triangle(s_{3},t_{1})=\mu'(t_1)$
+  \item $\triangle(s_{4},t_{2})=p_1\times (1-p_2)\Rightarrow\triangle(s_{4},t_{2})=\mu'(t_2)$
+  \item $\triangle(s_{2},t_{3})=1-p_1\Rightarrow\triangle(s_{2},t_{3})=\mu'(t_3)$
+%  \item $\triangle(s_{2}'',s_{1}'')=1-p\Rightarrow\mu_{2}(s_{2}'')=\triangle(s_{2}'',s_{1}'')$
+\end{enumerate}
+We have: $(\triangle(s_{3},t_{1})>0\wedge\triangle(s_{2},t_{3})>0)\wedge\triangle(s_{4},t_{2})>0)\Rightarrow~\mu\sqsubseteq_{\mathscr{R}_\Psi}~\mu'$.
+\end{itemize}
+%\end{proof}
+%%================= Join Node Case
+%\begin{lem}[Join Control Node]\label{Lem:Join}
+%$\forall(s,s')\in~M\times~M':
+%L(s)=\marked{x.Join(N)}\wedge
+%L(s')=\marked{x.Join(N')}
+%\Rightarrow~s\sqsubseteq_{\mathcal{R}}~s'$
+%\end{lem}
+%%\textbf{\emph{Case} $Fork(\mathcal{N},\mathcal{N})$}\\
+%\begin{proof}
+It is clear that, the marked NuAC term $\mathcal{A}$ is the unique initial state of $M_{\mathcal{A}}$ corresponding to the unique initial state in $M_{\widehat{\mathcal{A}}}$. By following the same style of proof, we find: \\ $~~~~~~~~~~~~~~M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Psi}M_\mathcal{{\widehat{A}}}$, which confirms that Proposition \ref{prop:sound1} holds.
+\end{proof}
+\begin{proposition}[$\Psi$-Preservation]%\label{prop:preserv2}
+For two PAs $M_\mathcal{{A}}$ and $M_\mathcal{{\widehat{A}}}$ such that $M_\mathcal{{A}}\sqsubseteq_{\mathscr{R}_\Psi}M_\mathcal{{\widehat{A}}}$. If $\phi$ is a $PCTL$ property, then we have: $(M_\mathcal{{\widehat{A}}}\models\phi)\Rightarrow(M_\mathcal{{A}}\models\phi)$.
+\end{proposition}
+\begin{proof}
+To prove the preservation of PCTL properties by $\mathscr{R}_\Psi$, we follow an inductive reasoning on PCTL structure for each $\Upsilon$-abstraction rule.
+
+
+  Let $\pi\in~M$ with $\pi=(s_{0}\cdots~s_{i}\cdots~s_{j}\cdots~s_{n})$ and $\pi'\in~\widehat{M}$ with  $\pi'=(t_{0}\cdots~t_{k}\cdots t_{l}\cdots~t_{m})$ are two finite paths such that; $\forall s\in\pi:\exists s'\in\pi',~ s\sqsubseteq_{\mathscr{R}_\Psi}s'$.
+For PCTL expression satisfaction, we distinguish these cases:
+\begin{itemize}
+  \item Case $\phi_{1}\mathrm{U}\phi_{2}$:\\
+ %For $\phi_{1}=\marked{a}\activityedge\mathcal{N}$ and $\phi_{2}$.
+For $\pi$ and $\pi'$ such that:
+  $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Leftrightarrow \exists r'\leq m:\forall u\leq r'-1,~ L(s_{u}')=\phi_{1}$ and $L(s_{r}')=\phi_{2}$. Similarly,
+  $\pi\models \phi_{1}\mathrm{U}\phi_{2}\Leftrightarrow \exists r\leq n:\forall w\leq r-1,~ L(s_{w})=\phi_{1}$ and $L(s_{r})=\phi_{2}$.\\
+By applying MIN rules, some states in $\pi$ are merged. \\Consequently, $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Rightarrow\pi\models \phi_{1}\Rightarrow F\phi_{2}.$
+  \item Case $\mathrm{P}_{\bowtie\,p}[\phi_{1}\mathrm{U}\phi_{2}]$:\\
+ We have $\pi'\models \phi_{1}\mathrm{U}\phi_{2}\Rightarrow\pi\models \phi_{1}\Rightarrow F\phi_{2}$ and the merged states with MIN rules accumulate the probabilistic distribution, then: $\pi'\models P_{\bowtie\,p}[\phi_{1}\mathrm{U}\phi_{2}]\Rightarrow\pi\models P_{\bowtie\,p}[\phi_{1}\Rightarrow F\phi_{2}]$.
+\end{itemize}
+By following the same proof style on PCTL structure, we conclude that:
+  \begin{center}
+$(M_\mathcal{{\widehat{A}}}\models\phi)\Rightarrow(M_\mathcal{{A}}\models\phi)$.
+  \end{center}
+
+%To prove the preservation of PCTL properties, we follow an inductive reasoning on the PCTL structure. As an example, we take the case of the ``Until'' operator, \ie $\mathrm{P}_{\bowtie p}[\phi_{1}\mathrm{U}\phi_{2}]$.\\
+%  Let $\pi=(s_{0}\cdots~s_{i}\cdots~s_{j}\cdots~s_{n})$, and $\pi':\pi'=(s_{0}'\cdots~s_{x}'\cdots~s_{y}'\cdots~s_{z}')$ be two paths such that: $\forall s\in\pi:\exists s'\in\pi': s\sqsubseteq_{\mathcal{R}}s'$.
+%
+%From PCTL satisfaction relation we have:\\
+%$\pi'\models P[\phi_{1}\mathrm{U}\phi_{2}]\bowtie p\Leftrightarrow $$\exists m: L(s_{i:i\leq m-1}')=\phi_{1}, L(s_{m}')=\phi_{2}$, and $P(s_{i:i\leq m-1}')\bowtie p$.\\
+%To measure the probability of a sequence of states, we have:\\
+% $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~P(s_{i:i\leq m}')=P(s'_{1})\times\ldots\times\!P(s_{m}')$.
+% \\ To preserve the probability value, we can distinguish between two cases:
+%\begin{enumerate}
+%  \item In $\mathscr{A}bs$ case: we have $\mathscr{A}bs(s_{1}\longrightarrow_{1}s_{2})=(s_{1}\longrightarrow_{1}s'_{2})\Longrightarrow P(s_{1},s_{2})=P(s'_{1},s'_{2})$ such as  $P(s'_{1},s'_{2})=1$.
+%  \item In $\mathscr{M}inim$ case: we have $\mathscr{M}nim(s_{1}\longrightarrow_{p1}s_{2}\longrightarrow_{p2}s_{3})=(s'_{1}\Rightarrow_{p1\times p2}s'_{2})\Longrightarrow P(s_{1},s_{2},s_{3})=P(s'_{1},s'_{2})$ such as $P(s'_{1},s'_{2})=p1\times p2$.
+%\end{enumerate}
+%  From the results of 1) and 2), we conclude that the probability value is preserved. By following the same proof style on PCTL structure, we conclude that:\\
+%  \begin{center}
+%  $(\widehat{M}\models\phi_{PCTL_{\backslash X}})\Rightarrow(M\models\phi_{PCTL_{\backslash X}})$.
+%  \end{center}
+\end{proof}
+ %Also, we have to prove the preservation of labels. In this case, there are two possibilities:
+%\\ Either $ \exists m: L(s_{i:i\leq m-1}')=\phi_{1}$ then $(M^{'}\models\phi_{1}\mathrm{U}\phi_{2})\Rightarrow(M\models\phi_{1}\mathrm{U}\phi_{2})$, or
+%$(M^{'}\models\phi_{1}\mathrm{U}\phi_{2})\Rightarrow(M\models\phi_{1}\mathrm{U}true\mathrm{U}\phi_{2})$.\\
+%In general, the preservation of this type of property infers the validity of its safety property in the concrete model.
+
+%\subsection{Numerical Results for SOS}\label{App:ExpResSOS}
+
+%\begin{table}[h]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&33.31&1339&2727&0.058&5.198&0.9977\\
+%\hline
+%10&9308&18607&0.548&63.501&0.122&2619&5352&10.49&0.9977\\
+%\hline
+%15&13768&27532&0.72&94.264&3899&7977&0.147&15.914&0.9977\\
+%\hline
+%20&18228&36457&1.137&124.904&5179&10602&0.23&21.444&0.9977\\
+%\hline
+%25&22688&45382&1.156&155.256&6459&13227&0.266&25.976&0.9977\\
+%\hline
+%30&27148&54307&1.182&187.068&7739&15852&0.325&32.037&0.9977\\
+%\hline
+%35&31608&63232&1.632&217.651&9019&18477&0.457&36.725&0.9977\\
+%\hline
+%40&36068&72157&1.819&248.451&10299&21102&0.479&41.758&0.9977\\
+%\hline
+%45&40528&81082&2.11&277.156&11579&23727&0.566&47.764&0.9977\\
+%\hline
+%50&44988&90007&2.354&306.741&12859&26352&0.399&49.84&0.9977\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 1.}
+%\label{tab:OnShipSys1}
+%\end{table}
+
+
+ %Figure \ref{fig:Absshop2} illustrates the abstracted SysML activity diagrams related to Property $\#2$.
+% Table \ref{tab:OnShipSys2} shows the verification results of Property 2 for different values of the number of orders ``$n$''.
+% \begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&31.899&1721&3524&0.125&7.634&0.88889\\
+%\hline
+%10&9308&18607&0.548&58.778&3361&6884&0.212&15.733&0.88889\\
+%\hline
+%15&13768&27532&0.72&86.099&5001&10244&0.265&22.009&0.88889\\
+%\hline
+%20&18228&36457&1.137&114.154&6641&13604&0.399&30.433&0.88889\\
+%\hline
+%25&22688&45382&1.156&140.321&8281&16964&0.497&37.304&0.88889\\
+%\hline
+%30&27148&54307&1.182&168.594&9921&20324&0.468&43.051&0.88889\\
+%\hline
+%35&31608&63232&1.632&198.43&11561&23684&0.577&51.312&0.88889\\
+%\hline
+%40&36068&72157&1.819&223.198&13201&27044&0.652&59.066&0.88889\\
+%\hline
+%45&40528&81082&2.11&255.682&14841&30404&0.798&64.549&0.88889\\
+%\hline
+%50&44988&90007&2.354&281.712&16481&33764&0.989&72.041&0.88889\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 2.}
+%\label{tab:OnShipSys2}
+%\end{table}
+
+ %Figure \ref{fig:Absshop2} presents the abstracted SysML activity diagrams related to Property 3 and .
+% Table \ref{tab:OnShipSys2} shows the verification results of Property 3 in function of the number of orders ``$n$''.
+% \begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&38.216&1281&2596&0.118&5.203&0.145\\
+%\hline
+%10&9308&18607&0.548&67.652&2526&5131&0.131&10.584&0.145\\
+%\hline
+%15&13768&27532&0.72&100.515&3771&7666&0.155&15.743&0.145\\
+%\hline
+%20&18228&36457&1.137&132.783&5016&10201&0.246&21.349&0.145\\
+%\hline
+%25&22688&45382&1.156&165.804&6261&12736&0.271&26.432&0.145\\
+%\hline
+%30&27148&54307&1.182&197.927&7506&15271&0.325&32.701&0.145\\
+%\hline
+%35&31608&63232&1.632&232.517&8751&17806&0.417&38.776&0.145\\
+%\hline
+%40&36068&72157&1.819&265.686&9996&20341&0.399&44.35&0.145\\
+%\hline
+%45&40528&81082&2.11&295.997&11241&22876&0.465&49.914&0.145\\
+%\hline
+%50&44988&90007&2.354&327.812&12486&25411&0.493&54.881&0.145\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 3.}
+%\label{tab:OnShipSys3}
+%\end{table}
+% The verification results for Property 4 is given in Table \ref{tab:OnShipSys4}.% for the obtained SysML activity diagrams shown in Figure \ref{tab:OnShipSys4}.
+% \begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&35.07&1259&2572&0.045&5.384&0.14736\\
+%\hline
+%10&9308&18607&0.548&71.468&2459&5042&0.183&11.316&0.14736\\
+%\hline
+%15&13768&27532&0.72&105.157&3659&7512&0.169&16.194&0.14736\\
+%\hline
+%20&18228&36457&1.137&139.413&4859&9982&0.251&22.307&0.14736\\
+%\hline
+%25&22688&45382&1.156&173.537&6059&12452&0.239&27.106&0.14736\\
+%\hline
+%30&27148&54307&1.182&204.394&7259&14922&0.257&32.307&0.14736\\
+%\hline
+%35&31608&63232&1.632&239.347&8459&17392&0.35&38.648&0.14736\\
+%\hline
+%40&36068&72157&1.819&272.494&9659&19862&0.388&43.2&0.14736\\
+%\hline
+%45&40528&81082&2.11&302.447&10859&22332&0.368&49.471&0.14736\\
+%\hline
+%50&44988&90007&2.354&337.014&12059&24802&0.485&55.057&0.14736\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 4.}
+%\label{tab:OnShipSys4}
+%\end{table}
+
+%\subsection{Numerical Results for RTSP}\label{App:ExpResRTSP}
+
+%\begin{table}[h]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&33.31&1339&2727&0.058&5.198&0.9977\\
+%\hline
+%10&9308&18607&0.548&63.501&0.122&2619&5352&10.49&0.9977\\
+%\hline
+%15&13768&27532&0.72&94.264&3899&7977&0.147&15.914&0.9977\\
+%\hline
+%20&18228&36457&1.137&124.904&5179&10602&0.23&21.444&0.9977\\
+%\hline
+%25&22688&45382&1.156&155.256&6459&13227&0.266&25.976&0.9977\\
+%\hline
+%30&27148&54307&1.182&187.068&7739&15852&0.325&32.037&0.9977\\
+%\hline
+%35&31608&63232&1.632&217.651&9019&18477&0.457&36.725&0.9977\\
+%\hline
+%40&36068&72157&1.819&248.451&10299&21102&0.479&41.758&0.9977\\
+%\hline
+%45&40528&81082&2.11&277.156&11579&23727&0.566&47.764&0.9977\\
+%\hline
+%50&44988&90007&2.354&306.741&12859&26352&0.399&49.84&0.9977\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 1.}
+%\label{tab:OnShipSys1}
+%\end{table}
+
+
+ %Figure \ref{fig:Absshop2} illustrates the abstracted SysML activity diagrams related to Property $\#2$.
+% Table \ref{tab:OnShipSys2} shows the verification results of Property 2 for different values of the number of orders ``$n$''.
+%\begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&31.899&1721&3524&0.125&7.634&0.88889\\
+%\hline
+%10&9308&18607&0.548&58.778&3361&6884&0.212&15.733&0.88889\\
+%\hline
+%15&13768&27532&0.72&86.099&5001&10244&0.265&22.009&0.88889\\
+%\hline
+%20&18228&36457&1.137&114.154&6641&13604&0.399&30.433&0.88889\\
+%\hline
+%25&22688&45382&1.156&140.321&8281&16964&0.497&37.304&0.88889\\
+%\hline
+%30&27148&54307&1.182&168.594&9921&20324&0.468&43.051&0.88889\\
+%\hline
+%35&31608&63232&1.632&198.43&11561&23684&0.577&51.312&0.88889\\
+%\hline
+%40&36068&72157&1.819&223.198&13201&27044&0.652&59.066&0.88889\\
+%\hline
+%45&40528&81082&2.11&255.682&14841&30404&0.798&64.549&0.88889\\
+%\hline
+%50&44988&90007&2.354&281.712&16481&33764&0.989&72.041&0.88889\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 2.}
+%\label{tab:RTSP2}
+%\end{table}
+
+ %Figure \ref{fig:Absshop2} presents the abstracted SysML activity diagrams related to Property 3 and .
+% Table \ref{tab:OnShipSys2} shows the verification results of Property 3 in function of the number of orders ``$n$''.
+% \begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&38.216&1281&2596&0.118&5.203&0.145\\
+%\hline
+%10&9308&18607&0.548&67.652&2526&5131&0.131&10.584&0.145\\
+%\hline
+%15&13768&27532&0.72&100.515&3771&7666&0.155&15.743&0.145\\
+%\hline
+%20&18228&36457&1.137&132.783&5016&10201&0.246&21.349&0.145\\
+%\hline
+%25&22688&45382&1.156&165.804&6261&12736&0.271&26.432&0.145\\
+%\hline
+%30&27148&54307&1.182&197.927&7506&15271&0.325&32.701&0.145\\
+%\hline
+%35&31608&63232&1.632&232.517&8751&17806&0.417&38.776&0.145\\
+%\hline
+%40&36068&72157&1.819&265.686&9996&20341&0.399&44.35&0.145\\
+%\hline
+%45&40528&81082&2.11&295.997&11241&22876&0.465&49.914&0.145\\
+%\hline
+%50&44988&90007&2.354&327.812&12486&25411&0.493&54.881&0.145\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 3.}
+%\label{tab:RTSP3}
+%\end{table}
+% The verification results for Property 4 is given in Table \ref{tab:OnShipSys4}.% for the obtained SysML activity diagrams shown in Figure \ref{tab:OnShipSys4}.
+% \begin{table}[!ht]
+%\centering
+%\footnotesize{\begin{tabular}{|c||c|c|c|c||c|c|c|c||c||}
+%\hline
+%&\multicolumn{4}{|c||}{Concrete Model}&\multicolumn{4}{|c||}{Abstract Model}&Res\\
+%\hline
+%$n$&$\#s$&$\#t$&Tc&Tv&$\#s$&$\#t$&Tc&Tv&\\
+%\hline
+%\hline
+%5&4848&9682&0.404&35.07&1259&2572&0.045&5.384&0.14736\\
+%\hline
+%10&9308&18607&0.548&71.468&2459&5042&0.183&11.316&0.14736\\
+%\hline
+%15&13768&27532&0.72&105.157&3659&7512&0.169&16.194&0.14736\\
+%\hline
+%20&18228&36457&1.137&139.413&4859&9982&0.251&22.307&0.14736\\
+%\hline
+%25&22688&45382&1.156&173.537&6059&12452&0.239&27.106&0.14736\\
+%\hline
+%30&27148&54307&1.182&204.394&7259&14922&0.257&32.307&0.14736\\
+%\hline
+%35&31608&63232&1.632&239.347&8459&17392&0.35&38.648&0.14736\\
+%\hline
+%40&36068&72157&1.819&272.494&9659&19862&0.388&43.2&0.14736\\
+%\hline
+%45&40528&81082&2.11&302.447&10859&22332&0.368&49.471&0.14736\\
+%\hline
+%50&44988&90007&2.354&337.014&12059&24802&0.485&55.057&0.14736\\
+%\hline
+%\hline
+%\end{tabular}}
+%\caption{Verification Results for Property 4.}
+%\label{tab:RTSP4}
+%\end{table}
+%\subsubsection{Result Analysis}\label{castud:Shopping}
+%  Figure \ref{fig:ratesall} illustrates both abstraction rates in term of model size and computation time for the verification of PCTL properties on online shopping system. For the verification of all properties, the evolution of the abstraction rate in terms of model size and computation time is important compared to the growing of the model size. Furthermore, Table \ref{tab:OnShipSys1}, Table \ref{tab:OnShipSys2}, Table \ref{tab:OnShipSys3} and Table \ref{tab:OnShipSys4} show that our abstraction algorithm actually preserves the verification results.
+
