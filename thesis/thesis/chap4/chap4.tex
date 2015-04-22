@@ -1,1062 +1,606 @@
 \setcounter{chapter}{3}
 
-\chapter{The Interaction between Probabilistic Commitments and Knowledge}\label{cha:PCTLKC}
+\chapter{Training Chapter}\label{cha:PCTLKC}
 
 
-In this chapter\footnote{The results of this chapter have been published in the journal of Expert Systems with Applications \cite{Sultan2014b}.}, we
-put forward a method for capturing and verifying the interactions between the concepts of knowledge and social commitments in probabilistic MASs. The proposed method allows us to figure out the impact of knowledge and social commitments on each other in the presence of uncertainty. To express the two concepts simultaneously in systems exhibiting probabilistic behavior, we define a new modal logic called the probabilistic logic of knowledge and commitments (PCTL$^{kc}$) which combines two existing probabilistic logics namely, the probabilistic logic of knowledge (PCTLK) \cite{Wan2012,Wan2013} and the probabilistic logic of commitments (PCTLC) that has been introduced in Chapter \ref{cha:PCTLC}. In the current chapter, MASs are modeled using a new version of interpreted systems that captures the probabilistic behavior and accounts for the communication between interacting components. Based on the proposed logic, we introduce a new model checking procedure to check the compliance of target systems against some desirable properties -- with respect to knowledge and commitments-- written in PCTL$^{kc}$. %and report some verification results.
+\section{Introduction}
 
-\section{Introduction} \label{Introduction}
+Over the past years, online services have become an important part of many scalable business applications. The increasing reliance on online service providers has significantly influenced the way web services are engineered. Therefore, given the dynamic and unpredictable nature of the Internet, delivering high quality services is still a critical and challenging issue. One practical solution towards delivering high quality services is utilizing intelligent decision making agents. These agents aim at maximizing their gain by exploring the best ways to provide services that satisfy end users\cite{Zeng:2003:QDW:775152.775211, 10.1109/ARES.2008.7, Demirkan2013412, journals/tsc/ZhengZYB13, Josang:2007:STR:1225318.1225716}. However, agent-based web services are functionally limited in the sense that they cannot handle a large number of requests at the same time without compromising the quality of service provided. Recent developments have attempted to shift web services from passive models, consisting of individual components, to models made up of autonomous and group-based components that share common goals. In group-based models, interaction, composition, and cooperation are the key challenges \cite{ICWS2011-1, SCC2011-1, journals/mags/BaldoniBM10, journals/jcss/CasadoYT13} that directly impact the group's overall performance in achieving common goals. To that end, we see the emergence of web service \emph{communities}, which consist of services with similar functionalities but distinct nonfunctional properties \cite{Zeng:2003:QDW:775152.775211, Paik:2005:TSS:2229263.2230038, Medjahed05adynamic, 10.1109/ARES.2008.7}. A \emph{community} of web services runs continuous performance assessment functions that regulate web services' interactions and manage their composition and cooperation.
 
-The rapid increase of using software agents and MASs nowadays has led to the increasing demand of finding principled techniques for modeling and verifying such systems. Generally, to build effective open MASs, several aspects which have direct influence on the efficiency and effectiveness of
-the entire system must be taken into account \cite{Konur2013}.
-Among other aspects, knowledge and social commitments are of a great
-interest in MASs. Social commitments have been a vital approach in agent societies to capture the communication between interacting agents for more than a decade. On the other hand, knowledge has been addressed in distributed systems since 1960s \cite{Wan2013}. Recently, Al-Saqqar et al. \cite{Al-Saqqar2014a} have demonstrated that these two concepts are closely interacting with each other in various real life scenarios.
+The advantages of community of web services are that the community facilitates the discovery of web services and provides better quality of service compared to passive models with individual components. Communities act as abstract web services, communicating with external entities via the same standard protocols that a normal web service employs. But, they regulate the service process via sophisticated internal communication protocols, thereby providing services based on the combined work of a number of web services. The downside to communities is the complexity of management involved in finding and inviting individual web services and managing the overall quality of the combined work of several web services.
+% because although they have similar functionality, they have different attitudes.
+When interacting with communities of web services, users send their requests to the coordinators of the community, which play the role of community representative or access point. The community coordinator is responsible of receiving tasks and delivering services. Moreover, as community representative, it verifies the credentials of new web services before accepting them into the community and kicks web services that could harm the value of the community.
 
-Despite the large amount of work that has been done to model and represent various aspect of probabilistic MAS, none of the existing approaches addresses the concepts of knowledge and social commitments simultaneously. In fact, the problem of reasoning about and verifying the interaction between knowledge and social commitments in the presence of uncertainty has not been investigated yet. Interpreted systems formalism \cite{Fagin1995}
-and Partially Observable Markov Decision Processes POMDPs (a
-variant of MDP) are the most prominent traditions in the area of
-modeling and representing stochastic MASs. These models are used
-to traditionally interpret some logics defined to specify and
-reason about some given properties of MASs. On the one hand,
-interpreted systems formalism provides a natural and yet efficient
-way for modeling MASs at different levels of abstractions (i.e.,
-local and global). It has been extended in \cite{Halpern2003} and
-further in \cite{Wan2012,Wan2013} to capture the probabilistic
-behavior of epistemic MASs. Recently, it has been extended in
-\cite{Bentahar2012} and \cite{El-Menshawy2013a} to account for the
-communication that occur between interacting parties in
-conventional MASs. The distinct point of the extended versions of
-this formalism is that knowledge and commitments can be captured
-through the use of what is called accessibility relations. The
-accessibility relation for knowledge denotes the existence of
-equivalent states for a given agent. That is, states where the
-agent cannot distinguish between being in which one of them. For
-commitments, accessibility relations capture the existence of
-communication channel between the communicating agents and the
-transferring of information from the sender to the receiver. On
-the other hand, POMDPs have been widely used to model the
-uncertainty of knowledge and behavior for stochastic agents
-\cite{Huang2011}. An important point of POMDPs is that there is no distinction drawn between actions taken to change the state of the world and actions taken to gain information \cite{Kaelbling1996}. This is important
-because, in general, every action has both types of effect.
-However, solving these models comes at a very high computational
-cost \cite{Melo2011}. In this chapter, we aim to examine the use of interpreted systems formalism to capture not only knowledge and commitments
-independently, but also the interactions (combinations) of the two
-aspects in stochastic systems. We also intent to verify these
-interactions by means of model checking.
-
-In terms of computational logics, most current proposals address each of knowledge and commitments in MASs independently (see for example
-\cite{Baldoni2010,Bentahar2012,Delgado2009,El-Menshawy2013a,Giordano2007,Halpern2003,Huang2011,Lomuscio2007,Pham2007,Wan2013}).
-However, in so many real world settings, these two concepts need to
-interact with each other in order to ensure rich modeling at local
-(agent) and global (MAS) levels. Nevertheless, it is a challenge to guarantee the correctness of the system's behavior due to the complex nature of the autonomous and heterogenous agents, especially when they have probabilistic characteristics \cite{Song2012}.
-
-Applying model checking techniques that were originally introduced
-for standard logics, such as LTL \cite{Pnueli1977}, CTL
-\cite{Emerson1990}, or PCTL \cite{Hansson1994}, to the
-verification of the interaction between knowledge and social
-commitments in presence of uncertainty is not straightforward as
-non of these logics can capture and express the relationship
-between knowledge and social commitments in probabilistic
-settings. In this chapter, we introduce a model checking technique to address this open issue.
-
-The motivation for the incorporation of knowledge and commitments
-in a probabilistic logic is provided by the fact that these two
-concepts not only have an impact on each other, but also their
-interaction is crucial in various real scenarios. For instance, in
-the field of mobile applications, which are complex in nature,
-there exist situations when accounting for the interaction between
-knowledge and commitments improves the output of such
-applications. Let us consider a simple scenario where receiver and
-sender agents share an agreement, in which the receiver agrees to
-pay the sender in return of the delivery of a service he has
-requested. This can be represented as a commitment, in which the
-receiver will be committed to the sender to pay once the service
-is made available for him. Now, if everything goes well and the
-receiver successfully makes his payment, the sender has to know
-that the payment is made so that he does not ask the receiver to
-pay again. Moreover, the receiver (who made the payment) has to
-know that he has fulfilled his commitment to avoid making multiple
-payments, and so on. However, those interactions are stochastic.
-For instance, the commitment to pay is not going to be surely
-satisfied.
-
-
-To effectively specify such properties in the face of uncertainty,
-the need for a logical tool that can express probabilistic
-knowledge and commitments simultaneously is indeed confirmed.
-Rather than building a logic from scratch to address the
-underlying aspects, we combine logics dealing with these two
-individual units in a single logic. We advocate the approach of
-combining existing logics because it ensures the preservation of
-important properties of the logics being combined
-\cite{Konur2013}. In particular, we use the independent join (or
-fusion) technique \cite{Franceschet2004}. Given two logics $\mathbb{A}$ and $\mathbb{B}$, we combine them in a new logic $\mathds{A} \oplus \mathds{B}$ which extends the expressive power of each one. In our case, suppose $\mathds{A}$ addresses probabilistic epistemic properties of
-agents and $\mathds{B}$ addresses the social aspects (i.e.,
-probabilistic commitments and their fulfilments) between
-interacting agents. Their combination should be able to not only
-express epistemic and social properties, but also express the
-interaction between the two concepts (i.e., express them in a
-single formula). Once the new combined logic is defined, we use
-the PRISM tool \cite{Kwiatkowska2002} as the formal verification tool to verify it after its reduction to PCTL, the probabilistic branching-time logic \cite{Hansson1994}.
-
-The contributions of this chapter are threefold. First, we present a new probabilistic version of interpreted systems to model MASs using the dimensions of knowledge and social commitments. The developed version merges two extended versions of the original formalism of interpreted systems introduced by Fagin and his colleagues \cite{Fagin1995}. Those versions are introduced respectively by 1) Halpern \cite{Halpern2003} and extended later
-by Wan et al. \cite{Wan2012,Wan2013} to capture the stochastic
-behavior of the system; and 2) by Bentahar et al.
-\cite{Bentahar2012} and El-Menshawy et al. \cite{El-Menshawy2013a}
-to model the communication between interacting parties. Second, we
-introduce a new logic called Probabilistic Logic of Knowledge and
-Commitment (PCTL$^{kc}$) to be able to capture and reason about
-the interaction between knowledge and social commitments. The
-logic we define combines the Probabilistic Computation Tree Logic
-of Knowledge PCTLK \cite{Wan2012,Wan2013} and the Probabilistic
-Computation Tree Logic of Commitments PCTLC \cite{Sultan2013}.
-PCTLK and PCTLC are, in turn, extensions of the Probabilistic
-Computation Tree Logic PCTL \cite{Hansson1994} with an epistemic
-modality for the knowledge and a social modality for the
-commitments and their fulfilments respectively. Third, we
-introduce a new model checking technique to verify the proposed
-logic (PCTL$^{kc}$). The introduced technique is a reduction-based
-in which the problem of model checking PCTL$^{kc}$ is transformed
-into the problem of model checking an existing logic called PCTL.
-To achieve this reduction, new rules have been laid down to
-transform the models of PCTL$^{kc}$ to MDPs to be suitable for
-the PRISM model checker. We also devise some other rules to reduce
-each PCTL$^{kc}$ formula into PCTL formula. By so doing, we can
-build on the existing PRISM model checker by automating our
-translation to verify some given properties written originally in
-our new logic PCTL$^{kc}$. Figure \ref{approach-cha4} gives an overview of the proposed approach.
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics [width=14cm, height=5cm]{chap4/img/approach-cha4.eps}
-  \caption{An approach for the interaction between knowledge and commitments}
-\label{approach-cha4}
-\end{center}
-\end{figure}
-
-
-The work presented in this chapter represents a new trend in the direction of capturing interactions between various aspects in MASs. It can be
-seen as a first attempt to combine the notions of probability,
-knowledge, and commitments in a single tool giving a new
-expressive power ---in terms of expressing the individual aspects
-as well as their combinations in the presence of uncertainty---,
-and is therefore subject to new intuitions.
-
-
-
-\section{The Probabilistic Logic of Knowledge and Commitment (PCTL$^{kc})$} \label{sec:PCTLKC-logic}
-
-In this section, we introduce our new probabilistic logic of knowledge and commitment (PCTL$^{kc})$. The modal logic we introduce can express knowledge and social commitments simultaneously in the presence of uncertainty. It combines two existing probabilistic logics namely, the probabilistic logic of knowledge PCTLK \cite{Wan2012,Wan2013} and the probabilistic logic of commitments PCTLC \cite{Sultan2014a,Sultan2013}. We first present the syntax of our new logic, and then we define its semantics. We also define a new version of the probabilistic interpreted systems formalism over which the semantics of PCTL$^{kc}$ can be interpreted.
-
-
-As we said earlier, the new logic PCTL$^{kc}$ contains a knowledge modality that doesn't exist in the logic defined previously in Chapter \ref{cha:PCTLC}. Therefore, we need first to define the model of PCTL$^{kc}$. In fact, the PCTL$^{kc}$ model is generated from an extended version of probabilistic interpreted systems \cite{Halpern2003,Wan2013} enriched by the social accessibility relations introduced in \cite{Bentahar2012,El-Menshawy2013a} as discussed in Chapter \ref{cha:background}.
-
-
-\begin{definition}[Models]\label{def:models-pctlkc}
-
-Given a set of atomic propositions $\Phi_p = (p,q,r, \ldots)$ and a set of agents $\texttt{Agt}=\{1,\ldots,n\}$,  the model $\mathfrak{M_2}=(S,\textbf{P},I,\sim_1, \ldots
-,\sim_n,\{\sim_{i \rightarrow j}\}_{{(i,j)}\in \texttt{Agt}^2},\nu)$ is a tuple where:
-%
-\begin{itemize}
-\item  $S \subseteq L_1 \times \ldots \times L_n$ is a countable
-set of all reachable global states for the system. A state $s$ is
-reachable iff there exists a sequence of transitions from an
-initial state to $s$ in which the probability of each transition
-is greater than $0$.
-
-\item  $I \in S$ is an initial global state for the system.
-
-
-\item  $\textbf{P}:S\times S\rightarrow [0,1]$ is a total
-transition probability function defined as $\textbf{P}(s,
-s')=\tau(s,a^{s \rightarrow s'}, s')$ iff there exists a joint
-action $a=(a_1,\ldots,a_n) \in ACT$ such that\\
- $\sum_{i \in \texttt{Agt}} \tau_i(l_i(s),a^{l_i(s)\rightarrow l_i(s')},l_i(s')) > 0$ and $\sum_{s' \in S} \textbf{P}(s,s') =1$
-for all $s \in S$.
-
-\item  $\sim_i \subseteq S \times S$ is the epistemic
-  accessibility relation for the agent $i$, such that for two global states $s$ and $s'$, we have: $s \sim_i s'$ iff
-  $l_i(s)=l_i(s')$.
-
-\item For each pair $(i,j) \in \texttt{Agt}^2$,
-$\sim_{i\rightarrow j} \subseteq S \times S$ is a serial social
-accessibility relation. $s \sim_{i\rightarrow j} s'$ is defined by
-the following conditions:
-      %
-  \begin{enumerate}
-       \item $l_i(s)=l_i(s')$.
-       \item $Var_i \cap Var_j \neq \emptyset$ such that $\forall x \in Var_i \cap Var_j$ we have $l^{x}_i(s)\!=\!l^{x}_j(s')$.
-       \item $\forall y \in Var_j\!-\! Var_i$ we have $l^{y}_j(s)\!=\!l^{y}_j(s')$.
-  \end{enumerate}
-       %
-  \item  $\nu : S\rightarrow 2^{\Phi_p}$ is a function valuating states with atomic propositions.
-\end{itemize}
-\end{definition}
-%
-
-
-
-The difference between our new model $\mathfrak{M_2}$ and the model $\mathfrak{M_1}$ that has been proposed in Chapter \ref{cha:PCTLC} is that $\mathfrak{M_2}$ has the ability to model agents' knowledge in the system --in addition to modeling the commitment-based communication among interacting parties-- thanks to the epistemic accessibility relations that are integrated in the model. Technically, $\mathfrak{M_2}$ in an extended version of $\mathfrak{M_1}$ with epistemic accessibility relations. Computation paths of $\mathfrak{M_2}$ and probability space are defined as in Chapter \ref{cha:PCTLC}. %(Section \ref{sec: semantics of PCTLC}).
-
-
-
-\subsection{Syntax of PCTL$^{kc}$} \label{sec:syntax-PCTLKC}
-The logic we introduce in this section can be seen as an extension to the logic presented in Chapter \ref{cha:PCTLC} by adding an epistemic operator to PCTLC \cite{Sultan2014a,Sultan2013}. The resulting logic, i.e., PCTL$^{kc}$, will have the power to not only express the individual aspects of knowledge and social commitments in independent formulae, but also express combinations of the two concepts in the same formulae.
-
-\begin{definition}[Syntax]\label{def:PCTLKC syntax}
-Given a set of atomic propositions $\Phi_p$. Let $\verb"Agt"=\{1, \dots, n\}$ be a set of agents. The PCTL$^{kc}$ formulae are defined by the following BNF grammar:
-%
-\begin{align*}
-    \varphi & ::= p~|~\neg \varphi~|~\varphi \vee \varphi~|~\mathcal{K}~|~\mathcal{C}~|~ \mathbb{P}_{\bowtie k} (\psi)~|~\mathbb{P}_{\bowtie k}(\mathcal{K})|~\mathbb{P}_{\bowtie k}(\mathcal{C})\\
-    \psi & ::=\bigcirc \varphi ~ | ~ \varphi ~U~ \varphi~|~ \varphi~ U^{\leq m} ~ \varphi \\
-    \mathcal{K} & ::= K_i \varphi \\
-    \mathcal{C} & ::= C_{i\rightarrow j}\varphi ~| ~ Fu(C_{i\rightarrow j}\varphi)
-\end{align*}
-%
-where $p\in\Phi_p$ is an atomic proposition and $\mathbb{P}_{\bowtie
-k}$ is a probabilistic operator where $\bowtie \in\{<,\leq,>,\ge\}$ and $k\in [0,1]$ is a probability bound or threshold. $m \in\mathbb{N}^+ $ is a positive integer number reflecting the maximum number of transitions needed to reach a certain state. $\varphi$ and $\psi$ are state and path formulae interpreted over the states and paths of $\mathfrak{M_2}$ respectively. The Boolean connectives $\neg$ and $\vee$ are defined in the usual
-way. Formulae $\mathcal{K}$ are state formulae called knowledge (epistemic) formulae and used to express the epistemic properties through the K$_i$ operator which stands for agent i knows. Formulae $\mathcal{C}$, called social formulae, are special state formulae in PCTL$^{kc}$ that can express social properties using the modal connectives $C_{i\rightarrow j}$ and $Fu(C_{i\rightarrow j})$ standing for ``commitment'' and ``fulfillment of commitment'' respectively. $\bigcirc, U$ and $U^{\leq m}$ stand for ``next time'', ``until'' and ``bounded until'' path modal connectives
-respectively.
-
-\end{definition}
-
-
-
-\subsection{Semantics of PCTL$^{kc}$} \label{def:semantics-PCTLKC}
-
-Given a model $\mathfrak{M_2}=(S,\textbf{P},I,\sim_1, \ldots
-,\sim_n,\{\sim_{i \rightarrow j}\}_{{(i,j)}\in \texttt{Agt}^2},\nu)$, then $(\mathfrak{M_2},s) \models \varphi$ states that ``a state $s$ in the model $\mathfrak{M_2}$ satisfies a state formula $\varphi$, $(\mathfrak{M_2},\pi) \models \psi$ means that ``a path $\pi$ in the model $\mathfrak{M_2}$ satisfies a path formula $\psi$, and
-$(\mathfrak{M_2},s) \models \mathbb{P}_{\bowtie k}(\psi)$ means that
-``a state $s$ in $\mathfrak{M_2}$ satisfies $\mathbb{P}_{\bowtie k}(\psi)$ if the probability of taking a path from $s$ that satisfies $\psi$ is in the interval specified by $\bowtie k$''. When the model $\mathfrak{M_2}$ is clear from the context, we simply write the satisfaction relation $\models$ as follows: $s \models \varphi$ and $\pi \models \psi$. Furthermore,
-for a given pair $(i,j)\in \texttt{Agt}^2$ of agents, we denote
-the number of socially accessible states $s'$ from a given state $s$ such
-that $s\sim_{i\rightarrow j}s'$ by $|s\sim_{i\rightarrow j}s'|$.
-We also denote the number of epistemically accessible states $s'$ from a given state $s$ such that $s\sim_i s'$ by $|s\sim_i s'|$.
-
-Finally, we define $|s\models \varphi|$ as follows:
-
-\begin{center}
-$|s\models \varphi|=
-\begin{cases}
-1,~~~\textrm{if}~ s\models\varphi\\
-0,~~~\textrm{otherwise.}
-\end{cases}$
-\end{center}
-
-\begin{definition}[\textbf{Satisfaction}]\label{def:semantics-pctlkc} Satisfaction of a PCTL$^{kc}$ formula in the model $\mathfrak{M_2}$ is recursively defined as follows:
-
-%\noindent In what follows, we define the semantics of PCTL$^{kc}$ formulae.
-
-\noindent $s\models p~~~~~~~~~~~~~~\emph{iff}~~p\in \nu(s);\\
-s\models \varphi_1 \vee \varphi_2 ~~~~~~\emph{iff}~~s\models \varphi_1~\textrm{or}~s \models \varphi_2; \\
-s\models \neg \varphi~~~~~~~~~~~\emph{iff}~~s \nvDash \varphi;\\
-s\models K_i \varphi  ~~~~~~~~~~ \emph{iff}~~ \forall s'\in S ~ \textrm{s.t.} ~~ s \sim_i s'  \ \textrm{we~have}~ s'\models \varphi; \\
-s\models C_{i\rightarrow j}\varphi~~~~~~~~\emph{iff} ~~\forall s' \in S~\textrm{s.t.}~s \sim_{i \rightarrow j}s', \textrm{we~have}~s' \models \varphi;\\
-s\models Fu(C_{i\rightarrow j}\varphi) ~~\emph{iff} ~~\exists s' \in S~\textrm{s.t.}~s' \sim_{i \rightarrow j}s ~ \textrm{and}~s' \models C_{i\rightarrow j}\varphi;$
-
-
-\noindent $\pi \models \bigcirc \varphi~~~~~~~~~~~\emph{iff}~~\pi(1) \models \varphi; \\
-\pi \models \varphi_1~U^{\leq m}~\varphi_2~~\emph{iff}~~\exists k \leq m~~\textrm{s.t.}~~ \pi(k) \models \varphi_2 ~\textrm{and}~\forall i < k, \pi(i) \models \varphi_1;\\
-\pi \models \varphi_1 ~U~\varphi_2~~~~~~\emph{iff}~~\exists m \geq 0~~\textrm{s.t.}~~\pi \models \varphi_1~U^{\leq m}~\varphi_2;$
-
-
-
-\noindent $s \models \mathbb{P}_{\bowtie k} (\psi)~~~~~~~~\emph{iff}~~Prob_s(\psi)\bowtie k$ where: $Prob_s(\psi)=Prob_s\{\pi \in \Pi(s)~|~\pi\models
-\psi\};$
-
-%\begin{itemize}
-\noindent For a probabilistic operator working on an epistemic formula, where the set of all accessible states from $s$ is our sample space and the set of events $\mathrm{F}$ is the set of states accessible from $s$ and satisfy the formula:
-
-\begin{tabbing}
-$s\models \mathbb{P}_{\bowtie k}(K_i\varphi) $
-    \ \ \ \ \ \= \emph{iff} \ $Prob(s \models K_i\varphi)$ $\bowtie k$ where: $Prob(s\models K_i\varphi)=\frac{\sum_{s \sim_i s'}|s'\models \varphi| }{|s \sim_i s'|};$
-
-\end{tabbing}
-
-
-\noindent For a probabilistic operator working over a commitment formula,
-where the set of all accessible states from $s$ is our sample space and the set of events $\mathrm{F}$ is the set of states satisfying the formula: %and assuming that the probabilities of accessible states from state $s$ are equally distributed:
-
-
-\noindent  $s\models \mathbb{P}_{\bowtie k}(C_{i\rightarrow j}\varphi)$
-   ~\emph{iff}  $Prob(s \models C_{i\rightarrow j}\varphi) \bowtie \!k$ where: $Prob(s\models C_{i\rightarrow j}\varphi)=\frac{\sum_{s \sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s \sim_{i \rightarrow j}s'| };$
-
-
-\noindent For a probabilistic operator working over a fulfilment formula,
- assuming that accessible states are also reachable:
-
-\noindent $s\models \mathbb{P}_{\bowtie k}(Fu(C_{i\rightarrow j}\varphi))$
-    ~~ \emph{iff}~ $Prob(s \models Fu(C_{i\rightarrow j}\varphi)) \bowtie k;$ where:
-%\vspace{-0.4cm}
-\begin{align*}
-& Prob(s\models Fu(C_{i\rightarrow j}\varphi))\ = Prob_s\{\pi \in \Pi(s') ~|~ s' \sim_{i \rightarrow j}s ~~\textrm{and}~~ \pi = s' \ldots s ~~\textrm{and}~~ s' \models C_{i\rightarrow j}\varphi\}
-\end{align*}
-
-
-%\end{itemize}
-\end{definition}
-
-The probabilistic knowledge is computed in such a way to reflect the indistinguishability property of the epistemic accessibility relations. Therefore, the probability is computed based on the number of accessible states satisfying the content of the knowledge over the number of equivalent states, as all the states are equally accessible. Probabilistic commitment is also computed based on the number of accessible states that satisfy the
-content over the whole number of accessible states, which demonstrates the uncertainty of the agent over the accessible states, so that over the commitment. Probabilistic fulfillment, however, is computed using the probabilistic transitions of the path linking the commitment state to the fulfillment state. The following proposition is straightforward from the semantics:
-
-\begin{proposition} \label{proposition-PCTLKC}~\\
-If $(\mathfrak{M_2},s)\models \mathbb{P}_{\leq0} (Fu(C_{i \rightarrow
-j}\varphi))$ and $(\mathfrak{M_2},s)\models Fu(C_{i \rightarrow
-j}\varphi)$, then $s$ is not reachable from the commitment state.
-\end{proposition}
-
-
-\begin{theorem} \label{thm: Ki equivalence} \ \ \ \ {Epistemic Equivalences}
-
-    \begin{enumerate}
-        \item $(\mathfrak{M_2},s)\models \mathbb{P}_{\geq1}(K_i\phi)$  ~~~~~iff~~  $(\mathfrak{M_2},s) \models K_i\phi$
-        \item $(\mathfrak{M_2},s)\models \mathbb{P}_{\leq 0}(K_i\phi)$   ~~~~~iff~~  $(\mathfrak{M_2},s)\models K_i \neg \phi$
-        \item $(\mathfrak{M_2},s)\models \mathbb{P}_{]0,1[}(K_i~\phi)$  ~~~iff~~   $(\mathfrak{M_2},s)\models \neg K_i\neg\phi \wedge \neg K_i\phi$
-
-    \end{enumerate}
-
-\end{theorem}
-
-
-\begin{proof} \hspace{-0.9cm}
-
-\begin{itemize}
-\item First equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{\geq1} (K_i\varphi)$.
-    By the semantics of PCTL$^{kc}$, it follows that $Prob(s\models K_i\varphi)\geq1$.
-    Therefore, $\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s\sim_i s'|}\geq1$. This means $\forall s'\in S$ such that $s\sim_i s'$, we have
-    $s'\models \varphi$ (as $\sim_i$ is reflexive, so $s'$ could be $s$ itself). Thus, $s \models K_i \varphi$. \\
-    $``\Leftarrow"$. Assume $s\models K_i\varphi$. By the PCTL$^{kc}$ semantics, it follows that for all $s'\in S$ such that $s\sim_i s'$,
-    we have $s'\models \varphi$ (i.e. all accessible states from $s$ satisfy $\varphi$).
-    Consequently, $\sum_{s\sim_i s'}|s'\models \varphi| = |s\sim_i s'|$.
-    Therefore, $\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s\sim_i s'|}\geq1$ and hence $s\models \mathbb{P}_{\geq1} (K_i\varphi)$.
-
-\item Second equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{\leq0} (K_i\varphi)$.
-    By the PCTL$^{kc}$ semantics, it follows that $Prob(s\models K_i\varphi)\leq0$.
-    Thus, $\frac{\sum_{s\sim_i s'}|s'\models \varphi|}{|s\sim_i s'|}\leq0$. Since $\sim_i$ is reflexive, so the set of the accessible states from $s$ is not empty, therefore $\sum_{s\sim_i s'}|s'\models \varphi|$ must be 0 (i.e. $\varphi$ is not true in any of the accessible states). Consequently, for all $s'\in S$ such that $s\sim_i s'$, we have $s'\nvDash \varphi$, which means $s'\vDash \neg \varphi$. Hence, $s\models K_i \neg \varphi$.~\\
-%
-    $``\Leftarrow"$. Assume $s\models K_i\neg \varphi$. By the PCTL$^{kc}$ semantics, it follows that $\forall s'\in S$ such that
-    $s\sim_i s'$, we have $s'\nvDash \varphi$. Since the set of the accessible states from $s$ is not empty, then $\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s\sim_i s'|}\leq0$.
-    Hence, $s\models \mathbb{P}_{\leq0} (K_i\varphi)$.
-
-\item Third equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{]0,1[} K_i\varphi)$. By the PCTL$^{kc}$ semantics, it follows that $0< Prob(s\models K_i\varphi)<1$. Thus, $0<\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s \sim_i s'|}<1$.
-    This means that it would never be the case that $\sum_{s\sim_i s'}|s'\models \varphi| = |s\sim_i s'|$ nor $\sum_{s\sim_i s'}|s'\models \varphi| = 0$. Consequently, there exist some $s', s'' \in S$ such that $s\sim_i s'$ and $s\sim_i s''$ and $s'\models \varphi$ and $s''\models \neg \varphi$. Hence, it is impossible to have $\overline{s}\models \neg\varphi$ or $\overline{s}\models \varphi$ for all $\overline{s}\in S$ such that $s\sim_i \overline{s}$. Consequently, $s\nvDash  K_i\neg\varphi$ and $s\nvDash K_i\varphi$. Hence $s\models \neg K_i\neg\varphi$ and $s\models \neg K_i\varphi$. ~\\
-    %
-    $``\Leftarrow"$. Assume $s\models \neg K_i\varphi$. By the PCTL$^{kc}$ semantics, it follows that there exists $s'\in S$ such that $s\sim_i s'$ and $s'\models \neg \varphi$. Consequently, it would never be the case that for all $s'\in S$ such that $s\sim_i s'$ we have $s'\models \varphi$. Therefore, $1>\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s\sim_i s'|}$. Now assume $s\models \neg K_i\neg \varphi$. Therefore, $\sum_{s\sim_i s'}|s'\models \varphi| = 0$ would never be the case as some accessible states should satisfy $\varphi$. Consequently, $\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s\sim_i s'|}>0$. Thus, $0<\frac{\sum_{s\sim_i s'}|s'\models \varphi| }{|s \sim_i s'|}<1$. Hence, $s\models \mathbb{P}_{]0,1[} (K_i\varphi)$.
-\end{itemize}
-\end{proof}
-
-\vspace{0.9cm}
-\begin{theorem}\label{Commitment-Equivelances}{Commitment Equivalences} ~
-
+\textbf{Challenge and Problem Statement.} In recent work, communities of web services have been proposed in order to facilitate discovery of web services, improve the Quality of Service (QoS), and help individual services find better market share and opportunities. However, there is a twofold challenge that yet to be addressed. The first part is community development, which involves finding the right web services for the community, satisfying the objectives of all the web services and community coordinators involved within the community; and the second part is from the individual web service's side because each web service aims to join the community that would guarantee the best outcome. The advocated solutions \cite{conf/webist/MaamarLBTS07, 10.1109/ARES.2008.7, journals/soca/XuYLZB11, 10.1109/TSC.2012.12, managing-hela-jalel, DBLP:conf/IEEEscc/KhosravifarABT11, DBLP:conf/IEEEscc/LimTMB12} have attempted to address these research problems. These research problems are reflected by the two challenge parts:
 \begin{enumerate}
-\item $(\mathfrak{M_2},s)\models \mathbb{P}_{\geq1} (C_{i \rightarrow
-j}\varphi)$ ~~~iff~~ $(\mathfrak{M_2},s)\models C_{i \rightarrow
-j}\varphi$
-
-\item $(\mathfrak{M_2},s)\models \mathbb{P}_{\leq0} (C_{i \rightarrow
-j}\varphi)$ ~~~iff~~ $(\mathfrak{M_2},s)\models C_{i \rightarrow
-j}\neg \varphi$
-
-\item $(\mathfrak{M_2},s)\models \mathbb{P}_{]0,1[} (C_{i \rightarrow
-j}\varphi)$ ~~iff~~ $(\mathfrak{M_2},s)\models \neg C_{i
-\rightarrow j}\neg\varphi \wedge \neg C_{i \rightarrow j}\varphi$
-
+	\item The solutions consider the architecture of centralized management for communities where most of the decisions are made by the centralized coordinator. The problem is that in real world scenarios, decisions made by independent service providers are highly distributed.
+	\item The solutions either propose complex algorithms \cite{DBLP:conf/IEEEscc/LimTMB12, 10.1109/TSC.2012.12, 10.1109/TSC.2014.2312940} to find the optimal strategy to follow, or oversimplify the problem by eliminating important parameters and using approximation techniques to make the algorithms tractable \cite{10.1109/TSC.2012.12}.
 \end{enumerate}
+These approximation methods sometimes negatively influence the outcome because simplifying the constraints may cause important aspects of the problem to be ignored.
 
-\end{theorem}
-%\vspace{1cm}
-\begin{proof}\hspace{-0.9cm}
+For example, instead of calculating the gain distribution using the complex shapely-value method, \cite{10.1109/TSC.2012.12} proposes a simple egalitarian way of distributing gain, which completely ignores the gain generated from collaborative work of sub-communities. Other categories of related work exist that do not focus on all the parties involved within the community \cite{DBLP:conf/IEEEscc/KhosravifarABT11}.
+%And some other work which do not focus on rationality on web services or communities involved [refrences].
+In \cite{journal-community-formation} we proposed a cooperative game theory based model for aggregating web services in communities. A centralized decision maker in communities based on a complete knowledge of available web service quality metrics and performance, has been used to form optimal and stable communities that maximize individual and group income. However, centrality and complete information are strong assumptions, which are not very compatible with real business scenarios.
 
+\textbf{Contributions.} In this paper, we introduce DDM, a Distributed Decision Making model for  community formation that regulates web service agents’ decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. The decision model in extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree is created from the past data and reflects comprehensive vision about agents' attitude of action selection. However, the tree is subject to get continuously modified to adapt with environmental changes.
+%The training model deploys a logistic regression algorithm to build a hypothesis function that can thoroughly address the aforementioned research problems.
+The decision model provides web services with enough information which helps those services to efficiently decide and predict the outcome of their different possible collaborations. This model works in a distributed manner in which services are self-sufficient in decision making process and do not rely on a centralized decision making process. Our findings show that communities of web services can efficiently find the appropriate web service to invite for cooperation as well as allowing a single web service to find the best communities to join. In other words, the web services agents are equipped with a recommender system to suggest beneficial action. Moreover, communities can consider the decision model and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their short-term and long-term goals; therefore, opting for best decision available.
+
+To effectively generate the decision model for web services, we used real data set to extract web services' individual characteristics and used them to measure outcomes when they cooperate with one another. The data set has been extracted by real-world QoS evaluation results from 142 users on 4,532 Web services on 64 different time slots. Combining these data based on each web service point of view on different time slots, we acquired 5 different unique features for 4,532 web services. By engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interaction with others. All paths and the outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DDM have by far better outcomes in the form of cooperative service providers than the ones that either do not cooperate or randomly find communities to join.
+
+\section{Preliminaries and Challenging Issues}\label{s:preliminaries}
+%In this section, we first present the architecture of DDM. We explore the characteristics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
+In this section, we discuss the preliminary concepts of communities of web service and we introduce the challenges of community formation.
+
+\subsection{Web Services}\label{s:ws}
+
+In recent years, online services have become a standard part of daily life around the globe. Many modern applications rely on web services from different providers. For instance, many mobile and tablet applications that have limited storage and processing power are merely aggregating information from different online services. Examples are vast, including weather forecasting, ticket selling, shopping apps, local maps and location services.
+
+The World Wide Web Consortium (W3C) defines web services as ``software systems designed to support interpretable machine-to-machine interaction over a network. It has an interface described in a machine-processable format (specifically WSDL). Other systems interact with the web service in a manner prescribed by its description using SOAP messages, typically conveyed using HTTP with XML serialization in conjunction with other Web-related standards.'' When developers declare a new web service, it will be
+discovered based on its description, which fully discloses its functionalities. Developers also have to declare a public interface and a readable documentation to help other developers when integrating different services \cite{w3cwsdl}. Nowadays, web API, standards that do not require XML-based web service protocols like SOAP and WSDL are also emerging. They are called REST (representational state transfer) services, which are moving towards simpler communication protocols.
+%They are not restricted
+%to XML formats, recently JSON, a human readable and simpler format
+%is becoming popular among online service providers.
+
+We are not going to delve into the engineering details of online web service implementation and its protocols in this paper. We are interested in web services from a business model perspective. Service providers usually charge end users for services they provide. For example, Google has listed pricing and plans for a wide range of services they provide on their web service console page\footnote{https://code.google.com/apis/console}.
+
+In this paper, we abstract web services as rational agents\footnote{The term rational is used here in the sense that web services are utility maximizers} that provide services to end users. They aim to maximize their individual income  by receiving enough requests from end users. In order to increase their revenues, web services seek for more tasks if they have the capacity and throughput to do so. Web services can join communities to enhance efficiency by collaborating with others, to have access to broad market share, and for the opportunity to receive a bigger task pool from end users. Furthermore, the high reliance on web services has resulted in increased quality expectations from end users. Communities of web services can provide higher availability, performance, reliability, and recovery for end users.
+
+\subsection{Web Service Communities}\label{s:wsc}
+
+The community of web services is essentially a virtual group of web services having similar and complementary functionalities\cite{DBLP:journals/ijebr/MaamarSTBB09}. Communities aggregate web services and communicate with other entities such as UDDI registries and users, using identical protocols to those used by single web services. Web services join communities to increase utility by having a larger market share and task pool. Community coordinators are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Community coordinators try to attract quality web services to join and keep the community as stable and productive as possible to gain a better reputation and user satisfaction, which increases the community's market share. How web services reside within communities and how communities of web services are engineered is described comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
+
+\subsection{The Join Challenge}\label{s:tjc}
+Sometimes, web services can increase their overall utility by collaborating with other web services as communities. This collaboration helps them with better ways of sharing resources and having higher reputation, better market share and wider visibility. Web services and communities come with different internal and external parameters, and the long-term outcome is dependent on these parameters.
+
+The goal of all parties involved in the community is to maximize their long-term outcome while they are operating as part of the community. Web services need to be equipped with a selection strategy to choose from all of the different possible collaboration groups they can form as well as an estimation method for evaluating the long-term gain of joining different possible communities. Web services need to experiment with different possible collaborative groups and other web services in order to estimate their gain over time. However, with a high number of possible communities, it is not possible to test collaboration with random web services. Even if a linear approximate function for estimating utility based on community web services' parameters is adopted, the exponential \footnote{Bell number: $http://en.wikipedia.org/wiki/Bell_number$} growth rate of the possible number of partitions of web services into communities would make any brute-force type algorithm for the best community selection strategy intractable and impractical in real-world application settings.
+
+\subsection{Join Consequences}\label{s:jc}
+It is worth mentioning that a \emph{join} event takes place as a result of two parties that are looking to expand their collaborations. All actions are chosen in an attempt to enhance the overall outcome. However, the selected action may result in decreasing the overall utility in the long run.
+% long term.
+This is the case when a single web service joins a community, but the complex process of task allocation eliminates the visibility of the web service and, thus, the web service stays idle within the community, which makes the join action a bad decision. The same event might be beneficial for the community, as it hosts a new web service that can engage in performing a new coming task. But overall, neither side benefits from collaborating with the other and the join event has negative consequences for at least one side's utility.
+
+The more common scenario is when both parties benefit from the joining of a web service to a community. This action is rational, as both the web service and the community enhance the utility. However, the community may not be the best choice for the web service to join. In other words, the web service could have joined a better community, but, due to of lack of knowledge about the surrounding environment, joined the available community which was not the optimal choice. Since the community does enhance its utility, the web service could stay with that community, which results in a sub-optimal increase in web service's utility. In the following section the proposed model provides solutions that effectively address the aforementioned challenges.
+
+\section{The Model Components}\label{s:themodelcomponents}
+
+In this section, we discuss the parameters that we use in the rest of the paper. Then we present the task distribution and revenue model of our distributed web services communities.
+
+\subsection{Internal Features}\label{s:if}
+
+With a group of web services having identical or similar functionalities, QoS metrics provide nonfunctional characteristics for optimal candidate selection. Web service quality metrics were presented in \cite{Ardagna:2007:ASC:1263152.1263531,Menasce:2002:QIW:613357.613758,10.1109/ISSRE.2011.17}. We have adopted the most representative QoS properties of web services that highly influence the utility of web services.
+%We refer to a typical web service as ws_{i}.
+
+Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $|n|$ web services. We define the following features for the group of web services based on their functional parameters:
 
 \begin{itemize}
-\item First equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{\geq1} (C_{i \rightarrow j}\varphi)$.
-    By the PCTL$^{kc}$ semantics, it follows that $Prob(s\models C_{i\rightarrow j}\varphi)\geq1$.
-    Thus,  $\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s\sim_{i \rightarrow j}s'|}\geq1$.
-    This means that for all $s'\in S$ such that $s\sim_{i \rightarrow j}s'$, we have
-    $s'\models \varphi$, and hence $s \models C_{i\rightarrow j}\varphi$. \\
-    $``\Leftarrow"$. Assume $s\models C_{i \rightarrow j}\varphi$. By the
-    PCTL$^{kc}$ semantics, it follows that for all $s'\in S$ such that $s\sim_{i \rightarrow j}s'$,
-    we have $s'\models \varphi$ (i.e. all accessible states from $s$ satisfy $\varphi$).
-    Consequently, $\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| = |s\sim_{i \rightarrow j}s'|$.
-    Therefore, $\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s\sim_{i \rightarrow j}s'|}\geq1$
-    and hence, $s\models \mathbb{P}_{\geq1} (C_{i \rightarrow j}\varphi)$.
 
-\item Second equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{\leq0} (C_{i \rightarrow j}\varphi)$.
-    By the PCTL$^{kc}$ semantics, it follows that $Prob(s\models C_{i\rightarrow j}\varphi)\leq0$.
-    Thus, $\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi|}{|s\sim_{i \rightarrow j}s'|}\leq0$.
-    Since the set of the accessible states from $s$ is not empty, then $\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi|$
-    must be 0 (i.e. $\varphi$ is not true in any of the accessible states). Consequently, for all $s'\in S$
-    such that $s\sim_{i \rightarrow j}s'$, we have $s'\nvDash \varphi$, which means $s'\vDash \neg \varphi$.
-     Hence, $s\models C_{i\rightarrow j}\neg \varphi$.~\\
+  \item \emph{Throughput $(Th_{C})$} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity. Throughput is a positive real number. For communities the expected throughput value of collaborating web services can be estimated as summation of throughputs of all the services inside:
+	
+	\begin{equation}
+		 Th_{C} = \left\{
+			\begin{array}{l l}
+				Th_{w} & \quad \text{if $|C| = 1$}\\
+				\sum_{w \in C}{(Th_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
+	
+	\item \emph{Availability $(A_{C})$} is the percentage of time that a service is operating.
+	The probability that the service operation is accessible. Availability is also a real number in the range $[0, 1]$. For communities the expected availability of collaborating web services considering they follow a parallel system can be estimated as:
+	
+	\begin{equation}
+		A_{C} = \left\{
+			\begin{array}{l l}
+				A_{w} & \quad \text{if $|C| = 1$}\\
+				1-\prod_{w \in C}{(1-A_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
+	
+	\item \emph{Execution Time $(Et_{C})$} is the time a service takes to respond to various types of requests.
+	%is the expected delay between the time instant when a request is sent and the time when the result is obtained.
+	Execution time is measured in milliseconds. Execution time can be affected by load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. This internal feature is a positive integer. For communities, the expected execution time of collaborating web services can be estimated as the execution time of the bottleneck service which is the service with the slowest execution time:
+	
+	\begin{equation}
+		Et_{C} = \left\{
+			\begin{array}{l l}
+				Et_{w} & \quad \text{if $|C| = 1$}\\
+				max_{w \in C}{(Et_{w})} & \quad \text{if $|C| > 1$}
+			\end{array} \right.
+	\end{equation}
+	
+	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
+\end{itemize}
+
+
+	We normalize the range of these features so that each feature contributes approximately proportionately to the final utility outcome value. We adopt the \emph{standardization} method. We subtract the \emph{mean} from each feature then we divide the values of each feature by its \emph{standard deviation}.
+
+%$HI = \overline{HI}$
+
+\subsection{External Features}\label{s:ef}
+
+The quantitative values of quality metrics need some benchmark values to represent their goodness. In other words, without some benchmark values it would be difficult for web services to identify their goals, and performance quality at any specific value of these metrics. Therefore, we have introduced two external features for assessing web services' estimate with regard to their standing among other web services.
+
+\begin{itemize}
+  \item \emph{External Parameter 1} $(exp_1)$. is an estimate of how close the web service's \emph{execution time} is to other web services. It is the difference between a web service's \emph{execution time} metric and the maximum value of execution time of all the other web services, about which the web service has information of them. The less value means web service has better execution time compared to other web services.
+	\begin{equation}\label{exp_1:f}
+		exp_1 = Et_{i} - Et_{max}
+	\end{equation}
+	\item \emph{External Parameter 2} $(exp_2)$ is a comparison of the web service's rate of performing tasks to other competing web services. It is the difference between a web service's \emph{throughput} metric and the maximum value of throughput of all the other web services,, about which the web service has information of them. The less value means web service has better throughput compared to other web services.
+	\begin{equation}\label{exp_2Lf}
+		exp_2 = Th_{max} - Th_{i}
+	\end{equation}
+\end{itemize}
+
+A community of web services is abstracted as a standard web service that provides services that share the same internal and external features mentioned for web services. Inside, they adopt different protocols to manage the community; however, other web services or end users can communicate with communities of web services, using standard protocols, and inner details will be encapsulated for their clients.
+
+\subsection{Task Distribution}
+
+Communities of web services usually employ an implementation of Contract-Net protocol for task distribution, in which services opt for incoming tasks, and receive the tasks for which they ask. However, in our model, our community members would try to distribute tasks based on their capabilities and the QoS parameters provided by the web services. We have used a slightly modified \emph{weighted fair queuing} method to distribute tasks among community members. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In the \emph{weighted fair queuing} method, the input flow is multiplexed along different paths; however, in our case, if the rate of incoming tasks is less than the community's total throughput $(Th_{C})$, which is the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with a delay.
+%Thus, the amount of tasks performed by the community is $\sum_{ws}{Th_{ws}}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$.
+However, when the incoming task rate is less than the throughput of the community, the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $|input Task Rate| \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) within the community.
+
+While distributing tasks, the community members can verify the performance, throughput and quality of service of tasks being performed by web services. The community can assess if those web services are capable of performing the number of tasks they advertised. If for any reason, there is a decline in the quality metric or throughput, the community can consider the new values as a benchmark for future performance calculations, and penalize the suspicious web services. This way, players will have incentive to truthfully disclose their actual capabilities in order to maximize profit from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services' quality metrics variation, as over time, web service metrics may degrade or improve, changes to which the community should adjust.
+% Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
+
+\subsection{Community Revenue}
+
+Communities and web services earn revenue by performing tasks. The total gain is a function of the quality of rate of tasks being performed. The utility of a collaborative group of services $U_{C}$ is the revenue of the community. Formula \ref{u_c_normal} is an estimation of the gain of the community.
+
+\begin{equation}\label{u_c_normal}
+U_{C} = \big((\alpha \times (A_{C} - Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}
+\end{equation}
+
+The $\alpha$ and $\beta$ values are internal and external weight coefficients. Execution time and external parameters are better when they have smaller values hence the negative coefficient for them. The result is then multiplied to the throughput value $Th_{C}$, since communities are performing tasks with $Th_{C}$ rate.
+
+The estimation can be improved, especially in cases where the input task rate is high and services are experiencing high task loads. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on the individual throughput $(Th_{w})$ value of services within community. The services with higher throughput will affect the overall utility of the community more because they would take on proportionately more tasks.
+
+\begin{equation}\label{u_c_load}
+\begin{split}
+U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} - Et_{ws}) \\
+        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)
+\end{split}
+\end{equation}
+
+
+\section{The Decision Making Mechanism}\label{s:model}
+
+In this section, we describe our data extraction process and the methodology used to equip web services with a decision making mechanism. In this methodology, we first present the data extraction and engineering process and then we evaluate the decision making mechanism for web services in community settings. Figure \ref{fig_steps} summarizes the steps performed in DDM from the input data to generation of decision making profiles for web services.
+
+\begin{figure}%[!t]
+\centerline{\includegraphics[width=1.75in]{figures/steps.eps}}
+\caption{A summary of DDM decision profile generation steps}
+\label{fig_steps}
+\end{figure}
+
+\subsection{Data Extraction and Solution Engineering}\label{ss:learningdata}
+
+\subsubsection{Input Web Services Data}\label{sss:webservices}
+
+%We used a data set extracted from running web services. In this data set,
+Each web service is associated with a number of features that reflect its functionality. These web services operate in an online environment and are continuously assigned tasks to handle. Sometimes, they pass tasks around, distributing sub-tasks among themselves and handling tasks in a collaborative effort. To engage in communities, we add additional features that reflect web services' utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for a community to be formed. Our raw data set provides us with 64 different time slots of extracted features for each web service. Using this data we can build a synthetic data set that contains features of a large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for other web services. To train our model, we build a decision tree as a benchmark for our decision making mechanism. The decision tree is built by training the real data obtained from operating web services and extracting features related to their performance, either alone or as part of a joint effort with other web services. As a result, we are able to classify web services as either single or joined and propose the communities that are best fitted to the web services' requirements.
+
+\subsubsection{Filtered Data}\label{sss:filtereddata}
+
+We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17}. The raw data provides real-world QoS evaluation results from several users on 5,825 web services over 64 different time frames\footnote{http://www.wsdream.net/}. In this data set, each web service is associated with a number of features that reflect its functionality. By summarizing the data provided for each web service over different time slots, we have acquired three quality features for each individual web service. Their quality features are the three internal features introduced in Section \ref{s:if}: \emph{throughput}, \emph{availability} and \emph{execution time}.
+%To engage in communities, we add two additional external features that reflect web services estimation of its quality metrics compared to other web services.
+Therefore, we have generated an array of web services with three distinct features.
+
+\begin{figure}%[!t]
+\centerline{\includegraphics[width=3.25in]{figures/cfvs.eps}}
+\caption{Communities with different properties of web services actively looking for other communities to collaborate with, they send collaboration requests to communities they find the collabration  increasing the gain}
+\label{fig_community}
+\end{figure}
+
+Now, we want to generate a set of feature vectors representing the communities of web services for training purposes. For communities, we add two additional external features, as discussed in Section \ref{s:ef} that reflect the community's estimation of its quality metrics compared to other web services. Therefore, we formulate a \emph{Community Feature Vector (CFV)} as $CFV_{<C>} = \{f_1,...f_5\}$ having a community of $k$ web services. $C = {ws_1,...ws_k}$. The features $f_1$ through $f_5$ represent the \emph{execution time}, \emph{throughput}, \emph{availability} and the \emph{external parameters 1 and 2} correspondingly. A set of communities, with their feature vectors and utilities evaluated, provides our algorithm with a raw training data set. We call this set of communities the \emph{template vector}, and the set of feature vectors associated with the \emph{template vector} is referred to as the \emph{community feature vector set (CFVS)}. Figure \ref{fig_community} depicts communities looking to form collaborate communities and join other communities in order to improve their utility gain.
+
+\subsubsection{Feature Engineering}\label{sss:feng}
+Let $CFVS = \{C_1, C_2,..., C_N\}$ be the community feature vector set with $N$ communities. Based on the $CFVS$ set, we create an $|N \times N|$ gain matrix for $t$ different time slots. Each entry of $gain_{n,m}^{t}$corresponds to a utility gain of web services in $C_n$, when $C_n$ joins $C_m$, based on community and web service data available for time $t$. All of these values have to be evaluated by implementing the community with members of $ws_i \in C_n$ and $ws_j \in C_m$ and evaluating its utility (see Equation \ref{u_c_load}). Therefore $gain_{n,m}^{t} = U_{C_n \cup C_m}^{t} - U_{C_{n}}^{t}$. Evaluating the utility gain for all entries of the $gain$ matrix can be a costly process with a very big number of $N$, size of the feature vector $|N|$ should be chosen carefully.
+
+\begin{table*}[ht]
+\caption{An example of $gain$ matrix for 3 different communities and their combinations} % title of Table
+\centering % used for centering table
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|c c c c c c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+ & \textless348\textgreater & \textless1934\textgreater & \textless2117\textgreater & \textless348, 1934\textgreater & \textless1934, 2117\textgreater & \textless348, 1934, 2117\textgreater \\ [0.5ex] % inserts table
+%heading
+\hline % inserts single horizontal line
+\textless348\textgreater & - & 0.282708 & 1.027081 & 0.282708 & 18.027081 & 18.027081 \\
+\textless1934\textgreater & -2.637483 & - & 6.969072 & -2.637483 & 5.509583 & 4.387725 \\
+\textless2117\textgreater & 5.027081 & 2.969072 & - & 5.509583 & 2.969072 & 5.509583 \\
+\textless348, 1934\textgreater & 0.0 & 0.0 & -3.851432 & - & -3.851432 & -3.851432 \\
+\textless1934, 2117\textgreater & 2.969072 & 0.0 & 0.0 & 2.969072 & - & 2.969072 \\
+\textless348, 1934, 2117\textgreater & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & - \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+}
+\label{table:nonlin} % is used to refer this table in the text
+\end{table*}
+
+Now, we let our set of communities in the $CFVS$ set, within $|T|$ time frame iterations, choose the the best communities to join. Each community is provided with the corresponding row of data from the $gain$ matrix. Basically, $C_i$ is provided with the data in row $i$ of matrix $gain_{N,N}$, which is all of the possible utility values it can gain by joining different communities. By ordering the list, each community is utilized with an ordered set of preferences over other communities it likes to join. We define $>_{i}^t$ as the preference order of community $i$ at time $t$.
+
+Let $P_{C_i}^t = \{C_1 >_{i}^t C_2 >_{i}^t .... >_{i}^t C_n\}$ be an ordered set of preferences for community $C_i$ at time $t$. Based on this ordered set, we define $K^t(C_i, k)$ as a set of the $k$ most preferred communities of community $i$ at time $t$.
+%\subsubsection{feature vector generation}\label{sss:fvg}
+\begin{equation}\label{h_t_pref_top}
+\begin{split}				
+K^t(C_i, k) = &\Big\{C_x | C_x >_{i}^t C_y; \forall C_y \in CFVS\ \\
+				      &\wedge C_y \notin \{K^t(i, 1),K^t(i, 2),...,K^t(i, k-1)\} \Big\}				
+\end{split}
+\end{equation}
+Based on $K^t(C_i, k)$, we define a set of communities for $C_i$ in which they are the k most preferred communities for community $i$ and also community $i$ belongs to the k most preferred communities out of all of the communities in set $K^t(C_i, k)$. This basically implies the preference is both-sided.
+\begin{equation}\label{l_t_top_both}
+\begin{split}	
+L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
+             &\wedge C_i \in \bigcup_{C_x \in K^t(C_j, k)}K^t(C_x, k)\Big\}
+\end{split}
+\end{equation}
+
+Table \ref{table:nonlin} illustrates an example of a $gain$ matrix for 3 different communities and their combinations. Each row shows the gain the community can achieve by collaborating with other 5 communities. In this example for community $\textless 348 \textgreater$ we have: \\
+$K(\textless 348 \textgreater, 1) = \{\textless1934, 2117\textgreater\}$ and \\
+$K(\textless 348 \textgreater, 2) = \{\textless1934, 2117\textgreater, \textless1934\textgreater\}$ \\
+Since $\textless 348 \textgreater$ is best preferred community of $\textless 1934, 2117 \textgreater$ therefore $L(\textless 348 \textgreater, 1)$ is not empty and contains the community $\textless1934, 2117\textgreater$.
+
+Using the $gain$ matrix and the mentioned preference ordering relations, we are able to build a decision tree where the list of possible communities to join and their expected utilities are set.
+% as well as the joined events that took place in different time slots.
+In addition to best choices, web services have access to other ordered choices and can look for the second best or third best if their first try is rejected by the target community. The consequences of each try level is analyzed in more detail in the following section, in which we launch experiments and investigate the effectiveness of the use of a decision tree with different decision layers in joining other communities and enhancing the overall utility.
+
+\subsection{Decision Profile Generation}\label{ss:learningmodel}
+
+Our goal is to create a decision making profile for each community in the $CFVS$ set. We are creating an environment where they can experience the outcomes of different strategies. The result will be a decision tree of the feasible and utility increasing moves over time.
+
+We let communities pick the best communities for maximizing their utilities over different time frames. At time $t = 1$, we let each community in the $CFVS$ set choose the best community, which is a single community in set $C_j = K^t(C_i, 1)$. If community $C_j$ also has the highest preference to join $C_i$ meaning the $L^t(C_i, k=1)$ set is not empty, they would join together. Having set $k = 1$ is a very strict and hardly satisfiable condition. In order to relax the requirement, the value of $k$ is being increased by a rate $r$ proportional to time slot $t$. Basically, $k = 1 + |r \times t|$. On early steps of simulation web services and communities are more strict but as time goes on, we let them choose second and then third best options too. However, increasing $k$ quickly increases the time complexity of $K^t(C_i, k)$ by $O(k^2 \times n.log(n))$.
+
+When communities $C_i$ and $C_j$ are in each other's top $k$ preference set, their combination is added to the list of possible communities that can join others at time $t+1$. Also, for each community $C_i$ in our initial $CFVS$ set, we maintain a tree with the community $C_i$ as its root. Its children are all of the communities that $C_i$ decided to join. As the scenario progresses over time, the merged communities may decide to join other communities. When community $C_i$ and $C_j$ decide to join each other and create community $C_k$, the new community $C_k$ will be added as a child to both $C_i$ and $C_j$ nodes. At the end of the process, each community is utilized with a tree of set of possible combination of communities it can join. Algorithm \ref{algo:dectree} illustrates the DDM tree creation procedure as pseudo-code.
+
+Having created $|n|$ trees, for each community $C_i$, our communities are utilized with the different possible paths they can take to maximize their utilities. Using a distance function, communities and web services can utilize these results and find the $C_i$ that closely resembles their parameters. They will be utilized with a tree that has the strategies the community can use to join our communities which will be best possible path to take and communities to join while most likely being accepted by other communities since its a two sided preference. The algorithm below describes the tree creation process.
+
+\begin{algorithm}
+\DontPrintSemicolon
+\KwIn{$\langle r, gain^t_{n,n}, CFVS \rangle$ learning rate $r$, $|N \times N \times T|$ gain matrix, community feature vector}
+\KwOut{A set of \emph{root} nodes of the decision trees}
+$k \gets 1$\;
+$nodes[N] \gets$ initialize $N$ tree nodes representing each community in CFVS\;
+\For{$t \gets 1$ \textbf{to} $T$} {
+	$k \gets 1 + round (r \times t)$\;
+  \For{all $C_i \in CFVS$} {
+	  \For{all $C_j \in L^t(C_i, k)$} {
+      % The "l" before the If makes it so it does not expand to a second line
+      \If{$C_i \in L^t(C_j, k)$}{
+        $C_k \gets C_i \cup C_j$\;
+				add $C_k$ to $CFVS$ set\;
+				initiate $node_k$, representing $C_k$\;
+				$nodes_i.addChild (node_k)$\;
+				$nodes_j.addChild (node_k)$\;
+      }
+%      \Else{
+%        $j \gets j + 1$\;
+%      }			
+		}
+  }
+%  $i \gets i + 1$\;
+}
+\Return{nodes}\;
+\caption{{\sc DDM Decision Tree Algorithm}}
+\label{algo:dectree}
+\end{algorithm}
+
+\textbf{Complexity.} Here we analyze the computational complexity of the DDM decision tree creation algorithm on each time iteration $t$. Computing top $k$ preferred communities for $C_i$ in $L^t(C_i, k)$ requires an $O(n.log(n))$ sort time. $C_i$ has a result set of size $|k|$, and for each of those $k$ communities we need to check against their $k$ top preferred communities. Considering we already have the list sorted, line 6 in algorithm runs $O(k \times n.log(n))$ times. Doing this search for all communities in $|CFVS|$ set $n$ times (line 5), the overall order of complexity of the algorithm in regards with $n$ and $k$ is: $O(k^2 \times n^2.log(n))$.
+
+\section{Experiments}\label{s:experiments}
+We implemented DDM in Java\footnote{Source code of implementation and data is available at: \emph{https://github.com/Marooned202/DDM}}. We have extracted the set of features for 4532 web services in 64 different time slots through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these sets and choosing a subset of all possible combinations of sizes 2, 3, and 4 of these 86 web services, we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities. Based on Equation \ref{u_c_load} the utility of these communities are estimated, and the gain matrix $|10000 \times~ 10000|$ of all possible ways of merging these 10,000 communities, is generated\footnote {The template vector and gain matrix generated are available at \emph{https://github.com/Marooned202/DDM/tree/master/wsds/data/run}}, and each community has the ordered preference among other communities known in the set.
+
+We let communities and web services adopt their strategies based on our $DDM$ decision making mechanism. Based on the decisions adopted, each community will generate a decision tree profile. We let DDM run four times with different $r$ rates of 0.05, 0.07, 0.10 and 0.20. With the slow rate of $r = 0.05$, we increase $k$ in Equation \ref{u_c_normal} for every 20 time frames, which will happen only three times in our 64-step experiment. In the case of $r = 0.20$, k increases much faster, at a rate of once every 5 time frames, which increases the complexity of the $L^t(C_i,k)$ search for each community in the $CFVS$ set.
+
+Table \ref{table:valueandgain} depicts the average utility gain value of the communities in each of the four runs. The utility gain is the increase of utility the communities gain by cooperating and joining other communities. The utility gain ratio is the ratio of their final utility over initial utility. Comparing the different search rates, we can see increasing $r$ to value of $0.10$ results in significant performance boost, however the higher rates of $r$ are not increasing the chance of finding better collaborative groups for our communities.
+
+\begin{table}[ht]
+\caption{Utility gain of web services after making collaborative groups based on DDM algorithm with different $r$ rates} % title of Table
+\centering % used for centering table
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|c|c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Search Rate $r$ & Utility Gain Value & Utility Gain Ratio \\ [0.5ex] % inserts table
+%heading
+\hline % inserts single horizontal line
+r=0.20 & 176.1499 & 6.9690 \\
+r=0.10 & 174.6541 & 6.9182 \\
+r=0.07 & 159.9462 & 6.2834 \\
+r=0.05 & 136.0768 & 5.1032 \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+}
+\label{table:valueandgain} % is used to refer this table in the text
+\end{table}
+
+
+%\begin{figure}%[!t]
+%\centering
+%\includegraphics[width=3.5in]{figures/utility_gain_r.eps}
+%\caption{DDM Utility Gain Value}
+%\label{utility_gain_value}
+%\end{figure}
 %
-    $``\Leftarrow"$. Assume $s\models C_{i \rightarrow j}\neg \varphi$. By the PCTL$^{kc}$ semantics,
-    it follows that for all $s'\in S$ such that
-    $s\sim_{i \rightarrow j}s'$, we have $s'\nvDash \varphi$. Since the set of the accessible states from $s$ is not empty,
-    then $\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s\sim_{i \rightarrow j}s'|}\leq0$.
-    Hence, $s\models \mathbb{P}_{\leq0} (C_{i \rightarrow j}\varphi)$.
+%\begin{figure}%[!t]
+%\centering
+%\includegraphics[width=3.5in]{figures/utility_ratio_r.eps}
+%\caption{DDM Utility Gain Ratio}
+%\label{utility_gain_ratio}
+%\end{figure}
 
-\item Third equivalence. ~\\
-    $``\Rightarrow"$. Assume $s\models \mathbb{P}_{]0,1[} (C_{i \rightarrow j}\varphi)$. By the PCTL$^{kc}$ semantics,
-    it follows that $0< Prob(s\models C_{i\rightarrow j}\varphi)<1$. Thus,
-    $0<\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s \sim_{i \rightarrow j}s'|}<1$.
-    This means that it would never be the case that $\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| = |s\sim_{i \rightarrow j}s'|$
-    nor $\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| = 0$. Consequently, there exist some $s', s'' \in S$
-    such that $s\sim_{i \rightarrow j}s'$ and $s\sim_{i \rightarrow j}s''$ and $s'\models \varphi$ and $s''\models \neg \varphi$.
-    Hence, it is impossible to have
-    $\overline{s}\models \neg\varphi$ or $\overline{s}\models \varphi$ for all $\overline{s}\in S$
-    such that $s\sim_{i \rightarrow j}\overline{s}$. Consequently,
-    $s\nvDash  C_{i \rightarrow j}\neg\varphi$ and $s\nvDash  C_{i \rightarrow
-    j}\varphi$. Hence $s\models \neg C_{i \rightarrow j}\neg\varphi$ and $s\models \neg C_{i \rightarrow j}\varphi$. ~\\
-    %
-    $``\Leftarrow"$. Assume $s\models \neg C_{i \rightarrow j}\varphi$. By the PCTL$^{kc}$ semantics,
-    it follows that there exists $s'\in S$ such that $s\sim_{i \rightarrow j}s'$ and $s'\models \neg \varphi$.
-    Consequently, it would never be the case that $s'\models \varphi$ for all $s'\in S$
-    such that $s\sim_{i \rightarrow j}s'$. Therefore,
-    $1>\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s\sim_{i \rightarrow j}s'|}$.
-    Now assume $s\models \neg C_{i \rightarrow j}\neg \varphi$. Therefore, $\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| = 0$
-    would never be he case as some accessible states should satisfy $\varphi$. Consequently,
-    $\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s\sim_{i \rightarrow j}s'|}>0$.
-    Thus, $0<\frac{\sum_{s\sim_{i \rightarrow j}s'}|s'\models \varphi| }{|s \sim_{i \rightarrow j}s'|}<1$.
-    Thus, $s\models \mathbb{P}_{]0,1[} (C_{i \rightarrow
-    j}\varphi)$.
-\end{itemize}
+We utilize the same communities and web services with a simple rational decision making mechanism, in which communities will choose to join a community if it increases utility by any amount. We call it the $rational$ method, in the sense that it is just a rational method and is not aiming to be optimal. We chose 10 random web services and compared the results with web services which adopted our DDM model. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of the end result of utility gain values. In 18 out of 40 tries, \emph{rational} agents were not able to improve their utility at all because the communities they chose rejected their request, most likely because they would not have increased the utility of the other communities if they had joined them. The results show that a long-term strategic decision mechanism is needed to satisfy all of the services within communities. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the same results in terms of ratio of utility gain.
 
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{theorem}\label{Fulfiilemt-Equivelances} {Fulfillment Equivalences}~
-
-\begin{enumerate}
-\item $(\mathfrak{M_2},s)\models \mathbb{P}_{>0} (Fu(C_{i \rightarrow
-j}\varphi))$ iff $(\mathfrak{M_2},s)\models Fu(C_{i \rightarrow
-j}\varphi)$ and $s$ is reachable from the commitment state.
-
-\item $(\mathfrak{M_2},s)\models \mathbb{P}_{\leq0} (Fu(C_{i \rightarrow
-j}\varphi))$ iff $(\mathfrak{M_2},s)\models \neg Fu(C_{i \rightarrow
-j}\varphi)$ or $s$ is not reachable from the commitment state.
-
-\end{enumerate}
-
-\end{theorem}
-
-\begin{proof} \hspace{0.5cm} \\
-The proofs of these equivalences are direct from Proposition
-\ref{proposition-PCTLKC} and the above semantics.
-
- \end{proof}
-
-\section{Model Checking PCTL$^{kc}$ Using Reduction} \label{sec:model-checking-pctlkc}
-
-
-In this section, we present our reduction technique to model checking PCTL$^{kc}$. Given a MAS represented as a probabilistic interpreted system $\mathfrak{M_2}$ and a desirable property $\varphi$ written in PCTL$^{kc}$, the problem of probabilistic model checking PCTL$^{kc}$ can be defined as: 1) establishing whether $(\mathfrak{M_2}, I)\models \varphi$,
-i.e., if $I \in Sat(\varphi)$ where $Sat(\varphi)$=$\{s\in S ~~|~~
-\mathfrak{M_2},s \models \varphi \}$ is the set of states satisfying
-$\varphi$; 2) comparing the probability of satisfying $\varphi$
-with a probability threshold $\bowtie k$, where
-$Sat(\mathbb{P}_{\bowtie k}(\varphi))=\{s\in S ~|~
-Prob_s(\varphi)\bowtie k \}$ ; or 3) computing the probability of
-$\varphi$, $(\mathfrak{M_2}, s)\models \mathbb{P}_{=?} ~(\varphi)$.
-Note that answers to the second and third queries can be: (1)
-truth values, when the specification simply asks for a comparison
-to a probability threshold; or (2) quantitative, returning the
-actual probability.
-
-Figure \ref{fig:reduction-process-PCTLKC} depicts the structure of our proposed reduction technique. The idea is to reduce the problem of probabilistic model checking PCTL$^{kc}$ to the problem of probabilistic model checking PCTL in order to use the PRISM model checker. Concretely, the proposed reduction technique consists of two processes. In the former one, we transform our model $\mathfrak{M_2}$ into an MDP model.
-MDPs are the standard models for describing systems with probabilistic and nondeterministic behavior \cite{Rutten2004}. Then, we use the notion of adversary as in \cite{Kwiatkowska2003} to resolve the nondeterminism of the MDP. The resulting adversaries are basically DTMC models for which we can define a unique probability measure over paths. The obtained DTMC models will be the input of the PRISM model checker. In the latter process of the reduction technique, we transform PCTL$^{kc}$ formulae into PCTL formulae. This is basically achieved by constructing a set of rules that formally transforms the PCTL$^{kc}$ formulae into corresponding ones in PCTL.
-
-\begin{figure}[h]
+\begin{figure}%[!t]
 \centering
-\includegraphics[width=14cm, height=7cm]{chap4/img/reduction-process-cha4.eps}
-%\includegraphics[scale=0.5]{figure1}
-\caption{The proposed reduction technique of model checking PCTL$^{kc}$}
-\label{fig:reduction-process-PCTLKC}
+\includegraphics[width=3.5in]{figures/utility_gain.eps}
+\caption{Utility Gain DDM and Rational}
+\label{utility_gain_mlisa_and_rational}
 \end{figure}
 
-
-In a nutshell, the proposed model checking procedure is as follows. Given $\mathfrak{M_2}=(S,\textbf{P},I,\sim_1, \ldots
-,\sim_n,\{\sim_{i \rightarrow j}\}_{{(i,j)}\in \texttt{Agt}^2},\nu)$, and PCTL$^{kc}$ formula $\varphi$, we have to define an MDP model $\mathfrak{M'_2}$ = $\mathscr{F}(\mathfrak{M_2})$ and PCTL formula $\mathscr{F}(\varphi)$ using the transformation function $\mathscr{F}$ such that $\mathfrak{M_2} \models \varphi$ iff $\mathscr{F}(\mathfrak{M_2})\models \mathscr{F}(\varphi)$.
-
-
-\begin{figure}[h]
+\begin{figure}%[!t]
 \centering
-\includegraphics[width=15cm, height=9cm]{chap4/img/relation-translation2.eps}
-%\includegraphics[scale=0.5]{figure1}
-\caption{Translating relations in $\mathfrak{M_2}$ into labeled transitions in the MDP model} \label{fig:relation-translation-PCTLKC}
+\includegraphics[width=3.5in]{figures/utility_ratio.eps}
+\caption{Ratio of Utility Gain DDM and Rational}
+\label{utility_gain_mlisa_and_rational_ratio}
 \end{figure}
 
-\subsection{Transforming the Model $\mathfrak{M_2}$}
+Now, we evaluate the performance of the decision profiles generated based on our data set for other communities.% which are not included in the decision tree creation process.
+We create one thousand communities from the web services in the data set that were not involved in the decision model creation process. We define a distance function that measures the difference between basic features of communities, which measures the similarity of communities.
 
-In order to transform our model $\mathfrak{M_2}=(S,\textbf{P},I,\sim_1, \ldots
-,\sim_n,\{\sim_{i \rightarrow j}\}_{{(i,j)}\in \texttt{Agt}^2},\nu)$ into an MDP model $\mathfrak{M'_2}$ = $(\mathbb{S}, Act, \textsf{P}_t ,I_i, L)$, we need to define the set of actions $Act$. Therefore, one of the main steps that we perform in this transformation is to define the set $Act$. The idea is that, we translate different relations in $\mathfrak{M_2}$ into labeled transitions in $\mathfrak{M'_2}$. Labels (also called actions) are used to distinguish between different types of relations. Consequently, the three relations in $\mathfrak{M_2}$, namely transition relation, epistemic accessibility relation, and social accessibility relation are translated into labeled transitions in $\mathfrak{M'_2}$. Moreover, whenever we have a labeled transition representing a social accessibility relation we add the symmetric closure of it to interpret the fulfilment of the commitment. As depicted in Figure \ref{fig:relation-translation-PCTLKC} (assuming that $n$ is the number of agents, $1 \leq i \leq n$, and $1 \leq j \leq n$), actions $\delta, \alpha^i, \beta^{ij},$ and $\gamma^{ij}$ denote transitions defined, respectively, from the probabilistic transition relation $\textbf{P}$, the epistemic accessibility relation $\sim_i$ (to capture the semantics of knowledge), the social accessibility relation $\sim_{i \rightarrow j}$ (to capture the semantics of commitment), and the symmetric closure of the social accessibility relation (to capture the semantics of fulfilment).\\
+\begin{equation}\label{distance_c}
+\begin{split}
+distance (C_1, C_2) & = |Th_{C_1} - Th_{C_2}| \\
+                    & + |A_{C_1} - A_{C_2}| + |Et_{C_1} - Et_{C_2}|
+\end{split}
+\end{equation}
 
-The MDP model $\mathfrak{M'_2} = (\mathbb{S}, Act, \textsf{P}_t ,I_i, L)$ can now be defined as follows:
+Now, each community tries to find the closest community within the trained $CFVS$ set. Following its decision profile, the community can get a good estimate of the possible strategic decisions it can adopt. Basically, the trained profiles benefit the new web services in two ways. First, they provide the communities with a set of viable communities to join. Second, they provide an estimation of long-term utility gain for each available decision. In this experiment, we let communities follow the best decision within the decision tree provided to the them.
 
-
-\begin{itemize}
-\item $\mathbb{S}$=$S$; $I_i$=$I$; $L$=$\nu$.
-
-\item $Act = \{\delta \} \cup \{\alpha^1, \alpha^2, \dots, \alpha^n\} \cup \{\beta^{11}, \beta^{12}, \dots, \beta^{nn}\} \cup \{\gamma^{11}, \gamma^{12}, \dots, \gamma^{nn}\}$ where $n$ is the number of agents.
-
-\item We define $\textsf{P}_t$ as the union of the transitions labeled with $\delta$ (i.e., the probabilistic transitions of $\textbf{P}$) with the probabilistic transitions labeled with $\alpha^i$, probabilistic transitions labeled with $\beta^{ij}$, and probabilistic transitions labeled with $\gamma^{ij}$. The probabilities of transitions labeled with $\delta$ are not manipulated but rather inherited from the probabilistic transition function $\textbf{P}$. However, for transitions labeled with $\alpha^i$ and emanating from the same state are given equal probabilities (i.e., equal distribution) which reflect the uncertainty of the agent over the accessible states, so that over the content of the knowledge. Meaning that, the probability of each transition annotated by $\alpha^i$ is equal to the probability of each other transition labeled with $\alpha^i$ emanating from the same state which is calculated by dividing one over the number of transitions labeled with $\alpha^i$. The probabilities of transitions labeled with $\beta^{ij}$ and $\gamma^{ij}$ are calculated in the same way. For states $s, s' \in \mathbb{S}$ and  action $\theta \in Act$, the function $\textsf{P}_t$ is defined as follows:
-\begin{equation*}
-    \textsf{P}_t(s, \theta , s' )=
-\begin{cases}
-    \textbf{P}(s, s'),   & \textit{if } \theta = \delta  \\
-    \frac{1}{|s\sim_i s'|},   & \textit{if } \theta = \alpha^i\\
-    \frac{1}{|s\sim_{i \rightarrow j} s'|},   & \textit{if } \theta = \beta^{ij}\\
-    \frac{1}{|s'\sim_{i \rightarrow j} s|},   & \textit{if } \theta = \gamma^{ij}.
-    \end{cases}
-    \end{equation*}
-
-\end{itemize}
-
-
-The induced model of applying the adversary $\sigma$ over
-$\mathfrak{M'_2}$ is a DTMC model. Specifically, four adversaries are defined; $\sigma_t$ over which temporal formulae are interpreted, $\sigma_e$ to capture epistemic formulae, $\sigma_c$ to capture commitment formulae, and $\sigma_f$ to capture fulfillment formulae. These adversaries are defined based on the following rules. To define $\sigma_t$, action $\delta$ is selected at every state in $\mathfrak{M'_2}$. For $\sigma_e$, action $\alpha^i$ has to be among the enabled actions at the knowledge state. Then, the adversary picks up $\alpha^i$ at that knowledge state and $\delta$ at every other state. Adversaries $\sigma_c$, and $\sigma_f$ are defined in the same way.
-
-\subsection{Reducing PCTL$^{kc}$ Formulae into PCTL Formulae}
-
-In this section, we introduce our reduction rules that translate PCTL$^{kc}$ formulae to PCTL formulae w.r.t given adversary $\sigma$. Given the adversary $\sigma_t$, the PCTL$^{kc}$ formulae are transformed
-inductively into PCTL as follows:
-
-$\mathscr{F}(p)=p$, if $p$ is an atomic proposition,
-
-$\mathscr{F}(\neg \varphi)= \neg \mathscr{F} (\varphi)$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k}(\varphi \vee \psi))=\mathbb{P}_{\bowtie k}(\mathscr{F}(\varphi) \vee \mathscr{F}(\psi))$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k}\bigcirc \varphi)=\mathbb{P}_{\bowtie k} \bigcirc \mathscr{F}(\varphi)$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k}(\varphi~ U ~ \psi))=\mathbb{P}_{\bowtie k} (\mathscr{F}(\varphi) U \mathscr{F}(\psi))$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k}(\varphi~ U^{\leq m} ~ \psi))=\mathbb{P}_{\bowtie k} (\mathscr{F}(\varphi) U^{\leq m} \mathscr{F}(\psi))$,
-
-Note that $\sigma_t$ is a DTMC model that is used to interpret only PCTL formulas. It cannot be used to capture the transformed formulas of knowledge and commitment as it ignores all relations except those labeled by $\delta$ (i.e., transition relations of $\textbf{P}$).
-
-Given the adversary $\sigma_e$, the PCTL$^{kc}$ epistemic formula is transformed inductively into PCTL as follows:
-
-$\mathscr{F}(K_i \varphi)= \mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi))$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k} K_i \varphi)= \mathbb{P}_{\bowtie k}(\mathbb{P}_{\geq 1}\bigcirc\mathscr{F}(\varphi))$,
+\begin{table}[ht]
+\caption{Number of communities that misses the optimal decision, out of 1,000 communities} % title of Table
+\centering % used for centering table
+\begin{tabular}{|c|c|} % centered columns (4 columns)
+\hline %inserts double horizontal lines
+ Method&Miss \\ [0.5ex] % inserts table
+%heading
+\hline % inserts single horizontal line
+ DDM r=0.05& 375 \\ % inserting body of the table
+ DDM r=0.07& 137 \\
+ DDM r=0.10& 6 \\
+ DDM r=0.20& 6 \\
+Rational Method& 717 \\
+Greedy Method& 828 \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{fail_rate} % is used to refer this table in the text
+\end{table}
 
 
-As mentioned earlier, the adversary $\sigma_e$ is a DTMC model that captures only action $\alpha^i$ at the knowledge state and $\delta$ at all other states. Intuitively, transitions labeled with $\alpha^i$ represent epistemic accessibility relations and, in fact, epistemically accessible states from the knowledge state must satisfy $\varphi$. Back to Figure \ref{fig:relation-translation-PCTLKC} (b), it is readily seen that all next states to the knowledge state through transitions labeled with $\alpha^i$ satisfy $\mathscr{F}(\varphi)$. This explains why knowledge formula $K_i~\varphi$ is transformed to next operator followed by the transformation of the content of the knowledge $(i.e., \bigcirc \mathscr{F}(\varphi))$ in all paths emanating from the knowledge state.
-
-Given the adversary $\sigma_c$, the PCTL$^{kc}$ commitment formula is
-transformed inductively into PCTL as follows:
-
-$\mathscr{F}(C_{i\rightarrow j}\varphi)= \mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi))$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k} C_{i\rightarrow j}\varphi)= \mathbb{P}_{\bowtie k}(\mathbb{P}_{\geq 1}\bigcirc\mathscr{F}(\varphi))$,
-
-Similar to the case of knowledge formula, Figure \ref{fig:relation-translation-PCTLKC} (c) illustrates the intuitions behind transforming the commitment formula $C_{i\rightarrow j}\varphi$ to  $\bigcirc \mathscr{F}(\varphi)$ in all baths emerging from the commitment state.
-
-Given the adversary $\sigma_f$, the PCTL$^{kc}$ fulfillment formula
-is transformed inductively into PCTL as follows:
-
-$\mathscr{F}(Fu(C_{i\rightarrow j}\varphi))= \mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(C_{i\rightarrow j}\varphi))= \mathbb{P}_{\geq 1}(\bigcirc\mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi)))$,
-
-$\mathscr{F}(\mathbb{P}_{\bowtie k} Fu(C_{i\rightarrow j}\varphi))= \mathbb{P}_{\bowtie k} (\mathbb{P}_{\geq 1}\bigcirc\mathscr{F}(C_{i\rightarrow j}\varphi))= \mathbb{P}_{\bowtie k}(\mathbb{P}_{\geq 1}\bigcirc\mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi)))$.
-
-Though the semantics of the fulfillment operator in PCTL$^{kc}$ requires the existence of a path containing the fulfilment state which must be socially accessible from the commitment state, in this transformation we notice that all next states to the fulfilment state through transitions labeled with $\gamma^{ij}$ should satisfy the commitment formula ($C_{i\rightarrow j}\varphi$). The reason of that is because in our transformation process, the transitions labeled with $\gamma^{ij}$ came as a result of adding the symmetric closure of transitions labeled with $\beta^{ij}$ in order to capture the semantics of the fulfilment. Therefore, all added transitions should satisfy the commitment formula ($C_{i\rightarrow j}\varphi$) (see Figure \ref{fig:relation-translation-PCTLKC} (c)).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{theorem}[Equivalences Satisfaction]\label{Satsisfaction-Equivelance}\hspace{0.5cm}
-
-Let $\sigma_{t}$, $\sigma_{e}$, $\sigma_{c}$, and $\sigma_f$ be the DTMC models corresponding to the adversaries that capture respectively, temporal formulae, epistemic formulae, commitment formulae, and fulfilment formulae in the model $\mathfrak{M'_2}$. The following equivalences hold:
-
-$(\mathfrak{M_2},s)\models p ~\text{iff}~ (\sigma_t,s) \models p$
-
-$(\mathfrak{M'_2},s)\models \neg \varphi ~\text{iff}~ (\sigma_t,s)\models\neg \mathscr{F}(\varphi)$
-
-$(\mathfrak{M_2},s)\models \mathbb{P}_{\bowtie k}(\varphi \vee \psi)
-~\text{iff}~ (\sigma_t,s) \models
-\mathbb{P}_{\bowtie k} \mathscr{F}(\varphi) \vee
-\mathbb{P}_{\bowtie k} \mathscr{F}(\psi) $
-
-$(\mathfrak{M_2},s)\models \mathbb{P}_{\bowtie k}\bigcirc\varphi ~\text{iff}~ (\sigma_t,s) \models\mathbb{P}_{\bowtie k} \bigcirc \mathscr{F}(\varphi) $
-
-$(\mathfrak{M_2},s)\models\mathbb{P}_{\bowtie k}(\varphi~ U ~ \psi) ~\text{iff}~ (\sigma_t,s) \models \mathbb{P}_{\bowtie k}(\mathscr{F}(\varphi)~ U ~\mathscr{F}(\psi))$
-
-$(\mathfrak{M_2},s)\models\mathbb{P}_{\bowtie k}(\varphi~ U^{\leq m} ~ \psi) ~\text{iff}~ (\sigma_t,s) \models \mathbb{P}_{\bowtie k}(\mathscr{F}(\varphi)~ U^{\leq m} ~\mathscr{F}(\psi))$
-
-$(\mathfrak{M_2},s)\models K_i \varphi ~\text{iff}~ (\sigma_e,s)\models \mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi))$
-
-$(\mathfrak{M_2},s)\models \mathbb{P}_{\bowtie k}K_i \varphi ~\text{iff}~ (\sigma_e,s) \models \mathbb{P}_{\bowtie k}(\mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi)))$
-
-$(\mathfrak{M_2},s)\models C_{i \rightarrow j}\varphi ~\text{iff}~ (\sigma_c,s)\models \mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi))$
-
-$(\mathfrak{M_2},s)\models \mathbb{P}_{\bowtie k}C_{i \rightarrow j}\varphi ~\text{iff}~ (\sigma_c,s) \models \mathbb{P}_{\bowtie k}(\mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi)))$
-
-$(\mathfrak{M_2},s)\models Fu(C_{i \rightarrow j}\varphi) ~\text{iff}~ (\sigma_f,s) \models \mathbb{P}_{\geq 1}(\bigcirc\mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi)))$
-
-$(\mathfrak{M_2},s)\models \mathbb{P}_{\bowtie k}Fu(C_{i \rightarrow j}\varphi) ~\text{iff}~ (\sigma_f,s) \models \mathbb{P}_{\bowtie k} (\mathbb{P}_{\geq 1}(\bigcirc\mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi))))$
-
-\end{theorem}
-
-
-Notice that each formula has to be interpreted over a DTMC model
-(adversary) that is used to solve the nondeterminism in
-$\mathfrak{M'_2}$ based on the type of the formula (i.e.,
-temporal, epistemic, or social). The proof of the theorem with
-regard to PCTL formulae is straightforward as PCTL formulae are
-also PCTL$^{kc}$ formulae. However, for epistemic and social
-formulae, the proof is given in Theorem \ref{soundness-PCTLKC}.
-%that discusses the soundness of the  transformation rules.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{theorem}[Soundness and Completeness of $\mathscr{F}$]\label{soundness-PCTLKC}
-Let $\mathfrak{M_2}$ and $\Phi$ be respectively a PCTL$^{kc}$ model
-and formula and let $\mathscr{F}(\mathfrak{M_2})$  and $\mathscr{F}(\Phi)$ be the corresponding model and formula in PCTL. We have $\mathfrak{M_2}\models\Phi$ iff $\mathscr{F}(\mathfrak{M_2}) \models \mathscr{F}(\Phi)$.
-\end{theorem}
-
-%\begin{proof}$~\\$
-\begin{proof} \hspace{0.5cm} \\
-To prove the soundness of the proposed reduction technique, we have to prove that the following three cases are sound: $\Phi =
-K_i\varphi$, $\Phi = C_{i \rightarrow j} \varphi$ and $\Phi = Fu(C_{i \rightarrow j} \varphi)$. We prove this by induction on the structure of the formula
-$\Phi$. The case of PCTL$^{kc}$ formulae that are also PCTL formulae is straightforward.
+In order to evaluate the performance of the mechanism, we used \emph{Receiver Operating Characteristic (ROC) curve}, which is a graphical plot illustrating the true negative rate against the false positive rate at various threshold settings in classifier systems. In order to classify our communities' selection strategies correctly, for each community, we evaluated the training process by replacing the community in the set with the closest one, from which it gets the strategy profile. If the actions are the same and the same utility levels are gained, we classify the decision as correct. Otherwise, it is classified as a wrong decision. \emph{AUC}, the area under the \emph{ROC curve}, is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one, and the higher number reflects better performance from the better solution.  Figure \ref{roc5} illustrates the \emph{ROC curve} evaluation of the DDM decision making mechanism. We compare our method with two other methods. The \emph{rational} method is based on the assumption that communities, as rational agents, join a community that increases their utility. The \emph{greedy} method only looks up the available list of communities and simply joins the community that maximizes its utility without considering any long-term strategy or other communities' acceptance scenarios, its an greedy algorithm and chooses a locally optimal choice. Therefore we use these two methods as our benchmark:
 
 \begin{itemize}
-\item $\Phi = K_i ~\varphi$. We have $(\mathfrak{M_2},s)\models K_i ~\varphi ~\text{iff}~ (\mathfrak{M_2},s') \models \varphi$ for every $s' \in S ~\textrm{such that}~ s\sim_i s'$. Therefore, $(\mathfrak{M_2},s)\models K_i ~\varphi ~\text{iff}~ (\mathscr{F}(\mathfrak{M_2}),s) \models \mathscr{F}(K_i~\varphi)$. Recall that $\mathscr{F}(\mathfrak{M_2})= \mathfrak{M'_2}$. Now, $(\mathfrak{M'_2},s) \models \mathscr{F}(K_i~\varphi)$ iff for every $s' \in \mathbb{S} ~\textrm{such that}~ (s,\alpha^i,s') \in \textsf{P}_t$, we have $(\mathfrak{M'_2},s') \models \mathscr{F}(\varphi)$. However, w.r.t the semantics of $~\sigma_e$ which is an adversary defined to interpret commitment formulae over $\mathfrak{M'_2}$, it follows that every infinite path $\pi \in \Pi^{\sigma_e}(s)$ satisfies that $\pi(1)=s'$ and $(\sigma_e,\pi(1))\models \mathscr{F}(\varphi)$. Thus, $(\sigma_e,s)\models \bigcirc\mathscr{F}(\varphi)$ for all $\pi \in \Pi^{\sigma_e}(s)$. As the path quantifier $A$ is not defined in PCTL, and we have $\mathbb{P}_{\geq1}$ instead, so we obtain $(\sigma_e,s)\models \mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi))$.
-
-\item $\Phi = C_{i \rightarrow j} \varphi$. We have $(\mathfrak{M_2},s)\models C_{i\rightarrow j}\varphi ~\text{iff}~ (\mathfrak{M_2},s') \models \varphi$ for every $s' \in S ~\textrm{such that}~ s\sim_{i \rightarrow j}s'$. Consequently, $(\mathfrak{M_2},s) \models C_{i\rightarrow j} \varphi ~\text{iff}~ (\mathfrak{M'_2},s) \models \mathscr{F}(C_{i\rightarrow j} \varphi)$. It follows that, $(\mathfrak{M'_2},s) \models  \mathscr{F}(C_{i\rightarrow j}\varphi)$ iff for every $s' \in \mathbb{S} ~\textrm{such that}~ (s,\beta^{ij},s') \in \textsf{P}_t$, we have $(\mathfrak{M'_2},s') \models  \mathscr{F}(\varphi)$. Now, based on the adversary $~\sigma_c$ which is defined to interpret commitment formulae over $\mathfrak{M'_2}$, every infinite path $\pi \in \Pi^{\sigma_c}(s)$ satisfies that $\pi(1)=s'$ and $(\sigma_c,\pi(1))\models \mathscr{F}(\varphi)$. Thus, $(\sigma_c,s)\models \bigcirc\mathscr{F}(\varphi)$ for all $\pi \in \Pi^{\sigma_c}(s)$. As the path quantifier $A$ is not defined in PCTL, and we have $\mathbb{P}_{\geq1}$ instead, so we obtain $(\sigma_c,s)\models  \mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi))$.
-
-\item $\Phi = Fu(C_{i \rightarrow j} \varphi)$. We have
-$(\mathfrak{M_2},s)\models Fu(C_{i\rightarrow j}\varphi)$ iff there exists $s'\in S$ such that $s'\sim_{i \rightarrow j}s~ \text{and~}(\mathfrak{M_2},s')\models C_{i \rightarrow j}\varphi$.
-Consequently, $(\mathfrak{M'_2},s)\models \mathscr{F}(Fu(C_{i\rightarrow j}\varphi))$ iff there exists $s' \in \mathbb{S}$ such that $(s,\gamma^{ij},s') \in \textsf{P}_t$ and
-$(\mathfrak{M'_2},s') \models \mathscr{F}(C_{i \rightarrow j}\varphi)$. Now, w.r.t the adversary $\sigma_f$ which is defined to interpret fulfillment formulae over $\mathfrak{M'_2}$, we obtain at least one infinite path $\pi \in \Pi^{\sigma_f}(s)$ that satisfies $\pi(1)=s'$ and
-$(\sigma_f,\pi(1))\models \mathscr{F}(C_{i \rightarrow j}\varphi)$. Since $E$ is equivalent to $\mathbb{P}_{>0}$ and $\mathscr{F}(C_{i \rightarrow j}\varphi)$ is equivalent to
-$\mathbb{P}_{\geq1}(\bigcirc\mathscr{F}(\varphi))$, so we obtain $(\sigma_f,s)\models \mathbb{P}_{>0}(\bigcirc\mathbb{P}_{\geq 1}(\bigcirc \mathscr{F}(\varphi)))$.
-
-
-
+  \item {\bf Rational Method:} Communities would send a join request to any available community, which will increase the utility. The other community would accept the join offer if the utility gain is positive as well.
+	\item {\bf Greedy Method:} Communities do a linear search among all the available communities and send a join request to the community which results in maximum utility, The other community would accept the join offer if the utility gain is positive and the utility gain does not need to be the maximum for the community recieving the join request.
 \end{itemize}
 
-\end{proof}
+Figure \ref{roc5} compares the results for all methods. The two other methods have very high failure rates compared to our method. Table \ref{fail_rate} illustrates the number of communities that failed to find the optimal collaboration group. The results support the need for a long-term training model in a successful decision making process.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/roc.eps}
+\caption{RoC Curve}
+\label{roc5}
+\end{figure}
+Now, we evaluate the system-specific results from users' and communities' perspectives. By distributing tasks among the communities over these time frames, we evaluate the revenue for each community. Figure \ref{stats1} shows the overall revenue gain of communities using our method. Figure \ref{stats2} shows the momentarily revenue gain for each community in each time slot compared to the previous time. These results show that the run with the higher learning rate of $r=0.20$ starts discovering better communities to join much earlier. The runs with slow rates seem to find some communities to join initially, but then they slow down until later, when they start discovering new communities to join.
 
-\section{Implementation}\label{sec:Case-Study-cha4}
-In this section, a case study is implemented using
-PRISM \cite{Kwiatkowska2002} to verify knowledge, commitments,
-and interactions between the two concepts in probabilistic MASs. We
-apply the approach using the NetBill protocol
-as in \cite{El-Menshawy2013a,Mallya2007,Yolum2002}. NetBill protocol
-is developed for buying and selling encrypted software through the internet. We add probability to the original protocol so that the protocol will be
-closer to the real world situation. There are many interactions
-and communications between a buyer and a seller with NetBill protocol, and they are subject to several stochastic events, such as a buyer's request
-for a quote could be successfully received by the seller in only
-95\% of the cases. Another example is the buyer will satisfy his
-delivery commitment with 98\% of probability. As we said before, those probabilities could be generally obtained after observing the system behavior for long time. We will introduce this modified probabilistic NetBill protocol next.
-
-
-\subsection{NetBill Protocol}
-
-The basic NetBill protocol involves one customer agent \emph{Cus} and one
-merchant agent \emph{Mer} interacting to finish an online shopping
-process. This protocol can also be applied to more than one
-customer and one merchant. A customer \emph{Cus} requests a quote
-from the merchant \emph{Mer} for an item to initialize the
-protocol. We assume that 5\% of these requirements will fail to be
-sent to the merchant due to internet connection issues. The
-merchant replies to the successfully delivered request by
-presenting a quote for the requested item. Having received the quote, we assume that 20\% of customers reject the offer and
-end the protocol without any purchase. The other 80\% of customers
-accept the offer. Accepting the offer means that the customer commits to send the payment to the merchant ($C_{Cus\rightarrow Mer}Pay$). We assume that only 90\% of payment commitments will be fulfilled
-($Fu(C_{Cus\rightarrow Mer}Pay)$) and 10\% will be nullified. Both
-customer and merchant agents will be aware if the customer
-fulfills its commitments. When the merchant agent receives the
-payment, then it will commit to deliver the items to the customer
-($C_{Mer\rightarrow Cur}Deliver$). Suppose that 99\% of deliveries
-are successful, which means that the merchant fulfills its
-commitments ($Fu(C_{Mer\rightarrow Cur}Deliver)$). If the delivery fails,
-the merchant violates its commitment and in this case the merchant should refund the customer. Figure \ref{NetBill} depicts the model of the modified NetBill protocol.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=14cm,height=8cm]{chap4/img/Netbill.eps}
-\caption{The Modified NetBill protocol} \label{NetBill}
-\end{center}
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats1.eps}
+\caption{Overall Utility of all communities}
+\label{stats1}
 \end{figure}
 
 
-With the PRISM modeling language, we translate every agent into a
-\emph{module} and the entire MAS is defined as a system with \emph{agent modules} which are all synchronized.
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats2.eps}
+\caption{Utility Gain on time}
+\label{stats2}
+\end{figure}
 
+Figure \ref{stats3} depicts the average community size over time, which essentially represents the number of new communities being formed. Once again, these results show that the runs with higher search rates tend to find appropriate communities to join faster.
 
-To formalize the protocol, the scenario is encoded using the
-probabilistic interpreted systems $\mathfrak{M_2}$ introduced earlier in Definition \ref{def:models-pctlkc}. Two basic modules, \emph{module
-Mer1} and \emph{module Cur1} are defined according to their
-probabilistic transitions. They represent the customer agent
-\emph{Cus1} and the merchant agent \emph{Mer1} respectively. Other
-agents can just refer to these two basic agents and use
-\emph{module renaming} function to duplicate a module.
-
-\subsection{NetBill Protocol Properties}
-
-\begin{itemize}
-\item \texttt{Safety property:} When designing a system, we may set a confidence interval to allow some mistakes for properties because it seems impossible for human beings not to make any mistake in the real world. For example, ``with 99\% chance, the system will not fail" instead of ``the system will never fail". In our protocol, one bad situation is when the customer $Cus1$ sends the payment to the merchant $Mer1$ without the merchant being aware of that. The following property can avoid this bad situation:
-
-$\varphi_1 = \mathbb{P}_{= 1}$ $[\neg (Fu(C_{Cus1\rightarrow Mer1}Pay)
-\wedge  (\neg K_{Mer1}Pay))]$.
-
-This event is critical without any uncertainty. Therefore, we
-set the probability to 1.
-A similar formula is when the customer fulfills its commitments,
-but it turns out that it is not aware of:
-
-$\varphi_2 = \mathbb{P}_{= 1}$ $[\neg (Fu(C_{Cus1\rightarrow Mer1}Pay) \wedge  (\neg K_{Cus1}Pay))]$.
-
-With 1\% tolerance for missing delivery, we can define the third
-\emph{safety  property}  in our logic as follows:
-
-$\varphi_3 = \mathbb{P}_{\geq 0.99}$ $[\neg (Fu(C_{Cus1 \rightarrow Mer1} Pay) \wedge
-\neg (C_{Mer1\rightarrow Cur1} Delivery))]$.
-
-\item \texttt{Liveness property:} Contrast to \emph{safety property}, a \emph{liveness property } means ``a good thing will eventually happen". For example, when the merchant commits to deliver the goods to the customer, it will eventually deliver them. This property is expressed as follows:
-
-$\varphi_4 = \mathbb{P}_{\geq 0.99}(C_{Mer1 \rightarrow Cus1} Deliver\Rightarrow$
-$\mathbb{P}_{\ge 0} [\text{F } Fu(C_{Mer1 \rightarrow Cus1} Deliver)]) $.
-
-\item \texttt{Reachability property:} One good example for the reachability property for the NetBill protocol is that the merchant will eventually commit towards the customer to deliver the required goods, which should be reached from the initial state. This property can be expressed as follows:
-
-$\varphi_5 = \mathbb{P}_{\geq 0}$ [F $C_{Mer1 \rightarrow Cus1} Deliver$]
-
-\item \texttt{Quantitative properties:} One important usage for probabilistic model checking is to compute the actual probability of some behaviors of the system. We can calculate the probability for eventually the customer $Cus1$ commits to send the payment to the merchant $Mer1$ and eventually the customer fulfills the commitment:
-
-$\varphi_6 = \mathbb{P}_{=?}$ [F $C_{Cur1 \rightarrow Mer1} Pay$]
-
-$\varphi_7 = \mathbb{P}_{=?}$ [F $Fu(C_{Cur1 \rightarrow Mer1} Pay)$]
-
-\end{itemize}
-
-
-
-
-\subsection{Experimental Results}\label{sec:Experimental-results-cha4}
-
-We verified several probabilistic epistemic and commitment
-properties as well as combinations made up from both properties
-for the NetBill protocol. The presented experiments were
-performed on a Toshiba Port\'{e}g\'{e} computer
-with 2.00 GHz Intel Core2 Duo T6400 processor and 3GB memory under
-64-bit Windows Vista Operating System.
-
-
-\begin{table} %[!htbp]
-\centering \caption{Experimental results for NetBill protocol with
-PRISM} \label{tab:result-cha4}
-\begin{tabular}{|c|l|l|c|c|}
-    \hline
-    \texttt{Number}& \multicolumn{2}{c|}{\texttt{Model}} & \multicolumn{2}{c|}{\texttt{Construction}}\\
-    \cline{2-5}
-    \texttt{of Agents}  & \texttt{\#States} & \ \ \ \texttt{\#Transitions} & \texttt{Iterations} & \texttt{Time (sec)} \\
-    \cline{1-5}
-    \hline
-    \hline
-    2 &  19 & \ \ \ 39 & $7$ & $0.001$\\
-    \hline
-    $3$ &  $108$ & \ \ \ $432$ & $10$ & $0.008$\\
-    \hline
-    $4$ &  $979$ & \ \ \ $3.2*10^3$ & $13$ & $0.011$\\
-    \hline
-    $5$ &   $6.1*10^3$ & \ \ \ $24*10^3$ & $16$ & $0.024$\\
-    \hline
-    6 &  $38*10^3$ & \ \ \ $171*10^3$ & 19 & 0.028\\
-    \hline
-    7 &   $230*10^3$ & \ \ \ $1.1*10^6$ & 22 & 0.035\\
-    \hline
-    8 &   $1.4*10^6$ & \ \ \ $7.8*10^6$ & 25 & 0.049\\
-    \hline
-    9 &   $8.4*10^6$ & \ \ \ $52*10^6$ & 28 & 0.071\\
-    \hline
-    10 &  $50*10^6$ & \ \ \ $343*10^6$    & 31 & 0.097\\
-    \hline
-    15 & $392*10^9$ & \ \ \ $3.8*10^{12}$ & 46 & 0.498\\
-    \hline
-\end{tabular}
-\end{table}
-
-We have conducted 10 experiments for the protocol using up to 15
-agents. The results are in Table \ref{tab:result-cha4}. Model
-statistics data (number of states and number of transitions) and
-model construction information (iteration and construction time)
-are reported. The model statistics data reflect the state space,
-while the construction information indicates the time for
-converting the PRISM model into a symbolic model and iterations required to find the reachable states. We have noticed that the state space increases
-exponentially as the number of agents increases. However, the time
-needed for constructing the model increases polynomially as more
-agents are added as shown in Figure \ref{Building the model-cha4}.
-
-
-\begin{figure}%[!h]
-\begin{center}
-\includegraphics[width=10cm,height=6cm]{chap4/img/time-for-building-model.eps}
-\caption{Model construction time for the NetBill protocol} \label{Building the model-cha4}
-\end{center}
+\begin{figure}%[!t]
+\centering
+\includegraphics[width=3.5in]{figures/stats3.eps}
+\caption{Average Community Size}
+\label{stats3}
 \end{figure}
 
 
-We verified properties expressing some requirements of the NetBill
-protocol that involve probabilistic knowledge and commitments. We
-checked \emph{Safety, liveness,} and \emph{Reachability}
-properties as discussed above. Table \ref{formulae-PRISM-results-cha4} shows the results of model checking the above desirable properties for the
-probabilistic \emph{NetBill protocol} for a system that includes
-one customer and one merchant.
+
+\section{Related Work}\label{s:related_work}
+
+In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
+defined communities as \emph{Service Containers} that aggregate
+substitutable web services providing a common functionality (same
+set of operations). They abstracted \emph{Service Containers} as
+web services that are created, advertised, discovered and invoked
+just as elementary web services. The \emph{Container} is
+considered as a manager that is responsible for web service
+selection upon receiving a request on run-time. The authors have
+proposed a scoring service based on non-functional requirements of
+the request and web service capabilities to dynamically chose the
+web service to perform the requested task. A similar concept was
+proposed by Maamar et al. in
+\cite{DBLP:journals/ijebr/MaamarSTBB09}. The authors introduced
+web service communities as a collection of web services with a
+common functionality but different QoS properties. A community
+manager, upon receiving a request, delegates the request to one of
+its current members. The choice is based on the performance
+history and quality metrics of each web service. The authors have
+proposed an efficient global web service selection algorithm in
+order to approach quality constraints and preferences for
+composite services which require aggregation of different types of
+services to satisfy the user.
+
+Benslimane et al. \cite{Liris-2770} have proposed a multi-layer
+approach grouping similar Web services into communities and having
+an interface implemented as an abstract web service for accessing
+the community on top of the community layer. The interactions
+between composite, management and community layers and the
+bindings are performed by a generic driver called Open Software
+Connectivity (OSC).
+
+In \cite{managing-hela-jalel}, Limam and Akaichi have proposed web
+service communities with centralized access across distributed web
+services. They have proposed a framework for web service
+management, query resolution among communities and a query caching
+mechanism executed by the manager to improve the performance of
+query resolution process among many distributed communities. The
+key idea is to cache previous computed results for answering
+future queries.
 
 
-\begin{table}%[H]
-\centering \caption{Verifying some PCTL$^{kc}$ properties for the NetBill protocol in case of two agents} \label{formulae-PRISM-results-cha4}
-\begin{tabular}{|c|c|c|}
-\hline
-\texttt{Formulae}    & \texttt{Results} & \texttt{Time for MC (sec)} \\
-\hline\hline
-$\varphi_1$                &True           &  0.001     \\
-\hline
-$\varphi_2$               &True           &  0.001     \\
-\hline
-$\varphi_3$                &True           & 0.008    \\
-\hline
-$\varphi_4$                &True          & 0.001   \\
-\hline
-$\varphi_5$                &True           &  0.008  \\
-\hline
-$\varphi_6$                &0.80           &  0.002  \\
-\hline
-$\varphi_7$                &0.72           &  0.001  \\
-\hline
+Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
+then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
+proposed an architecture utilizing \emph{Contract-Net} protocol
+for engineering task distribution within communities of web
+services. The protocol is centrally executed by the community
+manager. This architecture has been further developed in
+\cite{CSTintercommunity, conf/IEEEscc/BenharrefSBB11,
+conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11}. Two types of
+roles have been distinguished for community members: masters and
+slaves. Master web services and community managers that lead
+communities and are responsible for membership management. They
+can invite and convince slave web services to join the community,
+and attract new slave web services to their communities by
+awarding them better payoff. Moreover, they can eject some slave
+members from the community to improve its overall reputation if
+these members are misbehaving or cannot provide the promised QoS.
 
-\end{tabular}
-\end{table}
+In \cite{Medjahed05adynamic}, Medjahed and Bouguettaya have
+developed a community as a ``cluster'' that groups Web services
+based on a specific area of interest. All web services in a given
+community share the same functionality. These communities are
+created by \emph{third party community providers} which use the
+\emph{community ontology} as a template and define a set of
+operations that all web services within a community should
+provide. Using semantic analysis on web service operations, web
+services either find and join a community with similar
+functionality or create a new operation description for a new
+community. The authors have described the concept of
+\emph{community agents} associated to \emph{community providers}.
+A community agent is responsible, among other things, of the
+registration of services with the community. An example of a
+community that provides health care services to senior citizens
+has been used. In this example, a governmental entity is needed to
+check the health care standards used by the members before
+authorizing them to be part of the community. Such a central
+entity is represented by the community agent. Thus, community
+agents are playing the role of community managers. In a close work
+\cite{Zeng:2003:QDW:775152.775211}, Zeng et al. have described a
+global planning selection algorithm and a delegation algorithm to
+be run when a request to execute an operation is received by the
+community. This needs a central entity to run those algorithms.
+Such entity plays the same role as the community coordinator or
+manager.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Most of the recent work on communities of services are either
+user-centric and focus on user satisfaction
+\cite{Chun02user-centricperformance} or system-centric and focus
+on the whole system throughput, performance and utilization. There
+are many contributions in distributed, grid, cluster and cloud
+services which are system-centric. However, in real world
+environments and applications, both users and service providers
+are self-interested agents, aiming to maximize their own profit.
+In those environments, both parties (users and services) will
+collaborate as long as they are getting more benefits and payoff.
 
-\subsection{Discussion} \label{sec:discussion-cha4}
+In this direction, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
+DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed
+mechanisms to help users and services maximize their gain. A
+two-player non-cooperative game between web services and community
+master was introduced in
+\cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In this game-theoretic
+model, the strategies available to a web service when facing a new
+community are requesting to join the community, accepting the
+master's invitation to join the community, or refusing the
+invitation to join. The set of strategies for communities are
+inviting the web service or refusing the web service's join
+request. Based on their capacity, market share and reputation, the
+two players have different sets of utilities over the strategy
+profiles of the game. The main limits of this game model are: 1)
+its consideration of only three quality parameters, while the
+other factors are simply ignored; and 2) the non-consideration of
+the web services already residing within the community. The game
+is only between the community master and the new web service, and
+the inputs from all the other members and their influence on the
+master's decision are simply ignored. The consideration of those
+inputs and this influence factor is a significant issue as
+existing web services can lose utility or payoff because of the
+new member, which can result in an unhealthy and unstable group.
+The problem comes from the fact that the existing members should
+collaborate with the new web services, so probably their
+performance as a group can suffer. Existing members may even
+deviate and try to join other communities if they are unsatisfied.
+Those considerations of forming stable and efficient coalitions
+are the main contributions of our paper.
 
-As we have seen in this chapter, a probabilistic logic for addressing the interaction between knowledge and social commitments in MASs was introduced. The described approach represents the first attempt in the literature to reason about and verify the interaction between the two concepts in the presence of uncertainty. However, from a consistency point of view, the logic we proposed seems to be inconsistent and suffers from some paradoxes like those identified in \cite{Al-Saqqar2014a}. The problem is that, one of the underlying logics of PCTL$^{kc}$, which is PCTLC \cite{Sultan2013}, is built using the social accessibility relation given in \cite{Bentahar2012,El-Menshawy2013a} which, in fact, over specifies and over constrains the concept of illocutionary communication.
+In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
+for selecting web services has been proposed. In this approach,
+the authors proposed a web service selection process that the
+community masters can use. The approach considers the efficiency
+of all the three involved parties, namely users, web services and
+communities. In this work, it is shown how the gains of these
+parties are coupled together using a linear optimization process.
+However, the optimization problem in this solution tends to
+optimize some parameters considering all web services regardless
+of their efficiency and contribution to the community's welfare.
+Moreover, there are no clear thresholds for accepting or rejecting
+new web services. The solution of the optimization problem could,
+for instance, suggest web services already residing within the
+community to increase or decrease their capacity to cover up the
+weakness of other parties in the system. However, a high
+performing web service could deviate anytime it finds itself
+unsatisfied within the community instead of adjusting its service
+parameters.
 
-In the next chapter, we see how we will overcome the aforementioned problem by extending a consisting logic of knowledge and commitment called CTLKC$^+$ \cite{Al-Saqqar2014a} by a probabilistic operator so that capturing and reasoning about the interaction between the concepts of knowledge and social commitments by means of a consistence probabilistic logic becomes possible. Moreover, the logic we introduce in Chapter \ref{cha:PCTLKC+} incorporates the concepts of group social commitments and group knowledge to the framework.
+In \cite{10.1109/TSC.2012.12}, a cooperative scheme among
+autonomous web services based on coalitional game theory has been
+introduced. The authors have proposed an interesting algorithm to
+reach individually stable coalition partition for web services in
+order to maximize their efficiency. The communities choose new web
+services on the promise that it would benefit the community
+without decreasing any other web service's income. In the proposed
+model, the worth of community is evaluated with high emphasis on
+the availability metric and considering price and cost values
+only. The community structure is based on a coordination chain,
+where a web service is considered as a \emph{primary} web service
+and the community task-distribution method initially invokes the
+primary web service and only if the primary web service is
+unavailable, the method invokes the next backup web services as
+they are ordered in the coordination chain. We believe that this
+coordination chain limits the cooperation power as it introduces a
+sort of hierarchy. However, in pure and open cooperative models,
+such as the one we propose in this paper, active cooperation
+activities engaging simultaneously many agents so that they can
+perform the tasks more efficiently are being used. Moreover, if
+the availability is high, which is the case nowadays with the
+recent advancements in cloud and hardware infrastructures, the
+backup web services will end-up having a very low chance of
+getting jobs, especially the ones further in the chain. This will
+results in a considerable waste of web services capabilities.
 
-
-
-\section{Related Work} \label{sec:related-work-cha4}
-
-The work presented in this chapter can be related to three perspectives
-in the literature: probabilistic knowledge, probabilistic commitments,
-and the interaction between the two aspects. In this section,
-we review the relevant work with respect to probabilistic knowledge
-and the interaction between probabilistic knowledge and probabilistic
-commitments. However, for the relevant work on probabilistic
-commitments, it has been discussed in Chapter \ref{cha:PCTLC}, Section \ref{sec:related-work-cha3}.
-
-\subsection{Probabilistic Knowledge in MASs }
-
-Delgado and Benevides in \cite{Delgado2009} defined a
-probabilistic logic called K-PCTL which extends PCTL with an
-epistemic operator for the knowledge.
-For modeling their target systems, the authors proposed an
-approach that represents each agent in the system as a DTMC with
-synchronization actions. In their DTMC model, each state either
-has a synchronized action with probability 1 or regular
-probabilistic transitions. Having two different actions in a
-single DTMC forced them to transform it into an MDP model. From
-the semantics point of view, K-PCTL formulae are interpreted over
-MDP models which are augmented with accessibility relations, so
-that probabilities over paths can be defined. However, the
-uncertainty of the knowledge cannot be measured as the
-accessibility relations are not probabilistic. Our approach
-differs from this one in four main points. First, our logic
-adds two modalities on top of PCTL; one for the knowledge,
-and one for the commitments and their fulfilments. Therefore, dimension of system's aspects that our logic can handle is larger than that of K-PCTL making it more expressive. Second, our logic permits the
-probabilistic operator to precede each of the knowledge modality
-and the social modality so that we can quantitatively reason about
-the two aspects which again increases its expressive power. Third,
-we model the target systems using probabilistic interpreted
-systems. Forth, we propose a concrete model checking technique in
-which we transform the problem of model checking our logic to the
-problem of model checking an existing logic allowing us to re-use
-the PRISM tool instead of just suggesting to extend it.
-
-In \cite{Huang2011}, Huang and his colleagues extended the MCK
-model checker \cite{Gammie2004} with subjective probability
-relative to agent knowledge using interpreted partially observed
-discrete-time Markov chain (PO-DTMC). PO-DTMC is based on partial
-observations with assumption on synchronous with perfect recall.
-To specify properties of probabilistic interpreted systems, the
-authors use a logic that combines temporal and knowledge
-modalities with a probabilistic operator. In their approach, the
-set of accessible states is defined as states of a special agent,
-called the environment, while the remaining agents observe the
-environment and perform actions based on their observations. Then,
-probabilistic knowledge is expressed by a rational linear
-combination of every agents' probabilities in the system: every
-agent has its own probability for each accessible state, which is
-supposed to be known. Unlike this work, in our approach we do not
-assume that accessibility transitions are probabilistic because
-this information is not always accessible to agents and sometimes
-hard to quantify. Instead, we compute the probabilistic knowledge
-based on the number of accessible states as they are equally
-accessible. Moreover, by re-using the exiting PRISM model checker,
-we do not add a computational cost that is associated to extending
-the existing version of it.
-
-
-Wan et al. \cite{Wan2013} has also addressed the verification of
-epistemic properties in agent environments  against the background
-of participating parties. They propose PCTLK, a probabilistic,
-epistemic,  branching-time logic which extends CTL with
-probabilistic and epistemic modalities. To verify the proposed
-logic, the authors introduced a reduction-based model checking
-technique to translate the problem of model checking PCTLK into
-the problem of model checking PCTL. Their reduction procedure
-involves two processes. First, they transform the probabilistic
-interpreted systems into an MDP which is transformed further to a
-DTMC. Second, they translate each PCTLK formula into a
-corresponding PCTL formula. To model check a PCTLK forumla, they
-check its transformed PCTL formula over the DTMC model. They
-demonstrated the applicability of their proposed verification
-technique by applying it on a well known case study and
-implementing it using the PRISM model checker. Our work is similar
-to this work, except that we have a social modality in our
-proposed logic for the commitments and their fulfilments which
-makes it more expressive than PCTLK.
-
-
-\subsection{The Interaction between Knowledge and Social Commitments}
-
-Little work has been done towards the problem of capturing and verifying the interactions between knowledge and social commitments in MASs.
-
-In \cite{Schmidt2004}, Schmidt and his colleagues investigated the
-problem of formalizing the interaction between knowledge and
-commitments within agent dynamic logic. Apparently, the commitment
-adopted in this work is not a social commitment but rather an
-internal commitment as the one presented by Castelfranchi in
-\cite{Castelfranchi1995}. The term ``internal commitment'' refers to a commitment of an agent to itself \cite{Singh2008}. Using their proposed Agent Dynamic Logic (ADL), the authors were able to express some combinations between knowledge and commitments such as $Comm_i~(\alpha)\to K_i~Comm_i~(\alpha)$ which expresses that agent $i$ knows ($K_i$) about his
-internal commitment ($Comm_i$) to perform the action $\alpha$.
-However, from a communication perspective, the internal commitment
-is neither communicative nor public because it is not created as
-an agreement between two agents so that an agent can commit
-towards the other to bring about a certain property. In contrast,
-our work focuses primary on the notion of ``social commitment"
-\cite{Singh2000} which has been used as a means of communication
-between interacting agents in MASs. Unlike internal commitments,
-which are private and concern a particular agent, social
-commitments are public and observable engagements from one agent
-to another agent or a group of agents to bring about something.  Furthermore, unlike \cite{Schmidt2004}, we study such an interaction ---between the two concepts--- in systems exhibiting probabilistic behaviors.
-
-Al-Saqqar et al. \cite{Al-Saqqar2014a} have made the first attempt
-towards studying the relationship between knowledge and
-communicative social commitments from a logical perspective. In
-particular, they combined a logic of knowledge (called CTLK
-\cite{Lomuscio2007}) and a logic of commitments (called CTLC
-\cite{Bentahar2012}) in a single tool called CTLKC. Having
-analyzed some postulates with different combinations between the
-two concepts expressed in CTLKC, the authors identified a set of
-paradoxes that makes their combined logic inconsistent. To
-overcome this problem, they mitigated the over-specification
-problem that arises in the social accessibility relation given in
-\cite{Bentahar2012,El-Menshawy2013a}. Intuitively and broadly
-speaking, a social accessibility relation for two agents $i$ and
-$j$ does exist between two global states $s_1$ and $s_2$ in the
-system, if there is a communication channel between the local
-states of $i$ and $j$ in the global states $s_1$ and $s_2$
-respectively. Based on a new social accessibility relation, they
-presented a new semantics for the commitment ($C_{i\rightarrow j}
-\varphi$) and fulfilment ($Fu (C _{i\rightarrow j} \varphi)$)
-operators, where $C_{i\rightarrow j} \varphi$ means that agent $i$
-commits towards agent $j$ to bring about $\varphi$, and $Fu (C
-_{i\rightarrow j} \varphi)$ expresses the fulfillment of such a
-commitment. These changes have been integrated into a new
-consistent logic named CTLKC$^+$. Having defined the new logic,
-the authors have been successfully able to reason about various
-combinations between knowledge $K_i \varphi$, which means that
-agent $i$ knows $\varphi$, and social commitments as follows:
-
-\begin{itemize}
-\item $C_{i\rightarrow j} \varphi \Rightarrow K_i (C_{i\rightarrow
-j} \varphi) $ where $i \neq j$.
-\item $Fu (C _{i\rightarrow j} \varphi) \Rightarrow K _i \varphi$ where $i \neq j$.
-\item $Fu (C _{i\rightarrow j} \varphi) \Rightarrow K_j \varphi$ where $i \neq j$.
-
-\end{itemize}
-
-Then, the authors introduced a reduction model checking technique
-in which they transformed the problem of model checking their new
-logic (CTLKC$^+$) into the problem of model checking an existing
-logic called GCTL$^*$ \cite{Bhat2001}, and computed the complexity of the reduction technique. They used the automata-based model checker CWB-NC as the verification tool.
-
-The verification of CTLKC$^+$ was further investigated in \cite{Al-Saqqar2014b}. The authors used a symbolic model checking technique based on reducing the problem of model checking CTLKC$^+$ into that of ARCTL. Then, they used the extended NuSMV to verify some given properties written in CTLKC$^+$. Their approach was carried out automatically using a JAVA transformation tool. This allowed them to overcome the scalability problem of automata-based model modeling checking techniques, which is a highly considerable problem in model checking real applications of multi-agent systems. The complexity analysis of the proposed reduction-based technique was also provided.
-
-Unlike this work that tends to assume ideal behavior for MASs so it limits its application to reliable environments, ours considers the unreliable behavior of MASs. Therefore, we add a probabilistic modality to the logic to be able to reason about some desirable properties in the presence of uncertainty. Our proposal subsumes the one in \cite{Al-Saqqar2014a} because probability values range from 0 to 1 (when probability is equal to 1, the system becomes certain). Therefore, our framework outperforms this proposal in the sense that not only qualitative reasoning about the interaction between knowledge and commitments is achievable but also quantitative reasoning becomes possible.
+All the proposed frameworks share a common aspect, which is providing the solution based on assumption of having complete information of all services and performing evaluations based on a large number of input each time they want to adopt a strategic decision making process.
+So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing DDM a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available.
 
 
 
-\subsection{Comparison}
 
-We compare our framework to the existing proposals by taking into
-consideration five criteria: Knowledge, Commitments, Uncertainty,
-Formalization, and Verification. Knowledge property shows whether
-the approach addresses epistemic properties of the systems or not.
-Commitments property indicates whether it addresses the social
-commitments or not. Uncertainty reflects target systems whose
-behavior is probabilistic. Formalization indicates the use of
-formal logics, or formal methods in general. Finally, Verification
-confirms the presentation of a formal verification technique to
-verify the proposed approach. Table \ref{table:comparison} shows a
-summary about the comparison between our framework and the
-existing approaches based on the criteria described above.
-We observe that our framework outperforms the related approaches as
-it satisfies all the listed criteria.
-
-\begin{table}
-\centering \caption{Comparison between PCTL$^{kc}$ and the related work } \label{table:comparison}
-\begin{tabular}{cccccc}
-\hline
-\texttt{Approach}       &\texttt{Knowledge} & \texttt{Commitment} & \texttt{Uncertainty}   & \texttt{Formal} & \texttt{Verification}\\
-\hline
-\cite{Witwicki2007,Witwicki2009}    &         &$\surd$   &$\surd$    &         &    \\
-\cite{Huang2011}      &          &$\surd$   &$\surd$    &$\surd$  &$\surd$    \\
-\cite{Delgado2009}     &$\surd$   &          &$\surd$    &$\surd$  &    \\
-\cite{Wan2013}         &$\surd$   &          &$\surd$    &$\surd$  &$\surd$    \\
-\cite{Al-Saqqar2014a}   &$\surd$   &$\surd$   &           &$\surd$  &$\surd$    \\
-Our approach         &$\surd$   &$\surd$   &$\surd$    &$\surd$  &$\surd$    \\
-\hline
-
-\end{tabular}
-\end{table}
-
-To summarize, the advancement of our work over existing work lies in the expressiveness power of the proposed logic which allows autonomous agents in MASs to represent and verify the interaction between knowledge and social commitments in the face of uncertainty. Moreover, the new probabilistic interpreted systems introduced in this chapter helps MASs developers to have rich modeling with respect to knowledge and social commitments. That is, not only modeling knowledge and social commitments independently in the presence of uncertainty is possible, but also modeling the interaction between them has become possible by making use of our proposed probabilistic model.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \section{Summary}\label{sec:conclusion-cha4}
 
-In this chapter, we presented a novel technique for specifying and evaluating the interaction between knowledge and social commitments in stochastic MASs. The proposed technique allows us, for the first time in the literature, to perform epistemic reasoning on social commitments in probabilistic MASs. This helps ensure agents' awareness about their commitments and the fulfillments of these commitments. In particular, we first developed a new version of interpreted systems that captures the probabilistic behavior of knowledge and commitments and accounts for the communication between interacting parties. Second, we defined a new logical framework that merges concepts of probabilistic knowledge and probabilistic commitments in a single logic called PCTL$^{kc}$, so that complex formulae including both modalities
-can be expressed. Third, we introduced a new model checking
-technique to formally verify the compliance of MASs against some
-given properties expressed using the new logic. The proposed model
-checking procedure is reduction-based, in which the problem of
-model checking PCTL$^{kc}$ is transformed (by the use of some rules) into the problem of model checking an existing logic, namely PCTL. The key advantage of such a reduction is gaining the privilege to re-use a well
-known model checker such as PRISM. The soundness of the proposed
-reduction technique was provided. Moreover, we demonstrated the
-effectiveness of the proposed framework by applying it to the
-NetBill protocol, a concrete case study from e-business domain.
-The results have initially confirmed the expressive
-capabilities of PCTL$^{kc}$ in handling the
-interaction between knowledge and social commitments in
-probabilistic settings. Moreover, the scalability of the proposed model
-checking technique was evaluated and models having up to $4
-\times 10^{11}$ states can be effectively verified.
+In this paper, we proposed a training model for the problem of membership management of communities of web services. Using the traning model we created a decision making profile for each community and web service involved which provides them with a set of feasible and utility increasing moves. This utilized our web services with efficient methods of foreseeing how their choices of actions would impact their long-term and short-term goals, therefore they opted for best decision available. The ultimate goal is to choose the best decision when it comes to communities formation, among many possible short-term rational and utility increasing choices. The experimental results show that our algorithms provide web services and community owners, in real-world-like environments, with applicable and near-perfect decision making mechanisms. The results of experiments using real data samples support the need for a long-term training model in a successful decision making process.
 
-In the next chapter, we refine and extend the approach presented for the interaction between individual knowledge and commitments to accommodate  group knowledge and group commitments as well.
+Our plan for future work is to advance learning process on the training set that we provided in our work. SVN machine learning algorithm are suitable in classification of our training data set, to better classify correct or wrong decisions based on long-term utility gains, as data set outputs. This can further facilitate the process of finding optimal cooperators in regards to enhancing web services' overall performance as service providers.
