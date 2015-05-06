@@ -162,14 +162,15 @@ conditions:
         currency and a unit of income that is worth the same for all players
         \cite{myerson1991game}.
 
-        When dealing with cooperative games, two issues need to be
-        addressed:\\ 1. Which coalitions among all possible coalitions to form? \\
-        2. How to reward each member when a task is completed?\\
-        %
+        \noindent When dealing with cooperative games, two issues need to be
+        addressed:    
+        \begin{enumerate}
+            \item Which coalitions among all possible coalitions to form?
+            \item How to reward each member when a task is completed?
+        \end{enumerate} 
         The following sections help address these two issues.
 
         \subsection{Cooperative Game Concepts}
-
 
             {\bf Definition 1 (Shapley value)} Given a cooperative game $(N,
             v)$, the \emph{Shapley value} of player $i$ is given by \cite{shapley_value}:
@@ -335,10 +336,24 @@ set.
 %          each worker's share of output is limited by her comrade's attempts to obtain more output.
 
 %          The fact that each worker's share of output is held down by interworker competition suggests that the workers might
-%          be better off if they were to agree not to join deviating coalitions \emph{except as a group}. You are  asked to check
-%          this idea in the following exercise.
+%          be better off if they were to agree not to join deviating coalitions \emph{except as a group}.
 
         %\subsection{Cooperative Games in Service Oriented Computing}\label{sec:CWSArchitecture}
+
+        \subsection{Stability of Coalitions}
+
+        Core stability is a highly desirable property however in many problems it is not achievable. It would be more ideal to maintain a set of somewhat stable payoffs when the core is empty. There are several approaches to achieve this goal. One may drop the stability requirement and focus on other types of solutions for which a payoff division is guaranteed to exist. Two well known solution concepts in this category are \emph{nucleolus}\cite{schmeidler_nucleolus_1969} and the \emph{bargaining set}\cite{Davis67existenceof}. They try to minimize some measure of unhappiness in the game for the agents.
+
+        Another approach to stabilize the game can be achieved via external subsides. When \emph{Core} is empty it means the game is not stable since the coalition is unable to generate enough revenue to satisfy the demands of each subset of agents. An external party that is interested in stabilizing the game provides a subsidy to the agents if they form the grand coalition, and thus a value of $\lambda v(C)$ is divided among them, where $\lambda \geq 1$. Clearly any game can be stabilized using a large enough $\lambda$, however the external party would be interested in the minimal subsidy required in order to stabilize the game.
+
+        A community can also be stabilized by relaxing the core constraints. According to \emph{Core}, an outcome is unstable if a coalition can benefit even by a small amount from deviating, which is a strong requirement. In fact, in some situations, deviations can be costly, or players may have loyalty to their coalitions, or even it can be computationally intractable to find those small benefits. It would only make sense for a coalition to deviate if the gain from a deviation exceeds the cost of performing the deviation. \emph{$\epsilon$-core} relaxes the notion of the core, and only requires that no coalition would benefit significantly, or within a constant amount($\epsilon$) by deviating (see Equation \ref{eq:core}).
+
+           \begin{equation}\label{eq:core2}
+               \forall S \subseteq N, \sum_{x_i \in S} x_i \geq v(S) - \epsilon
+           \end{equation}
+
+        Alternatively, $\epsilon$ can be thought of as a \emph{tax} imposed on a coalition should it choose to deviate. This can again be seen as an external party, trying to stabilize the coalition by imposing some \emph{tax} on deviation. Taxation and subsiding as methods of stabilizing cooperative games have been studied in \cite{RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16, Bachrach:2009:CSC:1692490.1692502, conf/ijcai/MeirRM11}.
+        
 
         \subsection{Representation and Complexity Issues}\label{sec:CWSArchitecture}
 
