@@ -50,7 +50,7 @@ set(hleg1,'FontSize',10);
 % title('Trigonometric Functions', 'fontsize', 10);
 %xlabel({'Time';'(a)'}, 'FontSize',14);
 xlabel('Time', 'FontSize',14);
-ylabel('Utility Gain', 'FontSize',14);
+ylabel('Community Size', 'FontSize',14);
 
 %Caxes = copyobj(gca,gcf);
 %set(Caxes, 'color', 'none', 'xcolor', 'k', 'xgrid', 'off', 'ycolor','k', 'ygrid','off');

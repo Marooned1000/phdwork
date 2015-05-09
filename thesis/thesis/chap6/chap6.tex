@@ -5,33 +5,14 @@
 %********************************************************************
 \section{Conclusion}
 
-In this thesis, we have put forward a formal framework for agent communication using a commitment-based approach in order to enable effective agent interactions in open, heterogeneous, and dynamic systems when
-uncertainty matters. The main purpose of this framework is to essentially specify and reason about social commitments in probabilistic settings, so they can be formally verified. As an improvement over the existing solutions, our proposed framework targets systems exhibiting probabilistic behavior and considers commitments among a group of agents. The framework is composed of three main components. First, we presented a new probabilistic approach for tackling social commitments in the presence of uncertainty. To specify probabilistic social commitments, we defined a new logic called the probabilistic logic of commitments (PCTLC). Our new logic is interpreted over a new extended version of probabilistic interpreted systems. Furthermore, we introduced a new reduction-based model checking technique for the new logic and implemented it on top of the PRISM model checker. Then, by using the proposed reduction technique, we showed how to evaluate some systems' properties representing probabilistic social commitments -- expressed in terms of the new logic -- against system design models obtained using our extended version of probabilistic interpreted systems.
-
-The second component of our framework focused on the interaction between knowledge and social commitments in probabilistic MASs. We introduced a new logic called the probabilistic logic of knowledge and commitment (PCTL$^{kc}$) to represent and reason about such interactions. PCTL$^{kc}$ logic is interpreted over a new version of probabilistic interpreted systems that has epistemic accessibility relations and social accessability relations at its core. To verify the new logic, we developed a verification technique based on model checking and implemented it using the PRISM tool. Our interest in the first and second contributions was focused on the common two-agent commitment scenarios (i.e. agent-to-agent scheme).
-
-In the third part of the framework, we improved and extended our work in the second part as follows:
-
-\begin{enumerate}
-
-\item We refined and improved PCTL$^{kc}$ to overcome the inconsistency problem appeared when taking the recent work of Al-Saqqar et al. \cite{Al-Saqqar2014a} into consideration. Therefore, in this part, we adopted CTLKC$^+$ \cite{Al-Saqqar2014a} as a basis for our new logic and combined it with PCTL.
-
-\item We extended the scope of interacting agents from agent-to-agent to agent-to-many. This allowed us to investigate different commitment schemes such as the case of committing to multiple agents. In this respect, we defined an adequate semantics for group social commitments for the first time in the literature.
-\end{enumerate}
-
-\noindent Based on the new semantics of group social commitments and the consistent logic of knowledge and commitment presented in \cite{Al-Saqqar2014a}, we presented a new probabilistic logic of knowledge and commitment called (PCTL$^{\textrm{kc+}}$). The new logic accommodates new operators for group social commitments and group knowledge in addition to the modalities already found in PCTL$^{kc}$. The expressiveness power of  PCTL$^{\textrm{kc+}}$ outperforms those of existing logics because of its ability not only to capture and express the combinations of knowledge and social commitments in the presence of uncertainty, but also to express formulae involving group social commitments. Formulae of PCTL$^{\textrm{kc+}}$ are interpreted over a new extended version of probabilistic interpreted systems. Our new version of interpreted systems integrates a modified version of social accessabilities that accounts for basic social commitments, group social commitments, and knowledge. To evaluate the new logic (PCTL$^{\textrm{kc+}}$), we proposed a reduction-based model checking technique and implemented it on top of PRISM.
-
-Furthermore, we proved the soundness of all proposed verification techniques. Also, using different case studies we were successfully able to demonstrate the effectiveness and usefulness of our proposed work and evaluate the scalability of the introduced verification techniques.
-
-Finally, as the proposed framework permits addressing probabilistic social commitments as well as their interaction with knowledge when the scope of interacting parties moves beyond the common one-to-one scheme, we believe that it will advance the literature of agent communication and help MASs designers build more effective and efficient systems.
-
+Conclusion Conclusion Conclusion
 %To conclude, we believe that the proposed framework
 %********************************************************************
 %* Section 7: Future Work
 %********************************************************************
 \section{Future Work}
 
-There is
+Future Work Future Work Future Work
 
 \newpage
 \textbf{Publications in refereed journals and conferences}
