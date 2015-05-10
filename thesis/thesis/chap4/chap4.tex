@@ -1,606 +1,1107 @@
 \setcounter{chapter}{3}
 
-\chapter{Training Chapter}\label{cha:PCTLKC}
+\chapter{Coopetitive Behavior of Services within Communities}\label{cha:PCTLKC}
 
 
 \section{Introduction}
 
-Over the past years, online services have become an important part of many scalable business applications. The increasing reliance on online service providers has significantly influenced the way web services are engineered. Therefore, given the dynamic and unpredictable nature of the Internet, delivering high quality services is still a critical and challenging issue. One practical solution towards delivering high quality services is utilizing intelligent decision making agents. These agents aim at maximizing their gain by exploring the best ways to provide services that satisfy end users\cite{Zeng:2003:QDW:775152.775211, 10.1109/ARES.2008.7, Demirkan2013412, journals/tsc/ZhengZYB13, Josang:2007:STR:1225318.1225716}. However, agent-based web services are functionally limited in the sense that they cannot handle a large number of requests at the same time without compromising the quality of service provided. Recent developments have attempted to shift web services from passive models, consisting of individual components, to models made up of autonomous and group-based components that share common goals. In group-based models, interaction, composition, and cooperation are the key challenges \cite{ICWS2011-1, SCC2011-1, journals/mags/BaldoniBM10, journals/jcss/CasadoYT13} that directly impact the group's overall performance in achieving common goals. To that end, we see the emergence of web service \emph{communities}, which consist of services with similar functionalities but distinct nonfunctional properties \cite{Zeng:2003:QDW:775152.775211, Paik:2005:TSS:2229263.2230038, Medjahed05adynamic, 10.1109/ARES.2008.7}. A \emph{community} of web services runs continuous performance assessment functions that regulate web services' interactions and manage their composition and cooperation.
-
-The advantages of community of web services are that the community facilitates the discovery of web services and provides better quality of service compared to passive models with individual components. Communities act as abstract web services, communicating with external entities via the same standard protocols that a normal web service employs. But, they regulate the service process via sophisticated internal communication protocols, thereby providing services based on the combined work of a number of web services. The downside to communities is the complexity of management involved in finding and inviting individual web services and managing the overall quality of the combined work of several web services.
-% because although they have similar functionality, they have different attitudes.
-When interacting with communities of web services, users send their requests to the coordinators of the community, which play the role of community representative or access point. The community coordinator is responsible of receiving tasks and delivering services. Moreover, as community representative, it verifies the credentials of new web services before accepting them into the community and kicks web services that could harm the value of the community.
-
-\textbf{Challenge and Problem Statement.} In recent work, communities of web services have been proposed in order to facilitate discovery of web services, improve the Quality of Service (QoS), and help individual services find better market share and opportunities. However, there is a twofold challenge that yet to be addressed. The first part is community development, which involves finding the right web services for the community, satisfying the objectives of all the web services and community coordinators involved within the community; and the second part is from the individual web service's side because each web service aims to join the community that would guarantee the best outcome. The advocated solutions \cite{conf/webist/MaamarLBTS07, 10.1109/ARES.2008.7, journals/soca/XuYLZB11, 10.1109/TSC.2012.12, managing-hela-jalel, DBLP:conf/IEEEscc/KhosravifarABT11, DBLP:conf/IEEEscc/LimTMB12} have attempted to address these research problems. These research problems are reflected by the two challenge parts:
-\begin{enumerate}
-	\item The solutions consider the architecture of centralized management for communities where most of the decisions are made by the centralized coordinator. The problem is that in real world scenarios, decisions made by independent service providers are highly distributed.
-	\item The solutions either propose complex algorithms \cite{DBLP:conf/IEEEscc/LimTMB12, 10.1109/TSC.2012.12, 10.1109/TSC.2014.2312940} to find the optimal strategy to follow, or oversimplify the problem by eliminating important parameters and using approximation techniques to make the algorithms tractable \cite{10.1109/TSC.2012.12}.
-\end{enumerate}
-These approximation methods sometimes negatively influence the outcome because simplifying the constraints may cause important aspects of the problem to be ignored.
-
-For example, instead of calculating the gain distribution using the complex shapely-value method, \cite{10.1109/TSC.2012.12} proposes a simple egalitarian way of distributing gain, which completely ignores the gain generated from collaborative work of sub-communities. Other categories of related work exist that do not focus on all the parties involved within the community \cite{DBLP:conf/IEEEscc/KhosravifarABT11}.
-%And some other work which do not focus on rationality on web services or communities involved [refrences].
-In \cite{journal-community-formation} we proposed a cooperative game theory based model for aggregating web services in communities. A centralized decision maker in communities based on a complete knowledge of available web service quality metrics and performance, has been used to form optimal and stable communities that maximize individual and group income. However, centrality and complete information are strong assumptions, which are not very compatible with real business scenarios.
-
-\textbf{Contributions.} In this paper, we introduce DDM, a Distributed Decision Making model for  community formation that regulates web service agents’ decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. The decision model in extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree is created from the past data and reflects comprehensive vision about agents' attitude of action selection. However, the tree is subject to get continuously modified to adapt with environmental changes.
-%The training model deploys a logistic regression algorithm to build a hypothesis function that can thoroughly address the aforementioned research problems.
-The decision model provides web services with enough information which helps those services to efficiently decide and predict the outcome of their different possible collaborations. This model works in a distributed manner in which services are self-sufficient in decision making process and do not rely on a centralized decision making process. Our findings show that communities of web services can efficiently find the appropriate web service to invite for cooperation as well as allowing a single web service to find the best communities to join. In other words, the web services agents are equipped with a recommender system to suggest beneficial action. Moreover, communities can consider the decision model and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their short-term and long-term goals; therefore, opting for best decision available.
-
-To effectively generate the decision model for web services, we used real data set to extract web services' individual characteristics and used them to measure outcomes when they cooperate with one another. The data set has been extracted by real-world QoS evaluation results from 142 users on 4,532 Web services on 64 different time slots. Combining these data based on each web service point of view on different time slots, we acquired 5 different unique features for 4,532 web services. By engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interaction with others. All paths and the outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DDM have by far better outcomes in the form of cooperative service providers than the ones that either do not cooperate or randomly find communities to join.
-
-\section{Preliminaries and Challenging Issues}\label{s4:preliminaries}
-%In this section, we first present the architecture of DDM. We explore the characteristics of intelligent service agents and the features we extract for training. To do this, we first discuss some preliminaries.
-In this section, we discuss the preliminary concepts of communities of web service and we introduce the challenges of community formation.
-
-\subsection{Web Services}\label{s:ws}
-
-In recent years, online services have become a standard part of daily life around the globe. Many modern applications rely on web services from different providers. For instance, many mobile and tablet applications that have limited storage and processing power are merely aggregating information from different online services. Examples are vast, including weather forecasting, ticket selling, shopping apps, local maps and location services.
-
-The World Wide Web Consortium (W3C) defines web services as ``software systems designed to support interpretable machine-to-machine interaction over a network. It has an interface described in a machine-processable format (specifically WSDL). Other systems interact with the web service in a manner prescribed by its description using SOAP messages, typically conveyed using HTTP with XML serialization in conjunction with other Web-related standards.'' When developers declare a new web service, it will be
-discovered based on its description, which fully discloses its functionalities. Developers also have to declare a public interface and a readable documentation to help other developers when integrating different services \cite{w3cwsdl}. Nowadays, web API, standards that do not require XML-based web service protocols like SOAP and WSDL are also emerging. They are called REST (representational state transfer) services, which are moving towards simpler communication protocols.
-%They are not restricted
-%to XML formats, recently JSON, a human readable and simpler format
-%is becoming popular among online service providers.
-
-We are not going to delve into the engineering details of online web service implementation and its protocols in this paper. We are interested in web services from a business model perspective. Service providers usually charge end users for services they provide. For example, Google has listed pricing and plans for a wide range of services they provide on their web service console page\footnote{https://code.google.com/apis/console}.
-
-In this paper, we abstract web services as rational agents\footnote{The term rational is used here in the sense that web services are utility maximizers} that provide services to end users. They aim to maximize their individual income  by receiving enough requests from end users. In order to increase their revenues, web services seek for more tasks if they have the capacity and throughput to do so. Web services can join communities to enhance efficiency by collaborating with others, to have access to broad market share, and for the opportunity to receive a bigger task pool from end users. Furthermore, the high reliance on web services has resulted in increased quality expectations from end users. Communities of web services can provide higher availability, performance, reliability, and recovery for end users.
-
-\subsection{Web Service Communities}\label{s:wsc}
-
-The community of web services is essentially a virtual group of web services having similar and complementary functionalities\cite{DBLP:journals/ijebr/MaamarSTBB09}. Communities aggregate web services and communicate with other entities such as UDDI registries and users, using identical protocols to those used by single web services. Web services join communities to increase utility by having a larger market share and task pool. Community coordinators are responsible for community development, managing membership requests from web services and distributing user tasks among the community members. Community coordinators try to attract quality web services to join and keep the community as stable and productive as possible to gain a better reputation and user satisfaction, which increases the community's market share. How web services reside within communities and how communities of web services are engineered is described comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}.
-
-\subsection{The Join Challenge}\label{s:tjc}
-Sometimes, web services can increase their overall utility by collaborating with other web services as communities. This collaboration helps them with better ways of sharing resources and having higher reputation, better market share and wider visibility. Web services and communities come with different internal and external parameters, and the long-term outcome is dependent on these parameters.
-
-The goal of all parties involved in the community is to maximize their long-term outcome while they are operating as part of the community. Web services need to be equipped with a selection strategy to choose from all of the different possible collaboration groups they can form as well as an estimation method for evaluating the long-term gain of joining different possible communities. Web services need to experiment with different possible collaborative groups and other web services in order to estimate their gain over time. However, with a high number of possible communities, it is not possible to test collaboration with random web services. Even if a linear approximate function for estimating utility based on community web services' parameters is adopted, the exponential \footnote{Bell number: $http://en.wikipedia.org/wiki/Bell_number$} growth rate of the possible number of partitions of web services into communities would make any brute-force type algorithm for the best community selection strategy intractable and impractical in real-world application settings.
-
-\subsection{Join Consequences}\label{s:jc}
-It is worth mentioning that a \emph{join} event takes place as a result of two parties that are looking to expand their collaborations. All actions are chosen in an attempt to enhance the overall outcome. However, the selected action may result in decreasing the overall utility in the long run.
-% long term.
-This is the case when a single web service joins a community, but the complex process of task allocation eliminates the visibility of the web service and, thus, the web service stays idle within the community, which makes the join action a bad decision. The same event might be beneficial for the community, as it hosts a new web service that can engage in performing a new coming task. But overall, neither side benefits from collaborating with the other and the join event has negative consequences for at least one side's utility.
-
-The more common scenario is when both parties benefit from the joining of a web service to a community. This action is rational, as both the web service and the community enhance the utility. However, the community may not be the best choice for the web service to join. In other words, the web service could have joined a better community, but, due to of lack of knowledge about the surrounding environment, joined the available community which was not the optimal choice. Since the community does enhance its utility, the web service could stay with that community, which results in a sub-optimal increase in web service's utility. In the following section the proposed model provides solutions that effectively address the aforementioned challenges.
-
-\section{The Model Components}\label{s:themodelcomponents}
-
-In this section, we discuss the parameters that we use in the rest of the paper. Then we present the task distribution and revenue model of our distributed web services communities.
-
-\subsection{Internal Features}\label{s:if}
-
-With a group of web services having identical or similar functionalities, QoS metrics provide nonfunctional characteristics for optimal candidate selection. Web service quality metrics were presented in \cite{Ardagna:2007:ASC:1263152.1263531,Menasce:2002:QIW:613357.613758,10.1109/ISSRE.2011.17}. We have adopted the most representative QoS properties of web services that highly influence the utility of web services.
-%We refer to a typical web service as ws_{i}.
-
-Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $|n|$ web services. We define the following features for the group of web services based on their functional parameters:
-
-\begin{itemize}
-
-  \item \emph{Throughput $(Th_{C})$} is the rate at which a service can process requests. QoS measures can include the maximum throughput or a function that describes how throughput varies with load intensity. Throughput is a positive real number. For communities the expected throughput value of collaborating web services can be estimated as summation of throughputs of all the services inside:
-	
-	\begin{equation}
-		 Th_{C} = \left\{
-			\begin{array}{l l}
-				Th_{w} & \quad \text{if $|C| = 1$}\\
-				\sum_{w \in C}{(Th_{w})} & \quad \text{if $|C| > 1$}
-			\end{array} \right.
-	\end{equation}
-	
-	\item \emph{Availability $(A_{C})$} is the percentage of time that a service is operating.
-	The probability that the service operation is accessible. Availability is also a real number in the range $[0, 1]$. For communities the expected availability of collaborating web services considering they follow a parallel system can be estimated as:
-	
-	\begin{equation}
-		A_{C} = \left\{
-			\begin{array}{l l}
-				A_{w} & \quad \text{if $|C| = 1$}\\
-				1-\prod_{w \in C}{(1-A_{w})} & \quad \text{if $|C| > 1$}
-			\end{array} \right.
-	\end{equation}
-	
-	\item \emph{Execution Time $(Et_{C})$} is the time a service takes to respond to various types of requests.
-	%is the expected delay between the time instant when a request is sent and the time when the result is obtained.
-	Execution time is measured in milliseconds. Execution time can be affected by load intensity, which can be measured in terms of arrival rates (such as requests per second) or number of concurrent requests. This internal feature is a positive integer. For communities, the expected execution time of collaborating web services can be estimated as the execution time of the bottleneck service which is the service with the slowest execution time:
-	
-	\begin{equation}
-		Et_{C} = \left\{
-			\begin{array}{l l}
-				Et_{w} & \quad \text{if $|C| = 1$}\\
-				max_{w \in C}{(Et_{w})} & \quad \text{if $|C| > 1$}
-			\end{array} \right.
-	\end{equation}
-	
-	%\item \emph{Data Quality} The ability of a data collection to meet user requirements , defined as the proximity of a value v returned by web service to a value considered as correct. The measure of data quality is considered here as a real number in the range [0, 1], where 1 represents the most desirable score.
-\end{itemize}
+In previous chapter, our focus was on community formation and we emphasised on cooperative behavior of the web services as agents. Within communities, those services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers \cite{VuFind-10008938119}. In typical business settings, services are used to compete within communities as they provide the same functionalities and the number of users requests is finite. However, the same reason of providing similar functionalities can lead services to cooperate because they can replace each other in case of failure or unavailability, and services can do better in a coalition structure. Analyzing services competition and cooperation strategies within communities is still an open problem that motivates the research described in this section. we propose a mechanism within which service agents
+in the community could choose either to compete for an announced task\footnote{Requests and tasks are used in this report interchangeably.}, or to cooperate with other competing services in the same community to accomplish some subtasks of the announced task. We equip intelligent web services to follow a reasoning technique to choose best interactive strategy (Coopetitive attitude, which is categorized to compete and cooperate). In the proposed system, We explore details behind the strategic decision making procedures and enable service agents to apply different techniques to constrain high efficiency and obtain the maximum utility. We investigate services' expected payoffs and the involved probabilities that are used to choose over the two interacting strategies.
 
 
-	We normalize the range of these features so that each feature contributes approximately proportionately to the final utility outcome value. We adopt the \emph{standardization} method. We subtract the \emph{mean} from each feature then we divide the values of each feature by its \emph{standard deviation}.
 
-%$HI = \overline{HI}$
-
-\subsection{External Features}\label{s:ef}
-
-The quantitative values of quality metrics need some benchmark values to represent their goodness. In other words, without some benchmark values it would be difficult for web services to identify their goals, and performance quality at any specific value of these metrics. Therefore, we have introduced two external features for assessing web services' estimate with regard to their standing among other web services.
-
-\begin{itemize}
-  \item \emph{External Parameter 1} $(exp_1)$. is an estimate of how close the web service's \emph{execution time} is to other web services. It is the difference between a web service's \emph{execution time} metric and the maximum value of execution time of all the other web services, about which the web service has information of them. The less value means web service has better execution time compared to other web services.
-	\begin{equation}\label{exp_1:f}
-		exp_1 = Et_{i} - Et_{max}
-	\end{equation}
-	\item \emph{External Parameter 2} $(exp_2)$ is a comparison of the web service's rate of performing tasks to other competing web services. It is the difference between a web service's \emph{throughput} metric and the maximum value of throughput of all the other web services,, about which the web service has information of them. The less value means web service has better throughput compared to other web services.
-	\begin{equation}\label{exp_2Lf}
-		exp_2 = Th_{max} - Th_{i}
-	\end{equation}
-\end{itemize}
-
-A community of web services is abstracted as a standard web service that provides services that share the same internal and external features mentioned for web services. Inside, they adopt different protocols to manage the community; however, other web services or end users can communicate with communities of web services, using standard protocols, and inner details will be encapsulated for their clients.
-
-\subsection{Task Distribution}
-
-Communities of web services usually employ an implementation of Contract-Net protocol for task distribution, in which services opt for incoming tasks, and receive the tasks for which they ask. However, in our model, our community members would try to distribute tasks based on their capabilities and the QoS parameters provided by the web services. We have used a slightly modified \emph{weighted fair queuing} method to distribute tasks among community members. The goal is to allocate incoming tasks to web services with a rate matching the throughput value of $Th_{ws}$. In the \emph{weighted fair queuing} method, the input flow is multiplexed along different paths; however, in our case, if the rate of incoming tasks is less than the community's total throughput $(Th_{C})$, which is the summation of throughput values of the web services in the community, some of the input tasks will be queued and served with a delay.
-%Thus, the amount of tasks performed by the community is $\sum_{ws}{Th_{ws}}$ when $\sum_{ws}{Th_{ws}} \leq R_{C}$.
-However, when the incoming task rate is less than the throughput of the community, the \emph{weighted fair queuing} algorithm assigns a weighted task rate of $|input Task Rate| \times \frac{Th_{ws}}{\sum_{ws}{Th_{ws}}}$ for each web service ($ws$) within the community.
-
-While distributing tasks, the community members can verify the performance, throughput and quality of service of tasks being performed by web services. The community can assess if those web services are capable of performing the number of tasks they advertised. If for any reason, there is a decline in the quality metric or throughput, the community can consider the new values as a benchmark for future performance calculations, and penalize the suspicious web services. This way, players will have incentive to truthfully disclose their actual capabilities in order to maximize profit from the community and to avoid being penalized. In addition, the system should be dynamic enough to detect and react to web services' quality metrics variation, as over time, web service metrics may degrade or improve, changes to which the community should adjust.
-% Therefore its easy for the system to encourage players to be in some sense incentive compatible in the way that they would profit best by truthfully revealing their capabilities. Also it is important to be dynamic enough to consider web services which may have their quality metrics degraded or even improved over time for any reason and be able to adjust the community with new parameters.
-
-\subsection{Community Revenue}
-
-Communities and web services earn revenue by performing tasks. The total gain is a function of the quality of rate of tasks being performed. The utility of a collaborative group of services $U_{C}$ is the revenue of the community. Formula \ref{u_c_normal} is an estimation of the gain of the community.
-
-\begin{equation}\label{u_c_normal}
-U_{C} = \big((\alpha \times (A_{C} - Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}
-\end{equation}
-
-The $\alpha$ and $\beta$ values are internal and external weight coefficients. Execution time and external parameters are better when they have smaller values hence the negative coefficient for them. The result is then multiplied to the throughput value $Th_{C}$, since communities are performing tasks with $Th_{C}$ rate.
-
-The estimation can be improved, especially in cases where the input task rate is high and services are experiencing high task loads. The \emph{weighted fair queuing} method of task distribution would distribute tasks based on the individual throughput $(Th_{w})$ value of services within community. The services with higher throughput will affect the overall utility of the community more because they would take on proportionately more tasks.
-
-\begin{equation}\label{u_c_load}
-\begin{split}
-U_{C} = \sum_{ws \in C}&\bigg(\big(\alpha \times (A_{ws} - Et_{ws}) \\
-        & - \beta \times (exp1_{ws} + exp2_{ws})\big) \times Th_{ws}\bigg)
-\end{split}
-\end{equation}
+%\subsection{The Proposed Framework}\label{The Proposed Framework}
+Here, we first present the architecture of the proposed
+model. We explore the characteristics of intelligent service
+agents and their network. We link this architecture to the
+implemented system where we investigate the services' coopetitive
+attitudes. We compute the involved system parameters and explain
+the services' interactive strategy profiles by highlighting their
+coopetitive choices.
 
 
-\section{The Decision Making Mechanism}\label{s:model}
 
-In this section, we describe our data extraction process and the methodology used to equip web services with a decision making mechanism. In this methodology, we first present the data extraction and engineering process and then we evaluate the decision making mechanism for web services in community settings. Figure \ref{fig_steps} summarizes the steps performed in DDM from the input data to generation of decision making profiles for web services.
-
-\begin{figure}%[!t]
-\centerline{\includegraphics[width=1.75in]{figures/steps.eps}}
-\caption{A summary of DDM decision profile generation steps}
-\label{fig_steps}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{Figures/architecture++.eps}
+\caption{Services are partitioned into competitive and cooperative
+sets. Competitive services may get tasks directly from the master
+agent and they can share it with other cooperative services in
+their collaborative networks within the same community.}
+\label{architectureFigure}
 \end{figure}
 
-\subsection{Data Extraction and Solution Engineering}\label{ss:learningdata}
+\section{Architecture}
 
-\subsubsection{Input Web Services Data}\label{sss:webservices}
+Figure \ref{architectureFigure} illustrates the architecture of a
+typical community aggregating a number of services with different
+interactive strategies. Some of them compete for the task where
+they directly deal with the master. Some others cooperate in the
+associated task where they only deal with the competed service as
+the task leader and do not directly interact with the master (the
+master deals only with the service that has bid for the task,
+which is responsible of choosing its collaborative network). In
+both sets, some service agents are for certain moments out of any
+collaboration network. Upon allocation of
+the task, the service is responsible for offering the required QoS
+that is stated in the task being generated by a consumer.
+Afterwards,  the master rewards or penalizes the competing
+service by upgrading or degrading its reputation according to the
+offered QoS compared with the required one. This comparison
+influences the sorting mechanism used by the master to allocate
+the tasks in further task allocation rounds.
 
-%We used a data set extracted from running web services. In this data set,
-Each web service is associated with a number of features that reflect its functionality. These web services operate in an online environment and are continuously assigned tasks to handle. Sometimes, they pass tasks around, distributing sub-tasks among themselves and handling tasks in a collaborative effort. To engage in communities, we add additional features that reflect web services' utility as a result of joining other web services to form a community. The additional features are computed based on two assumptions that we adopt for a community to be formed. Our raw data set provides us with 64 different time slots of extracted features for each web service. Using this data we can build a synthetic data set that contains features of a large number of web services in a sequence of time. Therefore, we train a learning model that adopts the trend of joining a community and use the model to predict/find the appropriate community for other web services. To train our model, we build a decision tree as a benchmark for our decision making mechanism. The decision tree is built by training the real data obtained from operating web services and extracting features related to their performance, either alone or as part of a joint effort with other web services. As a result, we are able to classify web services as either single or joined and propose the communities that are best fitted to the web services' requirements.
 
-\subsubsection{Filtered Data}\label{sss:filtereddata}
+%ok til here
 
-We have adopted the web service data set provided by \cite{10.1109/ISSRE.2011.17}. The raw data provides real-world QoS evaluation results from several users on 5,825 web services over 64 different time frames\footnote{http://www.wsdream.net/}. In this data set, each web service is associated with a number of features that reflect its functionality. By summarizing the data provided for each web service over different time slots, we have acquired three quality features for each individual web service. Their quality features are the three internal features introduced in Section \ref{s:if}: \emph{throughput}, \emph{availability} and \emph{execution time}.
-%To engage in communities, we add two additional external features that reflect web services estimation of its quality metrics compared to other web services.
-Therefore, we have generated an array of web services with three distinct features.
 
-\begin{figure}%[!t]
-\centerline{\includegraphics[width=3.25in]{figures/cfvs.eps}}
-\caption{Communities with different properties of web services actively looking for other communities to collaborate with, they send collaboration requests to communities they find the collabration  increasing the gain}
-\label{fig_community}
-\end{figure}
+\section{System Parameters}
+In this section, we demonstrate the involved parameters and their
+corresponding formulations and explanations.
 
-Now, we want to generate a set of feature vectors representing the communities of web services for training purposes. For communities, we add two additional external features, as discussed in Section \ref{s:ef} that reflect the community's estimation of its quality metrics compared to other web services. Therefore, we formulate a \emph{Community Feature Vector (CFV)} as $CFV_{<C>} = \{f_1,...f_5\}$ having a community of $k$ web services. $C = {ws_1,...ws_k}$. The features $f_1$ through $f_5$ represent the \emph{execution time}, \emph{throughput}, \emph{availability} and the \emph{external parameters 1 and 2} correspondingly. A set of communities, with their feature vectors and utilities evaluated, provides our algorithm with a raw training data set. We call this set of communities the \emph{template vector}, and the set of feature vectors associated with the \emph{template vector} is referred to as the \emph{community feature vector set (CFVS)}. Figure \ref{fig_community} depicts communities looking to form collaborate communities and join other communities in order to improve their utility gain.
+\textbf{Task QoS} ($T_{QoS}^r$) is the required QoS metric for a
+specific task $r$. Users define tasks with specific QoS
+requirements such as response time, availability, and
+successability (or accuracy). We aggregate and
+normalize these metrics to a value between $0$
+and $1$. %Throughout this paper, we refer to this value as
+%$T_{QoS}$.
 
-\subsubsection{Feature Engineering}\label{sss:feng}
-Let $CFVS = \{C_1, C_2,..., C_N\}$ be the community feature vector set with $N$ communities. Based on the $CFVS$ set, we create an $|N \times N|$ gain matrix for $t$ different time slots. Each entry of $gain_{n,m}^{t}$corresponds to a utility gain of web services in $C_n$, when $C_n$ joins $C_m$, based on community and web service data available for time $t$. All of these values have to be evaluated by implementing the community with members of $ws_i \in C_n$ and $ws_j \in C_m$ and evaluating its utility (see Equation \ref{u_c_load}). Therefore $gain_{n,m}^{t} = U_{C_n \cup C_m}^{t} - U_{C_{n}}^{t}$. Evaluating the utility gain for all entries of the $gain$ matrix can be a costly process with a very big number of $N$, size of the feature vector $|N|$ should be chosen carefully.
+\textbf{Service QoS} ($QoS_w^r$) is the QoS provided by the
+service $w$ after performing the task $r$. Again, the metrics that
+contribute in computing this QoS are aggregated and normalized to
+a value between $0$ and $1$. The offered quality might or might
+not meet the required task quality $T_{QoS}^r$. In the latter
+case, the service user would be disappointed and a negative
+satisfaction feedback is expected. In our proposed system, both
+cases are considered when calculating the services' reputation.
 
-\begin{table*}[ht]
-\caption{An example of $gain$ matrix for 3 different communities and their combinations} % title of Table
-\centering % used for centering table
-{\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c|c c c c c c} % centered columns (4 columns)
-\hline\hline %inserts double horizontal lines
- & \textless348\textgreater & \textless1934\textgreater & \textless2117\textgreater & \textless348, 1934\textgreater & \textless1934, 2117\textgreater & \textless348, 1934, 2117\textgreater \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
-\textless348\textgreater & - & 0.282708 & 1.027081 & 0.282708 & 18.027081 & 18.027081 \\
-\textless1934\textgreater & -2.637483 & - & 6.969072 & -2.637483 & 5.509583 & 4.387725 \\
-\textless2117\textgreater & 5.027081 & 2.969072 & - & 5.509583 & 2.969072 & 5.509583 \\
-\textless348, 1934\textgreater & 0.0 & 0.0 & -3.851432 & - & -3.851432 & -3.851432 \\
-\textless1934, 2117\textgreater & 2.969072 & 0.0 & 0.0 & 2.969072 & - & 2.969072 \\
-\textless348, 1934, 2117\textgreater & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & - \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-}
-\label{table:nonlin} % is used to refer this table in the text
-\end{table*}
+%\textbf{NTD} is the number of tasks completed by a web service.
 
-Now, we let our set of communities in the $CFVS$ set, within $|T|$ time frame iterations, choose the the best communities to join. Each community is provided with the corresponding row of data from the $gain$ matrix. Basically, $C_i$ is provided with the data in row $i$ of matrix $gain_{N,N}$, which is all of the possible utility values it can gain by joining different communities. By ordering the list, each community is utilized with an ordered set of preferences over other communities it likes to join. We define $>_{i}^t$ as the preference order of community $i$ at time $t$.
+\textbf{Budget} ($B_w^t$) is the amount of money the service agent
+$w$ has in its disposal during the window time $t$ (i.e.,
+$[0,t]$), which helps pay for the community membership fees
+($\epsilon$) and is one of the parameters that the service agent
+considers when deciding about getting involved in a competition or
+not.
 
-Let $P_{C_i}^t = \{C_1 >_{i}^t C_2 >_{i}^t .... >_{i}^t C_n\}$ be an ordered set of preferences for community $C_i$ at time $t$. Based on this ordered set, we define $K^t(C_i, k)$ as a set of the $k$ most preferred communities of community $i$ at time $t$.
-%\subsubsection{feature vector generation}\label{sss:fvg}
-\begin{equation}\label{h_t_pref_top}
-\begin{split}				
-K^t(C_i, k) = &\Big\{C_x | C_x >_{i}^t C_y; \forall C_y \in CFVS\ \\
-				      &\wedge C_y \notin \{K^t(i, 1),K^t(i, 2),...,K^t(i, k-1)\} \Big\}				
-\end{split}
+\textbf{Reputation} ($Rep_w^t$) is a significant factor in any
+online community \cite{Fouss:2010:PRM:1751668.1751727}. Without a reputation enabling
+mechanism, users cannot differentiate among services, specially
+the ones which offer the same type of service. Reputation
+mechanisms usually aggregate users' experiences and in our case it
+strongly depends on QoS that each service provides. Users define
+tasks, each one with specific quality $T_{QoS}^r$, so that after
+performing a certain number of tasks, each one with $QoS_w^r$,
+during a window time $t$, the reputation of $w$ gets evaluated by
+the master agent. $Rep_{w}^{t}$ refers to the reputation of $w$
+during that window time $t$.
+
+In Equation \ref{repr}, we compute the reward that the master
+computes considering the task $r$'s QoS $T_{QoS}^r$ compared with
+the service offered quality $QoS_w^r$. In case the offered quality
+meets user expectations, the reward value would be positive. In
+this system, we consider a small value as default rewards $\eta$
+which the master considers together with the proportional level of
+satisfaction as a weighted value (by $\upsilon$). In this case,
+the higher the offered quality, the more weighted reward. In case
+the offered quality did not meet the user expectations, the reward
+would be negative. A default penalty value $\rho$ (where
+$\rho>\eta$) together with the weighted proportional difference
+are therefore considered. The idea is to harshly penalize the
+services rather than rewarding them. To this end, rational service
+agents should carefully analyze their capabilities once the
+available tasks are announced. Equation \ref{reward} computes the
+obtained reward by $w$ during the window time $t$ considering the
+set $task_w^t$ of tasks performed by $w$ during the window time
+$t$. In our proposal, service agents have the goal of increasing
+their budget, which is directly related to their reputation. Thus,
+they have to decide strategically how to maximize this value.
+
+\begin{equation} \label{repr}
+reward_w^r = \begin{cases}
+\eta + \upsilon \frac{QoS_w^r}{T_{QoS}^r+QoS_w^r}   & \text{if $T_{QoS}^r\leq QoS_w^r$;}\\
+-(\rho +  \upsilon \frac{T_{QoS}^r}{T_{QoS}^r+QoS_w^r} ) & \text{otherwise.}\\
+\end{cases}
 \end{equation}
-Based on $K^t(C_i, k)$, we define a set of communities for $C_i$ in which they are the k most preferred communities for community $i$ and also community $i$ belongs to the k most preferred communities out of all of the communities in set $K^t(C_i, k)$. This basically implies the preference is both-sided.
-\begin{equation}\label{l_t_top_both}
-\begin{split}	
-L^t(C_i,k) = &\Big\{C_j | C_j \in K^t(C_i, k) \\
-             &\wedge C_i \in \bigcup_{C_x \in K^t(C_j, k)}K^t(C_x, k)\Big\}
-\end{split}
+
+
+\begin{equation} \label{reward}
+reward_w^t =
+\begin{cases}
+\frac{\sum_{r \in
+task_w^t}reward_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
 \end{equation}
 
-Table \ref{table:nonlin} illustrates an example of a $gain$ matrix for 3 different communities and their combinations. Each row shows the gain the community can achieve by collaborating with other 5 communities. In this example for community $\textless 348 \textgreater$ we have: \\
-$K(\textless 348 \textgreater, 1) = \{\textless1934, 2117\textgreater\}$ and \\
-$K(\textless 348 \textgreater, 2) = \{\textless1934, 2117\textgreater, \textless1934\textgreater\}$ \\
-Since $\textless 348 \textgreater$ is best preferred community of $\textless 1934, 2117 \textgreater$ therefore $L(\textless 348 \textgreater, 1)$ is not empty and contains the community $\textless1934, 2117\textgreater$.
+The assigned reputation value is updated by the computed reward
+value. The computed reputation of services is bounded by the
+minimum and maximum reputation values $0$ and $1$. % to constrain
+%the balance the cooperative community of web services. The updated
+Let $\Gamma = Rep_{w}^{t} + reward_w^t$. The updated reputation
+value is then computed as follows:
 
-Using the $gain$ matrix and the mentioned preference ordering relations, we are able to build a decision tree where the list of possible communities to join and their expected utilities are set.
-% as well as the joined events that took place in different time slots.
-In addition to best choices, web services have access to other ordered choices and can look for the second best or third best if their first try is rejected by the target community. The consequences of each try level is analyzed in more detail in the following section, in which we launch experiments and investigate the effectiveness of the use of a decision tree with different decision layers in joining other communities and enhancing the overall utility.
+\begin{equation}\label{repz}
+%Rep_{w}^{t+1} = Rep_{w}^{t} + reward
+%\end{equation}
+%\begin{equation*}
+Rep_{w}^{t+1} = \begin{cases}
 
-\subsection{Decision Profile Generation}\label{ss:learningmodel}
-
-Our goal is to create a decision making profile for each community in the $CFVS$ set. We are creating an environment where they can experience the outcomes of different strategies. The result will be a decision tree of the feasible and utility increasing moves over time.
-
-We let communities pick the best communities for maximizing their utilities over different time frames. At time $t = 1$, we let each community in the $CFVS$ set choose the best community, which is a single community in set $C_j = K^t(C_i, 1)$. If community $C_j$ also has the highest preference to join $C_i$ meaning the $L^t(C_i, k=1)$ set is not empty, they would join together. Having set $k = 1$ is a very strict and hardly satisfiable condition. In order to relax the requirement, the value of $k$ is being increased by a rate $r$ proportional to time slot $t$. Basically, $k = 1 + |r \times t|$. On early steps of simulation web services and communities are more strict but as time goes on, we let them choose second and then third best options too. However, increasing $k$ quickly increases the time complexity of $K^t(C_i, k)$ by $O(k^2 \times n.log(n))$.
-
-When communities $C_i$ and $C_j$ are in each other's top $k$ preference set, their combination is added to the list of possible communities that can join others at time $t+1$. Also, for each community $C_i$ in our initial $CFVS$ set, we maintain a tree with the community $C_i$ as its root. Its children are all of the communities that $C_i$ decided to join. As the scenario progresses over time, the merged communities may decide to join other communities. When community $C_i$ and $C_j$ decide to join each other and create community $C_k$, the new community $C_k$ will be added as a child to both $C_i$ and $C_j$ nodes. At the end of the process, each community is utilized with a tree of set of possible combination of communities it can join. Algorithm \ref{algo:dectree} illustrates the DDM tree creation procedure as pseudo-code.
-
-Having created $|n|$ trees, for each community $C_i$, our communities are utilized with the different possible paths they can take to maximize their utilities. Using a distance function, communities and web services can utilize these results and find the $C_i$ that closely resembles their parameters. They will be utilized with a tree that has the strategies the community can use to join our communities which will be best possible path to take and communities to join while most likely being accepted by other communities since its a two sided preference. The algorithm below describes the tree creation process.
-
-\begin{algorithm}
-\DontPrintSemicolon
-\KwIn{$\langle r, gain^t_{n,n}, CFVS \rangle$ learning rate $r$, $|N \times N \times T|$ gain matrix, community feature vector}
-\KwOut{A set of \emph{root} nodes of the decision trees}
-$k \gets 1$\;
-$nodes[N] \gets$ initialize $N$ tree nodes representing each community in CFVS\;
-\For{$t \gets 1$ \textbf{to} $T$} {
-	$k \gets 1 + round (r \times t)$\;
-  \For{all $C_i \in CFVS$} {
-	  \For{all $C_j \in L^t(C_i, k)$} {
-      % The "l" before the If makes it so it does not expand to a second line
-      \If{$C_i \in L^t(C_j, k)$}{
-        $C_k \gets C_i \cup C_j$\;
-				add $C_k$ to $CFVS$ set\;
-				initiate $node_k$, representing $C_k$\;
-				$nodes_i.addChild (node_k)$\;
-				$nodes_j.addChild (node_k)$\;
-      }
-%      \Else{
-%        $j \gets j + 1$\;
-%      }			
-		}
-  }
-%  $i \gets i + 1$\;
-}
-\Return{nodes}\;
-\caption{{\sc DDM Decision Tree Algorithm}}
-\label{algo:dectree}
-\end{algorithm}
-
-\textbf{Complexity.} Here we analyze the computational complexity of the DDM decision tree creation algorithm on each time iteration $t$. Computing top $k$ preferred communities for $C_i$ in $L^t(C_i, k)$ requires an $O(n.log(n))$ sort time. $C_i$ has a result set of size $|k|$, and for each of those $k$ communities we need to check against their $k$ top preferred communities. Considering we already have the list sorted, line 6 in algorithm runs $O(k \times n.log(n))$ times. Doing this search for all communities in $|CFVS|$ set $n$ times (line 5), the overall order of complexity of the algorithm in regards with $n$ and $k$ is: $O(k^2 \times n^2.log(n))$.
-
-\section{Experiments}\label{s:experiments}
-We implemented DDM in Java\footnote{Source code of implementation and data is available at: \emph{https://github.com/Marooned202/DDM}}. We have extracted the set of features for 4532 web services in 64 different time slots through a data set provided by \cite{10.1109/ISSRE.2011.17}. By choosing 86 web services out of these sets and choosing a subset of all possible combinations of sizes 2, 3, and 4 of these 86 web services, we have chosen 10,000 communities and evaluated the feature vectors and utilities they can have in 64 different time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities. Based on Equation \ref{u_c_load} the utility of these communities are estimated, and the gain matrix $|10000 \times~ 10000|$ of all possible ways of merging these 10,000 communities, is generated\footnote {The template vector and gain matrix generated are available at \emph{https://github.com/Marooned202/DDM/tree/master/wsds/data/run}}, and each community has the ordered preference among other communities known in the set.
-
-We let communities and web services adopt their strategies based on our $DDM$ decision making mechanism. Based on the decisions adopted, each community will generate a decision tree profile. We let DDM run four times with different $r$ rates of 0.05, 0.07, 0.10 and 0.20. With the slow rate of $r = 0.05$, we increase $k$ in Equation \ref{u_c_normal} for every 20 time frames, which will happen only three times in our 64-step experiment. In the case of $r = 0.20$, k increases much faster, at a rate of once every 5 time frames, which increases the complexity of the $L^t(C_i,k)$ search for each community in the $CFVS$ set.
-
-Table \ref{table:valueandgain} depicts the average utility gain value of the communities in each of the four runs. The utility gain is the increase of utility the communities gain by cooperating and joining other communities. The utility gain ratio is the ratio of their final utility over initial utility. Comparing the different search rates, we can see increasing $r$ to value of $0.10$ results in significant performance boost, however the higher rates of $r$ are not increasing the chance of finding better collaborative groups for our communities.
-
-\begin{table}[ht]
-\caption{Utility gain of web services after making collaborative groups based on DDM algorithm with different $r$ rates} % title of Table
-\centering % used for centering table
-{\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c|c|c} % centered columns (4 columns)
-\hline\hline %inserts double horizontal lines
-Search Rate $r$ & Utility Gain Value & Utility Gain Ratio \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
-r=0.20 & 176.1499 & 6.9690 \\
-r=0.10 & 174.6541 & 6.9182 \\
-r=0.07 & 159.9462 & 6.2834 \\
-r=0.05 & 136.0768 & 5.1032 \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-}
-\label{table:valueandgain} % is used to refer this table in the text
-\end{table}
-
-
-%\begin{figure}%[!t]
-%\centering
-%\includegraphics[width=3.5in]{figures/utility_gain_r.eps}
-%\caption{DDM Utility Gain Value}
-%\label{utility_gain_value}
-%\end{figure}
+\Gamma & \text{if $ 0 \leq \Gamma \leq 1$;}\\
+0  & \text{if $\Gamma < 0$;}\\
+1 & \text{if $\Gamma > 1$.}\\
+\end{cases}
+\end{equation}
 %
-%\begin{figure}%[!t]
-%\centering
-%\includegraphics[width=3.5in]{figures/utility_ratio_r.eps}
-%\caption{DDM Utility Gain Ratio}
-%\label{utility_gain_ratio}
-%\end{figure}
+For new services with no previous reputation value, we use the
+bootstrapping trust technique proposed in \cite{Yahyaoui2}. This
+technique consists in giving the new services a chance and observe
+their behaviors for a period of testing time. The observation
+sequence is modeled as a hidden Markov model that is used to
+detect the behavior of the service by comparing the observation
+behavior against pre-defined trust patterns. Based on the matching
+result, an initial value is assigned to the service. Using this
+initial reputation value, services quickly converge to their
+actual and stable values using the update function.
 
-We utilize the same communities and web services with a simple rational decision making mechanism, in which communities will choose to join a community if it increases utility by any amount. We call it the $rational$ method, in the sense that it is just a rational method and is not aiming to be optimal. We chose 10 random web services and compared the results with web services which adopted our DDM model. Figure \ref{utility_gain_mlisa_and_rational} shows the comparison of the end result of utility gain values. In 18 out of 40 tries, \emph{rational} agents were not able to improve their utility at all because the communities they chose rejected their request, most likely because they would not have increased the utility of the other communities if they had joined them. The results show that a long-term strategic decision mechanism is needed to satisfy all of the services within communities. Figure \ref{utility_gain_mlisa_and_rational_ratio} shows the same results in terms of ratio of utility gain.
+\begin{proposition}\label{Complexity-Rep}
+$Rep_{w}^{t}$ can be computed in time $O(|t|)$, i.e., in time
+linear in the size of the window $t$.
+\end{proposition}
 
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/utility_gain.eps}
-\caption{Utility Gain DDM and Rational}
-\label{utility_gain_mlisa_and_rational}
-\end{figure}
+\begin{proof}\footnote{In this paper, we
+assume that the common arithmetic and elementary functions, such
+as multiplication, division and trigonometric functions can be
+computed in time $O(1)$ as they operate on inputs of fixed sizes.}
+The function $Rep_{w}^{t}$ is recursive on $t$, but the algorithm
+works by storing the last calculated reputation value in a
+variable, so it will not be recalculated again at each iteration.
+However, the calculation of $reward_w^t$ is needed. Since the
+function $reward_w^t$ can be computed in time linear in the number
+of tasks (see Equations \ref{repr} and \ref{reward}), which in
+turn is linear in the size of the window time, the result follows.
+$\Box$
+\end{proof}
 
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/utility_ratio.eps}
-\caption{Ratio of Utility Gain DDM and Rational}
-\label{utility_gain_mlisa_and_rational_ratio}
-\end{figure}
+\textbf{Growth Factor} ($G_w^t$) is a parameter which declares
+services' performance based on their recent strategies and
+activities. Growth factor is relative to services' reputation
+$Rep_w^t$, QoS during the window time $t$ $QoS_w^t$, and budget
+$B_w^t$. This factor is the main variable a typical service uses
+to decide about which strategy to adopt. We use Equation \ref{eq:growthfactor} to compute the
+growth factor $G^t_w$ of the service $w$ during the window time
+$t$ as the average of the three aforementioned parameters, where
+$n_t$ is the total number of offered tasks to the whole community
+during the
+window time $t$, %(we consider the time window $t$ large enough so
+%that $n_t \neq 0$),
+$\mu_w$ is the mean received service fee, and $\epsilon$ is the
+cost of community membership.
 
-Now, we evaluate the performance of the decision profiles generated based on our data set for other communities.% which are not included in the decision tree creation process.
-We create one thousand communities from the web services in the data set that were not involved in the decision model creation process. We define a distance function that measures the difference between basic features of communities, which measures the similarity of communities.
-
-\begin{equation}\label{distance_c}
-\begin{split}
-distance (C_1, C_2) & = |Th_{C_1} - Th_{C_2}| \\
-                    & + |A_{C_1} - A_{C_2}| + |Et_{C_1} - Et_{C_2}|
-\end{split}
+\begin{equation}\label{eq:growthfactor}
+G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
+\epsilon}}{3}
 \end{equation}
+\begin{equation*}
+\mu_{w} \in\{\mu_{w, CM}, \mu_{w, CO}\},~~~QoS_w^t =
+\begin{cases} \frac{\sum_{r \in
+task_w^t}QoS_w^r}{|task_w^t|}& \text{if $task_w^t \neq \emptyset$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
+\end{equation*}
 
-Now, each community tries to find the closest community within the trained $CFVS$ set. Following its decision profile, the community can get a good estimate of the possible strategic decisions it can adopt. Basically, the trained profiles benefit the new web services in two ways. First, they provide the communities with a set of viable communities to join. Second, they provide an estimation of long-term utility gain for each available decision. In this experiment, we let communities follow the best decision within the decision tree provided to the them.
 
-\begin{table}[ht]
-\caption{Number of communities that misses the optimal decision, out of 1,000 communities} % title of Table
-\centering % used for centering table
-\begin{tabular}{|c|c|} % centered columns (4 columns)
-\hline %inserts double horizontal lines
- Method&Miss \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
- DDM r=0.05& 375 \\ % inserting body of the table
- DDM r=0.07& 137 \\
- DDM r=0.10& 6 \\
- DDM r=0.20& 6 \\
-Rational Method& 717 \\
-Greedy Method& 828 \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
+This equation is designed so that it satisfies the following
+desirable properties:
+
+\begin{enumerate}
+
+\item The growth factor function should be monotonically
+increasing in the offered quality of service $QoS_w^t$.
+
+\item The growth factor function should be monotonically
+increasing in the service's reputation $Rep^t_w$.
+
+\item The growth factor function should be monotonically
+increasing in the budget $B_w^t$ if the maximum possible profit is
+positive and monotonically decreasing in $B_w^t$ if the maximum
+possible profit is negative. This property reflects the idea that
+the budget contributes in the increase of the growth factor as far
+as there is a chance to make profit. In fact, the contribution of
+the budget $B_w^t$ in the calculation of the growth factor should
+be proportional to the maximum possible profit $n_t \mu_w -
+\epsilon$ where the service $w$ receives all the offered tasks
+during the window time $t$.
+
+\end{enumerate}
+
+  % if the profit $\beta_w$ made by the web service $w$
+%considering the mean received service fee $\mu_w$ and the cost of
+%community membership $\epsilon$ is positive.
+It is easy to show that Equation \ref{eq:growthfactor} satisfies
+the three aforementioned properties by calculating the partial
+derivatives $\partial G^t_w$ of this function in 1) $QoS_w^t$
+($\frac{\partial G^t_w}{\partial QoS_w^t} = \frac{1}{3} $); 2)
+$Rep^t_w$ ($\frac{\partial G^t_w}{\partial Rep^t_w} = \frac{1}{3}
+$); and 3) $B_w^t$ ($\frac{\partial G^t_w}{\partial B_w^t} =
+\frac{1}{3 (n_t \mu_w - \epsilon)} $). Thus, the sign of the two
+first partial derivatives is positive and the sign of
+$\frac{\partial G^t_w}{\partial B_w^t}$ depends on the sign of the
+maximum profit $n_t \mu_w - \epsilon$, so we are done. The mean
+service fee depends on the strategy adopted by the service because
+a competitive service receives higher fees $\mu_{w, CM}$ compared
+to a cooperative one $\mu_{w, CO}$ ($\mu_{w, CM} > \mu_{w, CO}$).
+The motivation behind this is that a competitive service for a
+given task is the leader for that task while other cooperative
+services are performing specific subtasks as asked by the leader.
+
+
+\begin{proposition}\label{Complexity-Growth_Factor}
+$G_w^t$ can be computed in time linear in the size of the window
+$t$.
+\end{proposition}
+
+\begin{proof}
+As shown in the second part of Equation \ref{eq:growthfactor}, the
+function $QoS_w^t$ can be computed in time linear in the number of
+tasks, which in turn is linear in the size of the window time.
+Since $B_w^t$ is constant, the result follows from Proposition
+\ref{Complexity-Rep}. $\Box$
+\end{proof}
+
+
+The above explained parameters and other additional parameters
+which will be used in the rest of this chapter are listed and self
+explained in Table \ref{t4:Preliminaries}.
+
+
+\begin{table}
+\centering
+\caption{List of abbreviations.}
+\begin{tabular}{|c|c||c|c|}
+\hline
+\textbf{Notation} & \textbf{Definition} & \textbf{Notation} & \textbf{Definition}\\
+\hline\hline
+$T_{QoS}^r$    & Required task QoS for the task $r$   & $T_{QoS}^t$      & Mean required task QoS during $t$\\
+$QoS_w^r$      & Service $w$ QoS for the task $r$ & $QoS_w^t$        & $w$ QoS during the window time $t$\\
+$Reward_w^r$   & Reward obtained by $w$ w.r.t. $r$    & $Reward_w^t$ & Reward to update the reputation\\
+$Rep^t_w$      & Reputation assigned for $w$          & $B_w^t$          & Budget associated to service $w$ \\
+$G^t_w$        & Growth factor of $w$ during $t$      & $\epsilon$       & Community membership fee\\
+$\pi_{w,CM}^t$ & Competition payoff of $w$            & $\pi_{w,CO}^t$   & Cooperation payoff of $w$\\
+$p_{w,CM}^t$   & Competition probability of $w$       & $p_{w,CO}^t$     & Cooperation probability of $w$\\
+$COF_w^t$      & Cooperation fee of $w$               & $\beta_{w}$      & Profit of $w$\\
+$\mu_{w, CM}$  & Mean service fee for competing $w$   & $\mu_{w, CO}$    & Mean service fee for cooperating $w$\\
+$\tau_w^t$     & Coopetitive threshold of $w$         & $P_w^t$          & Probability of competing for $w$\\
+$U_w^t$        & Utility of $w$                       & $E^t_w$          & Expected number of tasks\\
+
+\hline
 \end{tabular}
-\label{fail_rate} % is used to refer this table in the text
+\label{t4:Preliminaries}
 \end{table}
 
 
-In order to evaluate the performance of the mechanism, we used \emph{Receiver Operating Characteristic (ROC) curve}, which is a graphical plot illustrating the true negative rate against the false positive rate at various threshold settings in classifier systems. In order to classify our communities' selection strategies correctly, for each community, we evaluated the training process by replacing the community in the set with the closest one, from which it gets the strategy profile. If the actions are the same and the same utility levels are gained, we classify the decision as correct. Otherwise, it is classified as a wrong decision. \emph{AUC}, the area under the \emph{ROC curve}, is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one, and the higher number reflects better performance from the better solution.  Figure \ref{roc5} illustrates the \emph{ROC curve} evaluation of the DDM decision making mechanism. We compare our method with two other methods. The \emph{rational} method is based on the assumption that communities, as rational agents, join a community that increases their utility. The \emph{greedy} method only looks up the available list of communities and simply joins the community that maximizes its utility without considering any long-term strategy or other communities' acceptance scenarios, its an greedy algorithm and chooses a locally optimal choice. Therefore we use these two methods as our benchmark:
+\section{Service Interactive Strategies}
 
-\begin{itemize}
-  \item {\bf Rational Method:} Communities would send a join request to any available community, which will increase the utility. The other community would accept the join offer if the utility gain is positive as well.
-	\item {\bf Greedy Method:} Communities do a linear search among all the available communities and send a join request to the community which results in maximum utility, The other community would accept the join offer if the utility gain is positive and the utility gain does not need to be the maximum for the community recieving the join request.
-\end{itemize}
+The main goal of each individual service agent is to increase its
+income (payoff). This income can be earned from tasks (or
+requests) done by this service. In our model, services can decide
+to compete to get a task from the master agent or to cooperate
+with other services within a given collaborative network (the way
+a collaborative network is set by a leader is based on the
+cooperative services reputation and their QoS parameters that
+should coincide with the required QoS). Therefore we define two
+types of service strategies. First, when a service has higher
+level of confidence based on its growth factor, it can compete to
+get a task from the master and adopts the competitive strategy.
+Second, when the service agent has a lower level of confidence
+that it does not feel capable to compete, it waits for some other
+services to cooperate with to perform some tasks \footnote{Through
+the report, requests or tasks are supposed to be decomposable.},
+and thus it adopts the cooperative strategy. Services estimate the
+outcome of all the strategies and choose one of them accordingly.
+This decision is not static but can change over time so service
+agents can switch from one strategy to the other, and this dynamic
+attitude is referred to as coopetition. The underlying decision
+making process is presented in the next section.
 
-Figure \ref{roc5} compares the results for all methods. The two other methods have very high failure rates compared to our method. Table \ref{fail_rate} illustrates the number of communities that failed to find the optimal collaboration group. The results support the need for a long-term training model in a successful decision making process.
 
-\begin{figure}%[!t]
+\section{Theoretical Results}\label{Theoretical Results}
+
+\subsection{Service Decision Making Procedure}
+%In the previous section, we introduced web services' interaction
+%strategies.
+In this section, we explore in details the interaction strategies
+and the outcome of each strategy in terms of services' utilities.
+The main part of services' decision making procedure falls into
+their growth factor analysis. In fact, the comparison of the
+growth factor to a particular threshold is the main reason that
+influences the service's decision to follow either competitive or
+cooperative behavior. service agents initially compute this value
+and compare it with their computed threshold. Generally the main
+challenge is the threshold computation and we cope with this issue
+in the rest of this section. We additionally use the obtained
+results in the implemented environment and analyze their
+effectiveness on services' strategic decision making procedures.
+
+
+Figure \ref{decisionMakingProcedure} shows the decision making
+process that is followed by a typical service. In case the service
+agent is ready to compete, there is a chance that it bids for a
+task if it has the required capabilities to accomplish that task,
+or stays silent and returns to the cooperative status. But in case
+the service agent is willing to cooperate, it has to wait for a
+cooperation opportunity that could be triggered by another service
+agent that competed and obtained the task, so both services will
+be part of the same collaborative network. In the decision making
+process presented in Figure \ref{decisionMakingProcedure}, we
+assume that the competing service might get the task (denoted as
+$Bid/obtainedTask$) or not in case of being rejected by the master
+agent, or do not even bid for the task (denoted as
+$Silent/rejectedTask$). For simplicity reasons and without loss of
+generality, we group the two cases of $Bids$ and $obtainedTask$
+together as well as $Silent$ and $rejectedTask$. The rational
+behind this aggregation is the fact that our main concentration is
+services' status (competitive or cooperative) over different
+decision making rounds, which could be caused by internal factors
+(the services) or by the external factor (the master agent).
+
+\begin{figure}[h]
 \centering
-\includegraphics[width=3.5in]{figures/roc.eps}
-\caption{RoC Curve}
-\label{roc5}
+\includegraphics[scale=0.55]{Figures/decision1++.eps}
+\caption{Decision making process over competitive and cooperative
+strategies.} \label{decisionMakingProcedure}
 \end{figure}
-Now, we evaluate the system-specific results from users' and communities' perspectives. By distributing tasks among the communities over these time frames, we evaluate the revenue for each community. Figure \ref{stats1} shows the overall revenue gain of communities using our method. Figure \ref{stats2} shows the momentarily revenue gain for each community in each time slot compared to the previous time. These results show that the run with the higher learning rate of $r=0.20$ starts discovering better communities to join much earlier. The runs with slow rates seem to find some communities to join initially, but then they slow down until later, when they start discovering new communities to join.
 
-\begin{figure}%[!t]
+
+
+
+Consider a service $w$ that is willing to compete for the period
+of time $t$ (that means the computed growth factor is more than
+the analyzed threshold). This service can estimate the expected
+payoff associated to this decision, called \emph{competition
+payoff}. Equation \ref{CMPff} computes this expected payoff for
+the competing service $w$ ($\pi_{w,CM}^t$) considering the
+$Bid/obtainedTask$ probability of $p_{w,CM}^t$ and
+$Silent/rejectedTask$ probability of $1-p_{w,CM}^t$.
+
+\begin{equation}\label{CMPff}
+\pi_{w,CM}^t=p_{w,CM}^t(\mu_{w, CM}E^t_w-COF_w^t
+E^t_w-\epsilon)+(1-p_{w,CM}^t)(-\epsilon)
+\end{equation}
+
+In Equation \ref{CMPff}, $E^t_w$ is the number of tasks that $w$
+expects during the window time $t$, and $\mu_{w, CM}$ is the mean
+service fee that is assigned by the master agent to $w$. This
+means that a competing service directly obtains this fee from the
+master agent. Moreover, the competing service $w$ expects a
+cooperation fee ($COF_w^t$) that it gives to its collaborators in
+case $w$ needs to cooperate with other services (cooperative
+service agents in its collaboration network). In any case, the
+competing or cooperating service agent pays a fixed amount of
+membership ($\epsilon$) to the master agent, which plays the role
+of the community's coordinator. This fee would be taken into
+account when a service decides to leave to a cheaper community or
+act alone. But to concentrate on the main concerns of this paper,
+we skip these small details.\\\\
+%
+From Equation \ref{CMPff}, the following proposition is
+straightforward.
+
+\begin{proposition}\label{Complexity-Competition_Payoff}
+The complexity of computing the competition payoff $\pi_{w,CM}^t$
+is linear in the competition probability $p_{w,CM}^t$, the
+expected number of tasks $E^t_w$, and the cooperation fee
+$COF_w^t$.
+\end{proposition}
+
+
+The arrival of requests for service $w$ during the time unit $t$
+(denoted here by $m_w(t)$) can be modeled as a nonhomogeneous
+Poisson process \cite{Khosravifar-ICWS2010,Ruggeri2005}, which
+means as a Poisson process with dynamic arrival rate
+$\lambda_w(x)$ where $x$ belongs to the time unit $t$. The arrival
+rate is thus a function of time and typically varies significantly
+from moment to moment. In nonhomogeneous Poisson process, $m_w(t)$
+is expressed as follows:
+
+$$ m_w(t)= \int_0^t \! \lambda_w(x) \ \mathrm{d}x$$
+%
+And the probability of having exactly $n$ requests during the
+window $t$ is computed as follows:
+
+$$ p(m_w(t) = n) = \frac{(m_w(t))^n}{n! \ e^{m_w(t)}}  $$
+%
+Let $Max_w^t$ be the maximum number of requests that $w$ can
+receive during $t$. The number of expected requests $E^t_w$ is
+given by the parameter $\lambda_w(t)$ as follows:
+
+\begin{equation}\label{Expectation}
+E^t_w = \lambda_w(t) = \sum_{n=1}^{Max_w^t} n \ p(m_w(t) = n)
+\end{equation}
+%
+The parameter $\lambda_w(t)$ is usually estimated from data
+samples using the least squares, iterative least squares, or
+maximum likelihood \cite{Massey1996}.
+
+\begin{proposition}\label{Complexity-Expectation}
+The complexity of computing the expected number of requests
+$E^t_w$ is linear in the size of the window time $t$.
+\end{proposition}
+
+
+\begin{proof}
+For a fixed function $\lambda_w(x)$, $m_w(t)$ can be computed in
+$O(1)$. Thus, from Equation \ref{Expectation}, it follows that
+$E^t_w$ can be computed in time linear in $Max_w^t$. As $Max_w^t$
+is linear in $t$, the result follows. $\Box$
+\end{proof}
+
+Similar to the competitive service case, if a service $w$ declares
+cooperative status, its expected \emph{cooperation payoff}
+($\pi_{w,CO}^t$) is computed in Equation \ref{CLPff}. In this
+equation, $p_{w,CO}^t$ is the probability of getting involved in a
+cooperative task with other services and $1-p_{w,CO}^t$ is the
+probability of failure to find such a cooperation opportunity.
+These two probabilities are set when $w$ decides to compete. We
+recall that $\mu_{w, CO}$ denotes the mean cooperation fee that is
+directly obtained from the leader (i.e., the competitive) service
+of the underlying collaborative network. Compared to $\mu_{w,
+CM}$, $\mu_{w, CO}$ is relatively smaller since the competitive
+service generally dedicates a portion of its obtained income to
+pay other cooperative services.
+
+
+\begin{equation}\label{CLPff}
+\pi_{w,CO}^t=p_{w,CO}^t (\mu_{w,
+CO}E^t_w-\epsilon)+(1-p_{w,CO}^t)(-\epsilon)
+\end{equation}
+%
+From Equation \ref{CLPff}, the following proposition holds.
+
+\begin{proposition}\label{Complexity-Cooperation_Payoff}
+The complexity of computing the cooperation payoff $\pi_{w,CO}^t$
+is linear in the cooperation probability $p_{w,CO}^t$ and the
+expected number of tasks $E^t_w$.
+\end{proposition}
+
+
+To analyze the expected payoffs obtained from different
+strategies, services need to compute the estimated probabilities
+that distinguish subcases in each behaviorial status ($p_{w,CM}^t$
+for competitive and $p_{w,CO}^t$ for cooperative). To estimate
+these probabilities, we should notice that they are functions of
+services' reputation values ($Rep_w^t$). Furthermore, $p_{w,CM}^t$
+is also function of the difference between the offered QoS
+($QoS_w^t$) and the mean requested one considering the set of all
+tasks $task^t$ ($T_{QoS}^t$ (see Equation \ref{Mean-Quality}));
+and $p_{w,CO}^t$ is function of the reputation of other services
+in the community because the leader is supposed to be selective
+when it comes to choose the collaborators. To this end, we first
+discuss the desirable properties of an estimation function of each
+of these probabilities, and show that the proposed ones satisfy
+those properties.
+
+\begin{equation}\label{Mean-Quality}
+T_{QoS}^t =
+\begin{cases} \frac{\sum_{r \in
+task^t}T_{QoS}^r}{|task^t|}& \text{if $task^t \neq \emptyset$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
+\end{equation}
+%
+
+\begin{proposition}\label{Complexity-Mean_Quality}
+$T_{QoS}^t$ can be computed in time linear in the size of the
+window $t$.
+\end{proposition}
+
+\begin{proof}
+From Equation \ref{Mean-Quality},  $T_{QoS}^t$ can be computed in
+time linear in $|task^t|$, which in turn is linear in the window
+size $|t|$. $\Box$
+
+\end{proof}
+
+
+The desired properties of $p_{w,CM}^t$ are as follows:
+
+\begin{property}
+$p_{w,CM}^t$ is continuous with regard to $Rep^t_w$, $QoS_w^t$,
+and $T_{QoS}^t$.
+\end{property}
+%
+\begin{property}
+$p_{w,CM}^t$  is monotonically increasing in $Rep^t_w$ and
+$QoS_w^t - T_{QoS}^t$ while $QoS_w^t - T_{QoS}^t$ is positive.
+\end{property}
+%
+\begin{property}
+$p_{w,CM}^t$ is null if $QoS_w^t - T_{QoS}^t$ is negative.
+\end{property}
+%
+%\begin{property}
+%Assuming that the web service $w$ is known by the master web
+%service, $Rep^t_w$ is monotonically increasing or decreasing in
+%$QoS_w$.
+%\end{property}
+%
+\begin{property}
+The increase slope of $p_{w,CM}^t$ is higher when the reputation
+$Rep^t_w$ increases in the interval $[0, 0.5]$ than when it
+increases in the interval $]0.5, 1]$.
+\end{property}
+
+
+\noindent Property 1 simply says that the probability of success
+competition $p_{w,CM}^t$ can be always estimated as far as
+$Rep^t_w$, $QoS_w^t$, and $T_{QoS}^t$ are available. Property 2
+says that the reputation and QoS are two key factors that
+influence the value of $p_{w,CM}^t$ in the sense of positive
+correlation. Property 3 indicates that the probability
+$p_{w,CM}^t$ is null if the offered QoS is less than the
+expectation. Property 4 promotes the increase of the reputation
+for new comers and imposes higher increase rate at the beginning
+of the reputation curve because it is always hard to build the
+reputation, but once it is built, its maintenance is less
+challenging.
+
+
+\noindent The desired properties of $p_{w,CO}^t$ are as follows:
+
+\begin{property}
+$p_{w,CO}^t$ is continuous with regard to $Rep^t_w$ and the
+reputation of other services in the community.
+\end{property}
+%
+\begin{property}
+$p_{w,CO}^t$  is monotonically increasing in $Rep^t_w$ and
+ monotonically decreasing in the community average reputation.
+\end{property}
+%
+%\begin{property}
+%$p_{w,CM}$ is null if $QoS_w^t - T_{QoS}^t$ is negative.
+%\end{property}
+%
+%\begin{property}
+%Assuming that the web service $w$ is known by the master web
+%service, $Rep^t_w$ is monotonically increasing or decreasing in
+%$QoS_w$.
+%\end{property}
+%
+\begin{property}
+The increase slope of $p_{w,CO}^t$ is higher when the reputation
+$Rep^t_w$ increases in the interval $[0, 0.5]$ than when it
+increases in the interval $]0.5, 1]$.
+\end{property}
+
+\noindent Property 5 is similar to Property 1. Property 6 says
+that $w$ has more chance to get involved in a cooperation if it
+has high reputation compared to the other members. This chance
+decreases if other services have higher reputation. Property 7 is
+similar to Property 4.
+
+Equations  \ref{CMp_w} and \ref{CLp_w} respectively compute the
+estimated success probability in cases where service $w$ is
+competing and cooperating. These values are computed considering
+service's reputation value ($Rep^t_w$ computed by the master),
+service's offered QoS ($QoS^t_w$), the task required QoS
+($T_{QoS}^t$), which is the mean required QoS computed from
+previous tasks, the maximum offered QoS ($QoS_k^t$, which is
+provided by another competitive service $k$), and the cooperative
+factor $CL_w^t$ of service $w$ during the window time $t$, which
+is computed as the portion of service's current reputation on the
+average reputation of the community $\mathcal{C}$.
+
+\begin{equation} \label{CMp_w}
+p_{w,CM}^t = \begin{cases}
+\sin(Rep^t_w\frac{\pi}{2})\frac{QoS_w^t-T_{QoS}^t}{Max_k(Qos_k^t-T_{QoS}^t)} & \text{if $QoS_w^t\geq T_{QoS}^t$;}\\
+0 & \text{otherwise.}\\
+\end{cases}
+\end{equation}
+
+\begin{equation}\label{CLp_w}
+p_{w,CO}^t=\sin(Rep^t_w\frac{\pi}{2})CL_w^t
+\end{equation}
+\begin{equation*}
+CL_w^t=\frac{Rep^t_w}{\sum_{k\in
+\mathcal{C}}Rep^t_k/|\mathcal{C}|}
+\end{equation*}
+
+\begin{theorem}
+Equation  \ref{CMp_w} satisfies Properties 1 to 4.
+\end{theorem}
+
+\begin{proof}
+It is easy to show the continuity of Equation \ref{CMp_w}, which
+satisfies Property 1. The partial derivative $\frac{\partial
+p_{w,CM}^t}{\partial Rep^t_w} = \frac{\pi}{2}
+\cos(Rep^t_w\frac{\pi}{2})\frac{QoS_w^t-T_{QoS}^t}{Max_k(Qos_k^t-T_{QoS}^t)}$
+is positive as the function $\cos$ (the derivative of $\sin$) is
+positive on $[0, \frac{\pi}{2}]$, $Rep^t_w \in [0, 1]$, and
+$QoS_w^t\geq T_{QoS}^t$. The partial derivative $\partial
+p_{w,CM}^t$ with regard to $QoS_w^t - T_{QoS}^t$ ($\frac{\partial
+p_{w,CM}^t}{\partial(QoS_w^t - T_{QoS}^t)} =
+\frac{\sin(Rep^t_w\frac{\pi}{2})}{Max_k(Qos_k^t-T_{QoS}^t)}$) is
+also positive since $Qos_k^t-T_{QoS}^t > 0$ and
+$Rep^t_w\frac{\pi}{2} \in [0, \frac{\pi}{2}]$ and $\sin$ is
+positive on $[0, \frac{\pi}{2}]$, which proves the satisfaction of
+Property 2. Property 3 is straightforward. Finally, the increase
+slope of the function $\sin$ on $[0, \frac{\pi}{2}]$ proves
+Property 4. $\Box$
+\end{proof}
+
+\begin{theorem}
+Equation  \ref{CLp_w} satisfies Properties 5 to 7.
+\end{theorem}
+%
+\begin{proof}
+We can easily show the continuity  of Equation \ref{CLp_w} from
+which Property 5 follows. Property 6 can be shown by calculating
+the partial derivative $\partial p_{w,CO}^t$ first with regard to
+$Rep^t_w$ and second with regard to the community $\mathcal{C}$
+average reputation $\sum_{k\in \mathcal{C}}Rep^t_k/|\mathcal{C}|$,
+where $|\mathcal{C}|$ is the cardinality of the considered
+community $\mathcal{C}$. The first partial derivative
+($\frac{\pi}{2}\cos(Rep^t_w\frac{\pi}{2})CL_w^t$) is positive and
+the second ($\frac{-\sin(Rep^t_w\frac{\pi}{2})Rep^t_w}{(\sum_{k\in
+\mathcal{C}}Rep^t_k/|\mathcal{C}|)^2}$) is negative, which proves
+the satisfaction of Property 6. The proof of satisfaction of
+Property 7 is similar to the one of Property 4. $\Box$
+\end{proof}
+%Considering these involved parameters, we verify that properties
+%$1$ to $3$ are satisfied. For property $4$, we use $sinus$
+%function to promote the role of reputation influence in this
+%system. Using $sinus$ function, we promote reputation increase of
+%web services specially when it is less than $50\%$. Considering
+%the desired properties, the formulas represented in Equations
+%\ref{CMp_w} and \ref{CLp_w} are candidates we chose to compute the
+%probabilities regarding $Competitive$ and $Cooperative$
+%strategies. These formulas are used in implemented system and
+%verified with respect to their accuracy and effectiveness in
+%adopting different interacting strategies.
+
+
+%In the proposed heuristic  function, the web service $w$ is not
+%aware of current $T_{QoS}$ and $QoS_k$, but could use its previous
+%information to estimate their values. To this end, if the web
+%service is more informative about the previous data, it could
+%obtain more realistic measurement over the estimated
+%probabilities.
+%
+%
+%We compute the success probability of cooperation ($p_{w,CO}$)
+%similarly in the sense  that we still promote reputation influence
+%using $sinus$ function, but multiplied to the cooperative factor
+%$CL_w$ of the web service $w$. This value is computed as the
+%portion of web service's current reputation on the average
+%reputation of the community.
+
+
+
+\begin{proposition}\label{Complexity-Probability_Competition}
+$p_{w,CM}^t$ can be computed in time linear in the window size
+$|t|$.
+\end{proposition}
+
+\begin{proof}
+The result follows directly from 1) Equation \ref{CMp_w}; 2)
+Proposition \ref{Complexity-Rep} (Complexity of $Rep^t_w$ is
+linear in the window size $|t|$); 3) second part of Equation
+\ref{eq:growthfactor} (the function $QoS_w^t$ can be computed in
+time linear in the number of tasks, which in turn is linear in the
+size of the window time); 4) Proposition
+\ref{Complexity-Mean_Quality} (Complexity of $T_{QoS}^t$ is linear
+in the size of the window $t$); and 5) the fact that those
+functions are computed independently one from the other. $\Box$
+\end{proof}
+
+
+
+\begin{proposition}\label{Complexity-Probability_Cooperation}
+$p_{w,CO}^t$ can be computed in time $O(|t|.|\mathcal{C}|)$, which
+means linear in both the size of the window $t$ and the size of
+the community $\mathcal{C}$.
+\end{proposition}
+
+\begin{proof}
+From Proposition \ref{Complexity-Rep}, $Rep^t_w$ can be computed
+in $O(|t|)$. Consequently, the function $\sum_{k\in
+\mathcal{C}}Rep^t_k$ can be computed in $O(|t|.|\mathcal{C}|)$, so
+it does the computation of the function $CL_w^t$ as $Rep^t_w$ will
+be computed just once and stored in a variable. The same variable
+will be used to compute $\sin(Rep^t_w\frac{\pi}{2})$. Thus, from
+Equation \ref{CLp_w}, the result follows. $\Box$
+\end{proof}
+
+
+\subsection{Coopetition Threshold}
+
+In this part, we compute the coopetition threshold that a typical
+service agent could use to adopt reasonable interacting strategies
+and we empirically verify the effectiveness of the obtained
+results in the next section. In fact, to decide which strategy to
+adopt, we let the service agent $w$ compare its growth factor
+$G_w^t$ with the coopetition threshold $\tau_w^t$ it holds at
+current window time $t$ and choose to compete with probability
+$P_w^t$ that we compute in Equation \ref{P}. Based on this
+probability, we calculate the total utility $U_w^t$ in Equation
+\ref{U}.
+
+\begin{equation} \label{P}
+P_w^t= \begin{cases}
+\frac{G_w^t}{\tau_w^t}  & \text{if $G_w^t\leq \tau_w^t$;}\\
+1 & \text{otherwise.}\\
+\end{cases}
+\end{equation}
+
+\begin{equation}\label{U}
+U_w^t=P_w^t(\pi_{w,CM}^t)+(1-P_w^t)(\pi_{w,CO}^t)
+\end{equation}
+
+
+%Equation  \ref{U} computes the
+%expected utility (as accumulated fee) regarding web service $w$.
+%This estimated utility is result of aggregation of two different
+%interacting strategies of $Competitive$ and $Cooperative$.
+%Aggregating these strategic payoffs, web service $w$ follows
+%probability distribution of $\{P,1-P\}$. This probability
+%distribution is computed in Equation \ref{P}, which is a function
+%of the growth factor ($G_w$) and computed threshold ($Tr^t$). So
+%if the web service is aware of the reasonable threshold, the value
+%$p$ could be computed and used as the core of strategic
+%probability distribution. But there is a case where the web
+%service does not have a reasonable threshold value and cannot
+%rigorously decide for any adopting strategies.
+
+
+The key factor in the computation of the probability $P_w^t$ and
+the associated utility is the threshold value. To compute the
+threshold, we use the game-theoretic best response technique. A
+typical service agent $w$ will follow the best response strategy
+to maximize its expected aggregated payoff. The idea is to
+equalize the expected payoffs of the two acting strategies:
+compete and cooperate.
+%
+%
+%by following the following three probability distributions: (1)
+%$\{1,0\}$ where the web service always competes; (2) $\{0,1\}$
+%where the web service always cooperates; and (3)
+%$\{\frac{1}{2},\frac{1}{2}\}$ where the web service equalize the
+%probabilities and decides with unbiased distribution. Following
+%the third case, the web service equites the expected payoffs as
+%outcomes of different interacting strategies.
+%
+The objective behind equalizing payoffs is to explore conditions
+under which service agent $w$ could react with best response to
+further decision making procedures. We use the obtained conditions
+to compute the threshold $\tau_w^t$ during the window time $t$. By
+equalizing $\pi_{w,CM}^t$ and $\pi_{w,CO}^t$, we obtain:
+
+\begin{equation*}\label{equit}
+\pi_{w,CM}^t=\pi_{w,CO}^t      \rightarrow
+\end{equation*}
+\begin{equation*}
+p_{w,CM}^t(\mu_{w,CM}-COF_w^t-\epsilon)+(1-p_{w,CM}^t)(-\epsilon)=p_{w,CO}^t(\mu_{w,
+CO}-\epsilon)+(1-p_{w,CO}^t)(-\epsilon)
+\end{equation*}
+Which means:
+\begin{equation*}
+p_{w,CM}^t(\mu_{w,CM}-COF_w^t - \epsilon) =
+p_{w,CO}^t(\mu_{w,CO}-\epsilon)+(-\epsilon)(p_{w,CM}^t -
+p_{w,CO}^t)
+\end{equation*}
+So, we obtain:
+\begin{equation*}
+\mu_{w,CM}-COF_w^t - \epsilon =
+\frac{p_{w,CO}^t~~\mu_{w,CO}}{p_{w,CM}^t}-\epsilon
+\end{equation*}
+Therefore:
+\begin{equation*}
+\mu_{w,CM}-COF_w^t = \frac{p_{w,CO}^t~~\mu_{w,CO}}{p_{w,CM}^t}
+\end{equation*}
+From which, we derive:
+\begin{equation*}
+COF_w^t = \mu_{w,CM} - \frac{p_{w,CO}^t~~\mu_{w,CO}}{p_{w,CM}^t}
+\end{equation*}
+Replacing $p_{w,CM}^t$ and $p_{w,CO}^t$ using Equations
+\ref{CMp_w} and \ref{CLp_w}, we derive the following:
+\begin{equation*}
+COF_w^t = \mu_{w,CM} -
+\frac{sin(Rep^t_w\frac{\pi}{2})CL_w^t~~\mu_{w,CO}}{sin(Rep^t_w\frac{\pi}{2})\frac{QoS_w^t-T_{QoS}^t}{Max_k(Qos_k-T_{QoS}^t)}}
+\end{equation*}
+%The fixed membership fee $\epsilon$ could be taken out and
+%canceled from both sides of the equation so we obtain the
+%following:
+%\begin{equation*}
+%p_{w,CM}^t(\mu_{w,CM}-COF_w^t)=p_{w,CO}^t(\mu_{w,CO})\rightarrow
+%\end{equation*}
+%
+%\begin{equation*}
+%sin(Rep^t_w\frac{\pi}{2})\frac{QoS_w^t-T_{QoS}^t}{Max_k(Qos_k-T_{QoS}^t)}(\mu_{w,
+%CM}-COF_w^t)=sin(Rep^t_w\frac{\pi}{2})CL_w^t(\mu_{w, CO})
+%\end{equation*}
+By simplifying the $sinus$ function from both the numerator and
+denominator sides and substituting the cooperation factor $CL_w^t$
+of service $w$ we obtain Equation \ref{CLF}:
+
+\begin{equation}\label{CLF}
+COF_w^t=\mu_{w,CM}-\frac{Rep^t_w~|\mathcal{C}|}{\sum_{k\in
+\mathcal{C}}Rep^t_k}\frac{\mu_{w,CO}Max_k(Qos_k^t-T_{QoS}^t)}{QoS_w^t-T_{QoS}^t}
+\end{equation}
+
+Equation \ref{CLF} computes the cooperation fee $COF_w^t$ that is
+assigned by service $w$. This fee represents the amount that $w$
+spends to cooperate with other service(s) to accomplish the task.
+By so doing, we obtain the maximum amount of cooperation fee that
+service $w$ can use to constrain the positive payoff out of
+competing. Otherwise, the service stays as cooperative entity.
+
+\begin{proposition}\label{Complexity-COF}
+$COF_w^t$ can be computed in time $O(|t|.|\mathcal{C}|)$, which
+means linear in both the size of the window $t$ and the size of
+the community $\mathcal{C}$.
+\end{proposition}
+
+\begin{proof}
+From Proposition \ref{Complexity-Rep}, $Rep^t_w$ can be computed
+in $O(|t|)$. Consequently, the function $\sum_{k\in
+\mathcal{C}}Rep^t_k$ can be computed in $O(|t|.|\mathcal{C}|)$.
+Since $QoS_w^t$ and $T_{QoS}^t$ can be computed in time $O(t)$
+(from the second part of Equation \ref{eq:growthfactor} and
+Proposition \ref{Complexity-Mean_Quality} respectively), we are
+done. $\Box$
+\end{proof}
+
+\begin{lemma} \label{Complexity-Competition_Payoff-Final}
+The competition payoff $\pi_{w,CM}^t$ can be computed in time
+$O(|t|.|\mathcal{C}|)$.
+\end{lemma}
+
+\begin{proof}
+The result follows directly from Propositions
+\ref{Complexity-Competition_Payoff}, \ref{Complexity-Expectation},
+\ref{Complexity-Probability_Competition}, and
+\ref{Complexity-COF}. $\Box$
+\end{proof}
+
+\begin{lemma} \label{Complexity-Cooperation_Payoff-Final}
+The cooperation payoff $\pi_{w,CO}^t$ can be computed in time
+$O(|t|.|\mathcal{C}|)$.
+\end{lemma}
+
+
+\begin{proof}
+The result follows directly from Propositions
+\ref{Complexity-Expectation}, \ref{Complexity-Cooperation_Payoff},
+and \ref{Complexity-Probability_Cooperation}. $\Box$
+\end{proof}
+
+
+
+
+%\begin{equation*}
+%\frac{QoS_w^t-T_{QoS}^t}{Max_k(Qos_k^t-T_{QoS}^t)}(\mu_{w,CM}-COF_w^t)=\frac{Rep^t_w}{\sum_{k\in
+%Community}Rep^t_k}(\mu_{w, CO})
+%\end{equation*}
+%
+
+
+
+We use the maximum cooperation fee that a service agent considers
+to constrain the positive expected payoff when the competitive
+strategy is adopted to update the threshold for the consequent
+time window ($t+1$). We compare the maximum cooperation fee with
+the required fee ($ReqF_w^t$) that the service indicates to
+accomplish the task. The outcome of this comparison is a factor
+that uses the current threshold $\tau_w^t$ to compute the
+consequent threshold $\tau_w^{t+1}$. As in online learning, the
+idea is to compute iteratively the threshold until the fixed point
+is achieved, which indicates the threshold's conversion, where the
+initial value is randomly chosen (in the simulation different
+initial values are used). Equation
+\ref{Trt} shows this computation. %We restrict the range of this value to $(0.15,0.85)$ to
+%avoid some unreasonable results that could occur due to different
+%reasons like system start point or heavy loaded competitive web
+%services, \textit{etc}.
+To investigate the effectiveness of this threshold on the outcomes
+of the services that follow this reasoning technique, in the next
+section, we compare the results of different agents with diverse
+strategic reasoning techniques.
+
+\begin{equation}\label{Trt}
+\tau_w^{t+1}=\begin{cases}
+\Theta & \text{if $0 \leq \Theta \leq 1$}\\
+1 & \text{if $\Theta > 1$;}\\
+0 & \text{if $\Theta < 0$.}\\
+\end{cases}
+\end{equation}
+\begin{equation*}
+\Theta =\tau_w^t \ \frac{COF_w^t}{ReqF_w^t}
+\end{equation*}
+
+
+\begin{proposition}\label{Complexity-Threshold}
+The threshold $\tau_w^{t}$ can be computed in time
+$O(|t|.|\mathcal{C}|)$, which means linear in both the size of the
+window $t$ and the size of the community $\mathcal{C}$.
+\end{proposition}
+
+\begin{proof}
+From Equation \ref{Trt}, the computation of $\tau_w^{t}$ is
+recursive on $t$, and the algorithm works by keeping the last
+computed value in a variable, which saves the time of
+re-calculation. Thus, the complexity of calculating $\tau_w^{t}$
+is determined by the complexity of calculating $COF_w^t$ since
+$ReqF_w^t$ is constant during the period $t$. Consequently, the
+result follows from Proposition \ref{Complexity-COF}. $\Box$
+\end{proof}
+
+
+\begin{theorem}\label{Complexity-Procedure}
+The time complexity of the proposed decision mechanism is
+$O(|t|.|\mathcal{C}|)$, which means linear in both the size of the
+window $t$ and the size of the community $\mathcal{C}$.
+\end{theorem}
+
+\begin{proof}
+The procedure mechanism is based on comparing the growth factor
+$G_w^t$ with the coopetition threshold $\tau_w^t$ as shown in
+Equations \ref{P} and \ref{U}. Thus, the result follows from
+Propositions \ref{Complexity-Growth_Factor} and
+\ref{Complexity-Threshold}. $\Box$
+\end{proof}
+
+
+
+\section{Experimental Results and Analysis}\label{s4:resutls}
+
+In this section, the objective is to investigate the effectiveness of the proposed strategic system.
+We start our discussions with cumulative budget comparison
+regarding different communities within which services follow
+different reasoning techniques. Figure \ref{Graph1} part (a)
+illustrates three graphs for three different communities. Each
+community hosts services that follow different reasoning
+techniques: (1) a community that follows the interactive reasoning
+techniques presented in this report (referred to as coopetitive);
+(2) a community that follows a stochastic reasoning technique so
+decisions about selecting competitive or cooperative strategies
+are totally random (referred to as random coopetitive); and (3) a
+competitive community where all services follow the competitive
+strategy (referred to as competitive).
+%The proposed model's
+%reasoning mechanism allows services to make decisions that
+%maximize their utilities, so that if the service cannot compete,
+%the procedure would suggest to collaborate, which is better than
+%competing and failing to obtain the task. In this case, the service stays idle but
+%still pays the community membership fee, which means losing
+%utility. The developed strategic decision making mechanism leads
+%some service agents to follow cooperative strategies that overall
+%maintain an optimal community budget. In the same figure, we
+%observe the cumulative budget of a community where services follow
+%random interacting strategies. The outcome is clearly lower
+%because services at each run randomly decide over their acting
+%strategies. This potentially influences the community budget
+%because a low quality service if randomly selects to follow the
+%competitive strategy, it will fail to perform a task with high QoS
+%requirements.
+
+
+The results illustrated in Figure \ref{Graph1} part (a)  verify
+the importance of the strategic decision making procedure to
+logically decide over the possible competitive and cooperative
+choices. Figure \ref{Graph1} part (b) illustrates communities
+average reputation of involved services. The graphs represent the
+influence of the rewards that the master agent uses to encourage
+highly capable services to compete for a task. As for the
+cumulative budget, we observe that the coopetitive community
+outperforms the random coopetitive and competitive communities in
+terms of average reputation. The proposed model's average
+reputation increases because services follow optimal strategies
+where they can perform better so obtain higher rewards. For the
+same reasons as for the cumulative budget, the average reputation
+of the random coopetitive community
+outperforms the one of the competitive community. %The idea is to balance web
+%services' strategies to maintain optimal community budget.
+
+
+\begin{figure}%[h]
+%\centering
+%\includegraphics[scale=0.6]{graph1Final+.eps}
+\includegraphics[scale=0.47]{Figures/graphbgtmed.eps}
+\includegraphics[scale=0.47]{Figures/graphrep.eps}
+\caption{Part (a): Cumulative community budget comparison. Part
+(b): Average community reputation comparison over different
+strategic decisions.} \label{Graph1}
+\end{figure}
+
+
+
+ %Figure \ref{Graph2} part (a) illustrates the reputation of the proposed $Coopetitive$ community where
+ %we highlight the range of reputation change in the community. The vertical lines denote the range of %reputation that is associated with the master web service. The rewards and penalties applied to %different
+% web services show that the master web service over runs extends the reputation range and takes %control of the whole community. In the developed model, web services are encouraged to choose
+ %optimal strategies. This is maintained over growth factor comparison of the $Coopetitive$ web %services.
+
+
+In our model, services are managed by selfish agents in the sense
+they try to maximize their own utilities. We analyze how their
+strategies affect the social welfare, and from user's and
+community's point of view how good the tasks are being performed.
+This directly impacts user's satisfaction and community's
+reputation in general. The Higher quality and quantity of tasks
+performed leads to higher user's satisfaction for the community
+which results in better reputation for the community. The results
+in Figure \ref{graph_task} show the quality and quantity of tasks
+being done successfully in three communities adopting the three
+different aforementioned strategy decision algorithms. As clearly confirmed by the simulation, the coopetitive community
+outperforms the stochastic and compete communities.
+
+\begin{figure}[h]
 \centering
-\includegraphics[width=3.5in]{figures/stats1.eps}
-\caption{Overall Utility of all communities}
-\label{stats1}
+\includegraphics[scale=0.35]{Figures/graphtaskdone.eps}
+\includegraphics[scale=0.35]{Figures/graphtasksatisfaction.eps}
+\includegraphics[scale=0.35]{Figures/graphavgqostask.eps}
+\caption{Overall performance from community's point of view. Part
+(a) Total number of tasks successfully done. Part (b) Ratio of
+tasks satisfied with required QoS. Part (c) Average QoS of
+performed tasks.} \label{graph_task}
 \end{figure}
 
 
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/stats2.eps}
-\caption{Utility Gain on time}
-\label{stats2}
+We conclude our analysis by discussing how effective our
+coopetitive decision making model is by comparing the final
+utility (in terms of income) of services following our model with
+other services deviating from that coopetitive model. In Figure
+\ref{graph_dev} Part (a), we made the services deviate from the
+suggested strategy. As the simulation shows, the more services
+deviate from our coopetitive strategy the more they make less
+benefits. In Part (b), we pick one random service and simulate the
+scenario with its default coopetitive strategy and then we redo
+the simulation with exactly the same environment parameters while
+gradually alternating the decisions. By alternating we mean
+adapting the opposite of what our model does suggest. Thus, if the
+coopetitive model suggests to compete, the service agent will
+cooperate and vice versa. We run this scenario 50 times and at the
+end we check the service's budget and see if it gains more by
+deviating or not. We did this for one single deviation (i.e.,
+alternating only one decision) to 10 different deviations
+(alternating 10 different decisions) during the 50 times run. As
+the results show, deviating from the coopetitive strategy yields
+less income for the service.
+
+\begin{figure}%[h]
+%\centering
+\includegraphics[scale=0.47]{Figures/graphdev.eps}
+\includegraphics[scale=0.47]{Figures/graphdev2.eps}
+\caption{Utility loss while deviating from our coopetitive
+decision process. Part (a) Overall budget when deviating from our
+model in 0, 10, 20, 30, 40, and 50 percent of decisions. Part (b)
+Ratio of getting earning utility (budget) when deviating from our
+coopetitive strategy in 1 to 10 decisions.} \label{graph_dev}
 \end{figure}
 
-Figure \ref{stats3} depicts the average community size over time, which essentially represents the number of new communities being formed. Once again, these results show that the runs with higher search rates tend to find appropriate communities to join faster.
-
-\begin{figure}%[!t]
-\centering
-\includegraphics[width=3.5in]{figures/stats3.eps}
-\caption{Average Community Size}
-\label{stats3}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}\label{sec:conclusion-cha3}
 
 
-
-\section{Related Work}\label{s:related_work}
-
-In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
-defined communities as \emph{Service Containers} that aggregate
-substitutable web services providing a common functionality (same
-set of operations). They abstracted \emph{Service Containers} as
-web services that are created, advertised, discovered and invoked
-just as elementary web services. The \emph{Container} is
-considered as a manager that is responsible for web service
-selection upon receiving a request on run-time. The authors have
-proposed a scoring service based on non-functional requirements of
-the request and web service capabilities to dynamically chose the
-web service to perform the requested task. A similar concept was
-proposed by Maamar et al. in
-\cite{DBLP:journals/ijebr/MaamarSTBB09}. The authors introduced
-web service communities as a collection of web services with a
-common functionality but different QoS properties. A community
-manager, upon receiving a request, delegates the request to one of
-its current members. The choice is based on the performance
-history and quality metrics of each web service. The authors have
-proposed an efficient global web service selection algorithm in
-order to approach quality constraints and preferences for
-composite services which require aggregation of different types of
-services to satisfy the user.
-
-Benslimane et al. \cite{Liris-2770} have proposed a multi-layer
-approach grouping similar Web services into communities and having
-an interface implemented as an abstract web service for accessing
-the community on top of the community layer. The interactions
-between composite, management and community layers and the
-bindings are performed by a generic driver called Open Software
-Connectivity (OSC).
-
-In \cite{managing-hela-jalel}, Limam and Akaichi have proposed web
-service communities with centralized access across distributed web
-services. They have proposed a framework for web service
-management, query resolution among communities and a query caching
-mechanism executed by the manager to improve the performance of
-query resolution process among many distributed communities. The
-key idea is to cache previous computed results for answering
-future queries.
-
-
-Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
-then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
-proposed an architecture utilizing \emph{Contract-Net} protocol
-for engineering task distribution within communities of web
-services. The protocol is centrally executed by the community
-manager. This architecture has been further developed in
-\cite{CSTintercommunity, conf/IEEEscc/BenharrefSBB11,
-conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11}. Two types of
-roles have been distinguished for community members: masters and
-slaves. Master web services and community managers that lead
-communities and are responsible for membership management. They
-can invite and convince slave web services to join the community,
-and attract new slave web services to their communities by
-awarding them better payoff. Moreover, they can eject some slave
-members from the community to improve its overall reputation if
-these members are misbehaving or cannot provide the promised QoS.
-
-In \cite{Medjahed05adynamic}, Medjahed and Bouguettaya have
-developed a community as a ``cluster'' that groups Web services
-based on a specific area of interest. All web services in a given
-community share the same functionality. These communities are
-created by \emph{third party community providers} which use the
-\emph{community ontology} as a template and define a set of
-operations that all web services within a community should
-provide. Using semantic analysis on web service operations, web
-services either find and join a community with similar
-functionality or create a new operation description for a new
-community. The authors have described the concept of
-\emph{community agents} associated to \emph{community providers}.
-A community agent is responsible, among other things, of the
-registration of services with the community. An example of a
-community that provides health care services to senior citizens
-has been used. In this example, a governmental entity is needed to
-check the health care standards used by the members before
-authorizing them to be part of the community. Such a central
-entity is represented by the community agent. Thus, community
-agents are playing the role of community managers. In a close work
-\cite{Zeng:2003:QDW:775152.775211}, Zeng et al. have described a
-global planning selection algorithm and a delegation algorithm to
-be run when a request to execute an operation is received by the
-community. This needs a central entity to run those algorithms.
-Such entity plays the same role as the community coordinator or
-manager.
-
-Most of the recent work on communities of services are either
-user-centric and focus on user satisfaction
-\cite{Chun02user-centricperformance} or system-centric and focus
-on the whole system throughput, performance and utilization. There
-are many contributions in distributed, grid, cluster and cloud
-services which are system-centric. However, in real world
-environments and applications, both users and service providers
-are self-interested agents, aiming to maximize their own profit.
-In those environments, both parties (users and services) will
-collaborate as long as they are getting more benefits and payoff.
-
-In this direction, recently \cite{DBLP:conf/IEEEscc/LimTMB12,
-DBLP:conf/IEEEscc/KhosravifarABT11, 10.1109/TSC.2012.12} proposed
-mechanisms to help users and services maximize their gain. A
-two-player non-cooperative game between web services and community
-master was introduced in
-\cite{DBLP:conf/IEEEscc/KhosravifarABT11}. In this game-theoretic
-model, the strategies available to a web service when facing a new
-community are requesting to join the community, accepting the
-master's invitation to join the community, or refusing the
-invitation to join. The set of strategies for communities are
-inviting the web service or refusing the web service's join
-request. Based on their capacity, market share and reputation, the
-two players have different sets of utilities over the strategy
-profiles of the game. The main limits of this game model are: 1)
-its consideration of only three quality parameters, while the
-other factors are simply ignored; and 2) the non-consideration of
-the web services already residing within the community. The game
-is only between the community master and the new web service, and
-the inputs from all the other members and their influence on the
-master's decision are simply ignored. The consideration of those
-inputs and this influence factor is a significant issue as
-existing web services can lose utility or payoff because of the
-new member, which can result in an unhealthy and unstable group.
-The problem comes from the fact that the existing members should
-collaborate with the new web services, so probably their
-performance as a group can suffer. Existing members may even
-deviate and try to join other communities if they are unsatisfied.
-Those considerations of forming stable and efficient coalitions
-are the main contributions of our paper.
-
-In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
-for selecting web services has been proposed. In this approach,
-the authors proposed a web service selection process that the
-community masters can use. The approach considers the efficiency
-of all the three involved parties, namely users, web services and
-communities. In this work, it is shown how the gains of these
-parties are coupled together using a linear optimization process.
-However, the optimization problem in this solution tends to
-optimize some parameters considering all web services regardless
-of their efficiency and contribution to the community's welfare.
-Moreover, there are no clear thresholds for accepting or rejecting
-new web services. The solution of the optimization problem could,
-for instance, suggest web services already residing within the
-community to increase or decrease their capacity to cover up the
-weakness of other parties in the system. However, a high
-performing web service could deviate anytime it finds itself
-unsatisfied within the community instead of adjusting its service
-parameters.
-
-In \cite{10.1109/TSC.2012.12}, a cooperative scheme among
-autonomous web services based on coalitional game theory has been
-introduced. The authors have proposed an interesting algorithm to
-reach individually stable coalition partition for web services in
-order to maximize their efficiency. The communities choose new web
-services on the promise that it would benefit the community
-without decreasing any other web service's income. In the proposed
-model, the worth of community is evaluated with high emphasis on
-the availability metric and considering price and cost values
-only. The community structure is based on a coordination chain,
-where a web service is considered as a \emph{primary} web service
-and the community task-distribution method initially invokes the
-primary web service and only if the primary web service is
-unavailable, the method invokes the next backup web services as
-they are ordered in the coordination chain. We believe that this
-coordination chain limits the cooperation power as it introduces a
-sort of hierarchy. However, in pure and open cooperative models,
-such as the one we propose in this paper, active cooperation
-activities engaging simultaneously many agents so that they can
-perform the tasks more efficiently are being used. Moreover, if
-the availability is high, which is the case nowadays with the
-recent advancements in cloud and hardware infrastructures, the
-backup web services will end-up having a very low chance of
-getting jobs, especially the ones further in the chain. This will
-results in a considerable waste of web services capabilities.
-
-All the proposed frameworks share a common aspect, which is providing the solution based on assumption of having complete information of all services and performing evaluations based on a large number of input each time they want to adopt a strategic decision making process.
-So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing DDM a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available.
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Summary}\label{sec:conclusion-cha4}
-
-In this paper, we proposed a training model for the problem of membership management of communities of web services. Using the traning model we created a decision making profile for each community and web service involved which provides them with a set of feasible and utility increasing moves. This utilized our web services with efficient methods of foreseeing how their choices of actions would impact their long-term and short-term goals, therefore they opted for best decision available. The ultimate goal is to choose the best decision when it comes to communities formation, among many possible short-term rational and utility increasing choices. The experimental results show that our algorithms provide web services and community owners, in real-world-like environments, with applicable and near-perfect decision making mechanisms. The results of experiments using real data samples support the need for a long-term training model in a successful decision making process.
-
-Our plan for future work is to advance learning process on the training set that we provided in our work. SVN machine learning algorithm are suitable in classification of our training data set, to better classify correct or wrong decisions based on long-term utility gains, as data set outputs. This can further facilitate the process of finding optimal cooperators in regards to enhancing web services' overall performance as service providers.
+In this chapter,
