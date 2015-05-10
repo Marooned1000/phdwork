@@ -976,7 +976,37 @@ Propositions \ref{Complexity-Growth_Factor} and
 
 \section{Experimental Results and Analysis}\label{s4:resutls}
 
-In this section, the objective is to investigate the effectiveness of the proposed strategic system.
+In this section, we provide an empirical analysis over the
+theoretical results regarding the characteristics of intelligent
+service agents hosted in different communities of services. In the
+implemented system, we simulate the behaviors of service consumers
+as request generators, service agents as service providers, and
+master agents as community representatives. 
+%These entities are developed with respect to what is explained in Section \ref{s4:Preliminaries}. 
+In this section, the objective is to
+investigate the effectiveness of the proposed strategic system on
+intelligent services' overall budget and also the average quality
+and quantity of tasks performed by the community of services,
+which directly affects user satisfaction.
+%Before conducting the simulation, the
+%expected behavior of our model is to enhance the budget of web
+%services when using our proposed strategic interacting system.
+%Although this result is promising, we would like to investigate
+%the effectiveness of the proposed strategic system on intelligent
+%web services' overall budget compared to the best case. Moreover,
+To verify these objectives, we study the overall performance of
+the community hosting the reasoning-empowered services compared to
+the ones hosting stochastic and purely competitive services. By
+stochastic services, we mean services that adopt at each moment
+competitive or cooperative strategies in an equally but random
+way. By equally, we mean the choices are fairly divided between
+the two strategies. 
+
+The simulation application is written in
+\textit{C\#} using \textit{Visual Studio}. We performed the implementation on a single Intel Xeon X3450 machine with 6GBs of memory. Web services were modeled as a \emph{class} and using \emph{Await} and \emph{Async} models we initiated many web services, each running as a thread.  We implemented XML based messaging system (like SOAP) with request parameters and a list of XML based responses. The request contains the flight dates, the origin and destination, type of tickets, and number of guests. The response contains different flights with different companies, prices, timing, etc. A pool of services are initialized with values taken from a real dataset that includes $2507$ real services functioning on the web.
+The dataset records the QoS values of $9$ parameters including \textit{availability},
+\textit{throughput}, and \textit{reliability} \cite{Almasri}. 
+
 We start our discussions with cumulative budget comparison
 regarding different communities within which services follow
 different reasoning techniques. Figure \ref{Graph1} part (a)
