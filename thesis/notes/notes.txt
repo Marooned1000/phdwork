@@ -1,0 +1,30 @@
+- Web service Communities
+- Depth-k Convex Checker
+  - Reduction O(2^n) --> O(n^k) (Exponential to polynomial)
+- e-Core
+
+-----
+
+One community 
+Many communities --> Merge and Split
+
+-----
+
+- Taxation
+  - Additive
+  - Relative
+
+-----
+
+Inner community coopetitive behavior
+
+- Competition and cooperation
+- Growth Factor
+  - Coopetition Threashold 
+
+-----
+
+- Distributed model and Training Communities
+  - Feature Extraction
+  - Feature Engineering
+  - DDM Decision Profile Generatiion
