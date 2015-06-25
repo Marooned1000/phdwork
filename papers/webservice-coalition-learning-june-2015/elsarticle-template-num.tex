@@ -610,91 +610,6 @@ Figure \ref{stats3} depicts the average community size over time, which essentia
 
 \section{Related Work}\label{s:related_work}
 
-In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
-defined communities as \emph{Service Containers} that aggregate
-substitutable web services providing a common functionality (same
-set of operations). They abstracted \emph{Service Containers} as
-web services that are created, advertised, discovered and invoked
-just as elementary web services. The \emph{Container} is
-considered as a manager that is responsible for web service
-selection upon receiving a request on run-time. The authors have
-proposed a scoring service based on non-functional requirements of
-the request and web service capabilities to dynamically chose the
-web service to perform the requested task. A similar concept was
-proposed by Maamar et al. in
-\cite{DBLP:journals/ijebr/MaamarSTBB09}. The authors introduced
-web service communities as a collection of web services with a
-common functionality but different QoS properties. A community
-manager, upon receiving a request, delegates the request to one of
-its current members. The choice is based on the performance
-history and quality metrics of each web service. The authors have
-proposed an efficient global web service selection algorithm in
-order to approach quality constraints and preferences for
-composite services which require aggregation of different types of
-services to satisfy the user.
-
-Benslimane et al. \cite{Liris-2770} have proposed a multi-layer
-approach grouping similar Web services into communities and having
-an interface implemented as an abstract web service for accessing
-the community on top of the community layer. The interactions
-between composite, management and community layers and the
-bindings are performed by a generic driver called Open Software
-Connectivity (OSC).
-
-In \cite{managing-hela-jalel}, Limam and Akaichi have proposed web
-service communities with centralized access across distributed web
-services. They have proposed a framework for web service
-management, query resolution among communities and a query caching
-mechanism executed by the manager to improve the performance of
-query resolution process among many distributed communities. The
-key idea is to cache previous computed results for answering
-future queries.
-
-
-Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
-then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
-proposed an architecture utilizing \emph{Contract-Net} protocol
-for engineering task distribution within communities of web
-services. The protocol is centrally executed by the community
-manager. This architecture has been further developed in
-\cite{CSTintercommunity, conf/IEEEscc/BenharrefSBB11,
-conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11}. Two types of
-roles have been distinguished for community members: masters and
-slaves. Master web services and community managers that lead
-communities and are responsible for membership management. They
-can invite and convince slave web services to join the community,
-and attract new slave web services to their communities by
-awarding them better payoff. Moreover, they can eject some slave
-members from the community to improve its overall reputation if
-these members are misbehaving or cannot provide the promised QoS.
-
-In \cite{Medjahed05adynamic}, Medjahed and Bouguettaya have
-developed a community as a ``cluster'' that groups Web services
-based on a specific area of interest. All web services in a given
-community share the same functionality. These communities are
-created by \emph{third party community providers} which use the
-\emph{community ontology} as a template and define a set of
-operations that all web services within a community should
-provide. Using semantic analysis on web service operations, web
-services either find and join a community with similar
-functionality or create a new operation description for a new
-community. The authors have described the concept of
-\emph{community agents} associated to \emph{community providers}.
-A community agent is responsible, among other things, of the
-registration of services with the community. An example of a
-community that provides health care services to senior citizens
-has been used. In this example, a governmental entity is needed to
-check the health care standards used by the members before
-authorizing them to be part of the community. Such a central
-entity is represented by the community agent. Thus, community
-agents are playing the role of community managers. In a close work
-\cite{Zeng:2003:QDW:775152.775211}, Zeng et al. have described a
-global planning selection algorithm and a delegation algorithm to
-be run when a request to execute an operation is received by the
-community. This needs a central entity to run those algorithms.
-Such entity plays the same role as the community coordinator or
-manager.
-
 Most of the recent work on communities of services are either
 user-centric and focus on user satisfaction
 \cite{Chun02user-centricperformance} or system-centric and focus
@@ -782,7 +697,90 @@ getting jobs, especially the ones further in the chain. This will
 results in a considerable waste of web services capabilities.
 
 All the proposed frameworks share a common aspect, which is providing the solution based on assumption of having complete information of all services and performing evaluations based on a large number of input each time they want to adopt a strategic decision making process. 
-So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing DDM a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available. 
+So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing DDM a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available. \\
+
+\noindent \textbf{Web Service Communities}
+
+Here we introduce the related research work regarding the engineering and formation of communities of web services. In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al. defined communities of web services as \emph{Service Containers} that aggregate substitutable web services providing a common functionality (same
+set of operations). They abstracted \emph{Service Containers} as web services that are created, advertised, discovered and invoked
+just as elementary web services. The \emph{Container} is
+considered as a manager that is responsible for web service
+selection upon receiving a request on run-time. The authors have
+proposed a scoring service based on non-functional requirements of
+the request and web service capabilities to dynamically chose the
+web service to perform the requested task. A similar concept was
+proposed by Maamar et al. in
+\cite{DBLP:journals/ijebr/MaamarSTBB09}. The authors introduced
+web service communities as a collection of web services with a
+common functionality but different QoS properties. A community
+manager, upon receiving a request, delegates the request to one of
+its current members. The choice is based on the performance
+history and quality metrics of each web service. The authors have
+proposed an efficient global web service selection algorithm in
+order to approach quality constraints and preferences for
+composite services which require aggregation of different types of
+services to satisfy the user.
+
+Benslimane et al. \cite{Liris-2770} have proposed a multi-layer
+approach grouping similar Web services into communities and having
+an interface implemented as an abstract web service for accessing
+the community on top of the community layer. The interactions
+between composite, management and community layers and the
+bindings are performed by a generic driver called Open Software
+Connectivity (OSC).
+
+In \cite{managing-hela-jalel}, Limam and Akaichi have proposed web
+service communities with centralized access across distributed web
+services. They have proposed a framework for web service
+management, query resolution among communities and a query caching
+mechanism executed by the manager to improve the performance of
+query resolution process among many distributed communities. The
+key idea is to cache previous computed results for answering
+future queries.
+
+Maamar et al. initially in \cite{conf/webist/MaamarLBTS07} and
+then comprehensively in \cite{DBLP:journals/ijebr/MaamarSTBB09}
+proposed an architecture utilizing \emph{Contract-Net} protocol
+for engineering task distribution within communities of web
+services. The protocol is centrally executed by the community
+manager. This architecture has been further developed in
+\cite{CSTintercommunity, conf/IEEEscc/BenharrefSBB11,
+conf/IEEEscc/KhosravifarBMMT10, conf/aina/LimTM11}. Two types of
+roles have been distinguished for community members: masters and
+slaves. Master web services and community managers that lead
+communities and are responsible for membership management. They
+can invite and convince slave web services to join the community,
+and attract new slave web services to their communities by
+awarding them better payoff. Moreover, they can eject some slave
+members from the community to improve its overall reputation if
+these members are misbehaving or cannot provide the promised QoS.
+
+In \cite{Medjahed05adynamic}, Medjahed and Bouguettaya have
+developed a community as a ``cluster'' that groups Web services
+based on a specific area of interest. All web services in a given
+community share the same functionality. These communities are
+created by \emph{third party community providers} which use the
+\emph{community ontology} as a template and define a set of
+operations that all web services within a community should
+provide. Using semantic analysis on web service operations, web
+services either find and join a community with similar
+functionality or create a new operation description for a new
+community. The authors have described the concept of
+\emph{community agents} associated to \emph{community providers}.
+A community agent is responsible, among other things, of the
+registration of services with the community. An example of a
+community that provides health care services to senior citizens
+has been used. In this example, a governmental entity is needed to
+check the health care standards used by the members before
+authorizing them to be part of the community. Such a central
+entity is represented by the community agent. Thus, community
+agents are playing the role of community managers. In a close work
+\cite{Zeng:2003:QDW:775152.775211}, Zeng et al. have described a
+global planning selection algorithm and a delegation algorithm to
+be run when a request to execute an operation is received by the
+community. This needs a central entity to run those algorithms.
+Such entity plays the same role as the community coordinator or
+manager.
 
 %\subsection{Subsection Heading Here}
 %Subsection text here.
