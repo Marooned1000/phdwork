@@ -147,7 +147,7 @@ In those environments, both parties (users and services) will
 collaborate as long as they are getting more benefits and payoff.
 Our initial research question is: \emph{How can we model the
 community of agent-based services in order to maximize the utility
-of involved users, web services and community organizers?}
+of involved users, web services and community organizers?[R1]}
 
 
 In order to address this problem, recently
@@ -181,7 +181,7 @@ working in the community, these agents, as profit maximizing
 entities, would just deviate and make their own group. So an
 important research question that we would like to address is:
 \emph{How can we model fair and stable communities as coalitions
-of agent-based web services?}
+of agent-based web services?[R2]}
 
 %The consideration of those inputs is a significant
 %issue as existing web services can lose utility or payoff because
@@ -219,17 +219,17 @@ activity engaging all agents to perform the tasks more
 efficiently. Thus, the final research question we would like to
 work on is: \emph{How can we model and analyze the cooperation
 among the community members in realistic, applicable and practical
-settings?}
+settings?[R3]}
 
 Within communities, services can exhibit competitive behavior as they provide the same functionalities and the number of users requests is finite.
 However, for the same reason of being functionally similar, services can cooperate with each other, for example to substitute each other in order to perform some sub-tasks.
 So as an extension of our work, we have proposed a framework in which services can opt for performing tasks if they feel they are capable enough
-or decide to cooperate by showing the availability to perform some sub-tasks. \emph{How can we approach a cooperative model within a community where both competitive and cooperative behaviors exist?}
+or decide to cooperate by showing the availability to perform some sub-tasks. \emph{How can we approach a cooperative model within a community where both competitive and cooperative behaviors exist?[R4]}
 
-In most of the recent work on communities of web service, the solutions consider the architecture of centralized management for communities where most of the decisions are made by the centralized coordinator. The problem is that in real world scenarios, decisions made by independent service providers are highly distributed.  \emph{How can we model a distributed decision making process for formation of communities of services?}
+In most of the recent work on communities of web service, the solutions consider the architecture of centralized management for communities where most of the decisions are made by the centralized coordinator. The problem is that in real world scenarios, decisions made by independent service providers are highly distributed.  \emph{How can we model a distributed decision making process for formation of communities of services?[R5]}
 
 Also in all of the mentioned works, the community manager as a centralized entity, has complete information of all the web services and their quality. However, centrality and complete information are strong assumptions, which are not very compatible with real business scenarios.
-\emph{How can we train web services based on smaller set of information to operate efficiently when information is non-complete?}
+\emph{How can we train web services based on smaller set of information to operate efficiently when information is non-complete[R6]?}
 
 % ooooooold
 %\indent When monitoring a dialogue between two or more agents, there are many question that should be answered. In this thesis, we are interested in answering the following questions:
@@ -278,14 +278,9 @@ The decision model provides web services with enough information which helps tho
 
 To effectively generate the decision model for web services, we used a real dataset to extract web services' individual characteristics and used them to measure outcomes when these services cooperate with one another. The dataset has been extracted from real-world QoS evaluation results from 142 users on 4,532 Web services during 64 different time slots. Combining the available data based on each web service point of view on different time slots, we acquired 5 different unique features for those 4,532 web services. By engineering and extracting these features, we gathered functional and cooperative features for both individual web services and communities in different time slots. We were able to investigate the path a web service might take to achieve the best utility out of effective interactions with others. All the paths and outcomes are labeled to be utilized in the training model. Using cross validation sets, web services are able to compute the optimal hypothesis function (using logistic regression) that can be used to predict outcomes of cooperative work with other individual web services or communities. Our findings show that web services equipped with DDM have by far better outcomes than the ones that either do not cooperate or randomly find communities to join.
 
-\indent To summarize, the main problem we aim to tackle in this
-thesis is the formation of stable and efficient coalitions
-maximizing web services and community revenue. The main objectives
-are:
+\indent To summarize, the main problem we aim to tackle in this thesis is the formation of stable and efficient coalitions maximizing web services and community revenue. The main objectives are:
 \begin{itemize}
-\item To propose a cooperative model and analyze its solution
-concepts in order to address the problem of optimizing coalition
-formation for a stable community.
+\item To propose a cooperative model and analyze its solution concepts in order to address the problem of optimizing coalition formation for a stable community.
 
 \item To reduce the complexity of computing the solution concepts of the cooperative model tailored to the problem of communities of agent-based web services in order to make these solutions applicable in real world scenarios.
 
@@ -298,14 +293,36 @@ formation for a stable community.
 \item To validate the proposed methods by extensive simulations and comparison with other similar proposals.
 \end{itemize}
 
+
 \begin{figure}[!t]
 \centering
-\includegraphics[width=6in]{Figures/structure.eps}`
+\includegraphics[width=6in]{Figures/model.eps}`
 \caption{The Proposed Framework}
-\label{fig_structure}
+\label{fig_model}
 \end{figure}
 
-Figure \ref{fig_structure} highlights our contributions and proposed model for community of web service management.
+\begin{figure}[!t]
+\centering
+\includegraphics[width=6in]{Figures/c1.eps}`
+\caption{First contribution: Efficient Coalition Formation for Web Services}
+\label{fig_c1}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=6in]{Figures/c2.eps}`
+\caption{Second contribution: Analyzing Coopetition Strategies of Services within Communities}
+\label{fig_c2}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=6in]{Figures/c3.eps}`
+\caption{This contribution: Distributed decision making for dynamic formation of web services communities}
+\label{fig_c3}
+\end{figure}
+
+Figure \ref{fig_model} highlights our contributions and proposed model for community of web service management.
 
 \section{Thesis Organization}\label{sec:outline}
 The rest of the proposal is organized as follows: We present in Chapter 2 the background needed for our research along with relevant related work. Chapter 3 provides an efficient method of coalition formation for web services. In chapter 4 we discuss the cooperative behaviour within the communities of web services. Chapter 5 presents a distributed method of formation of web services communities. Finally in chapter 6, we present our conclusion and future plan.
