@@ -163,11 +163,11 @@ conditions:
         \cite{myerson1991game}.
 
         \noindent When dealing with cooperative games, two issues need to be
-        addressed:    
+        addressed:
         \begin{enumerate}
             \item Which coalitions among all possible coalitions to form?
             \item How to reward each member when a task is completed?
-        \end{enumerate} 
+        \end{enumerate}
         The following sections help address these two issues.
 
         \subsection{Cooperative Game Concepts}
@@ -353,7 +353,7 @@ set.
            \end{equation}
 
         Alternatively, $\epsilon$ can be thought of as a \emph{tax} imposed on a coalition should it choose to deviate. This can again be seen as an external party, trying to stabilize the coalition by imposing some \emph{tax} on deviation. Taxation and subsiding as methods of stabilizing cooperative games have been studied in \cite{RePEc:spr:jogath:v:38:y:2009:i:1:p:3-16, Bachrach:2009:CSC:1692490.1692502, conf/ijcai/MeirRM11}.
-        
+
 
         \subsection{Representation and Complexity Issues}\label{sec:CWSArchitecture}
 
@@ -379,9 +379,11 @@ set.
         In order to make cooperative game concepts practical in real world application, we have proposed an approximation multi-layer
         algorithm useful for service orinted computing settings. Our excrements illustrate, these algorithms can provide
         applicable and near optimal solutions for real world applications.
-
-
+        
+        
 \section{Related Work}\label{sec:BRRelatedWork}
+
+\subsection{Communities of Web Services}\label{sec:communities_rel}
 
 In \cite{DBLP:journals/internet/BenatallahSD03}, Benatallah et al.
 defined communities as \emph{Service Containers} that aggregate
@@ -468,6 +470,8 @@ community. This needs a central entity to run those algorithms.
 Such entity plays the same role as the community coordinator or
 manager.
 
+\subsection{Web Service Community Formation}\label{sec:communities_for_rel}
+
 Most of the recent work on communities of services are either
 user-centric and focus on user satisfaction
 \cite{Chun02user-centricperformance} or system-centric and focus
@@ -553,6 +557,83 @@ recent advancements in cloud and hardware infrastructures, the
 backup web services will end-up having a very low chance of
 getting jobs, especially the ones further in the chain. This will
 results in a considerable waste of web services capabilities.
+
+\subsection{Coopetitive Behaviour Within Communities of Web Services}\label{sec:coopetetive}
+
+At the best of our knowledge, there is no work in the literature
+of service and agent computing addressing the issue of coopetition
+strategies and when to cooperate or to compete. However, some
+relevant proposals to the model presented in this paper are the
+ones that address service selection and task allocation
+mechanisms. In many frameworks proposed in the literature, service
+selection and task allocation are regulated based on the
+reputation parameter \cite{Bentahar,Rosario,Ruth,Yahyaoui}.
+\textbf{In \cite{Huang}, the authors propose a framework to match potential
+benefits of services while cooperating with one another. The
+interesting idea is to consider the benefits under four
+categories: innovation and learning, internal business process,
+customer, and financial benefits.
+Innovation and learning perspective} focuses on the knowledge, skills, and systems needed to improve the business continually. Necessary factors to build strategic capabilities and efficiency in addressed in internal business process. Values that customers seek are considered in \emph{customer perspective} and financial performance to maximize the shareholder value are analyzed in \emph{financial perspective}. Their goal is to design the framework for cooperating web services, inline with business strategy of firms in IT industry.
+In \cite{Alchieri}, the authors
+present a dependable framework for cooperative service agents that
+is based on the tuple space coordination model. The
+intrusion-tolerant perspective is emphasized in this paper where
+several security mechanisms are developed to enable a reliable
+coordination system. %In \cite{Maximilien2}, authors propose
+%ontology for quality of service. Users compute the web services'
+%reputation using ratings.
+The proposed frameworks mostly aim to facilitate the coordination
+mechanism between services. However, the opposite strategy of
+competing is not analyzed where services might be more successful
+when competing within the same group. In fact, services are not
+always willing to cooperate even if they have some common goals,
+particularly when they operate within groups such as communities.
+In such a context, service agents can follow different interacting
+strategies and have to decide when to compete and when to
+cooperate so that their ultimate goal, maximizing their incomes,
+can be better achieved. In our framework, we analyze those
+different strategies to help services in their decision making
+process when these
+agents function within communities. %We summarize most of
+%these proposals and concentrate on strategic decision making
+%system that ranks web services in the community and analyze their
+%effective interacting strategies to accomplish continuous
+%requested tasks.
+We enable service agents to reasonably evaluate and decide over
+their coopetition strategies, which means deciding when to compete
+and when to cooperate.
+
+
+
+Furthermore, there are a number of related proposals that take
+into account the correlation between (web) services and the ways
+these services coordinate their actions to accomplish the required
+tasks. In \cite{Jurca,Jurca2,Malik,Maximilien1,Yahyaoui}, the
+authors propose to rank services based on their reputation in the
+system and to use this ranking as a means to facilitate
+cooperation of services. In those models, services rely on one
+another on the basis of the reputation ranking system, using,
+among other parameters, the QoS \cite{Qian-Tao-2012}. There are
+other models that facilitate cooperation mechanisms among services
+using various techniques. Examples of those techniques include 1)
+coordination between two types of behaviors associated with
+component services: operational and control behaviors
+\cite{Yahyaoui3}; 2) Services-based workflows \cite{Wu-2011}; 3)
+transaction-based approaches \cite{Gao,Rosario}; 4) agent
+coordination mechanisms \cite{Charif,Gutierrez-Garcia-2013}; 5)
+logical techniques \cite{Okutan,Tang}; and 6) community models,
+which are virtual structures that aim at increasing the visibility
+of services and facilitating their discovery and composition by
+hosting and gathering services having similar or complementary
+functionalities but different QoS parameters
+\cite{Khosravifar2010}. %There are also some frameworks
+%\cite{Ferguson,Ferguson2} that consider game-theoretic analysis on
+%the expected payoffs obtained via different acting strategies.
+However, deciding about which strategy to choose when services are
+competing but still need to cooperate to accomplish complex tasks
+has not been addressed and kept as open issue in all these
+proposals as faithfully argued in
+\cite{Maamar2011,Khosravifar-ICSOC2012}.
 
 %All the proposed frameworks share a common aspect, which is providing the solution based on assumption of having complete information of all services and performing evaluations based on a large number of input each time they want to adopt a strategic decision making process.
 %So basically These solutions generally suffer from high complexity, which makes decision making impossible in an on-demand fashion, or they simplify important aspects to make it practical in the real world, thereby hurting the decision making performance. We address this issue by introducing DDM a framework that operates based on a trained model that regulates web service agents' decision making process in terms of cooperating with one another. After being trained, web services get to compute expectations as utilities they would gain while cooperating with communities of different characteristics. Therefore web services and communities can make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact their long-term and short-term goals; therefore, opting for best decision available.
