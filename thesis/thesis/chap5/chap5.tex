@@ -155,7 +155,7 @@ Rep_{w}^{t+1} = \begin{cases}
 \end{equation}
 %
 For new services with no previous reputation value, we use the
-bootstrapping trust technique proposed in \cite{Yahyaoui2}. This
+bootstrapping trust technique proposed in \cite{DBLP:conf/icwe/YahyaouiZ11}. This
 technique consists in giving the new services a chance and observe
 their behaviors for a period of testing time. The observation
 sequence is modeled as a hidden Markov model that is used to
@@ -418,7 +418,7 @@ $COF_w^t$.
 
 The arrival of requests for service $w$ during the time unit $t$
 (denoted here by $m_w(t)$) can be modeled as a nonhomogeneous
-Poisson process \cite{Khosravifar-ICWS2010,Ruggeri2005}, which
+Poisson process \cite{DBLP:conf/icws/KhosravifarBM10,RePEc:spr:sistpr:v:8:y:2005:i:3:p:311-329}, which
 means as a Poisson process with dynamic arrival rate
 $\lambda_w(x)$ where $x$ belongs to the time unit $t$. The arrival
 rate is thus a function of time and typically varies significantly
@@ -442,7 +442,7 @@ E^t_w = \lambda_w(t) = \sum_{n=1}^{Max_w^t} n \ p(m_w(t) = n)
 %
 The parameter $\lambda_w(t)$ is usually estimated from data
 samples using the least squares, iterative least squares, or
-maximum likelihood \cite{Massey1996}.
+maximum likelihood \cite{DBLP:journals/telsys/MasseyPW96}.
 
 \begin{proposition}\label{Complexity-Expectation}
 The complexity of computing the expected number of requests
@@ -1005,7 +1005,7 @@ the two strategies.
 The simulation application is written in
 \textit{C\#} using \textit{Visual Studio}. We performed the implementation on a single Intel Xeon X3450 machine with 6GBs of memory. Web services were modeled as a \emph{class} and using \emph{Await} and \emph{Async} models we initiated many web services, each running as a thread.  We implemented XML based messaging system (like SOAP) with request parameters and a list of XML based responses. The request contains the flight dates, the origin and destination, type of tickets, and number of guests. The response contains different flights with different companies, prices, timing, etc. A pool of services are initialized with values taken from a real dataset that includes $2507$ real services functioning on the web.
 The dataset records the QoS values of $9$ parameters including \textit{availability},
-\textit{throughput}, and \textit{reliability} \cite{Almasri}.
+\textit{throughput}, and \textit{reliability} \cite{DBLP:conf/www/Al-MasriM07a}.
 
 We start our discussions with cumulative budget comparison
 regarding different communities within which services follow
