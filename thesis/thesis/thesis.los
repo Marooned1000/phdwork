@@ -1,2 +1,3 @@
 \indent \makebox [15ex][l]{{AI}} \parbox [t]{4in}{Artificial Intelligence} \\
 \indent \makebox [15ex][l]{{DDM}} \parbox [t]{4in}{Distributed Decision Making} \\
+\indent \makebox [15ex][l]{{WS}} \parbox [t]{4in}{Web Service} \\
