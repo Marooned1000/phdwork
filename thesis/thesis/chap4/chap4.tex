@@ -20,7 +20,7 @@ These approximation methods sometimes negatively influence the outcome because s
 %And some other work which do not focus on rationality on web services or communities involved [refrences].
 In \cite{journal-community-formation}, we proposed a cooperative game-theory-based model for aggregating web services in communities. A centralized decision maker in communities, based on a complete knowledge of available web service quality metrics and performance, has been used to form optimal and stable communities that maximize individual and group income. However, centrality and complete information are strong assumptions, which are not very compatible with real business scenarios.
 
-\textbf{Contributions.} In this paper, we introduce DDM, a Distributed Decision Making model for community formation that regulates web service agents’ decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. Unlike existing work on community formation, our decision model is extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree, which is initially created from the past data, reflects a comprehensive vision about agents' attitudes in terms of their action selection based on their past experiences. Moreover, the tree is getting continuously updated based on both new received feedback and the outcome of chosen actions. This continuous update makes the approach adapted to any change in the environment.
+\textbf{Contributions.} In this chapter, we introduce DDM, a Distributed Decision Making model for community formation that regulates web service agents’ decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. Unlike existing work on community formation, our decision model is extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree, which is initially created from the past data, reflects a comprehensive vision about agents' attitudes in terms of their action selection based on their past experiences. Moreover, the tree is getting continuously updated based on both new received feedback and the outcome of chosen actions. This continuous update makes the approach adapted to any change in the environment.
 %The training model deploys a logistic regression algorithm to build a hypothesis function that can thoroughly address the aforementioned research problems.
 The decision model provides web services with enough information which helps those services efficiently decide and predict the outcome of their different possible collaborations. This model works in a distributed manner in which services are self-sufficient in their decision making and do not rely on a centralized decision making process. Our findings show that communities of web services can efficiently find the appropriate web service to invite for cooperation as well as allowing a single web service to find the best communities to join. The proposed model can be seen as a recommneder system that suggests beneficial actions for both communities and single services. Communities can consider the decision model and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact both their short-term and long-term goals; therefore, opting for the best decision available.
 
@@ -40,7 +40,7 @@ discovered based on its description, which fully discloses its functionalities. 
 %to XML formats, recently JSON, a human readable and simpler format
 %is becoming popular among online service providers.
 
-We are not going to delve into the engineering details of online web service implementation and its protocols in this paper. We are interested in web services from a business model perspective. Service providers usually charge end users for services they provide. For example, Google has listed pricing and plans for a wide range of services they provide on their web service console page\footnote{$https://code.google.com/apis/console$}.
+We are not going to delve into the engineering details of online web service implementation and its protocols in this thesis. We are interested in web services from a business model perspective. Service providers usually charge end users for services they provide. For example, Google has listed pricing and plans for a wide range of services they provide on their web service console page\footnote{$https://code.google.com/apis/console$}.
 
 As in other proposals \cite{journals/mags/BaldoniBM10,10.1109/TSC.2012.12,DBLP:conf/IEEEscc/KhosravifarABT11}, in this paper, we abstract web services as rational agents\footnote{The term rational is used here in the sense that web services are utility maximizers.} that provide services to end users. They aim to maximize their individual income  by receiving enough requests from end users. In order to increase their revenues, web services seek for more tasks if they have the capacity and throughput to do so. Web services can join communities to enhance efficiency by collaborating with others, to have access to broad market share, and for the opportunity to receive a bigger task pool from end users.
 Furthermore, the high reliance on web services has resulted in increased quality expectations from end users. Communities of web services can provide higher availability, performance, reliability, and recovery for end users.
@@ -63,11 +63,11 @@ The more common scenario is when both parties benefit from the joining of a web 
 
 \section{The Model Components}\label{s:themodelcomponents}
 
-In this section, we discuss the parameters that we use in the rest of the paper. Then, we present the task distribution and revenue model of our distributed web services communities.
+In this section, we discuss the parameters that we use in the rest of the chapter. Then, we present the task distribution and revenue model of our distributed web services communities.
 
 \subsection{Internal Features}\label{s:if}
 
-With a group of web services having identical or similar functionalities, QoS metrics provide nonfunctional characteristics for optimal candidate selection. Web services quality metrics have been studied and analyzed in various proposals, for instance in in \cite{Ardagna:2007:ASC:1263152.1263531,Menasce:2002:QIW:613357.613758,10.1109/ISSRE.2011.17}. In this paper, we adopt the most representative QoS properties of those services that highly influence their utility.
+With a group of web services having identical or similar functionalities, QoS metrics provide nonfunctional characteristics for optimal candidate selection. Web services quality metrics have been studied and analyzed in various proposals, for instance in in \cite{Ardagna:2007:ASC:1263152.1263531,Menasce:2002:QIW:613357.613758,10.1109/ISSRE.2011.17}. In this chapter, we adopt the most representative QoS properties of those services that highly influence their utility.
 %We refer to a typical web service as ws_{i}.
 
 Let $C = \{ws_1,ws_2,..., ws_n\}$ be a community with $n$ web services. We define the following features for the group of web services based on their functional parameters:
@@ -368,7 +368,7 @@ The closest related work \cite{10.1109/TSC.2012.12,
 DBLP:conf/IEEEscc/LimTMB12, DBLP:conf/IEEEscc/KhosravifarABT11} and our
 previous work \cite{journal-community-formation} regarding the community formation problem have considered a centralized approach where a community manager has complete information of all the web services and their quality
 metric and parameters. Those proposals run complex algorithms through all the space of
-solutions in order to find the optimal answer. However, in this paper, we
+solutions in order to find the optimal answer. However, in this research work, we
 have considered an unexplored and more realistic situation where information is incomplete and a decision
 profile is generated based on a smaller set of web services. Our solution helps
 communities and web services select actions that lead towards
@@ -511,7 +511,7 @@ collaborate with the new web services, so probably their
 performance as a group can suffer. Existing members may even
 deviate and try to join other communities if they are unsatisfied.
 Those considerations of forming stable and efficient coalitions
-are the main contributions of our paper.
+are the main contributions of our thesis.
 
 In \cite{DBLP:conf/IEEEscc/LimTMB12}, a 3-way satisfaction approach
 for selecting web services has been proposed. In this approach,
@@ -614,7 +614,7 @@ be run when a request to execute an operation is received by the
 community. This needs a central entity to run those algorithms.
 Such entity plays the same role as the community coordinator or
 manager. All these proposals have in common the consideration
-of the central entity for community management, which includes the hiring and firing of the community members, while our approach is fully distributed. Moreover, the stability of the community has not been investigated. Another major difference with our work is that the decision making process is only one way and unilateral from the community manager perspective. In our proposal, both participants, namely communities and web services, participate in the decision making process and a joining decision is made only if it is the best option for both players.
+of the central entity for community management, which includes the hiring and firing of the community members, while our approach is fully distributed. Moreover, the stability of the community has not been investigated. Another major difference with our work is that the decision making process is only one way and unilateral from the community manager perspective. In our contribution, both participants, namely communities and web services, participate in the decision making process and a joining decision is made only if it is the best option for both players.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
