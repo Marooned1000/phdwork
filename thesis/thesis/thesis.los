@@ -2,6 +2,7 @@
 \indent \makebox [15ex][l]{{API}} \parbox [t]{4in}{Application Program Interface} \\
 \indent \makebox [15ex][l]{{DDM}} \parbox [t]{4in}{Distributed Decision Making} \\
 \indent \makebox [15ex][l]{{QoS}} \parbox [t]{4in}{Quality of Service} \\
+\indent \makebox [15ex][l]{{REST}} \parbox [t]{4in}{REpresentational State Transfer} \\
 \indent \makebox [15ex][l]{{ROC}} \parbox [t]{4in}{Receiver Operating Characteristic} \\
 \indent \makebox [15ex][l]{{SOAP}} \parbox [t]{4in}{Simple Object Access protocol} \\
 \indent \makebox [15ex][l]{{WS}} \parbox [t]{4in}{Web Service} \\
