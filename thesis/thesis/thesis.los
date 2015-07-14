@@ -3,6 +3,7 @@
 \indent \makebox [15ex][l]{{C}} \parbox [t]{4in}{Community of Web Service} \\
 \indent \makebox [15ex][l]{{CFV}} \parbox [t]{4in}{Community Feature Vector} \\
 \indent \makebox [15ex][l]{{CFVS}} \parbox [t]{4in}{Community Feature Vector Set} \\
+\indent \makebox [15ex][l]{{CS}} \parbox [t]{4in}{Coalition Structure} \\
 \indent \makebox [15ex][l]{{DDM}} \parbox [t]{4in}{Distributed Decision Making} \\
 \indent \makebox [15ex][l]{{QoS}} \parbox [t]{4in}{Quality of Service} \\
 \indent \makebox [15ex][l]{{REST}} \parbox [t]{4in}{REpresentational State Transfer} \\
