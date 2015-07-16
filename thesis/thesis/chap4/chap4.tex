@@ -20,7 +20,7 @@ These approximation methods sometimes negatively influence the outcome because s
 %And some other work which do not focus on rationality on web services or communities involved [refrences].
 In \cite{journal-community-formation}, we proposed a cooperative game-theory-based model for aggregating web services in communities. A centralized decision maker in communities, based on a complete knowledge of available web service quality metrics and performance, has been used to form optimal and stable communities that maximize individual and group income. However, centrality and complete information are strong assumptions, which are not very compatible with real business scenarios.
 
-\textbf{Contributions.} In this chapter, we introduce DDM, a Distributed Decision Making model for community formation that regulates web service agents’ decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. Unlike existing work on community formation, our decision model is extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree, which is initially created from the past data, reflects a comprehensive vision about agents' attitudes in terms of their action selection based on their past experiences. Moreover, the tree is getting continuously updated based on both new received feedback and the outcome of chosen actions. This continuous update makes the approach adapted to any change in the environment.
+\textbf{Contributions.} In this chapter, we introduce DDM, a Distributed Decision Making model for community formation that regulates web service agents' decision making process in terms of cooperating and deciding which group to join and which service to invite for joining. Unlike existing work on community formation, our decision model is extracted from a data model in the form of information obtained from a large number of web services regarding their single and cooperative utilities as well as environmental parameters such as demand, service quality, etc. The generated decision tree improves agents' understanding of the environment and how to select actions that lead towards maximizing their utilities. The advantage of this approach is that the tree, which is initially created from the past data, reflects a comprehensive vision about agents' attitudes in terms of their action selection based on their past experiences. Moreover, the tree is getting continuously updated based on both new received feedback and the outcome of chosen actions. This continuous update makes the approach adapted to any change in the environment.
 %The training model deploys a logistic regression algorithm to build a hypothesis function that can thoroughly address the aforementioned research problems.
 The decision model provides web services with enough information which helps those services efficiently decide and predict the outcome of their different possible collaborations. This model works in a distributed manner in which services are self-sufficient in their decision making and do not rely on a centralized decision making process. Our findings show that communities of web services can efficiently find the appropriate web service to invite for cooperation as well as allowing a single web service to find the best communities to join. The proposed model can be seen as a recommneder system that suggests beneficial actions for both communities and single services. Communities can consider the decision model and analyze the characteristics of different individual web services and make prudent decisions when inviting a web service to join or accepting a join inquiry initiated from a web service. In general, DDM equips web services with efficient methods for foreseeing how their choices will impact both their short-term and long-term goals; therefore, opting for the best decision available.
 
@@ -33,7 +33,7 @@ In this section, we introduce the challenges behind community formation.
 \subsection{The Join Challenge}\label{s:tjc}
 It has been showed in \cite{10.1109/ARES.2008.7,10.1109/TSC.2012.12,journal-community-formation} that web services can increase their overall utility by collaborating with other web services within communities. This collaboration provides them with better ways of sharing resources and having higher reputation, greater market share and wider visibility. Web services and communities come with different quality metrics, and the long-term outcome depends on these metrics.
 
-The goal of all parties involved in the community is to maximize their long-term outcome while they are operating as part of the community. Web services need to be equipped with a selection strategy to choose from the different possible collaboration groups they can form as well as an estimation method for evaluating the long-term gain of joining different possible communities. Web services need to experiment with different possible collaborative groups in order to estimate their gain over time. However, with a high number of possible communities, it is not possible to test collaboration with random web services. Even if a linear approximate function for estimating utility based on community web services' parameters is adopted, the exponential \footnote{Bell number: $http://en.wikipedia.org/wiki/Bell\_number$} growth rate of the possible number of partitions of web services into communities would make any brute-force type algorithm for the best community selection strategy intractable and impractical in real-world application settings.
+The goal of all parties involved in the community is to maximize their long-term outcome while they are operating as part of the community. Web services need to be equipped with a selection strategy to choose from the different possible collaboration groups they can form as well as an estimation method for evaluating the long-term gain of joining different possible communities. Web services need to experiment with different possible collaborative groups in order to estimate their gain over time. However, with a high number of possible communities, it is not possible to test collaboration with random web services. Even if a linear approximate function for estimating utility based on community web services' parameters is adopted, the exponential \footnote{Bell number: \url{http://en.wikipedia.org/wiki/Bell_number}} growth rate of the possible number of partitions of web services into communities would make any brute-force type algorithm for the best community selection strategy intractable and impractical in real-world application settings.
 
 \subsection{Join Consequences}\label{s:jc}
 It is worth mentioning that a \emph{join} event takes place as a result of interaction between two parties that are looking to expand their collaborations. All actions are chosen in an attempt to enhance the overall outcome. However, the selected action may result in decreasing the overall utility in the long run.
@@ -431,7 +431,7 @@ Now, we evaluate the system-specific results from users' and communities' perspe
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=5.5in]{figures/stats1.eps}
+\includegraphics[width=5in]{figures/stats1.eps}
 \caption{Overall utility of all the communities}
 \label{stats1}
 \end{figure}
@@ -439,7 +439,7 @@ Now, we evaluate the system-specific results from users' and communities' perspe
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=5.5in]{figures/stats2.eps}
+\includegraphics[width=5in]{figures/stats2.eps}
 \caption{Utility gain over time}
 \label{stats2}
 \end{figure}
@@ -448,7 +448,7 @@ Figure \ref{stats3} depicts the average community size over time, which essentia
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=5.5in]{figures/stats3.eps}
+\includegraphics[width=5in]{figures/stats3.eps}
 \caption{Average community size}
 \label{stats3}
 \end{figure}

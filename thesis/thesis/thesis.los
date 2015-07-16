@@ -1,14 +1,22 @@
 \indent \makebox [15ex][l]{{AI}} \parbox [t]{4in}{Artificial Intelligence} \\
 \indent \makebox [15ex][l]{{API}} \parbox [t]{4in}{Application Program Interface} \\
+\indent \makebox [15ex][l]{{BSV}} \parbox [t]{4in}{Bilateral Shapley Value} \\
 \indent \makebox [15ex][l]{{C}} \parbox [t]{4in}{Community of Web Service} \\
 \indent \makebox [15ex][l]{{CFV}} \parbox [t]{4in}{Community Feature Vector} \\
 \indent \makebox [15ex][l]{{CFVS}} \parbox [t]{4in}{Community Feature Vector Set} \\
 \indent \makebox [15ex][l]{{CS}} \parbox [t]{4in}{Coalition Structure} \\
 \indent \makebox [15ex][l]{{DDM}} \parbox [t]{4in}{Distributed Decision Making} \\
+\indent \makebox [15ex][l]{{IT}} \parbox [t]{4in}{Information Technology} \\
+\indent \makebox [15ex][l]{{NP}} \parbox [t]{4in}{Nondeterministic Polynomial time} \\
+\indent \makebox [15ex][l]{{OSC}} \parbox [t]{4in}{Open Software Connectivity} \\
+\indent \makebox [15ex][l]{{PO}} \parbox [t]{4in}{Potential Output} \\
 \indent \makebox [15ex][l]{{QoS}} \parbox [t]{4in}{Quality of Service} \\
+\indent \makebox [15ex][l]{{QWS}} \parbox [t]{4in}{Quality of Web Service} \\
 \indent \makebox [15ex][l]{{REST}} \parbox [t]{4in}{REpresentational State Transfer} \\
 \indent \makebox [15ex][l]{{ROC}} \parbox [t]{4in}{Receiver Operating Characteristic} \\
 \indent \makebox [15ex][l]{{SOAP}} \parbox [t]{4in}{Simple Object Access protocol} \\
+\indent \makebox [15ex][l]{{UDDI}} \parbox [t]{4in}{Universal Description, Discovery and Integration} \\
+\indent \makebox [15ex][l]{{W3C}} \parbox [t]{4in}{World Wide Web Consortium} \\
 \indent \makebox [15ex][l]{{WS}} \parbox [t]{4in}{Web Service} \\
 \indent \makebox [15ex][l]{{WSDL}} \parbox [t]{4in}{Web Service Definition Language} \\
 \indent \makebox [15ex][l]{{XML}} \parbox [t]{4in}{EXtensible Markup Language} \\
