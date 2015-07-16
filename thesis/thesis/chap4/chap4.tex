@@ -172,7 +172,7 @@ In this section, we describe our data extraction process and the methodology use
 
 %We used a data set extracted from running web services. In this data set,
 Each web service is associated with a number of quality metrics that reflect its non functional parameters. These web services operate in an online environment and are continuously assigned tasks to handle. %To engage in communities, we add the external features that reflect web services' utility as a result of joining other web services to form a community (see Section \ref{s:ef}). %The additional features are %computed based on two assumptions that we adopt for a community to be formed.
-We used the web services data set provided in \cite{10.1109/ISSRE.2011.17}. The raw data provides real-world QoS evaluation results from several users on 5,825 web services over 64 different time frames\footnote{http://www.wsdream.net/}. %In this data set, each web service is associated with a number of features that reflect its functionality.
+We used the web services data set provided in \cite{10.1109/ISSRE.2011.17}. The raw data provides real-world QoS evaluation results from several users on 5,825 web services over 64 different time frames\footnote{\url{http://www.wsdream.net/}}. %In this data set, each web service is associated with a number of features that reflect its functionality.
 %Our raw data set provides us with 64 different time slots of extracted features for each web service.
 Using this data, we built a synthetic data set that contains features of a large number of web services and communities in different time intervals. The goal is to use the data set to train a decision-making model that adopts the trend of joining a community and use the model to predict/find the appropriate community for other web services. %To train our model, we build a decision tree as a benchmark for our decision making mechanism. The decision tree is made up by training the real data obtained from operating web services and extracting features related to their performance, either alone or as part of a joint effort with other web services. The ultimate objective is to propose for each web service and community the best joint decision about forming a group that maximizes every one's utility.
 
@@ -308,7 +308,7 @@ As a real scenario example from the used data set, Figure \ref{fig_tree} depicts
 \textbf{Complexity.} Here we analyze the computational complexity of the DDM decision tree creation algorithm on each time iteration $t$. Computing top $k$ preferred communities for $C_i$ in $K^t(C_i, k)$ requires $O(n.log(n))$ sort time. The size of $K^t(C_i, k)$ is $k$, and for each of those $k$ communities, we need to check against their $k$ top preferred communities, which needs $O(k^2)$. Line 5 iterates through $n$ communities, Line 6 takes $O(n.log(n))$ to compute and iterates $k$ times, and considering we already have the list sorted, Line 7 can reuse the sorted preferences. Thus, Line 7 takes $O(k)$ time to check if $C_i$ is member of $K^t(C_i, k)$. Multiplying these iterations, the order of complexity of the algorithm with regard to $n$ and $k$ for each time slot is: $O(k^2 \times n^2.log(n))$. Since the whole algorithm runs $T$ times, the overall complexity is $O(T \times k^2 \times n^2.log(n))$.
 
 \section{Experiments}\label{s:experiments}
-We implemented DDM in Java\footnote{Source code of implementation and data is available at: $https://github.com/Marooned202/DDM$}. We recall that we have extracted the set of features for 4532 web services in 64 different time slots through a data set provided in \cite{10.1109/ISSRE.2011.17}. By randomly choosing 86 web services out of this data set for each run, and selecting a subset of all possible combinations of sizes 2, 3, and 4 of these 86 web services, we have been able to create 10,000 communities and evaluated the feature vectors and utilities they can have in the 64 time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities. Based on Equation \ref{u_c_load}, the utilities of these communities are estimated, and then the $gain$ matrix of size $|10,000 \times~ 10,000|$ of all possible ways of merging these 10,000 communities is generated\footnote {The template vector and $gain$ matrix generated are available at $https://github.com/Marooned202/DDM/tree/master/wsds/data/run$}. Based on the $gain$ matrix, each community has an ordered preference among other communities in the set.
+We implemented DDM in Java\footnote{Source code of implementation and data is available at: \url{https://github.com/Marooned202/DDM}}. We recall that we have extracted the set of features for 4532 web services in 64 different time slots through a data set provided in \cite{10.1109/ISSRE.2011.17}. By randomly choosing 86 web services out of this data set for each run, and selecting a subset of all possible combinations of sizes 2, 3, and 4 of these 86 web services, we have been able to create 10,000 communities and evaluated the feature vectors and utilities they can have in the 64 time slots. This provides us with the initial training feature set of size $|CFVS| = 10,000$ communities. Based on Equation \ref{u_c_load}, the utilities of these communities are estimated, and then the $gain$ matrix of size $|10,000 \times~ 10,000|$ of all possible ways of merging these 10,000 communities is generated\footnote {The template vector and $gain$ matrix generated are available at \url{https://github.com/Marooned202/DDM/tree/master/wsds/data/run}}. Based on the $gain$ matrix, each community has an ordered preference among other communities in the set.
 
 We let communities and web services adopt their strategies based on our $DDM$ decision making mechanism. Based on the decisions adopted, each community will generate a decision tree profile. We let DDM run four times with different $r$ rates of 0.05, 0.07, 0.10 and 0.20. With the slow rate of $r = 0.05$, we increase $k$ in Equation \ref{u_c_normal} for every 20 time frames, which will happen only three times in our 64-step experiment. In the case of $r = 0.20$, $k$ increases much faster, at a rate of once every 5 time frames, which increases the complexity of the $L^t(C_i,k)$ search for each community in the $CFVS$ set.
 
@@ -365,14 +365,14 @@ To compare our work against a benchmark, we utilize the same communities and web
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=5in]{figures/utility_gain.eps}
+\includegraphics[width=5.5in]{figures/utility_gain.eps}
 \caption{DDM against Rational: utility gain }
 \label{utility_gain_mlisa_and_rational}
 \end{figure}
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=5in]{figures/utility_ratio.eps}
+\includegraphics[width=5.5in]{figures/utility_ratio.eps}
 \caption{DDM against Rational: ratio of utility gain}
 \label{utility_gain_mlisa_and_rational_ratio}
 \end{figure}
@@ -401,7 +401,7 @@ Figure \ref{roc5} compares the results for all the methods. The \emph{rational} 
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=4in]{figures/roc.eps}
+\includegraphics[width=5in]{figures/roc.eps}
 \caption{RoC Curve}
 \label{roc5}
 \end{figure}
@@ -431,7 +431,7 @@ Now, we evaluate the system-specific results from users' and communities' perspe
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=4in]{figures/stats1.eps}
+\includegraphics[width=5.5in]{figures/stats1.eps}
 \caption{Overall utility of all the communities}
 \label{stats1}
 \end{figure}
@@ -439,7 +439,7 @@ Now, we evaluate the system-specific results from users' and communities' perspe
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=4in]{figures/stats2.eps}
+\includegraphics[width=5.5in]{figures/stats2.eps}
 \caption{Utility gain over time}
 \label{stats2}
 \end{figure}
@@ -448,7 +448,7 @@ Figure \ref{stats3} depicts the average community size over time, which essentia
 
 \begin{figure}%[!t]
 \centering
-\includegraphics[width=4in]{figures/stats3.eps}
+\includegraphics[width=5.5in]{figures/stats3.eps}
 \caption{Average community size}
 \label{stats3}
 \end{figure}
