@@ -3,6 +3,10 @@
 \usepackage{epsfig}
 \usepackage{epstopdf}
 
+%%%%%%% Animation Packages
+\usepackage{tikz}
+\usepackage{animate} 
+
 \usetheme{Frankfurt}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[page number]
@@ -24,11 +28,37 @@
     \begin{itemize}
      	\itemsep=.5cm
     	\item {\bf Introduction}
+        \pause
     	\item Background and Literature Review
     	\item Proposed Research
-    	\item Timeline and Feature Work
+    	\item Conclusion and Feature Work
     \end{itemize}
+    % Amazon Web Services is a $5 billion business, and it’s growing 50% a year
+    % AMAZON WEB SERVICES (AWS) CLOUD IS A $5 BILLION BUSINESS AND GROWING FAST
 \end{frame}
+
+
+\begin{frame}
+\begin{tikzpicture}
+\node at (7.5,4) {A};
+    \uncover<2->{\draw [-, draw=black!70, line width=1] (8,4) -- +(1,0) coordinate (v4) {} ;}
+    \uncover<3->{\draw [-, draw=black!70, line width=1] (v4) -- +(0,-2) coordinate (v5) {} ;}
+    \uncover<4->{\draw [->, draw=black!70, line width=1] (v5) -- +(-1,0) ;}
+\uncover<5->{ \node at (7.5,2) {B};}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+
+    \begin{figure}
+        \includegraphics<1>[width=1.0 \columnwidth]{figures/wsinternet.png}
+        \includegraphics<2>[width=1.0 \columnwidth]{figures/wscommunity2.png}
+        \caption{\only<1>{First Image}\only<2>{Second Image}}
+    \end{figure}
+
+\end{frame}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame3 introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,6 +154,7 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \begin{frame}{Continue: Problems and Research Questions}
  \begin{itemize}
    \item \textbf{How can we model and analyze the cooperation
@@ -132,7 +163,7 @@
         \begin{itemize}
             \item The first issue is about the evaluation of web services that are working together inside communities.
             \item The second issue is about the complexity of cooperative game theory solution concepts.
-        \end{itemize}        
+        \end{itemize}
 
    \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
         \begin{itemize}
@@ -148,7 +179,7 @@
         \begin{itemize}
             \item In real world scenarios, decisions made by independent service providers are highly distributed.
             \item Agents can get trained so they can operate efficiently when information is incomplete
-        \end{itemize}        
+        \end{itemize}
 
    \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
         \begin{itemize}
@@ -176,7 +207,7 @@
     	\item Introduction
     	\item {\bf Background and Literature Review}
     	\item Proposed Research
-    	\item Timeline and Feature Work
+    	\item Conclusion and Feature Work
     \end{itemize}
 \end{frame}
 
@@ -389,7 +420,7 @@
     	\item Introduction
     	\item Background and Literature Review
     	\item {\bf Proposed Research}
-    	\item Timeline and Feature Work
+    	\item Conclusion and Feature Work
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame16 Proposed Research %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -590,7 +621,7 @@
 \subsection{Web Service Cooperative Games}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Community and Web Service Interaction Model - (Phase 1)}
+\begin{frame}{Community and Web Service Interaction Model}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -608,7 +639,7 @@
        	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Community and Web Service Interaction Model - (Phase 1)}
+\begin{frame}{Community and Web Service Interaction Model}
 
 
     \begin{itemize}
@@ -656,7 +687,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Experimental Results}
-\begin{frame}{Experimental Results - (Phase 1)}
+\begin{frame}{Experimental Results}
 
     \begin{figure}[!t]
     \centering
@@ -672,7 +703,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Taxation, Subsiding and Stability - (Phase 2)}
+\subsection{Taxation, Subsiding and Stability}
 \begin{frame}{Improving Community Stability}
     \begin{itemize}
         \item The core may not always be non-empty, core is a strong condition.
@@ -686,7 +717,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Taxation and Subsiding - (Phase 2)}
+\begin{frame}{Taxation and Subsiding}
     \begin{itemize}
         \item Least Core
         \begin{itemize}
@@ -711,7 +742,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Taxation and Subsiding - (Phase 2)}
+\begin{frame}{Results: Taxation and Subsiding}
     \begin{figure}[!t]
         \centering
         %\includegraphics[scale=0.6]{graph1Final+.eps}
@@ -725,7 +756,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Results: Taxation and Subsiding - (Phase 2)}
+\begin{frame}{Results: Taxation and Subsiding}
     \begin{figure}[!t]
         \centerline{\includegraphics[width=4.2in]{figures/tax_dyn.eps}}
         \caption{Analysis of community subsiding coefficient $\lambda$
@@ -736,11 +767,94 @@
     \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Representation and Complexity Issues}
+\begin{frame}{Representation and Complexity Issues}
+    \begin{itemize}
+        \item Core and Shapley value are combinatorial problems.
+        \item Input size is exponential.
+        \item Compact or succinct representation of coalition games.
+        \begin{itemize}
+            \item A representation so that the input size is a polynomial in the number of agents.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Different Compact Representations of Coalition Games}
+
+    \begin{table}
+        \small
+        \begin{tabular}{l|c|c|c|c}
+        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Graph (w+)                       & P        & P                        & P               & Not          \\
+        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
+        Synergy                          & NA       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
+        Our method                       & P        & NP-hard                  & NP-hard         & Not          \\
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
+        \item As long as we keep our services aggregation valuation function v(C) linear, problem can be reduced to LP. Which Polynomial greedy and approximation algorithms already exists.
+    \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distributed Decision Making for Dynamic Formation of Web Services Communites}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{itemize}
+        \item DDM Introduction
+        \item DDM Introduction
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/steps.eps}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{itemize}
+        \item DDM preference relations and matrix generation
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{itemize}
+        \item DDM Decision Tree Generation
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Excremental Results}
+    \begin{itemize}
+        \item DDM Results1
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Excremental Results}
+    \begin{itemize}
+        \item DDM Results2
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Coopetitive Behavior of Services within Communities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Coopetitive Behavior of Services within Communities - (Phase 2)}
+\begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
         \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
         \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.
@@ -759,7 +873,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Coopetitive Behavior of Services within Communities - (Phase 2)}
+\begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.6]{figures/architecture++.eps}
@@ -821,7 +935,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Experimental Results: Coopetitive - (Phase 2)}
+\begin{frame}{Experimental Results: Coopetitive}
     \begin{figure}%[h]
         %\centering
         %\includegraphics[scale=0.6]{graph1Final+.eps}
@@ -836,7 +950,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Experimental Results: Coopetitive - (Phase 2)}
+\begin{frame}{Experimental Results: Coopetitive}
     \begin{figure}[h]
         \centering
         \includegraphics[width=1.45in]{figures/graphtaskdone.eps}
@@ -850,143 +964,106 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Reinforcement Learning: Q-learning - (Phase 3)}
-    \begin{itemize}
-        \item MDP (Markov Game):
-        \begin{itemize}
-            \item \emph{S}: Set of states
-            \item \emph{A}: Actions
-            \item \emph{$T: S \times A_1 \times A_2 \times ... \times A_k \rightarrow P(s) $}
-            \item \emph{$R: S \times A_1 \times A_2 \times ... \times A_k \rightarrow Reward(s,a) $}
-        \end{itemize}
-    \end{itemize}
-
-    \begin{itemize}
-        \item Q-Learning, the goal is to learn:
-        \begin{itemize}
-            \item The probability of others playing actions from action set on each state.
-            \item $V(s): $ Expected reward over time, starting from state $s$
-            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$
-        \end{itemize}
-    \end{itemize}
-
-    \begin{equation*}
-        {\color{blue}V(s)} = max min \sum_{a \in A}{{\color{green}Q(s,a,o)} \times T(s,a,s')}
-    \end{equation*}
-
-    \begin{equation*}
-        {\color{green}Q(s,a,o)} = R(s,a,o) + \gamma\sum{s'}{T(s,a,o,s'){\color{blue}V(s')}}
-    \end{equation*}
-
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Prilimanary Results: Q-learning - (Phase 3)}
-    \begin{table}[!htb]
-        %\caption{Global caption}
-        \begin{minipage}{.5\linewidth}
-          \caption{Q1}
-          \centering
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 2.434 & 2.624 \\
-                \cline{2-3}
-                Coop & -0.269 & -0.136 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}%
-        \begin{minipage}{.5\linewidth}
-          \centering
-            \caption{Q2}
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 0.897 & -0.126 \\
-                \cline{2-3}
-                Coop & 1.084 & 0.4 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}
-    \end{table}
-
-    \begin{table}[!htb]
-        %\caption{Global caption}
-        \begin{minipage}{.5\linewidth}
-          \caption{Q3}
-          \centering
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & 2.064 & 1.826 \\
-                \cline{2-3}
-                Coop & 0.564 & -0.364 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}%
-        \begin{minipage}{.5\linewidth}
-          \centering
-            \caption{Q4}
-            \begin{tabular}{ r|c|c| }
-                \multicolumn{1}{r}{}
-                 &  \multicolumn{1}{c}{Comp}
-                 & \multicolumn{1}{c}{Coop} \\
-                \cline{2-3}
-                Comp & -0.261 & -0.436 \\
-                \cline{2-3}
-                Coop & 0.725 & 0.632 \\
-                \cline{2-3}
-            \end{tabular}
-        \end{minipage}
-    \end{table}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%\begin{frame}{Reinforcement Learning: Q-learning - (Phase 3)}
+%    \begin{itemize}
+%        \item MDP (Markov Game):
+%        \begin{itemize}
+%            \item \emph{S}: Set of states
+%            \item \emph{A}: Actions
+%            \item \emph{$T: S \times A_1 \times A_2 \times ... \times A_k \rightarrow P(s) $}
+%            \item \emph{$R: S \times A_1 \times A_2 \times ... \times A_k \rightarrow Reward(s,a) $}
+%        \end{itemize}
+%    \end{itemize}
+%
+%    \begin{itemize}
+%        \item Q-Learning, the goal is to learn:
+%        \begin{itemize}
+%            \item The probability of others playing actions from action set on each state.
+%            \item $V(s): $ Expected reward over time, starting from state $s$
+%            \item $Q(s,a,o): $ Expected reward taking action $a$ when other players chose action $a$ from state $s$
+%        \end{itemize}
+%    \end{itemize}
+%
+%    \begin{equation*}
+%        {\color{blue}V(s)} = max min \sum_{a \in A}{{\color{green}Q(s,a,o)} \times T(s,a,s')}
+%    \end{equation*}
+%
+%    \begin{equation*}
+%        {\color{green}Q(s,a,o)} = R(s,a,o) + \gamma\sum{s'}{T(s,a,o,s'){\color{blue}V(s')}}
+%    \end{equation*}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Representation and Complexity Issues}
-\begin{frame}{Representation and Complexity Issues}
-    \begin{itemize}
-        \item Core and Shapley value are combinatorial problems.
-        \item Input size is exponential.
-        \item Compact or succinct representation of coalition games.
-        \begin{itemize}
-            \item A representation so that the input size is a polynomial in the number of agents.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
+%\begin{frame}{Prilimanary Results: Q-learning - (Phase 3)}
+%    \begin{table}[!htb]
+%        %\caption{Global caption}
+%        \begin{minipage}{.5\linewidth}
+%          \caption{Q1}
+%          \centering
+%            \begin{tabular}{ r|c|c| }
+%                \multicolumn{1}{r}{}
+%                 &  \multicolumn{1}{c}{Comp}
+%                 & \multicolumn{1}{c}{Coop} \\
+%                \cline{2-3}
+%                Comp & 2.434 & 2.624 \\
+%                \cline{2-3}
+%                Coop & -0.269 & -0.136 \\
+%                \cline{2-3}
+%            \end{tabular}
+%        \end{minipage}%
+%        \begin{minipage}{.5\linewidth}
+%          \centering
+%            \caption{Q2}
+%            \begin{tabular}{ r|c|c| }
+%                \multicolumn{1}{r}{}
+%                 &  \multicolumn{1}{c}{Comp}
+%                 & \multicolumn{1}{c}{Coop} \\
+%                \cline{2-3}
+%                Comp & 0.897 & -0.126 \\
+%                \cline{2-3}
+%                Coop & 1.084 & 0.4 \\
+%                \cline{2-3}
+%            \end{tabular}
+%        \end{minipage}
+%    \end{table}
+%
+%    \begin{table}[!htb]
+%        %\caption{Global caption}
+%        \begin{minipage}{.5\linewidth}
+%          \caption{Q3}
+%          \centering
+%            \begin{tabular}{ r|c|c| }
+%                \multicolumn{1}{r}{}
+%                 &  \multicolumn{1}{c}{Comp}
+%                 & \multicolumn{1}{c}{Coop} \\
+%                \cline{2-3}
+%                Comp & 2.064 & 1.826 \\
+%                \cline{2-3}
+%                Coop & 0.564 & -0.364 \\
+%                \cline{2-3}
+%            \end{tabular}
+%        \end{minipage}%
+%        \begin{minipage}{.5\linewidth}
+%          \centering
+%            \caption{Q4}
+%            \begin{tabular}{ r|c|c| }
+%                \multicolumn{1}{r}{}
+%                 &  \multicolumn{1}{c}{Comp}
+%                 & \multicolumn{1}{c}{Coop} \\
+%                \cline{2-3}
+%                Comp & -0.261 & -0.436 \\
+%                \cline{2-3}
+%                Coop & 0.725 & 0.632 \\
+%                \cline{2-3}
+%            \end{tabular}
+%        \end{minipage}
+%    \end{table}
+%
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Different Compact Representations of Coalition Games}
-
-    \begin{table}
-        \small
-        \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
-        Graph (w+)                       & P        & P                        & P               & Not          \\
-        Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        Our method                       & P        & NP-hard                  & NP-hard         & Not          \\
-        \end{tabular}
-    \end{table}
-
-    \begin{itemize}
-        \item Our web service community valuation function representation ($v(C) = out(C)$) space requirement grows linearly to input size.
-        \item As long as we keep our services aggregation valuation function v(C) linear, problem can be reduced to LP. Which Polynomial greedy and approximation algorithms already exists.
-    \end{itemize}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1055,12 +1132,12 @@
     	\item Introduction
     	\item Background and Literature Review
     	\item Proposed Research
-    	\item {\bf Timeline and Feature Work}
+    	\item {\bf Conclusion and Feature Work}
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Future Research Activities}
+\subsection{Conclusion and Feature Work}
 \begin{frame}{Future Work}
 
 \end{frame}
@@ -1070,16 +1147,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Publications}
-
+    \scriptsize
     \begin{enumerate}
         \item Published a Journal Paper at IEEE Transactions on Services Computing; \emph{``Efficient Community Formation for Web Services.''}, (Impact factor: 2.46), Feb. 2014
         \item Published a Journal Paper at the International Journal of Expert Systems With Applications; \emph{``To Compete or to Coo perate? This is the Question in Communities of Autonomous Services''},  (Impact factor: 1.854, 5-year: 2.339), Jan 2014
         \item Published a Paper in 10th IEEE International Conference on Services Computing; \emph{``Efficient Coalition Formation for Web Services''}, 2013
         \item Published a Paper in the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{``Analyzing Coopetition Strategies of Services within Communities''}, 2012
-        \item asdasd
-        \item asdasd
-        \item asdasd
-        \item asdasd
+        \item 123
+        \item 123
+        \item 123
     \end{enumerate}
 
 %\centering
