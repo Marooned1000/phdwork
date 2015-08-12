@@ -215,6 +215,15 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}{Research Methodology}
+    \begin{figure}[!t]
+        \centering
+        %\includegraphics[scale=0.6]{graph1Final+.eps}
+        \includegraphics[width=4.2in]{figures/structure2.eps}
+        \label{questionfig}
+    \end{figure}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1045,8 +1054,6 @@
     \end{figure}
 \end{frame}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Features}
     \begin{itemize}
@@ -1133,16 +1140,27 @@
             \end{equation*}
     \end{itemize}
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Distributed Decision Making Model}
     \begin{figure}[htbp]
         \centering
-        \includegraphics[scale=0.3]{figures/alg.png}
+        \includegraphics[scale=0.26]{figures/alg.png}
     \end{figure}
+    
+    \footnotesize
+    \begin{itemize} 
+    \item Distance function: 
+        \begin{equation*}\label{distance_c}
+            \begin{split}
+                {\color{blue}distance (C_1, C_2)} & = |Th_{C_1} - Th_{C_2}| \\
+                                & + |A_{C_1} - A_{C_2}| + |Et_{C_1} - Et_{C_2}|
+            \end{split}
+        \end{equation*}
+    \end{itemize} 
 \end{frame}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Excremental Results}
     \begin{figure}[htbp]
     \centering
@@ -1484,7 +1502,7 @@
 \begin{frame}{Contributions}
     \begin{itemize}     	
         	\item An optimal method for formation and membership management of communities of web services ensuring satisfaction of all the members involved and stability of group.
-        	\item Proposing a valuation function and an approximation algorithm for convexity check of coalitions, making decision making practical in real-time settings for our web service community settings.
+        	\item Proposing a valuation function and a polynomial approximation algorithm for the NP-Hard problem of coalition stability check, making decision making practical in real-time settings for our web service communities.
         	\item Proposed a novel approach for training communities using a small set of training data, to be able to efficiently make decisions in distributed and real-world environments where information is not complete.
     \end{itemize}
 \end{frame}
@@ -1492,9 +1510,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Future Work}
     \begin{itemize}     	
-    	\item Implement communities using bargaining theory where agents can have side payments to insure group stability
-    	\item More analytical and theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts and constant factor  of our $Depth-k$ approximation algorithm.
-    	\item Using the SVM machine learning algorithm as learning algorithm for training our data set to better distinguish decisions based on long-term utility.
+    	\item To implement communities using bargaining theory where agents can have side payments to insure group stability
+    	\item To do more analytical and theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts and constant factor  of our $Depth-k$ approximation algorithm.
+    	\item To use the SVM machine learning algorithm as learning algorithm for training our data set to better distinguish decisions based on long-term utility.
     \end{itemize}
 \end{frame}
 
