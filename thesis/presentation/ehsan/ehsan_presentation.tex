@@ -3,9 +3,15 @@
 \usepackage{epsfig}
 \usepackage{epstopdf}
 
+%%%%%%%
+\usepackage{color}
+\definecolor{light-gray}{gray}{0.70}
+
 %%%%%%% Animation Packages
 \usepackage{tikz}
-\usepackage{animate} 
+\usepackage{animate}
+
+
 
 \usetheme{Frankfurt}
 \setbeamertemplate{navigation symbols}{}
@@ -28,7 +34,6 @@
     \begin{itemize}
      	\itemsep=.5cm
     	\item {\bf Introduction}
-        \pause
     	\item Background and Literature Review
     	\item Proposed Research
     	\item Conclusion and Feature Work
@@ -38,25 +43,25 @@
 \end{frame}
 
 
-\begin{frame}
-\begin{tikzpicture}
-\node at (7.5,4) {A};
-    \uncover<2->{\draw [-, draw=black!70, line width=1] (8,4) -- +(1,0) coordinate (v4) {} ;}
-    \uncover<3->{\draw [-, draw=black!70, line width=1] (v4) -- +(0,-2) coordinate (v5) {} ;}
-    \uncover<4->{\draw [->, draw=black!70, line width=1] (v5) -- +(-1,0) ;}
-\uncover<5->{ \node at (7.5,2) {B};}
-\end{tikzpicture}
-\end{frame}
+%\begin{frame}
+%\begin{tikzpicture}
+%\node at (7.5,4) {A};
+%    \uncover<2->{\draw [-, draw=black!70, line width=1] (8,4) -- +(1,0) coordinate (v4) {} ;}
+%    \uncover<3->{\draw [-, draw=black!70, line width=1] (v4) -- +(0,-2) coordinate (v5) {} ;}
+%    \uncover<4->{\draw [->, draw=black!70, line width=1] (v5) -- +(-1,0) ;}
+%\uncover<5->{ \node at (7.5,2) {B};}
+%\end{tikzpicture}
+%\end{frame}
 
-\begin{frame}
-
-    \begin{figure}
-        \includegraphics<1>[width=1.0 \columnwidth]{figures/wsinternet.png}
-        \includegraphics<2>[width=1.0 \columnwidth]{figures/wscommunity2.png}
-        \caption{\only<1>{First Image}\only<2>{Second Image}}
-    \end{figure}
-
-\end{frame}
+%\begin{frame}
+%
+%    \begin{figure}
+%        \includegraphics<1>[width=1.0 \columnwidth]{figures/wsinternet.png}
+%        \includegraphics<2>[width=1.0 \columnwidth]{figures/wscommunity2.png}
+%        \caption{\only<1>{First Image}\only<2>{Second Image}}
+%    \end{figure}
+%
+%\end{frame}
 
 
 
@@ -65,16 +70,25 @@
 \section{Introduction}
 %\section{Motivation}
 \subsection{Motivation}
-    \begin{frame}{Motivation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Motivation}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/webservice_intro.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
     \begin{itemize}
         \item High reliance on web services created high competition and great business opportunities for online service developers
-        \item Community of web services: Clustering similar web services in order to:
-        \begin{itemize}
-            \item \textbf{Provide Better User Satisfaction Through High Availability and Responsiveness}.
-            \item \textbf{Facilitate Web Service Discovery over Internet}.
-            \item \textbf{Maintain high reputation and market share}.
-        \end{itemize}
+        \item \emph{\color{blue}Amazon Q1 2015 financial report:} Amazon Web Services is a \$5 billion business, and its growing 50\% a year
     \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Motivation}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -82,9 +96,127 @@
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
-    \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    \begin{itemize}
+        \item Community of web services: Clustering similar web services in order to:
+        \begin{itemize}
+            \item \textbf{Provide Better User Satisfaction Through High Availability and Responsiveness}.
+            \item \textbf{Facilitate Web Service Discovery over Internet}.
+            \item \textbf{Maintain high reputation and market share}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Social commitments in MASs}
+\begin{frame}{Communities of Web Services}
+
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.85 \columnwidth]{figures/community_tasks.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+
+    \begin{itemize}
+        \itemsep=.35cm
+    	\item \textbf{Communities of web services operations}
+        \begin{itemize}
+          \item Community development
+          \item Web services attraction and retention
+          \item Web service selection
+        \end{itemize}                      	      	
+    \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Problems and Research Questions}
+%    \begin{figure}[htbp]
+%        \centering
+%        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%        \includegraphics[width=0.6 \columnwidth]{figures/rq1.png}
+%        %%\includegraphics[scale=0.5]{figure1}
+%        %\caption{The NetBill payment protocol} \label{figure7}
+%    \end{figure}
+
+    %\begin{itemize}
+%        \item {\color{blue} Problem:} Community formation and membership management
+%        \item {\color{blue} Methodology:} Cooperative Game Theory methods; covers fairness, stability and gain distribution
+%    \end{itemize}
+
+    \footnotesize{\colorbox{blue}{\color{white}{R1}} How can we model the community of agent-based services in order to maximize the utility
+        of involved users, web services and community organizers?}\\
+        \begin{itemize}
+            \item Most of the work on communities of
+            services are either user-centric and focus on user satisfaction
+            or system-centric and focus on the whole system throughput, performance and utilization.
+        \end{itemize}
+    \vspace{0.3cm} \colorbox{blue}{\color{white}{R2}} How can we model fair and stable communities as coalitions of agent-based web services?\\
+        \begin{itemize}
+            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
+        \end{itemize}
+    \vspace{0.3cm} \colorbox{blue}{\color{white}{R3}} How can we model and analyze the cooperation
+        among the community members in realistic, applicable and practical settings?\\
+        \begin{itemize}
+            \item The first issue is about the performance evaluation of web services that are working together inside communities.
+            \item The second issue is about the complexity of cooperative game theory solution concepts.
+        \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Problems and Research Questions}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=1.0 \columnwidth]{figures/rq2.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+    
+    \footnotesize{\colorbox{blue}{\color{white}{R4}} How can we model a distributed decision making process for the problem of forming communities of services?}\\
+        \begin{itemize}
+            \item Centralized community structure has practical limitations among service providers            
+        \end{itemize}
+    \vspace{0.3cm} \colorbox{blue}{\color{white}{R5}} How can we train web services based on limited information to operate efficiently?\\
+        \begin{itemize}
+            \item Assumption of complete information is not practical in real world settings.
+        \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Problems and Research Questions}
+    \begin{figure}[h]
+        \centering
+         \includegraphics[scale=0.5]{figures/rq3.png}
+%        \caption{Services are partitioned into competitive and cooperative
+%        sets. Competitive services may get tasks directly from the master
+%        agent and they can share it with other cooperative services in
+%        their collaborative networks within the same community.}
+        \label{architectureFigure}
+    \end{figure}
+
+    \footnotesize{\colorbox{blue}{\color{white}{R6}} How can we design a community model where both competitive and cooperative behaviors exist?}\\
+        \begin{itemize}
+            \item There is competitive environment \emph{inside communities} as well as cooperative behavior of communities.
+        \end{itemize}
+            
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Research Methodology}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/model.eps}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\subsection{Communities of Web Services}
 %    \begin{frame}{Community of Web Services}
@@ -105,88 +237,67 @@
 
 %   \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame10 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Social commitments in MASs}
-    \begin{frame}{Communities of Web Services}
-        Communities of Web Services
-        \begin{itemize}
-            \itemsep=.35cm
-        	\item \textbf{Communities of web services operations}
-            \begin{itemize}
-              \item Community development
-              \item Web services attraction and retention
-              \item Web service selection
-            \end{itemize}                      	      	
-        \end{itemize}
-
-        \begin{figure}[htbp]
-            \centering
-            %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-            \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
-            %%\includegraphics[scale=0.5]{figure1}
-            %\caption{The NetBill payment protocol} \label{figure7}
-        \end{figure}
-    \end{frame}
 
 
 
-\begin{frame}{Problems and Research Questions}
 
-\begin{itemize}
-    \item \textbf{How can we model the
-        community of agent-based services in order to maximize the utility
-        of involved users, web services and community organizers?}
-        \begin{itemize}
-            \item Most of the work on communities of
-            services are either user-centric and focus on user satisfaction
-            or system-centric and focus on the whole system throughput, performance and utilization.
-        \end{itemize}
-
-
-    \item \textbf{How can we model fair and stable communities as coalitions
-        of agent-based web services?}
-        \begin{itemize}
-            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
-        \end{itemize}
-
-\end{itemize}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}{Continue: Problems and Research Questions}
- \begin{itemize}
-   \item \textbf{How can we model and analyze the cooperation
-        among the community members in realistic, applicable and practical
-        settings?}
-        \begin{itemize}
-            \item The first issue is about the evaluation of web services that are working together inside communities.
-            \item The second issue is about the complexity of cooperative game theory solution concepts.
-        \end{itemize}
-
-   \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
-        \begin{itemize}
-            \item Services can learn over time how and when to compete for tasks according to their and others capabilities.
-        \end{itemize}
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Continue: Problems and Research Questions}
- \begin{itemize}
-   \item \textbf{How can we model a distributed decision making process for the problem of forming communities of services?}
-        \begin{itemize}
-            \item In real world scenarios, decisions made by independent service providers are highly distributed.
-            \item Agents can get trained so they can operate efficiently when information is incomplete
-        \end{itemize}
-
-   \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
-        \begin{itemize}
-            \item Services can learn over time how and when to compete for tasks according to their and others capabilities.
-        \end{itemize}
-\end{itemize}
-\end{frame}
+%\begin{frame}{Problems and Research Questions}
+%
+%\begin{itemize}
+%    \item \textbf{How can we model the
+%        community of agent-based services in order to maximize the utility
+%        of involved users, web services and community organizers?}
+%        \begin{itemize}
+%            \item Most of the work on communities of
+%            services are either user-centric and focus on user satisfaction
+%            or system-centric and focus on the whole system throughput, performance and utilization.
+%        \end{itemize}
+%
+%
+%    \item \textbf{How can we model fair and stable communities as coalitions
+%        of agent-based web services?}
+%        \begin{itemize}
+%            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
+%        \end{itemize}
+%
+%\end{itemize}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}{Continue: Problems and Research Questions}
+% \begin{itemize}
+%   \item \textbf{How can we model and analyze the cooperation
+%        among the community members in realistic, applicable and practical
+%        settings?}
+%        \begin{itemize}
+%            \item The first issue is about the evaluation of web services that are working together inside communities.
+%            \item The second issue is about the complexity of cooperative game theory solution concepts.
+%        \end{itemize}
+%
+%   \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
+%        \begin{itemize}
+%            \item Services can learn over time how and when to compete for tasks according to their and others capabilities.
+%        \end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Continue: Problems and Research Questions}
+% \begin{itemize}
+%   \item \textbf{How can we model a distributed decision making process for the problem of forming communities of services?}
+%        \begin{itemize}
+%            \item In real world scenarios, decisions made by independent service providers are highly distributed.
+%            \item Agents can get trained so they can operate efficiently when information is incomplete
+%        \end{itemize}
+%
+%   \item \textbf{Considering competitive environment with communities how can services choose best strategy within communities?}
+%        \begin{itemize}
+%            \item Services can learn over time how and when to compete for tasks according to their and others capabilities.
+%        \end{itemize}
+%\end{itemize}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{frame}{Multi-Agent Systems MASs}
@@ -214,36 +325,55 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame9 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Social commitments in MASs}
+\begin{frame}{Communities of Web Services}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=1.0 \columnwidth]{figures/wscommunity2.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+
+    \tiny
+    \begin{itemize}
+      \item {\color{blue}\lbrack Z. Maamar\rbrack} An Approach to Engineer Communities of Web Services
+      \item {\color{blue}\lbrack B. Khosravifar\rbrack} A Game Theoretic Approach for Analyzing the Efficiency of Web Services in Collaborative Networks
+      \item {\color{blue}\lbrack E. Lim\rbrack} Using 3-Way Satisfaction for Web Service Selection
+      \item {\color{blue}\lbrack A. Liu\rbrack} Coalition Game for Community-based Autonomous Web Services Cooperation
+    \end{itemize}                      	      	
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cooperative Game Theory}
 
-%    \begin{frame}{Cooperative Game Theory}
-%      \begin{itemize}
-%         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
-%         \begin{itemize}
-%            \item Cooperation to perform a set of tasks that requires different expertise.
-%            \item Agents do not have enough resource on their own to perform the tasks.
-%            \item Examples:
-%            \begin{itemize}
-%                \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
-%                \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
-%            \end{itemize}
-%        \end{itemize}
-%        \item \textbf{Issues:}
-%            \begin{itemize}
-%                \item Coalition formation.
-%                \item Rewarding members when a task is completed.
-%            \end{itemize}
-%      \end{itemize}
-%    \end{frame}
+\begin{frame}{Cooperative Game Theory}
+  \begin{itemize}
+     \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents.
+     \begin{itemize}
+        \item Cooperation to perform a set of tasks that requires different expertise.
+        \item Agents do not have enough resource on their own to perform the tasks.
+        \item Examples:
+        \begin{itemize}
+            \item Robots have the ability to move objects in a plant, but multiple robots are required to move a heavy box.
+            \item Transportation domain: agents are trucks, trains, airplanes, ships... a task is a good to be transported.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Issues:}
+        \begin{itemize}
+            \item Coalition formation.
+            \item Rewarding members when a task is completed.
+        \end{itemize}
+  \end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame14 Background and Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Cooperative Game Theory}
-    \begin{itemize}
-         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents within coalitions.
-    \end{itemize}
+    %\begin{itemize}
+%         \item Cooperative games are a branch of game theory that models cooperation or collaboration between agents within coalitions.
+%    \end{itemize}
     \begin{definition} [Coalition]~\\
        We have a population $N$ of $n$ agents, A coalition $C$ is a set of agents: $C \in 2^N$.
         \begin{itemize}
@@ -256,10 +386,10 @@
         \item \textbf{Problem:} Given a game $(N,v)$, and assuming all agents in $N$ want to cooperate, how to distribute the gain among the agents?
         \item \textbf{Solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
 
-        \begin{itemize}
-            \item What are the interesting properties that $x$ should satisfy?
-            \item How to determine the payoff vector $x$?
-        \end{itemize}
+%        \begin{itemize}
+%            \item What are the interesting properties that $x$ should satisfy?
+%            \item How to determine the payoff vector $x$?
+%        \end{itemize}
 
     \end{itemize}
 \end{frame}
@@ -290,6 +420,16 @@
 %    \end{itemize}
 
 %\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: A community of landlords and farmers}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/community_farm.png}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Some Properties of Valuation Functions}
     $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
@@ -427,11 +567,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Research Plan}
+\begin{frame}{Efficient Community Formation for Web Services}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.9 \columnwidth]{figures/model.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/model_c1.eps}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -640,8 +780,6 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Community and Web Service Interaction Model}
-
-
     \begin{itemize}
         \item Upon receiving membership request, the master web service checks if the coalition will be stable having the new member.
         \item If the game is convex, core exists.
@@ -653,10 +791,83 @@
           $\forall S,T | S \subseteq T \subseteq N \backslash \left\{i\right\}, \forall i \in N,$ \\
           {\color{blue} $v(S \cup \left\{i\right\}) - v(S) \leq v (T \cup \left\{i\right\}) - v(T)$ }
         \end{center}
-        \item Depth-1 Convexity Check: $O(n)$
-        \item Depth-2 Convexity Check: $O(n^2)$
+        %\item Depth-1 Convexity Check: $O(n)$
+        %\item Depth-2 Convexity Check: $O(n^2)$
+    \end{itemize}       	
+\end{frame}
+
+\begin{frame}{Depth-k Convexity Check}
+
+    \begin{figure}
+        \includegraphics<1>[width=0.75 \columnwidth]{figures/depthk1_6.png}
+        \includegraphics<2>[width=0.75 \columnwidth]{figures/depthk1_5.png}
+        \includegraphics<3>[width=0.75 \columnwidth]{figures/depthk1_4.png}
+        \includegraphics<4>[width=0.75 \columnwidth]{figures/depthk1_3.png}
+        \includegraphics<5>[width=0.75 \columnwidth]{figures/depthk1_2.png}
+        \includegraphics<6>[width=0.75 \columnwidth]{figures/depthk1_1.png}
+        \includegraphics<7>[width=0.75 \columnwidth]{figures/depthk2_56.png}
+        \includegraphics<8>[width=0.75 \columnwidth]{figures/depthk2_46.png}
+        \includegraphics<9>[width=0.75 \columnwidth]{figures/depthk2_45.png}
+        \includegraphics<10>[width=0.75 \columnwidth]{figures/depthk2_12.png}
+    \end{figure}
+
+    \begin{center}
+        $v({\color{blue} S} \cup {\color{green}\left\{i\right\}}) - v({\color{blue} S}) \leq v (T \cup {\color{green}\left\{i\right\}}) - v(T)$ \\
+        \only<1>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,4,5\right\}}$
+        }
+        \only<2>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,4,6\right\}}$
+        }
+        \only<3>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,5,6\right\}}$
+        }
+        \only<4>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,4,5,6\right\}}$
+        }
+        \only<5>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,3,4,5,6\right\}}$
+        }
+        \only<6>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{2,3,4,5,6\right\}}$
+        }
+        \only<7>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,4\right\}}$
+        }
+        \only<8>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,5\right\}}$
+        }
+        \only<9>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{1,2,3,6\right\}}$
+        }
+        \only<10>{
+            ${\color{black} T = \left\{1,2,3,4,5,6\right\}}$ \\
+            ${\color{blue} S = \left\{3,4,5,6\right\}}$
+        }
+
+    \end{center}
+
+    \begin{itemize}
+        \only<1,2,3,4,5,6>{
+            \item Depth-1 Convexity Check: $O(n)$
+        }
+        \only<7,8,9,10>{
+            \item Depth-1 Convexity Check: $O(n)$
+            \item Depth-2 Convexity Check: $O(n^2)$
+        }
+
+        %\item \only<1>{First Image}\only<2>{Second Image}
     \end{itemize}
-       	
+
 \end{frame}
 
 %
@@ -808,52 +1019,184 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Distributed Decision Making for Dynamic Formation of Web Services Communites}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Distributed Decision Making for Dynamic Formation of Web Services Communites}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/model_c2.eps}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Distributed Decision Making Model}
     \begin{itemize}
-        \item DDM Introduction
-        \item DDM Introduction
+        \item The architecture of centralized manager where most of the decisions are made by the centralized community manager, has practical problems in real world implementations.
+        \item Web services and communities do not have complete information on all the details about other web services and communities in real world scenarios.
+        \item We want to equip communities and web services with a decision making mechanism which would provide them with viable strategies and an estimation on long-term utility gain of choosing that strategy.
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Distributed Decision Making Model}
     \begin{figure}[htbp]
         \centering
-        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
         \includegraphics[width=0.9 \columnwidth]{figures/steps.eps}
+    \end{figure}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Features}
+    \begin{itemize}
+        \item Features:
+        \begin{itemize}
+            \item $Th_{C} = \sum_{w \in C}{(Th_{w})}$ \textbf{(Throughput)}
+            \item $A_{C} = 1-\prod_{w \in C}{(1-A_{w})}$ \textbf{(Availability)}
+            \item $Et_{C} = max_{w \in C}{(Et_{w})}$ \textbf{(Execution Time)}
+            \item $Exp1_i = Et_{i} - Et_{min}$ \textbf{(External Parameter 1)}
+            \item $Exp2_i = Th_{max} - Th_{i}$ \textbf{(External Parameter 2)}
+        \end{itemize}
+        \item Utility:
+        \begin{itemize}
+            \item $U_{C} = f(A_{C}, Et_{C}, Exp1_{C}, Exp2_{C}, Th_{C})$
+            \item $U_{C} = \big((\alpha \times (A_{C} - Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Feature Vectors}
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.35 \columnwidth]{figures/cfvs.eps}
+    \end{figure}
+
+    \footnotesize
+    \begin{itemize}
+        \item \emph{Community Feature Vector:} $CFV_{<C>} = [f_1,...f_5]$
+        \item \emph{Community Feature Vector Set:} $CFVS = \{CFV_{<C_1>}, \dots, CFV_{<C_N>}\}$
+    \end{itemize}
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{table}[ht]
+        \tiny
+        \caption{An example of $gain$ matrix for 3 different communities and their combinations} % title of Table
+        \centering % used for centering table
+        {\renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{c|c c c c c c} % centered columns (4 columns)
+        \hline\hline %inserts double horizontal lines
+         & \textless348\textgreater & \textless1934\textgreater & \textless2117\textgreater & \textless348,194\textgreater & \textless194,217\textgreater & \textless348,194,217\textgreater \\ [0.5ex] % inserts table
+        %heading
+        \hline % inserts single horizontal line
+        \textless348\textgreater & - & 0.282708 & 1.027081 & 0.282708 & 18.027081 & 18.027081 \\
+        \textless194\textgreater & -2.637483 & - & 6.969072 & -2.637483 & 5.509583 & 4.387725 \\
+        \textless217\textgreater & 5.027081 & 2.969072 & - & 5.509583 & 2.969072 & 5.509583 \\
+        \textless348,1934\textgreater & 0.0 & 0.0 & -3.851432 & - & -3.851432 & -3.851432 \\
+        \textless194,217\textgreater & 2.969072 & 0.0 & 0.0 & 2.969072 & - & 2.969072 \\
+        \textless348,1934,217\textgreater & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & - \\ [1ex] % [1ex] adds vertical space
+        \hline %inserts single line
+        \end{tabular}
+        }
+        \label{table:nonlin} % is used to refer this table in the text
+    \end{table}
+        
+    \footnotesize
+    \begin{itemize}
+        \item \emph{Ordered preference relation:} $C_1 \geq_{i}^t C_2 \geq_{i}^t ~\dots~ C_{i-1} \geq_{i}^t C_{i+1} \geq_{i}^t ~\dots~ C_n$    
+    \end{itemize}
+    
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \footnotesize
+    \begin{itemize}       
+        \item {\color{blue}$K^t(C_i, k)$:} A set of $k$ most preferred communities of $C_i$ at time $t$:
+            \footnotesize
+            \begin{equation*}\label{h_t_pref_top}
+                \begin{split}				
+                    K^t(C_i, 0) = &\emptyset \\
+                    K^t(C_i, k) = &\Big\{C_x | C_x \geq_{i}^t C_y ~\forall C_y \in CS ~\wedge~ C_x \neq C_y ~\wedge~ C_y \notin K^t(C_i, k-1) \Big\}				
+                \end{split}
+            \end{equation*}            
+        \item {\color{blue}$L^t(C_i,k)$:} Both-sided preference. A set of $k$ most preferred communities of $C_i$ at time $t$ which they also have $C_i$ as their most $k$ preferred communities.
+            \footnotesize
+            \begin{equation*}\label{l_t_top_both}                
+                L^t(C_i,k) = \Big\{C_j | C_j \in K^t(C_i, k)~ \wedge~ C_i \in K^t(C_j, k)\Big\}                 
+            \end{equation*}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Distributed Decision Making Model}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[scale=0.3]{figures/alg.png}
+    \end{figure}
+\end{frame}
+
+
+
+\begin{frame}{DDM: Excremental Results}
+    \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3in]{figures/utility_gain.eps}
+    \caption{DDM against Rational: utility gain }
+    \label{utility_gain_mlisa_and_rational}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{DDM: Excremental Results}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.9 \columnwidth]{figures/roc.eps}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{DDM: Distributed Decision Making Model}
-    \begin{itemize}
-        \item DDM preference relations and matrix generation
-    \end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{DDM: Distributed Decision Making Model}
-    \begin{itemize}
-        \item DDM Decision Tree Generation
-    \end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Excremental Results}
-    \begin{itemize}
-        \item DDM Results1
-    \end{itemize}
+    \begin{table}[ht]
+        \caption{Number of communities that misses the optimal decision, out of 1,000 communities} % title of Table
+        \centering % used for centering table
+        \begin{tabular}{|c|c|} % centered columns (4 columns)
+        \hline %inserts double horizontal lines
+         Method&Miss \\ [0.5ex] % inserts table
+        %heading
+        \hline % inserts single horizontal line
+         DDM r=0.05& 375 \\ % inserting body of the table
+         DDM r=0.07& 137 \\
+         DDM r=0.10& 6 \\
+         DDM r=0.20& 6 \\
+        Rational Method& 717 \\
+        Greedy Method& 828 \\ [1ex] % [1ex] adds vertical space
+        \hline %inserts single line
+        \end{tabular}
+        \label{fail_rate} % is used to refer this table in the text
+    \end{table}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{DDM: Excremental Results}
-    \begin{itemize}
-        \item DDM Results2
-    \end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Coopetitive Behavior of Services within Communities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coopetitive Behavior of Services within Communities}
+    \begin{figure}[htbp]
+        \centering
+        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+        \includegraphics[width=0.9 \columnwidth]{figures/model_c3.eps}
+        %%\includegraphics[scale=0.5]{figure1}
+        %\caption{The NetBill payment protocol} \label{figure7}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
         \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
@@ -1125,8 +1468,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% frame30 outline page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Milestones}
-\begin{frame}{Milestones}
+\section{Conclusion}
+\begin{frame}{Conclusion and Feature Work}
     \begin{itemize}
      	\itemsep=.5cm
     	\item Introduction
@@ -1137,9 +1480,22 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Conclusion and Feature Work}
-\begin{frame}{Future Work}
+\subsection{Conclusion}
+\begin{frame}{Contributions}
+    \begin{itemize}     	
+        	\item An optimal method for formation and membership management of communities of web services ensuring satisfaction of all the members involved and stability of group.
+        	\item Proposing a valuation function and an approximation algorithm for convexity check of coalitions, making decision making practical in real-time settings for our web service community settings.
+        	\item Proposed a novel approach for training communities using a small set of training data, to be able to efficiently make decisions in distributed and real-world environments where information is not complete.
+    \end{itemize}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Future Work}
+    \begin{itemize}     	
+    	\item Implement communities using bargaining theory where agents can have side payments to insure group stability
+    	\item More analytical and theoretical analysis on the convexity condition and also minimal $\epsilon$ values in \emph{$\epsilon$-core} solution concepts and constant factor  of our $Depth-k$ approximation algorithm.
+    	\item Using the SVM machine learning algorithm as learning algorithm for training our data set to better distinguish decisions based on long-term utility.
+    \end{itemize}
 \end{frame}
 
 
@@ -1149,20 +1505,12 @@
 \begin{frame}{Publications}
     \scriptsize
     \begin{enumerate}
-        \item Published a Journal Paper at IEEE Transactions on Services Computing; \emph{``Efficient Community Formation for Web Services.''}, (Impact factor: 2.46), Feb. 2014
-        \item Published a Journal Paper at the International Journal of Expert Systems With Applications; \emph{``To Compete or to Coo perate? This is the Question in Communities of Autonomous Services''},  (Impact factor: 1.854, 5-year: 2.339), Jan 2014
+        \item Submitted a Journal Paper at Decision Support Systems; \emph{``Distributed Decision Making for Dynamic Formation of Web Services Communities.''}, July. 2015
+        \item Published a Journal Paper at IEEE Transactions on Services Computing; \emph{``Efficient Community Formation for Web Services.''}, (Impact factor: 3.09), August. 2015
+        \item Published a Journal Paper at the International Journal of Expert Systems With Applications; \emph{``To Compete or to Cooperate? This is the Question in Communities of Autonomous Services''},  (Impact factor: 1.854, 5-year: 2.339), Jan 2014
         \item Published a Paper in 10th IEEE International Conference on Services Computing; \emph{``Efficient Coalition Formation for Web Services''}, 2013
         \item Published a Paper in the 10th International Conference on Service Oriented Computing (ICSOC 2012); \emph{``Analyzing Coopetition Strategies of Services within Communities''}, 2012
-        \item 123
-        \item 123
-        \item 123
     \end{enumerate}
-
-%\centering
-%\begin{itemize}
-%\item \textbf{Questions Please !}
-%\end{itemize}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
