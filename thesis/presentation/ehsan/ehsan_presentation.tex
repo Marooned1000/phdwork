@@ -92,7 +92,7 @@
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=1.0 \columnwidth]{figures/wsinternet.png}
+        \includegraphics[width=0.9 \columnwidth]{figures/wsinternet2.png}
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
@@ -174,10 +174,10 @@
         %%\includegraphics[scale=0.5]{figure1}
         %\caption{The NetBill payment protocol} \label{figure7}
     \end{figure}
-    
+
     \footnotesize{\colorbox{blue}{\color{white}{R4}} How can we model a distributed decision making process for the problem of forming communities of services?}\\
         \begin{itemize}
-            \item Centralized community structure has practical limitations among service providers            
+            \item Centralized community structure has practical limitations among service providers
         \end{itemize}
     \vspace{0.3cm} \colorbox{blue}{\color{white}{R5}} How can we train web services based on limited information to operate efficiently?\\
         \begin{itemize}
@@ -201,7 +201,7 @@
         \begin{itemize}
             \item There is competitive environment \emph{inside communities} as well as cooperative behavior of communities.
         \end{itemize}
-            
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -347,10 +347,10 @@
 
     \tiny
     \begin{itemize}
-      \item {\color{blue}\lbrack Z. Maamar\rbrack} An Approach to Engineer Communities of Web Services
-      \item {\color{blue}\lbrack B. Khosravifar\rbrack} A Game Theoretic Approach for Analyzing the Efficiency of Web Services in Collaborative Networks
-      \item {\color{blue}\lbrack E. Lim\rbrack} Using 3-Way Satisfaction for Web Service Selection
-      \item {\color{blue}\lbrack A. Liu\rbrack} Coalition Game for Community-based Autonomous Web Services Cooperation
+      \item {\color{blue}\lbrack Z. Maamar, 2009\rbrack} An Approach to Engineer Communities of Web Services
+      \item {\color{blue}\lbrack B. Khosravifar, 2011\rbrack} A Game Theoretic Approach for Analyzing the Efficiency of Web Services in Collaborative Networks
+      \item {\color{blue}\lbrack E. Lim, 2011\rbrack} Using 3-Way Satisfaction for Web Service Selection
+      \item {\color{blue}\lbrack A. Liu, 2013\rbrack} Coalition Game for Community-based Autonomous Web Services Cooperation
     \end{itemize}                      	      	
 \end{frame}
 
@@ -589,8 +589,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Problem Formulation and Modeling}
-
 \begin{frame}{Problem Formulation and Modeling}
     \begin{itemize}
         \item Communities of web services are robust service providers with well established market share and reputation.
@@ -618,6 +616,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Problem Formulation and Modeling}
 \begin{frame}{Community Revenue}
     \begin{itemize}
         \item Maximum potential output of a community:
@@ -925,6 +924,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Taxation, Subsiding and Stability}
 \begin{frame}{Improving Community Stability}
+    \footnotesize
     \begin{itemize}
         \item The core may not always be non-empty, core is a strong condition.
         \item The optimal solution concepts will attract only enough services satisfying input task rate, not more.
@@ -1114,17 +1114,17 @@
         }
         \label{table:nonlin} % is used to refer this table in the text
     \end{table}
-        
+
     \footnotesize
     \begin{itemize}
-        \item \emph{Ordered preference relation:} $C_1 \geq_{i}^t C_2 \geq_{i}^t ~\dots~ C_{i-1} \geq_{i}^t C_{i+1} \geq_{i}^t ~\dots~ C_n$    
+        \item \emph{Ordered preference relation:} $C_1 \geq_{i}^t C_2 \geq_{i}^t ~\dots~ C_{i-1} \geq_{i}^t C_{i+1} \geq_{i}^t ~\dots~ C_n$
     \end{itemize}
-    
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Distributed Decision Making Model}
     \footnotesize
-    \begin{itemize}       
+    \begin{itemize}
         \item {\color{blue}$K^t(C_i, k)$:} A set of $k$ most preferred communities of $C_i$ at time $t$:
             \footnotesize
             \begin{equation*}\label{h_t_pref_top}
@@ -1132,11 +1132,11 @@
                     K^t(C_i, 0) = &\emptyset \\
                     K^t(C_i, k) = &\Big\{C_x | C_x \geq_{i}^t C_y ~\forall C_y \in CS ~\wedge~ C_x \neq C_y ~\wedge~ C_y \notin K^t(C_i, k-1) \Big\}				
                 \end{split}
-            \end{equation*}            
+            \end{equation*}
         \item {\color{blue}$L^t(C_i,k)$:} Both-sided preference. A set of $k$ most preferred communities of $C_i$ at time $t$ which they also have $C_i$ as their most $k$ preferred communities.
             \footnotesize
-            \begin{equation*}\label{l_t_top_both}                
-                L^t(C_i,k) = \Big\{C_j | C_j \in K^t(C_i, k)~ \wedge~ C_i \in K^t(C_j, k)\Big\}                 
+            \begin{equation*}\label{l_t_top_both}
+                L^t(C_i,k) = \Big\{C_j | C_j \in K^t(C_i, k)~ \wedge~ C_i \in K^t(C_j, k)\Big\}
             \end{equation*}
     \end{itemize}
 \end{frame}
@@ -1147,17 +1147,17 @@
         \centering
         \includegraphics[scale=0.26]{figures/alg.png}
     \end{figure}
-    
+
     \footnotesize
-    \begin{itemize} 
-    \item Distance function: 
+    \begin{itemize}
+    \item Distance function:
         \begin{equation*}\label{distance_c}
             \begin{split}
                 {\color{blue}distance (C_1, C_2)} & = |Th_{C_1} - Th_{C_2}| \\
                                 & + |A_{C_1} - A_{C_2}| + |Et_{C_1} - Et_{C_2}|
             \end{split}
         \end{equation*}
-    \end{itemize} 
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1501,9 +1501,9 @@
 \subsection{Conclusion}
 \begin{frame}{Contributions}
     \begin{itemize}     	
-        	\item An optimal method for formation and membership management of communities of web services ensuring satisfaction of all the members involved and stability of group.
-        	\item Proposing a valuation function and a polynomial approximation algorithm for the NP-Hard problem of coalition stability check, making decision making practical in real-time settings for our web service communities.
-        	\item Proposed a novel approach for training communities using a small set of training data, to be able to efficiently make decisions in distributed and real-world environments where information is not complete.
+        	\item We proposed an optimal method for formation and membership management of communities of web services ensuring satisfaction of all the members involved and stability of group.
+        	\item We proposed a valuation function and a polynomial approximation algorithm for the NP-Hard problem of coalition stability check, making decision making practical in real-time settings for our web service communities.
+        	\item We proposed a novel approach for training communities using a small set of training data, to be able to efficiently make decisions in distributed and real-world environments where information is not complete.
     \end{itemize}
 \end{frame}
 
