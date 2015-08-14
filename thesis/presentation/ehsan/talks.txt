@@ -4,13 +4,13 @@ Thanks everyone for attending. I'm going to present my thesis which is about dyn
 Today there is high relaince on web services and online computing, almost most of the applications use third party online service providers, since data and services are very specialized. For example all the applications we use on our computers or mobile phones, get data from a third party web service. The quality of the data provider from these third party is critical in success of the applications. Incomplete data or slow data will make clients forget about the application. Therefore there is huge business around web services for example according to Amazon's Q1 2015 Fnancial report: Amazon cloud based Web Services was a $5 billion business, and its growing 50% a year.
 
 #P4:
-Therefore, Communities of web services was introduced which why aggregating and clustering the similar services tries to improve user satisfaction, service quality, availability and reponsiveness of services. They also facilitate web service discovery over internet. and also they maintain high reputation and market share helping web services reach their targets.
+Therefore, Communities of web services was introduced which by aggregating and clustering the similar services tries to improve user satisfaction, service quality, availability and reponsiveness of services. They also facilitate web service discovery over internet. and also they maintain high reputation and market share helping web services reach their targets.
 
 #P5:
 A Cummunity of web service has several operations. Community development, web services attraction and retention, they have to find and select similar and quality web services and manage membership requests.
 
 #P6: 
-The first three set of research problems we want to address is about efficient way of community formation and management in current community structure. 
+The first three set of research problems we want to address is about efficient way of community formation and management. Most of the work on communities of services are either user-centric and focus on user satisfaction or system-centric and focus on the whole system throughput, performance and utilization. We need a method which considers the effciency for both parties involved. The other problem is we need to consider all the individual web services and all of their options and based on that model a fair gain and work distribution mechanism to keep the group stable. Also we need a method which can evaluate the performance of web services in real-time manner and we need to make the method to be realistic, applicable in practical settings.
 
 --------------------------------------------
 
