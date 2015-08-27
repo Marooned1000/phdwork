@@ -15,7 +15,9 @@
 
 \usetheme{Frankfurt}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[page number]
+\setbeamertemplate{footline}[frame number]{}
+
+
 %\newtheorem{definition}{Definition}
 \title[Dynamic Formation and Strategic Management of Web Services Communities]{Dynamic Formation and Strategic Management of Web Services Communities}
 \author{Ehsan Khosrowshahi Asl\\ \vspace{0.2cm} Supervised by: \\Dr. Jamal Bentahar \\Dr. Hadi Otrok}
@@ -34,8 +36,8 @@
     \begin{itemize}
      	\itemsep=.5cm
     	\item {\bf Introduction}
-    	\item Background and Literature Review
-    	\item Proposed Research
+    	\item Background and Related Literature
+    	\item Contributions
     	\item Conclusion and Feature Work
     \end{itemize}
     % Amazon Web Services is a $5 billion business, and it’s growing 50% a year
@@ -88,7 +90,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Motivation}
+\begin{frame}{Communities of Web Services}
     \begin{figure}[htbp]
         \centering
         %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
@@ -109,7 +111,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Social commitments in MASs}
-\begin{frame}{Communities of Web Services}
+\begin{frame}{Management Tasks of Communities of Web Services}
 
     \begin{figure}[htbp]
         \centering
@@ -148,20 +150,20 @@
 
     \footnotesize{\colorbox{blue}{\color{white}{R1}} How can we model the community of agent-based services in order to maximize the utility
         of involved users, web services and community organizers?}\\
-        \begin{itemize}
-            \item Most of the work on communities of
-            services are either user-centric and focus on user satisfaction
-            or system-centric and focus on the whole system throughput, performance and utilization.
-        \end{itemize}
+        %\begin{itemize}
+%            \item Most of the work on communities of
+%            services are either user-centric and focus on user satisfaction
+%            or system-centric and focus on the whole system throughput, performance and utilization.
+%        \end{itemize}
     \vspace{0.3cm} \colorbox{blue}{\color{white}{R2}} How can we model fair and stable communities as coalitions of agent-based web services?\\
         \begin{itemize}
-            \item All parties involved are self-interest agents and have the right to leave the community if they can improve their income in some other ways.
+            \item {\color{blue}All} web services need incentives to stay.
         \end{itemize}
     \vspace{0.3cm} \colorbox{blue}{\color{white}{R3}} How can we model and analyze the cooperation
         among the community members in realistic, applicable and practical settings?\\
         \begin{itemize}
-            \item The performance of web services that are working inside communities needs to be monitored and new decisions be made based on recent performance.
-            \item The complexity of solution concepts.
+            \item Monitoring performance
+            \item Complexity of solution concepts
         \end{itemize}
 \end{frame}
 
@@ -200,6 +202,7 @@
     \footnotesize{\colorbox{blue}{\color{white}{R6}} How can we design a community model where both competitive and cooperative behaviors exist?}\\
         \begin{itemize}
             \item There is competitive environment \emph{inside communities} as well as cooperative behavior of communities.
+            \item Web services have different capabilities and resources
         \end{itemize}
 
 \end{frame}
@@ -325,8 +328,8 @@
     \begin{itemize}
      	\itemsep=.5cm
     	\item Introduction
-    	\item {\bf Background and Literature Review}
-    	\item Proposed Research
+        \item {\bf Background and Related Literature}
+    	\item Contributions
     	\item Conclusion and Feature Work
     \end{itemize}
 \end{frame}
@@ -336,6 +339,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Social commitments in MASs}
+\subsection{Background}
 \begin{frame}{Communities of Web Services}
     \begin{figure}[htbp]
         \centering
@@ -347,6 +351,7 @@
 
     \tiny
     \begin{itemize}
+      \item {\color{blue}\lbrack S. Bentallah, 2003\rbrack, \lbrack Z. Medjahed, 2005\rbrack, \lbrack Z. Medjahed, 2007\rbrack} Introduced Communities of Web Services
       \item {\color{blue}\lbrack Z. Maamar, 2009\rbrack} An Approach to Engineer Communities of Web Services
       \item {\color{blue}\lbrack B. Khosravifar, 2011\rbrack} A Game Theoretic Approach for Analyzing the Efficiency of Web Services in Collaborative Networks
       \item {\color{blue}\lbrack E. Lim, 2011\rbrack} Using 3-Way Satisfaction for Web Service Selection
@@ -355,7 +360,6 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cooperative Game Theory}
 
 \begin{frame}{Cooperative Game Theory}
   \begin{itemize}
@@ -393,7 +397,7 @@
 
     \begin{itemize}
         \item \textbf{Problem:} Given a game $(N,v)$, and assuming all agents in $N$ want to cooperate, how to distribute the gain among the agents?
-        \item \textbf{Solution:} a payoff distribution $x \in R^n$ that provides a value to individual agents.
+        \item \textbf{Solution:} a payoff distribution $\overline{x} \in R^n$ that provides a value to individual agents.
 
 %        \begin{itemize}
 %            \item What are the interesting properties that $x$ should satisfy?
@@ -429,21 +433,21 @@
 %    \end{itemize}
 
 %\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Example: A community of landowners and farmers}
-    \begin{figure}[htbp]
-        \centering
-        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
-        \includegraphics[width=0.85 \columnwidth]{figures/community_farm.png}
-        %%\includegraphics[scale=0.5]{figure1}
-        %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}
-    
-    \begin{itemize}
-        \item $x = \{36,36,36\}$ ??
-        \item $x = \{50,50,10\}$ ??
-    \end{itemize}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Example: A community of landowners and farmers}
+%    \begin{figure}[htbp]
+%        \centering
+%        %\includegraphics[width=12cm, height=8cm]{figures/figure1.eps}
+%        \includegraphics[width=0.85 \columnwidth]{figures/community_farm.png}
+%        %%\includegraphics[scale=0.5]{figure1}
+%        %\caption{The NetBill payment protocol} \label{figure7}
+%    \end{figure}
+%
+%    \begin{itemize}
+%        \item $x = \{36,36,36\}$ ??
+%        \item $x = \{50,50,10\}$ ??
+%    \end{itemize}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}{Some Properties of Valuation Functions}
 %    $\forall C_1,C_2 \subseteq N | C_1 \bigcap C_2 = \emptyset, i \in N, i \notin C_1$
@@ -500,12 +504,12 @@
         Let $(N,v)$ be a cooperative game, and assume they form the coalition $N$. The core of $(N,v)$ is the set:
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x$ is a group rational imputation$\}$
+            $Core(N,v) = \{\bar{x} \in R^n | \bar{x}$ is a group rational imputation$\}$
         \end{center}
         Equivalently,
         \vspace{0.1cm}
         \begin{center}
-            $Core(N,v) = \{x \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$ \\
+            $Core(N,v) = \{\bar{x} \in R^n | x(N) \leq v(N) \wedge x(C) \geq v(C), \forall C \subseteq N\}$ \\
         \end{center}
         \small{$x(N) = \sum_{i \in N} x(i)$}
     \end{definition}
@@ -557,10 +561,14 @@
 \begin{frame}{Some Properties}
     \begin{itemize}
         \item The core set can be empty or have many solutions.
+        \vspace{0.3cm}
         \item Shapley value always exists and is unique.
+        \vspace{0.3cm}
         %\item When the valuation function is {\color{blue}superadditive}, the Shapley value is {\color{blue}individually rational}, i.e., it is an imputation.
-        \item When the valuation function is {\color{blue}convex}, the Shapley value is also group rational, hence, it is in the {\color{blue}core}.
+        \item When the valuation function is {\color{blue}convex}, the Shapley value is also group rational, hence, it is in the {\color{blue}core}. {\color{blue}\lbrack Shapley 1981\rbrack}
+        \vspace{0.3cm}
         \item A convex game has a non-empty core.
+        \vspace{0.3cm}
         \item Core and Shapley value are combinatorial problems.
     \end{itemize}
 \end{frame}
@@ -574,9 +582,9 @@
 \begin{frame}{Presentation Outline}
     \begin{itemize}
      	\itemsep=.5cm
-    	\item Introduction
-    	\item Background and Literature Review
-    	\item {\bf Proposed Research}
+        \item Introduction
+        \item Background and Related Literature
+    	\item {\bf Contributions}
     	\item Conclusion and Feature Work
     \end{itemize}
 \end{frame}
@@ -599,7 +607,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Problem Formulation and Modeling}
     \begin{itemize}
-        \item Communities of web services are robust service providers with well established {\color{blue}market share} and {\color{blue}reputation}.        
+        \item Communities of web services are robust service providers with well established {\color{blue}market share} and {\color{blue}reputation}.
         \item The community is characterized by a {\color{blue}request rate $R_C$}
 %        \begin{itemize}
 %            \item Based on their contracts and market share.
@@ -1015,17 +1023,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Different Compact Representations of Coalition Games}
-
+    
     \begin{table}
-        \small
+        \footnotesize
         \begin{tabular}{l|c|c|c|c}
-        Representations                  & Space    & Shapley                  & Core Existence  & Complete     \\ \hline
+        Representations                  & Input Space    & Shapley                  & Core Existence  & Complete     \\ \hline
         Graph (w+)                       & P        & P                        & P               & Not          \\
         Graph                            & P        & NP-Complete              & NP-Complete     & Not          \\
-        Synergy                          & NA       & P (l input)              & P               & Not          \\
-        Multi-issue                      & NA       & P (l input)              & NP-Complete     & Complete     \\
-        MC-net                           & NA       & P (l input)              & NP-hard         & Complete     \\
-        Our representation               & P        & NP-hard                  & NP-hard         & Not          \\
+        Synergy                          & NP       & P (l input)              & P               & Not          \\
+        Multi-issue                      & NP       & P (l input)              & NP-Complete     & Complete     \\
+        MC-net                           & NP       & P (l input)              & NP-hard         & Complete     \\
+        Our representation               & P        & NP-Hard                  & NP-hard         & Not          \\
         \end{tabular}
     \end{table}
 
@@ -1072,14 +1080,20 @@
         \item Features:
         \begin{itemize}
             \item $Th_{C} = \sum_{w \in C}{(Th_{w})}$ \textbf{(Throughput)}
+            \vspace{0.05cm}
             \item $A_{C} = 1-\prod_{w \in C}{(1-A_{w})}$ \textbf{(Availability)}
+            \vspace{0.05cm}
             \item $Et_{C} = max_{w \in C}{(Et_{w})}$ \textbf{(Execution Time)}
+            \vspace{0.05cm}
             \item $Exp1_i = Et_{i} - Et_{min}$ \textbf{(External Parameter 1)}
+            \vspace{0.05cm}
             \item $Exp2_i = Th_{max} - Th_{i}$ \textbf{(External Parameter 2)}
         \end{itemize}
+        \vspace{0.3cm}
         \item Utility:
         \begin{itemize}
             \item $U_{C} = f(A_{C}, Et_{C}, Exp1_{C}, Exp2_{C}, Th_{C})$
+            \vspace{0.05cm}
             \item $U_{C} = \big((\alpha \times (A_{C} - Et_{C}) - \beta \times (exp1_{C} + exp2_{C})\big) \times Th_{C}$
         \end{itemize}
     \end{itemize}
@@ -1154,7 +1168,6 @@
                 L^t(C_i,k) = \Big\{C_j | C_j \in K^t(C_i, k)~ \wedge~ C_i \in K^t(C_j, k)\Big\}
             \end{equation*}
         
-        \pause                      
         \item ${\color{blue}K(\textless 348 \textgreater, 1)} = \{\textless1934, 2117\textgreater\}$
         \item ${\color{blue}K(\textless 348 \textgreater, 2)} = \{\textless1934, 2117\textgreater, \textless1934\textgreater\}$
 
@@ -1169,7 +1182,7 @@
 %    \end{figure}
 
     \footnotesize
-    \begin{itemize}    
+    \begin{itemize}
         \item For each community $C_i$ in $CFVS$ set, we maintain a tree with the community $C_i$ as its root
         \item When communities $C_i$ and $C_j$ decide to join each other and create community $C_k$, the new community $C_k$ will be added as a child to both $C_i$ and $C_j$ nodes
         \item We let $k = 1$ at start, each iteration it has a chance to increase by a rate $r$: $k = 1 + |r \times t|$
@@ -1195,15 +1208,15 @@
     \label{utility_gain_mlisa_and_rational}
     \end{figure}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{DDM: Excremental Results}
-    \begin{figure}[htbp]
-        \centering
-        \includegraphics[width=0.9 \columnwidth]{figures/roc.eps}
-        %%\includegraphics[scale=0.5]{figure1}
-        %\caption{The NetBill payment protocol} \label{figure7}
-    \end{figure}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{DDM: Excremental Results}
+%    \begin{figure}[htbp]
+%        \centering
+%        \includegraphics[width=0.9 \columnwidth]{figures/roc.eps}
+%        %%\includegraphics[scale=0.5]{figure1}
+%        %\caption{The NetBill payment protocol} \label{figure7}
+%    \end{figure}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{DDM: Excremental Results}
     \begin{table}[ht]
@@ -1243,16 +1256,22 @@
 
 \begin{frame}{Coopetitive Behavior of Services within Communities}
     \begin{itemize}
-        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely cooperation and competition in order to increase their payoffs when they provide services to consumers.
-        \item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.
-        \item System Parameters:
+        \item Coopetition: Cooperation and competition
+        
         \begin{itemize}
-            \item \textbf{Task QoS} ($T_{QoS}^r$)
-            \item \textbf{Service QoS} ($QoS_w^r$)
-            \item \textbf{Budget} ($B_w^t$)
-            \item \textbf{Reputation} ($Rep_w^t$)
-            \item \textbf{Growth Factor} ($G_w^t$)
+            \item This is the case of the arrangement between PSA Peugeot Citroen and Toyota to share components where companies save money on shared costs while remaining fiercely competitive in other areas.
         \end{itemize}
+        
+        \item Within communities, services, selfish and utility maximizers by nature, can follow two different strategies, namely {\color{blue}cooperation} and {\color{blue}competition} in order to increase their payoffs when they provide services to consumers.
+        %\item To Model a competitive environment between autonomous services with different capabilities over tasks with different requirements.
+%        \item System Parameters:
+%        \begin{itemize}
+%            \item \textbf{Task QoS} ($T_{QoS}^r$)
+%            \item \textbf{Service QoS} ($QoS_w^r$)
+%            \item \textbf{Budget} ($B_w^t$)
+%            \item \textbf{Reputation} ($Rep_w^t$)
+%            \item \textbf{Growth Factor} ($G_w^t$)
+%        \end{itemize}
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1270,6 +1289,8 @@
 %        their collaborative networks within the same community.}
         \label{architectureFigure}
     \end{figure}
+    
+    \footnotesize
 
     \begin{equation*} \label{repr}
         reward_w^r = \begin{cases}
@@ -1300,14 +1321,18 @@
 %        \end{cases}
 %    \end{equation*}
 
-    \begin{equation*}\label{eq:repreprowthfactor}
-        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t}
-    \end{equation*}
-
-    \begin{equation*}\label{eq:growthfactor}
-        G^t_w = \frac{Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t  \mu_w -
-        \epsilon}}{3}
-    \end{equation*}
+    \vspace{0.00cm}
+    \begin{gather*}\label{eq:repreprowthfactor}
+        Rep_{w}^{t+1} = (\alpha).Rep_{w}^{t} + (1-\alpha).reward_{w}^{t} \\
+        G^t_w = (Rep^t_w + QoS_w^t+\frac{B_w^t}{n_t \mu_w - \epsilon})/3
+    \end{gather*}
+    
+    \vspace{0.00cm}
+    \begin{gather*}\label{CMPff}
+      u_{w,CM}^t=p_{w,CM}^t(\mu_{w, CM}E^t_w-COF_w^t E^t_w-\epsilon)+(1-p_{w,CM}^t)(-\epsilon) \\
+      u_{w,CO}^t=p_{w,CO}^t (\mu_{w,CO}E^t_w-\epsilon)+(1-p_{w,CO}^t)(-\epsilon)
+    \end{gather*}
+    
 %   \begin{equation*}
 %        %\mu_{w} \in\{\mu_{w, CM}, \mu_{w, CO}\},~~~
 %        QoS_w^t =
@@ -1516,9 +1541,9 @@
 \begin{frame}{Conclusion and Feature Work}
     \begin{itemize}
      	\itemsep=.5cm
-    	\item Introduction
-    	\item Background and Literature Review
-    	\item Proposed Research
+        \item Introduction
+        \item Background and Related Literature
+    	\item Contributions
     	\item {\bf Conclusion and Feature Work}
     \end{itemize}
 \end{frame}

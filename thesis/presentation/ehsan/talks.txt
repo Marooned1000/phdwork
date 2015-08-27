@@ -1,34 +1,53 @@
 Thanks everyone for attending. I'm going to present my thesis which is about dynamic formation and strategic management of communities of web services.
+@00:11
+@00:24
 
 #P3:
-Today there is high relaince on web services and online computing, almost most of the applications use third party online service providers, since data and services are very specialized. 
-//For example all the applications we use on our computers or mobile phones, get data from a third party web service. 
-The quality of the data provided from these third party service providers is critical in success of the applications. Incomplete data or slow data will make clients forget about the application. Therefore there is huge business around web services for example according to Amazon's Q1 2015 Fnancial report: Amazon cloud based Web Services was a $5 billion business, and its growing 50% a year.
+Today there is high relaince on web services and online computing, almost most of the applications use third party online service providers, since data and services are very specialized. The quality of the data provided from these third party service providers is critical in success of the applications. Incomplete data or slow data will make clients forget about the application.
+@00:54
+
 
 #P4:
-Therefore, Communities of web services was introduced which by aggregating and clustering the similar services tries to improve user satisfaction, service quality, availability of services. They also facilitate web service discovery over internet. Communities by maintaining high reputation and market share helping web services reach their targets.
+Therefore, Communities of web services was introduced which by aggregating and clustering the similar services tries to improve user satisfaction, service quality and availability of services. Communities by maintaining high reputation and market share help web services reach their targets. And from user perspective communities facilitate web service discovery over internet. For example flight ticket aggregators like skyscanner or priceline by combining results from different airliners and providers, provide very reliable web services with rich set of results.
+@01:37
+
 
 #P5:
-A Cummunity of web service has several operations. Community development, web services attraction and retention, they have to find and select similar and quality web services and manage membership requests.
+A Cummunity of web service has several management operations. Communities inorder to improve their market share and reputation need to attract and maintain a number of web services which can performer tasks with the expected quality. So community managers have to do community development through web services attraction and retention. They have to find and select similar and quality web services and manage membership requests.
+@02:06
 
 #P6: 
-The first three set of research problems we want to address is about efficient way of community formation and management. Most of the work on communities of services are either user-centric and focus on user satisfaction or system-centric and focus on the whole system throughput, performance and utilization. In real-world settings, We need a method which considers the effciency for both parties involved. The other problem is we need to consider all the individual web services along with all of their options and based on that model a fair gain and work distribution mechanism to keep the group stable. Also we need a method which can evaluate the performance of web services in real-time manner and the decision making process should be based on new parameters. We need to make the method to be realistic, applicable and not too complex in practical settings.
+The first three set of research problems we want to address is about efficient way of community formation and management. Most of the work on communities of services are either user-centric and focus on user satisfaction or are only system-centric and focus on the whole system throughput, performance and utilization. In real-world settings, We need a method which considers the effciency for both parties involved. The other problem is we need to consider all the individual web services along with all of their options, model a fair gain and work distribution mechanism. All the individual web services within the community need to have enough incentives to stay and keep the community stable. Also we need a method which can evaluate the performance of web services in real-time manner and the decision making process should be based on the evaluated parameters, not on what they have annoucned at beginning. We need to make the method realistic, applicable and not too complex in practical settings.
+#03:21
+
 
 #P7:
-The other set of problems in proposed communities that we would like to address is that currently the communities decision making process it too centralized, and a master web service in community is doing all of the decisions on behalf of every member of community. Which is not very realistic in real-world settings. Also the current methods consider full knowledge about all the communities and web services involved however during our implementations we noticed this is not usually the case, there can be plenty of web services around which we cannot have enough information about them, so a training process based on limited set of web services data-set is required.
+The other set of problems in proposed communities that we would like to address is that currently the communities decision making process is too centralized, and a master web service in community is doing all of the decisions on behalf of every member of community. Which is not very realistic to have someone decide on behalf of others in real-world settings. Also the current methods consider full knowledge about all the communities and web services involved, however during our implementations we noticed this is not usually the case, there can be plenty of web services around which we cannot have enough information about them, so a training process based on limited data-set of web services is required.
+@4:10
 
 #P8:
-After the formation of communities, entities within communities are still governd by indepentant owners which care about increasing their own utility, so while cooperating they still have competetive behaivour on reciving tasks as well. In multi agent settings, these competetive within cooperative groups is called 'coopetetive' behavoiur. This behavoiur has not been analysed within internal management behavoiur of communities of web services.
+After the formation of communities, entities within communities are still governd by indepentant owners which care about increasing their own utility, so while cooperating they still have competetive behaivour on reciving tasks as well. In multi agent settings, having these kind of competition while cooperating is called 'coopetitive' behavoiur. This behavoiur has not been analysed within internal management of communities of web services.
+@04:45
 
 #P9:
+## NEEDS CHANGE
 Here is our high level reseach methodology, first we will address the efficient way of community formation and task distribution inorder to create a stable collabrative group having all the members of the community satisfied. We will use collabrative game thoery methods as our main technique for this contribution. In our next contribution we will propose a more distributed approach and we will address having in-complete information and centralized problems using learning techniques. In our last contribution we address the internal community management issues by proposing a novel way of task distribution within the community.
+@5:26
 
 #P11:
+So here is the structure of communities of web services that has been proposed. Communities implement all the protocols normal web services do, from outside we can look at them just as a single web service. Inside they have a master web services which coordinates the most of community decision making process and community management tasks. 
+Zakaria Maamar 2009, presented a complete protocol and approach to engineer communities of web services. 
+There are some works which tried to address the community management problems and are closely related to our research work. However, along with the problems that we mentioned in introduction, non of them have provided a solution for incentivising each single web service independantly within a community.
 
-So here is the structure of communities of web services that has been proposed. Communities implement all the protocols normal web services do so internal protocols are encapsulated, from outside we can look at them just as a single web service which run UDDI, SOAP messaging protocols. Inside they have a master web services which coordinates the most of community decision making process and task distrobution. Maamar presented a complete protocol and approach to engineer communities of web services. There are three works which tried to address the community management problems and are closely related to our research work. Khoravifar 2011, presented an approach for community and membership management using a 2-player game theric approach between community master and any potential web service with similar functionality. Then Erbin Lim 2011 presented a 3-way satisfaction approach for web service selection in which they proposed a linear programming method for satisfaction of all three parties - user, Web service and community. These work do not consider point of view of each of the  indivial members already residing in the community and the solution only considers an average of community parameters.  A. Lui, in their paper, proposed a collabrative game theory based approach for communities of web services, however they modeled communities in a way that web services are used as backups for a main web service within a community and would get tasks only if the ones within the community which have higher priority are not available, this does not form a real collabration within web services and its very unrealistic to convince organizations to join communities just to be a backup. Also nowadays web services are highly available so chances are very low for the backup web services to get tasks.
+-------------------------
+There are three works which tried to address the community management problems and are closely related to our research work. Khoravifar 2011, presented an approach for community and membership management using a 2-player game theoric approach between community master and a potential web service with similar functionality who wanted to join the community. 
+Then Erbin Lim 2011 presented a 3-way satisfaction approach for web service selection in which they proposed a linear programming method for satisfaction of all three parties - user, Web service and community. These work do not consider point of view of each of the  indivial members already residing in the community and the solution only considers an average of community parameters.  
+An Lui 2013, in their paper, proposed a collabrative game theory based approach for communities of web services, however they modeled communities in a way that web services are used as backups for a main web service within a community and they would only get tasks only if the ones within the community which have higher priority are not available, this does not form a real collabration within web services and its very unrealistic to convince organizations to join communities just to be a backup. Also nowadays web services are highly available so chances are very low for the backup web services to get tasks.
+-----------------
+@@
 
 #P12:
-We have used an extension of cooperative game theory methods as our main technique in our solution concepts, so we are going to briefly talk about it. Cooperative games are a branch of game theory that model cooperation or collaboration between agents. For example when agents do not have enough resource on their own to perform the tasks they can join a collabrative group. There are two issues that collabrative game thoery tries to resolve, one is what coalitions to form, and second how to distribute the gain among agents.
+We have used an extension of cooperative game theory methods as our main technique in our solution concepts, so I am going to briefly introduce it. Cooperative games are a branch of game theory that model cooperation or collaboration between agents. For example when agents do not have enough resource on their own to perform the tasks they can join a collabrative group. There are two issues that collabrative game thoery tries to resolve, one is what coalitions to form, and second how to distribute the gain among agents.
 
 #P13:
 Here is a mathematical notion of a cooperative game. N is the set of agents, and a valuation function, which is a function from all possible subsets of N agents to a real value, which means how each subset of these agents are worth, or how much they can produce by working together.
@@ -37,16 +56,26 @@ Here is a mathematical notion of a cooperative game. N is the set of agents, and
 
 
 #P15:
-
-#P16:
-
-#P17:
-
 Core is a set of all possible ways of gain distribution in which ALL the subsets of the N get more than what they could get by having their own collabrative group. Therefore with those distribution of gain they do not have incentive to leave the group and create their own groups. If just distribution exists the group is stable, but if Core set if empty, group is unstable becuase no possible distribution exists in a way that can satisfy all possible subsets of the coallition.
 
 
 #P22:
 
+#P28:
+The core stability condition is a strong condition. During our implementations we noticed it gets just enough number of web services for communities that can do the input task rate. In case of web service failure or unavailability some tasks will not be handled until the community can find a replacement. Not handling tasks properly can hurt communities reputation. 
+
+#P29:
+Therefore we can relax the stability condition using taxation methods by allowing destributions in which there can be some possible set of web services can only gain a constant eplison amount by deviating from our community.
+
+#P33:
+Now I'm going to talk about our second contribution where we prosposed a distributed method for community formation.
+
+#P34:
+
+
+#P45:
+
+Agents being in same cooperative groups, can show competetive behaivoiur as well in order to maximse their benefit. This kind of behaivour in multi agent settings is called coopetetive behaivoiur. This is the case of the arrangement between PSA Peugeot Citroën and Toyota to share components for a new city car—simultaneously sold as the Peugeot 107, the Toyota Aygo, and the Citroën C1, where companies save money on shared costs while remaining fiercely competitive in other areas. In our communities, web services can either compete for the tasks, or cooperate with a collabrative group on tasks.
 
 
 --------------------------------------------
